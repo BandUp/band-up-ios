@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CED448BE20703F847A8E635 /* Pods_band_up_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
-		F217C0491DDFC47100EE16DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* ViewController.swift */; };
-		F217C04C1DDFC47100EE16DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C04A1DDFC47100EE16DF /* Main.storyboard */; };
+		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */; };
 		F217C0511DDFC47100EE16DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F217C0501DDFC47100EE16DF /* Assets.xcassets */; };
 		F217C0541DDFC47100EE16DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */; };
 		F217C05F1DDFC47100EE16DF /* band_up_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C05E1DDFC47100EE16DF /* band_up_iosTests.swift */; };
 		F217C06A1DDFC47100EE16DF /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0691DDFC47100EE16DF /* band_up_iosUITests.swift */; };
+		F217C0781DDFC48F00EE16DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0771DDFC48F00EE16DF /* Main.storyboard */; };
+		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
+		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
+		F2D38EAB1DFE2FDB008F39A1 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */; };
+		F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */; };
+		F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */; };
+		F2D38EAE1DFE2FDB008F39A1 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
+		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		F217C0431DDFC47100EE16DF /* band-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "band-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F217C0481DDFC47100EE16DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F217C04B1DDFC47100EE16DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = band_up_ios.xcdatamodel; sourceTree = "<group>"; };
 		F217C0501DDFC47100EE16DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F217C0531DDFC47100EE16DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +58,13 @@
 		F217C0651DDFC47100EE16DF /* band-up-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C0691DDFC47100EE16DF /* band_up_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosUITests.swift; sourceTree = "<group>"; };
 		F217C06B1DDFC47100EE16DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F217C0771DDFC48F00EE16DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
+		F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
+		F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
+		F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
+		F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CED448BE20703F847A8E635 /* Pods_band_up_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05BEBC4A550603964996EAAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */,
+				237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A47F07222AC257D1DC27BA12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F217C03A1DDFC47100EE16DF = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +117,8 @@
 				F217C05D1DDFC47100EE16DF /* band-up-iosTests */,
 				F217C0681DDFC47100EE16DF /* band-up-iosUITests */,
 				F217C0441DDFC47100EE16DF /* Products */,
+				05BEBC4A550603964996EAAD /* Pods */,
+				A47F07222AC257D1DC27BA12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +135,16 @@
 		F217C0451DDFC47100EE16DF /* band-up-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
-				F217C0481DDFC47100EE16DF /* ViewController.swift */,
-				F217C04A1DDFC47100EE16DF /* Main.storyboard */,
-				F217C0501DDFC47100EE16DF /* Assets.xcassets */,
+				F2D38EA51DFE2F97008F39A1 /* Resources */,
+				F217C0771DDFC48F00EE16DF /* Main.storyboard */,
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
+				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
+				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
+				F217C0481DDFC47100EE16DF /* LoginViewController.swift */,
+				F217C0501DDFC47100EE16DF /* Assets.xcassets */,
 				F217C0551DDFC47100EE16DF /* Info.plist */,
 				F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */,
+				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
 			);
 			path = "band-up-ios";
 			sourceTree = "<group>";
@@ -128,6 +167,25 @@
 			path = "band-up-iosUITests";
 			sourceTree = "<group>";
 		};
+		F2D38EA51DFE2F97008F39A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2D38EA61DFE2FA0008F39A1 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F2D38EA61DFE2FA0008F39A1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */,
+				F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */,
+				F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */,
+				F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F217C06E1DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-ios" */;
 			buildPhases = (
+				5A25F391888A21CC4E1E6655 /* [CP] Check Pods Manifest.lock */,
 				F217C03F1DDFC47100EE16DF /* Sources */,
 				F217C0401DDFC47100EE16DF /* Frameworks */,
 				F217C0411DDFC47100EE16DF /* Resources */,
+				EAE1152327BE34EB014C5325 /* [CP] Embed Pods Frameworks */,
+				F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,9 +299,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2D38EAB1DFE2FDB008F39A1 /* CaviarDreams_Bold.ttf in Resources */,
+				F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */,
+				F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */,
+				F2D38EAE1DFE2FDB008F39A1 /* CaviarDreams.ttf in Resources */,
+				F217C0781DDFC48F00EE16DF /* Main.storyboard in Resources */,
 				F217C0541DDFC47100EE16DF /* LaunchScreen.storyboard in Resources */,
 				F217C0511DDFC47100EE16DF /* Assets.xcassets in Resources */,
-				F217C04C1DDFC47100EE16DF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,14 +325,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A25F391888A21CC4E1E6655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EAE1152327BE34EB014C5325 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F217C03F1DDFC47100EE16DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F217C0491DDFC47100EE16DF /* ViewController.swift in Sources */,
+				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
+				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
+				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +418,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F217C04A1DDFC47100EE16DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F217C04B1DDFC47100EE16DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -415,10 +522,12 @@
 		};
 		F217C06F1DDFC47100EE16DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,10 +537,12 @@
 		};
 		F217C0701DDFC47100EE16DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,6 +627,7 @@
 				F217C0701DDFC47100EE16DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F217C0711DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +636,7 @@
 				F217C0731DDFC47100EE16DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F217C0741DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +645,7 @@
 				F217C0761DDFC47100EE16DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

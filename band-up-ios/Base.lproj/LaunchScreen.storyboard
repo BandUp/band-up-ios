@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,37 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Loginbackground" translatesAutoresizingMaskIntoConstraints="NO" id="4KT-z7-3VV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="banduplogo" translatesAutoresizingMaskIntoConstraints="NO" id="EdK-CG-dc4">
+                                <rect key="frame" x="113" y="259" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="4mX-LK-d4Z"/>
+                                    <constraint firstAttribute="height" constant="150" id="Csz-Ui-wCs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4KT-z7-3VV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0fA-9S-EnR"/>
+                            <constraint firstItem="4KT-z7-3VV" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="3Yj-HF-EJj"/>
+                            <constraint firstAttribute="trailing" secondItem="4KT-z7-3VV" secondAttribute="trailing" id="WR3-YL-sBQ"/>
+                            <constraint firstItem="EdK-CG-dc4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b4o-Rp-hXD"/>
+                            <constraint firstItem="EdK-CG-dc4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ulX-2k-guM"/>
+                            <constraint firstAttribute="bottom" secondItem="4KT-z7-3VV" secondAttribute="bottom" id="yw6-B5-XEK"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Loginbackground" width="1080" height="1920"/>
+        <image name="banduplogo" width="567" height="568"/>
+    </resources>
 </document>
