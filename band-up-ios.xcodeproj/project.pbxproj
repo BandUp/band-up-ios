@@ -22,6 +22,7 @@
 		F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */; };
 		F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */; };
 		F2D38EAE1DFE2FDB008F39A1 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */; };
+		F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
 		F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				F2D38EA51DFE2F97008F39A1 /* Resources */,
 				F217C0771DDFC48F00EE16DF /* Main.storyboard */,
+				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
@@ -379,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
+				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
