@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6CED448BE20703F847A8E635 /* Pods_band_up_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */; };
+		F207F6401E02DBB000F57892 /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F63F1E02DBB000F57892 /* InstrumentsViewController.swift */; };
+		F207F6461E02FCA300F57892 /* SetupCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F6451E02FCA300F57892 /* SetupCollectionViewController.swift */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */; };
@@ -46,6 +48,8 @@
 		0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
 		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		F207F63F1E02DBB000F57892 /* InstrumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
+		F207F6451E02FCA300F57892 /* SetupCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupCollectionViewController.swift; sourceTree = "<group>"; };
 		F217C0431DDFC47100EE16DF /* band-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "band-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			children = (
 				F2D38EA51DFE2F97008F39A1 /* Resources */,
 				F217C0771DDFC48F00EE16DF /* Main.storyboard */,
+				F207F6451E02FCA300F57892 /* SetupCollectionViewController.swift */,
+				F207F63F1E02DBB000F57892 /* InstrumentsViewController.swift */,
 				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
@@ -383,10 +389,12 @@
 			files = (
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
+				F207F6461E02FCA300F57892 /* SetupCollectionViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
 				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
+				F207F6401E02DBB000F57892 /* InstrumentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
