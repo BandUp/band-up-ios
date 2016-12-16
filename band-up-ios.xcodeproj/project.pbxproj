@@ -19,7 +19,6 @@
 		F217C0781DDFC48F00EE16DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0771DDFC48F00EE16DF /* Main.storyboard */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
-		F2B023161E037AD600088622 /* SetupViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023151E037AD600088622 /* SetupViewObject.swift */; };
 		F2D38EAB1DFE2FDB008F39A1 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */; };
 		F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */; };
 		F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */; };
@@ -65,7 +64,6 @@
 		F217C0771DDFC48F00EE16DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
-		F2B023151E037AD600088622 /* SetupViewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewObject.swift; sourceTree = "<group>"; };
 		F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				F2D38EA51DFE2F97008F39A1 /* Resources */,
 				F217C0771DDFC48F00EE16DF /* Main.storyboard */,
 				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
-				F2B023151E037AD600088622 /* SetupViewObject.swift */,
 				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
@@ -390,7 +387,6 @@
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
-				F2B023161E037AD600088622 /* SetupViewObject.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
 				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
