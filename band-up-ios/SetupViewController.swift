@@ -41,19 +41,25 @@ class SetupViewController: UIViewController {
 			}
 		}
 		NSLog(idArr.description)
-		if (setupViewObject.setupViewCount != setupViewObject.setupViewIndex) {
-			// Setup has not been finished. Continue
-			let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-			myVC.setupViewObject.doneButtonText = "Finish"
-			myVC.setupViewObject.titleUpperLeft = "Let's get started"
-			myVC.setupViewObject.setupViewIndex = 2
-			myVC.setupViewObject.setupViewCount = 2
-			myVC.setupViewObject.titleHint = "What is your taste in music?"
-			myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
-			navigationController?.pushViewController(myVC, animated: true)
+		if (idArr.count == 0) {
+			NSLog("You need to select atleast one!")
 		} else {
-			NSLog("Setup Finished!")
+			if (setupViewObject.setupViewCount != setupViewObject.setupViewIndex) {
+				// Setup has not been finished. Continue
+				let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+				myVC.setupViewObject.doneButtonText = "Finish"
+				myVC.setupViewObject.titleUpperLeft = "Let's get started"
+				myVC.setupViewObject.setupViewIndex = 2
+				myVC.setupViewObject.setupViewCount = 2
+				myVC.setupViewObject.titleHint = "What is your taste in music?"
+				myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
+				navigationController?.pushViewController(myVC, animated: true)
+			} else {
+				navigationController?.popToRootViewController(animated: true)
+				NSLog("Setup Finished!")
+			}
 		}
+		
 		
 	}
 	override func viewDidLoad() {
