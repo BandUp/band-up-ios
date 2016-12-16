@@ -25,7 +25,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="YKd-DY-io9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YKd-DY-io9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -126,7 +126,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="432" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="G81-IY-7hg">
-                                        <rect key="frame" x="0.0" y="75" width="432" height="561"/>
+                                        <rect key="frame" x="0.0" y="75" width="432" height="567"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banduplogo" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-M1-CqQ">
                                                 <rect key="frame" x="141" y="0.0" width="150" height="150"/>
@@ -148,7 +148,7 @@
                                                 </variation>
                                             </stackView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70J-3Q-gTp">
-                                                <rect key="frame" x="91" y="181" width="250" height="20"/>
+                                                <rect key="frame" x="91" y="181" width="250" height="22"/>
                                                 <accessibility key="accessibilityConfiguration" hint="Username"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="WTj-Pk-beY"/>
@@ -158,7 +158,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZY-JP-SUe">
-                                                <rect key="frame" x="91" y="204" width="250" height="2"/>
+                                                <rect key="frame" x="91" y="206" width="250" height="2"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="gsC-BE-Jhy"/>
@@ -166,7 +166,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-3Q-KaC">
-                                                <rect key="frame" x="41" y="209" width="350" height="15"/>
+                                                <rect key="frame" x="41" y="211" width="350" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="Efo-Ik-gYl"/>
                                                     <constraint firstAttribute="width" constant="110" id="JZ3-Vs-zDt"/>
@@ -179,7 +179,7 @@
                                                 </variation>
                                             </stackView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GhI-sR-eFx">
-                                                <rect key="frame" x="91" y="227" width="250" height="20"/>
+                                                <rect key="frame" x="91" y="229" width="250" height="22"/>
                                                 <accessibility key="accessibilityConfiguration" hint="Password"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="FJO-5g-LdR"/>
@@ -189,7 +189,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cz7-yh-6LQ">
-                                                <rect key="frame" x="91" y="250" width="250" height="2"/>
+                                                <rect key="frame" x="91" y="254" width="250" height="2"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="HKv-gK-ik6"/>
@@ -197,7 +197,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G9g-cm-kaT">
-                                                <rect key="frame" x="41" y="255" width="350" height="15"/>
+                                                <rect key="frame" x="41" y="259" width="350" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="NVk-6X-OZ9"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="wwF-fe-ndo"/>
@@ -210,7 +210,7 @@
                                                 </variation>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-65-LBv">
-                                                <rect key="frame" x="91" y="273" width="250" height="40"/>
+                                                <rect key="frame" x="91" y="277" width="250" height="40"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="TGk-MW-ybU"/>
@@ -225,7 +225,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tTX-Gc-0kA">
-                                                <rect key="frame" x="41" y="316" width="350" height="15"/>
+                                                <rect key="frame" x="41" y="320" width="350" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="AyD-Bp-Juw"/>
                                                     <constraint firstAttribute="width" constant="110" id="KgW-au-WP2"/>
@@ -238,7 +238,7 @@
                                                 </variation>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-Bx-yuT">
-                                                <rect key="frame" x="85" y="334" width="262" height="30"/>
+                                                <rect key="frame" x="73" y="338" width="286" height="31"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="15"/>
                                                 <state key="normal" title="Do not have an account? Sign up here.">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -248,7 +248,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLF-Xp-v7E">
-                                                <rect key="frame" x="138" y="367" width="156" height="30"/>
+                                                <rect key="frame" x="133" y="372" width="166" height="31"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="15"/>
                                                 <state key="normal" title="Forgot your password?">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -258,14 +258,14 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACY-WY-nd2">
-                                                <rect key="frame" x="96" y="400" width="240" height="10"/>
+                                                <rect key="frame" x="96" y="406" width="240" height="10"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="Cpw-YW-xRJ"/>
                                                 </constraints>
                                             </view>
                                             <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H0e-oD-H7b">
-                                                <rect key="frame" x="91" y="413" width="250" height="20"/>
+                                                <rect key="frame" x="91" y="419" width="250" height="20"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tx3-ch-Jyr">
                                                         <rect key="frame" x="0.0" y="9.5" width="100" height="1"/>
@@ -298,14 +298,14 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLc-ew-d3r">
-                                                <rect key="frame" x="96" y="436" width="240" height="10"/>
+                                                <rect key="frame" x="96" y="442" width="240" height="10"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="ZiM-dC-Bkq"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUV-Hg-A31">
-                                                <rect key="frame" x="91" y="449" width="250" height="30"/>
+                                                <rect key="frame" x="91" y="455" width="250" height="30"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c9n-Sd-T2l">
                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
@@ -363,14 +363,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLb-K4-2fT">
-                                                <rect key="frame" x="96" y="482" width="240" height="5"/>
+                                                <rect key="frame" x="96" y="488" width="240" height="5"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="eFl-YQ-y7k"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RB-pf-rMe">
-                                                <rect key="frame" x="91" y="490" width="250" height="30"/>
+                                                <rect key="frame" x="91" y="496" width="250" height="30"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-ie-F3x">
                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
@@ -421,14 +421,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ee-wP-uWi">
-                                                <rect key="frame" x="96" y="523" width="240" height="5"/>
+                                                <rect key="frame" x="96" y="529" width="240" height="5"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="kp3-2u-Btz"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-fw-10z">
-                                                <rect key="frame" x="91" y="531" width="250" height="30"/>
+                                                <rect key="frame" x="91" y="537" width="250" height="30"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ku9-RL-jzk">
                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
@@ -602,7 +602,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="onE-oU-wAT">
-                                                <rect key="frame" x="13" y="0.0" width="295.5" height="46.5"/>
+                                                <rect key="frame" x="12.5" y="0.0" width="295.5" height="46.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kho-yX-uG9">
                                                         <rect key="frame" x="0.0" y="0.0" width="295.5" height="21"/>
@@ -737,7 +737,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4X-yL-fje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="475"/>
+            <point key="canvasLocation" x="2010" y="463"/>
         </scene>
     </scenes>
     <resources>
