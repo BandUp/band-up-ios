@@ -221,7 +221,7 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="bPP-jm-NH1" kind="show" id="3DK-L5-eT5"/>
+                                                    <action selector="onClickLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AFo-Kn-WTF"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tTX-Gc-0kA">
@@ -586,23 +586,23 @@ Then follow the instructions in the email, that we will send you, to reset your 
         <!--Setup View Controller-->
         <scene sceneID="MZi-tg-9yU">
             <objects>
-                <viewController id="bPP-jm-NH1" customClass="SetupViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bPP-jm-NH1" customClass="SetupViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jUs-iC-Ivg"/>
                         <viewControllerLayoutGuide type="bottom" id="aJX-HD-NRE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xal-NM-fbE">
-                        <rect key="frame" x="0.0" y="0.0" width="432" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-ao-Uj3">
-                                <rect key="frame" x="0.0" y="30" width="432" height="728"/>
+                                <rect key="frame" x="0.0" y="30" width="320" height="440"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FN8-Mw-TDM">
-                                        <rect key="frame" x="0.0" y="0.0" width="432" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="onE-oU-wAT">
-                                                <rect key="frame" x="68.5" y="0.0" width="295.5" height="50"/>
+                                                <rect key="frame" x="12.5" y="0.0" width="295.5" height="46.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kho-yX-uG9">
                                                         <rect key="frame" x="0.0" y="0.0" width="295.5" height="21"/>
@@ -622,7 +622,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What instruments do you play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK9-QY-FII">
-                                                        <rect key="frame" x="0.0" y="24.5" width="295.5" height="25.5"/>
+                                                        <rect key="frame" x="0.0" y="21" width="295.5" height="25.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -642,7 +642,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sEN-TI-EDN">
-                                        <rect key="frame" x="0.0" y="60" width="432" height="608"/>
+                                        <rect key="frame" x="0.0" y="56.5" width="320" height="323.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Q2T-MK-tJl">
                                             <size key="itemSize" width="214" height="99"/>
@@ -652,7 +652,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xEq-EJ-7ua">
-                                                <rect key="frame" x="0.0" y="0.0" width="214" height="99"/>
+                                                <rect key="frame" x="53" y="0.0" width="214" height="99"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="214" height="99"/>
@@ -686,10 +686,10 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYu-3o-YnB">
-                                        <rect key="frame" x="0.0" y="678" width="432" height="50"/>
+                                        <rect key="frame" x="0.0" y="390" width="320" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-W4-k6J">
-                                                <rect key="frame" x="342" y="0.0" width="80" height="50"/>
+                                                <rect key="frame" x="230" y="0.0" width="80" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="nKl-5u-xLL"/>
                                                 </constraints>
@@ -698,7 +698,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                     <color key="titleColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onClickDone:" destination="bPP-jm-NH1" eventType="touchUpInside" id="biT-1d-cRa"/>
+                                                    <action selector="onClickDone:" destination="bPP-jm-NH1" eventType="touchUpInside" id="TpA-dV-oih"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -730,11 +730,14 @@ Then follow the instructions in the email, that we will send you, to reset your 
                     <connections>
                         <outlet property="btnNext" destination="PGh-W4-k6J" id="eLI-of-rjh"/>
                         <outlet property="collectionView" destination="sEN-TI-EDN" id="1iq-zl-Ttl"/>
+                        <outlet property="lblTitleHint" destination="fK9-QY-FII" id="Unj-Pj-e9C"/>
+                        <outlet property="lblTitleUpperLeft" destination="L0d-u4-4gW" id="SV5-7t-K2k"/>
+                        <outlet property="lblTitleUpperRight" destination="aBE-T4-3qA" id="wuS-Qd-IkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4X-yL-fje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.5" y="462.5"/>
+            <point key="canvasLocation" x="1676" y="475"/>
         </scene>
     </scenes>
     <resources>

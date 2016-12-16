@@ -11,9 +11,15 @@ import UIKit
 class SetupViewController: UIViewController {
 	
 	var ITEM_NAME_TAG = 1;
-	
+
+	@IBOutlet weak var lblTitleUpperLeft: UILabel!
+	@IBOutlet weak var lblTitleUpperRight: UILabel!
+	@IBOutlet weak var lblTitleHint: UILabel!
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var btnNext: UIButton!
+	
+	var setupViewObject = SetupViewObject()
+	
 	
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
@@ -35,13 +41,25 @@ class SetupViewController: UIViewController {
 			}
 		}
 		NSLog(idArr.description)
+		
+		let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+		myVC.setupViewObject.doneButtonText = "Finish"
+		myVC.setupViewObject.titleUpperLeft = "Let's get started"
+		myVC.setupViewObject.titleUpperRight = "2/2"
+		myVC.setupViewObject.titleHint = "What is your taste in music?"
+		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
+		navigationController?.pushViewController(myVC, animated: true)
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		collectionView.delegate = self
 		collectionView.dataSource = self
-		
+		// Set the text of the labels and buttons
+		lblTitleUpperLeft.text = setupViewObject.titleUpperLeft
+		lblTitleUpperRight.text = setupViewObject.titleUpperRight
+		lblTitleHint.text = setupViewObject.titleHint
+		btnNext.setTitle(setupViewObject.doneButtonText, for: .normal)
 		
 		stringArray = ["Vocals",      "Drums",
 		               "Guitar",      "Percussion",
@@ -136,4 +154,12 @@ class SetupItem {
 	var id: String = ""
 	var name: String = ""
 	var isSelected: Bool = false
+}
+
+class SetupViewObject {
+	var apiURL         : String = ""
+	var titleUpperLeft : String = ""
+	var titleUpperRight: String = ""
+	var titleHint      : String = ""
+	var doneButtonText : String = ""
 }

@@ -16,6 +16,16 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var btnLoginFacebook: UIView!
 	@IBOutlet weak var btnLoginSoundCloud: UIView!
 	@IBOutlet weak var btnLoginGoogle: UIView!
+	@IBAction func onClickLogin(_ sender: Any) {
+		
+		let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+		myVC.setupViewObject.doneButtonText = "Next"
+		myVC.setupViewObject.titleUpperLeft = "Let's get started"
+		myVC.setupViewObject.titleUpperRight = "1/2"
+		myVC.setupViewObject.titleHint = "What instruments do you play?"
+		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com"
+		navigationController?.pushViewController(myVC, animated: true)
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -24,7 +34,7 @@ class LoginViewController: UIViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(false, animated: animated)
-		super.viewWillAppear(animated)
+		super.viewWillDisappear(animated)
 	}
 	
 	override func viewDidLoad() {
