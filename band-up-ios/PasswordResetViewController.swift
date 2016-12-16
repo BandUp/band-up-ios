@@ -22,4 +22,3 @@ class PasswordResetViewController: UIViewController {
 	
 	
 }
-

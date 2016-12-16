@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var btnLoginFacebook: UIView!
 	@IBOutlet weak var btnLoginSoundCloud: UIView!
 	@IBOutlet weak var btnLoginGoogle: UIView!
+	
 	@IBAction func onClickLogin(_ sender: Any) {
 		
 		let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
@@ -24,7 +25,7 @@ class LoginViewController: UIViewController {
 		myVC.setupViewObject.setupViewIndex = 1
 		myVC.setupViewObject.setupViewCount = 2
 		myVC.setupViewObject.titleHint = "What instruments do you play?"
-		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com"
+		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/instruments"
 		navigationController?.pushViewController(myVC, animated: true)
 	}
 	
@@ -42,7 +43,7 @@ class LoginViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		btnLogin.layer.cornerRadius = 5;
+		btnLogin.layer.cornerRadius = 12;
 		btnLoginFacebook.layer.cornerRadius = 2;
 		btnLoginSoundCloud.layer.cornerRadius = 2;
 		btnLoginGoogle.layer.cornerRadius = 2;
@@ -50,6 +51,7 @@ class LoginViewController: UIViewController {
 		let color = UIColor (colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5);
 		
 		let attributesDictionary = [NSForegroundColorAttributeName: color]
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 
 		txtEmail.attributedPlaceholder = NSAttributedString(string:"Email", attributes: attributesDictionary)

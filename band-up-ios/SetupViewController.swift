@@ -55,8 +55,9 @@ class SetupViewController: UIViewController {
 				myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
 				navigationController?.pushViewController(myVC, animated: true)
 			} else {
-				navigationController?.popToRootViewController(animated: true)
-				NSLog("Setup Finished!")
+				let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+				let vc = storyboard.instantiateViewController(withIdentifier: "MainScreenViewController") as! MainScreenViewController
+				present(vc, animated: true, completion: nil)
 			}
 		}
 		
@@ -116,6 +117,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		} else {
 			cell.layer.borderWidth = 0
 		}
+		
 		return cell
 	}
 	
@@ -133,13 +135,12 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		collectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor(red:255/255.0, green:211/255.0, blue:2/255.0, alpha: 1.0).cgColor
-
 		
 		if (setupItemArray[indexPath.row].isSelected) {
 			let anim = CABasicAnimation(keyPath: "borderWidth")
 			anim.fromValue = 5
 			anim.toValue = 0
-			anim.duration = 0.05
+			anim.duration = 0.1
 			anim.repeatCount = 0
 			collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 0
 			collectionView.cellForItem(at: indexPath)?.layer.add(anim, forKey: "borderWidth")
@@ -148,7 +149,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 			let anim = CABasicAnimation(keyPath: "borderWidth")
 			anim.fromValue = 0
 			anim.toValue = 5
-			anim.duration = 0.05
+			anim.duration = 0.1
 			anim.repeatCount = 0
 			collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 5
 			collectionView.cellForItem(at: indexPath)?.layer.add(anim, forKey: "borderWidth")
