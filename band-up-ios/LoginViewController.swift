@@ -21,7 +21,8 @@ class LoginViewController: UIViewController {
 		let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
 		myVC.setupViewObject.doneButtonText = "Next"
 		myVC.setupViewObject.titleUpperLeft = "Let's get started"
-		myVC.setupViewObject.titleUpperRight = "1/2"
+		myVC.setupViewObject.setupViewIndex = 1
+		myVC.setupViewObject.setupViewCount = 2
 		myVC.setupViewObject.titleHint = "What instruments do you play?"
 		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com"
 		navigationController?.pushViewController(myVC, animated: true)
@@ -40,6 +41,7 @@ class LoginViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
 		btnLogin.layer.cornerRadius = 5;
 		btnLoginFacebook.layer.cornerRadius = 2;
 		btnLoginSoundCloud.layer.cornerRadius = 2;

@@ -41,14 +41,20 @@ class SetupViewController: UIViewController {
 			}
 		}
 		NSLog(idArr.description)
+		if (setupViewObject.setupViewCount != setupViewObject.setupViewIndex) {
+			// Setup has not been finished. Continue
+			let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+			myVC.setupViewObject.doneButtonText = "Finish"
+			myVC.setupViewObject.titleUpperLeft = "Let's get started"
+			myVC.setupViewObject.setupViewIndex = 2
+			myVC.setupViewObject.setupViewCount = 2
+			myVC.setupViewObject.titleHint = "What is your taste in music?"
+			myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
+			navigationController?.pushViewController(myVC, animated: true)
+		} else {
+			NSLog("Setup Finished!")
+		}
 		
-		let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-		myVC.setupViewObject.doneButtonText = "Finish"
-		myVC.setupViewObject.titleUpperLeft = "Let's get started"
-		myVC.setupViewObject.titleUpperRight = "2/2"
-		myVC.setupViewObject.titleHint = "What is your taste in music?"
-		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
-		navigationController?.pushViewController(myVC, animated: true)
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -57,7 +63,8 @@ class SetupViewController: UIViewController {
 		collectionView.dataSource = self
 		// Set the text of the labels and buttons
 		lblTitleUpperLeft.text = setupViewObject.titleUpperLeft
-		lblTitleUpperRight.text = setupViewObject.titleUpperRight
+		
+		lblTitleUpperRight.text = String(setupViewObject.setupViewIndex)+"/"+String(setupViewObject.setupViewCount)
 		lblTitleHint.text = setupViewObject.titleHint
 		btnNext.setTitle(setupViewObject.doneButtonText, for: .normal)
 		
@@ -159,7 +166,8 @@ class SetupItem {
 class SetupViewObject {
 	var apiURL         : String = ""
 	var titleUpperLeft : String = ""
-	var titleUpperRight: String = ""
 	var titleHint      : String = ""
 	var doneButtonText : String = ""
+	var setupViewIndex : Int = 0
+	var setupViewCount : Int = 0
 }
