@@ -6,11 +6,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="CaviarDreams_Bold.ttf">
-            <string>CaviarDreams-Bold</string>
+        <array key="CaviarDreams.ttf">
+            <string>CaviarDreams</string>
         </array>
     </customFonts>
     <scenes>
@@ -131,15 +132,20 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NearMe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-XC-PCU">
-                                                            <rect key="frame" x="17" y="14" width="292" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NearMe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-XC-PCU">
+                                                            <rect key="frame" x="18" y="8" width="339" height="42"/>
+                                                            <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="OjP-XC-PCU" secondAttribute="bottom" id="AcV-TV-1RE"/>
+                                                        <constraint firstItem="OjP-XC-PCU" firstAttribute="leading" secondItem="b1s-y2-pbd" secondAttribute="leadingMargin" constant="10" id="ELV-gS-y8q"/>
+                                                        <constraint firstItem="OjP-XC-PCU" firstAttribute="top" secondItem="b1s-y2-pbd" secondAttribute="topMargin" id="Hsz-cI-WgL"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="OjP-XC-PCU" secondAttribute="trailing" constant="10" id="lAw-Yj-7Fr"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
