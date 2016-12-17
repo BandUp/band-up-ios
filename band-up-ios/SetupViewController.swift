@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KYDrawerController
 
 class SetupViewController: UIViewController {
 	
@@ -56,7 +57,7 @@ class SetupViewController: UIViewController {
 				navigationController?.pushViewController(myVC, animated: true)
 			} else {
 				let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-				let vc = storyboard.instantiateViewController(withIdentifier: "MainScreenViewController") as! MainScreenViewController
+				let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
 				present(vc, animated: true, completion: nil)
 			}
 		}

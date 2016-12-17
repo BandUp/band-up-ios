@@ -1,5 +1,5 @@
 //
-//  MainScreenViewController.swift
+//  DrawerViewController.swift
 //  band-up-ios
 //
 //  Created by Bergþór on 16.12.2016.
@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import KYDrawerController
 
-class MainScreenViewController: UIViewController {
+class DrawerViewController: UIViewController {
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.navigationController?.setNavigationBarHidden(true, animated: animated)
+		super.viewWillAppear(animated)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-	}
-	
-	@IBAction func didTapOpenDrawer(_ sender: Any) {
-		if let drawerController = navigationController?.parent as? KYDrawerController {
-			drawerController.setDrawerState(.opened, animated: true)
-		}
+		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -28,4 +27,3 @@ class MainScreenViewController: UIViewController {
 	
 	
 }
-

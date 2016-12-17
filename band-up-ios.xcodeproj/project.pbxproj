@@ -21,6 +21,7 @@
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* MainScreen.storyboard */; };
+		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
 		F2D38EAB1DFE2FDB008F39A1 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */; };
 		F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */; };
 		F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */; };
@@ -51,7 +52,7 @@
 		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		F207F63F1E02DBB000F57892 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		F217C0431DDFC47100EE16DF /* band-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "band-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = band_up_ios.xcdatamodel; sourceTree = "<group>"; };
 		F217C0501DDFC47100EE16DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B023191E040B0800088622 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
+		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				F217C0551DDFC47100EE16DF /* Info.plist */,
 				F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */,
 				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
+				F2B0231B1E049BDA00088622 /* DrawerViewController.swift */,
 			);
 			path = "band-up-ios";
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */,
 				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
 				F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */,
+				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

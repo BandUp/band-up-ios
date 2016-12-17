@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FeR-E9-1pT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Grz-Dh-xKM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,35 +8,113 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Near Me-->
-        <scene sceneID="hvW-tq-E7m">
+        <!--Drawer Controller-->
+        <scene sceneID="LGh-jj-nCq">
             <objects>
-                <viewController storyboardIdentifier="MainScreenViewController" title="Near Me" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FeR-E9-1pT" customClass="MainScreenViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Grz-Dh-xKM" customClass="KYDrawerController" customModule="KYDrawerController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V9t-Et-tBp"/>
-                        <viewControllerLayoutGuide type="bottom" id="N23-Vw-MhT"/>
+                        <viewControllerLayoutGuide type="top" id="sxC-9D-SWB"/>
+                        <viewControllerLayoutGuide type="bottom" id="IpG-ko-i9u"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ogn-1p-L5b">
+                    <view key="view" contentMode="scaleToFill" id="mxv-4O-Ekk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Screen View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1x-aC-LNM">
-                                <rect key="frame" x="79.5" y="323" width="216" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="X1x-aC-LNM" firstAttribute="centerX" secondItem="Ogn-1p-L5b" secondAttribute="centerX" id="G9d-XO-Mko"/>
-                            <constraint firstItem="X1x-aC-LNM" firstAttribute="centerY" secondItem="Ogn-1p-L5b" secondAttribute="centerY" id="tkO-gL-MbF"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="drawerSegueIdentifier" value="drawer"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="mainSegueIdentifier" value="main"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="drawerWidth">
+                            <integer key="value" value="250"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="aAX-U0-odr" kind="custom" identifier="main" customClass="KYEmbedMainControllerSegue" customModule="KYDrawerController" id="hgS-Y8-j6O"/>
+                        <segue destination="YWw-ut-fOU" kind="custom" identifier="drawer" customClass="KYEmbedDrawerControllerSegue" customModule="KYDrawerController" id="jrg-Zr-nIu"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rQf-p2-UAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSf-Mu-XNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-126" y="-85"/>
+            <point key="canvasLocation" x="-1374" y="-46"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ACN-18-m9q">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOf-Ju-rfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="YWw-ut-fOU" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="VcH-vE-18n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wq6-lv-KPb" kind="relationship" relationship="rootViewController" id="oml-lh-X9m"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-581" y="-337"/>
+        </scene>
+        <!--Drawer View Controller-->
+        <scene sceneID="esD-OH-Oa4">
+            <objects>
+                <viewController id="wq6-lv-KPb" customClass="DrawerViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MSa-CG-yzd"/>
+                        <viewControllerLayoutGuide type="bottom" id="UOQ-It-zGR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Bo-HL-f5I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kek-i1-rda"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MI2-xX-U8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="-331"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Smd-FJ-F6U">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigation" id="aAX-U0-odr" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="1pD-RP-QZP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gdX-Nl-c1F" kind="relationship" relationship="rootViewController" id="JJ6-rx-7o6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXo-53-smH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="291-CY-K3E"/>
+            </objects>
+            <point key="canvasLocation" x="-596" y="340"/>
+        </scene>
+        <!--Musicians Near You-->
+        <scene sceneID="CmQ-7g-76Z">
+            <objects>
+                <viewController id="gdX-Nl-c1F" customClass="MainScreenViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MBc-Ih-KHR"/>
+                        <viewControllerLayoutGuide type="bottom" id="XaD-8e-c6F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwD-A8-Ved">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Musicians Near You" id="iT7-FL-RWn">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="fastForward" id="Tj1-Yb-29e">
+                            <connections>
+                                <action selector="didTapOpenDrawer:" destination="gdX-Nl-c1F" id="x8w-YR-phw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5SP-hX-YjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="340"/>
         </scene>
     </scenes>
 </document>
