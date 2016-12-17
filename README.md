@@ -15,4 +15,4 @@ To install the packages the project uses, go to the root of the project and run 
 This can take a while, as it will be fetching a repo from GitHub that is approximately 1 GiB in size.
 
 ### Open the Xcode Project
-After running the ```pod install --verbose``` command, a the ```band-up-ios.xcworkspace``` file will be created that includes the Pods packages. Open this file if you want to launch the project. If you open the ```band-up-ios.xcodeproj``` the Pods will not be included and the build will fail.
+After running the ```pod install --verbose``` command, the ```band-up-ios.xcworkspace``` file will be created that includes the Pods packages. Open this file if you want to launch the project. If you open the ```band-up-ios.xcodeproj``` the Pods will not be included and the build will fail.
