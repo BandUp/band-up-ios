@@ -22,10 +22,6 @@
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* MainScreen.storyboard */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
-		F2D38EAB1DFE2FDB008F39A1 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */; };
-		F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */; };
-		F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */; };
-		F2D38EAE1DFE2FDB008F39A1 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */; };
 		F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,10 +66,10 @@
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B023191E040B0800088622 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
-		F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
-		F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
-		F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
-		F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		F2B0231E1E04E4A200088622 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
+		F2B0231F1E04E4A200088622 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
+		F2B023201E04E4A200088622 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
+		F2B023221E06002A00088622 /* caviar_dreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = caviar_dreams.ttf; sourceTree = "<group>"; };
 		F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,7 +141,7 @@
 		F217C0451DDFC47100EE16DF /* band-up-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F2D38EA51DFE2F97008F39A1 /* Resources */,
+				F2B0231D1E04E49400088622 /* Resources */,
 				F217C0771DDFC48F00EE16DF /* Setup.storyboard */,
 				F2B023191E040B0800088622 /* MainScreen.storyboard */,
 				F2B023171E04000600088622 /* MainScreenViewController.swift */,
@@ -182,23 +178,15 @@
 			path = "band-up-iosUITests";
 			sourceTree = "<group>";
 		};
-		F2D38EA51DFE2F97008F39A1 /* Resources */ = {
+		F2B0231D1E04E49400088622 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F2D38EA61DFE2FA0008F39A1 /* Fonts */,
+				F2B023221E06002A00088622 /* caviar_dreams.ttf */,
+				F2B0231E1E04E4A200088622 /* CaviarDreams_Bold.ttf */,
+				F2B0231F1E04E4A200088622 /* CaviarDreams_BoldItalic.ttf */,
+				F2B023201E04E4A200088622 /* CaviarDreams_Italic.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		F2D38EA61DFE2FA0008F39A1 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				F2D38EA71DFE2FB2008F39A1 /* CaviarDreams_Bold.ttf */,
-				F2D38EA81DFE2FB2008F39A1 /* CaviarDreams_BoldItalic.ttf */,
-				F2D38EA91DFE2FB2008F39A1 /* CaviarDreams_Italic.ttf */,
-				F2D38EAA1DFE2FB2008F39A1 /* CaviarDreams.ttf */,
-			);
-			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,14 +302,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2D38EAB1DFE2FDB008F39A1 /* CaviarDreams_Bold.ttf in Resources */,
 				F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */,
-				F2D38EAC1DFE2FDB008F39A1 /* CaviarDreams_BoldItalic.ttf in Resources */,
-				F2D38EAD1DFE2FDB008F39A1 /* CaviarDreams_Italic.ttf in Resources */,
-				F2D38EAE1DFE2FDB008F39A1 /* CaviarDreams.ttf in Resources */,
 				F217C0781DDFC48F00EE16DF /* Setup.storyboard in Resources */,
 				F217C0541DDFC47100EE16DF /* LaunchScreen.storyboard in Resources */,
-				F217C0511DDFC47100EE16DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

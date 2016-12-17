@@ -12,7 +12,7 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>CaviarDreams.ttf</string>
+		<string>caviar_dreams.ttf</string>
 		<string>CaviarDreams_Bold.ttf</string>
 	</array>
 	<key>CFBundleInfoDictionaryVersion</key>

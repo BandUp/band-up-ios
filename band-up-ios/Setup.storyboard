@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="CaviarDreams.ttf">
-            <string>CaviarDreams</string>
-        </array>
         <array key="CaviarDreams_Bold.ttf">
             <string>CaviarDreams-Bold</string>
+        </array>
+        <array key="caviar_dreams.ttf">
+            <string>CaviarDreams</string>
         </array>
     </customFonts>
     <scenes>
@@ -559,7 +559,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-d4-xpw">
-                                        <rect key="frame" x="101.5" y="111" width="189" height="30"/>
+                                        <rect key="frame" x="102" y="111" width="189" height="30"/>
                                         <state key="normal" title="Send Password Reset Email"/>
                                     </button>
                                 </subviews>
@@ -599,13 +599,13 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                 <rect key="frame" x="0.0" y="30" width="320" height="440"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FN8-Mw-TDM">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="onE-oU-wAT">
-                                                <rect key="frame" x="12.5" y="0.0" width="295.5" height="47"/>
+                                                <rect key="frame" x="12" y="0.0" width="296" height="49"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kho-yX-uG9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="21"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Let's get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0d-u4-4gW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="134" height="21"/>
@@ -614,7 +614,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBE-T4-3qA">
-                                                                <rect key="frame" x="267" y="0.0" width="28.5" height="21"/>
+                                                                <rect key="frame" x="267" y="0.0" width="29" height="21"/>
                                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="18"/>
                                                                 <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -622,7 +622,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What instruments do you play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK9-QY-FII">
-                                                        <rect key="frame" x="0.0" y="21.5" width="295.5" height="25.5"/>
+                                                        <rect key="frame" x="0.0" y="23" width="296" height="26"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -642,7 +642,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sEN-TI-EDN">
-                                        <rect key="frame" x="0.0" y="57" width="320" height="323"/>
+                                        <rect key="frame" x="0.0" y="59" width="320" height="321"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Q2T-MK-tJl">
                                             <size key="itemSize" width="214" height="99"/>
