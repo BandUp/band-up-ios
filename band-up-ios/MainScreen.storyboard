@@ -222,6 +222,9 @@
                                 <action selector="didTapOpenDrawer:" destination="gdX-Nl-c1F" id="x8w-YR-phw"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="SKm-xP-SEi">
+                            <color key="tintColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SP-hX-YjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
