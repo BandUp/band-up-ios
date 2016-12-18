@@ -210,7 +210,21 @@
                     <view key="view" contentMode="scaleToFill" id="fwD-A8-Ved">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06q-hr-1Jw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="K4P-jd-hm6" kind="embed" id="dbu-ay-vSG"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="06q-hr-1Jw" firstAttribute="top" secondItem="MBc-Ih-KHR" secondAttribute="bottom" id="7ex-xf-T0Y"/>
+                            <constraint firstItem="06q-hr-1Jw" firstAttribute="leading" secondItem="fwD-A8-Ved" secondAttribute="leading" id="bgW-o0-Pwm"/>
+                            <constraint firstAttribute="trailing" secondItem="06q-hr-1Jw" secondAttribute="trailing" id="fof-Rd-QtI"/>
+                            <constraint firstItem="XaD-8e-c6F" firstAttribute="top" secondItem="06q-hr-1Jw" secondAttribute="bottom" id="pFe-zM-FCN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Musicians Near You" id="iT7-FL-RWn">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="fastForward" id="Tj1-Yb-29e">
@@ -223,6 +237,153 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SP-hX-YjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="145" y="340"/>
+        </scene>
+        <!--User Item View Controller-->
+        <scene sceneID="DLA-dc-hxc">
+            <objects>
+                <viewController id="K4P-jd-hm6" customClass="UserItemViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xsc-aL-jMz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9UZ-Eo-K5D">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="haQ-3Q-LOO">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="haQ-3Q-LOO" secondAttribute="height" multiplier="1:1" id="NeO-8U-XHX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-8W-Ahk">
+                                        <rect key="frame" x="0.0" y="375" width="375" height="228"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mhF-MU-TWX">
+                                                <rect key="frame" x="20" y="20" width="335" height="29.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2K-jD-HIh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="29.5"/>
+                                                        <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
+                                                        <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxv-hV-BeK">
+                                                        <rect key="frame" x="225" y="0.0" width="110" height="29.5"/>
+                                                        <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
+                                                        <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zN1-go-zt4">
+                                                <rect key="frame" x="20" y="59.5" width="335" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTP-Xf-MTM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="20"/>
+                                                        <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOR-5u-6hK">
+                                                        <rect key="frame" x="245.5" y="0.0" width="89.5" height="20"/>
+                                                        <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="azi-fb-ytj">
+                                                <rect key="frame" x="20" y="84.5" width="335" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huy-Ev-64I">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="20"/>
+                                                        <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDU-Ce-ISi">
+                                                        <rect key="frame" x="288" y="0.0" width="47" height="20"/>
+                                                        <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-HY-5T3">
+                                                <rect key="frame" x="20" y="158" width="335" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qo3-vP-09U">
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="50"/>
+                                                        <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" title="Details">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da9-wJ-olW">
+                                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.65098039215686276" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" title="Like">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Qo3-vP-09U" firstAttribute="leading" secondItem="4aF-HY-5T3" secondAttribute="leading" id="kjq-68-bZk"/>
+                                                    <constraint firstAttribute="height" constant="50" id="s3S-Fl-iBv"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="mhF-MU-TWX" firstAttribute="leading" secondItem="ozM-8W-Ahk" secondAttribute="leading" constant="20" id="22I-1x-cTa"/>
+                                            <constraint firstItem="azi-fb-ytj" firstAttribute="leading" secondItem="ozM-8W-Ahk" secondAttribute="leading" constant="20" id="35C-gi-wjz"/>
+                                            <constraint firstItem="4aF-HY-5T3" firstAttribute="leading" secondItem="ozM-8W-Ahk" secondAttribute="leading" constant="20" id="70z-ZT-XVs"/>
+                                            <constraint firstItem="azi-fb-ytj" firstAttribute="top" secondItem="zN1-go-zt4" secondAttribute="bottom" constant="5" id="8O4-i9-0VS"/>
+                                            <constraint firstAttribute="bottom" secondItem="4aF-HY-5T3" secondAttribute="bottom" constant="20" id="FIY-Ol-zvp"/>
+                                            <constraint firstAttribute="trailing" secondItem="mhF-MU-TWX" secondAttribute="trailing" constant="20" id="JHX-Zu-z5V"/>
+                                            <constraint firstAttribute="trailing" secondItem="zN1-go-zt4" secondAttribute="trailing" constant="20" id="PYd-my-eMY"/>
+                                            <constraint firstItem="zN1-go-zt4" firstAttribute="top" secondItem="mhF-MU-TWX" secondAttribute="bottom" constant="10" id="SYe-eG-0xy"/>
+                                            <constraint firstAttribute="trailing" secondItem="azi-fb-ytj" secondAttribute="trailing" constant="20" id="VUW-d8-7M5"/>
+                                            <constraint firstAttribute="trailing" secondItem="4aF-HY-5T3" secondAttribute="trailing" constant="20" id="h69-hc-iV9"/>
+                                            <constraint firstItem="mhF-MU-TWX" firstAttribute="top" secondItem="ozM-8W-Ahk" secondAttribute="top" constant="20" id="ngL-Iq-W9z"/>
+                                            <constraint firstItem="zN1-go-zt4" firstAttribute="leading" secondItem="ozM-8W-Ahk" secondAttribute="leading" constant="20" id="oEt-lM-Uyc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9UZ-Eo-K5D" firstAttribute="leading" secondItem="Xsc-aL-jMz" secondAttribute="leading" id="Kuz-SL-3zi"/>
+                            <constraint firstItem="9UZ-Eo-K5D" firstAttribute="top" secondItem="Xsc-aL-jMz" secondAttribute="top" id="c9A-iD-m3T"/>
+                            <constraint firstAttribute="bottom" secondItem="9UZ-Eo-K5D" secondAttribute="bottom" id="rmH-Sf-VwL"/>
+                            <constraint firstAttribute="trailing" secondItem="9UZ-Eo-K5D" secondAttribute="trailing" id="tD9-bb-zUB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HfC-4b-4K3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="-367"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HV1-sL-faz">
+            <objects>
+                <viewController id="bdn-Fd-L5f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7WJ-Wk-AxY"/>
+                        <viewControllerLayoutGuide type="bottom" id="87z-d5-m8p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wk8-Us-DUA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8d-z4-4RB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="340"/>
         </scene>
     </scenes>
     <resources>

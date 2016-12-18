@@ -22,6 +22,12 @@
 		F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */; };
 		F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */; };
 		F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06051E0606D00039C761 /* CaviarDreams.ttf */; };
+		F2AB060D1E0615C20039C761 /* UserItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB060C1E0615C20039C761 /* UserItemViewController.swift */; };
+		F2AB060F1E0616A20039C761 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB060E1E0616A20039C761 /* ProfileViewController.swift */; };
+		F2AB06111E0616B30039C761 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06101E0616B30039C761 /* MatchesViewController.swift */; };
+		F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06121E0616C10039C761 /* SettingsViewController.swift */; };
+		F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */; };
+		F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* MainScreen.storyboard */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
@@ -70,6 +76,12 @@
 		F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
 		F2AB06051E0606D00039C761 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		F2AB060C1E0615C20039C761 /* UserItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemViewController.swift; sourceTree = "<group>"; };
+		F2AB060E1E0616A20039C761 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F2AB06101E0616B30039C761 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		F2AB06121E0616C10039C761 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B023191E040B0800088622 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
@@ -144,21 +156,11 @@
 		F217C0451DDFC47100EE16DF /* band-up-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F2B0231D1E04E49400088622 /* Resources */,
-				F217C0771DDFC48F00EE16DF /* Setup.storyboard */,
-				F2B023191E040B0800088622 /* MainScreen.storyboard */,
-				F2B023171E04000600088622 /* MainScreenViewController.swift */,
-				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
-				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
-				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
-				F217C0481DDFC47100EE16DF /* LoginViewController.swift */,
-				F217C0501DDFC47100EE16DF /* Assets.xcassets */,
-				F217C0551DDFC47100EE16DF /* Info.plist */,
-				F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */,
-				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
-				F2B0231B1E049BDA00088622 /* DrawerViewController.swift */,
+				F2AB060A1E0614F20039C761 /* Setup */,
+				F2AB060B1E0615410039C761 /* Main Screen */,
+				F2B0231D1E04E49400088622 /* Resources */,
 			);
 			path = "band-up-ios";
 			sourceTree = "<group>";
@@ -181,9 +183,41 @@
 			path = "band-up-iosUITests";
 			sourceTree = "<group>";
 		};
+		F2AB060A1E0614F20039C761 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				F217C0771DDFC48F00EE16DF /* Setup.storyboard */,
+				F217C0481DDFC47100EE16DF /* LoginViewController.swift */,
+				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
+				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
+				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
+			);
+			name = Setup;
+			sourceTree = "<group>";
+		};
+		F2AB060B1E0615410039C761 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F2B023191E040B0800088622 /* MainScreen.storyboard */,
+				F2B023171E04000600088622 /* MainScreenViewController.swift */,
+				F2B0231B1E049BDA00088622 /* DrawerViewController.swift */,
+				F2AB060C1E0615C20039C761 /* UserItemViewController.swift */,
+				F2AB060E1E0616A20039C761 /* ProfileViewController.swift */,
+				F2AB06101E0616B30039C761 /* MatchesViewController.swift */,
+				F2AB06121E0616C10039C761 /* SettingsViewController.swift */,
+				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
+				F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */,
+			);
+			name = "Main Screen";
+			sourceTree = "<group>";
+		};
 		F2B0231D1E04E49400088622 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
+				F217C0551DDFC47100EE16DF /* Info.plist */,
+				F217C0501DDFC47100EE16DF /* Assets.xcassets */,
+				F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */,
 				F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */,
 				F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */,
 				F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */,
@@ -386,12 +420,18 @@
 			files = (
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
+				F2AB060D1E0615C20039C761 /* UserItemViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
+				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
+				F2AB06111E0616B30039C761 /* MatchesViewController.swift in Sources */,
+				F2AB060F1E0616A20039C761 /* ProfileViewController.swift in Sources */,
 				F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */,
 				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
+				F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */,
 				F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */,
+				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
