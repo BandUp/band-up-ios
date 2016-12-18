@@ -40,30 +40,12 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="aAX-U0-odr" kind="custom" identifier="main" customClass="KYEmbedMainControllerSegue" customModule="KYDrawerController" id="hgS-Y8-j6O"/>
-                        <segue destination="YWw-ut-fOU" kind="custom" identifier="drawer" customClass="KYEmbedDrawerControllerSegue" customModule="KYDrawerController" id="jrg-Zr-nIu"/>
+                        <segue destination="dwL-IM-ke9" kind="custom" identifier="drawer" customClass="KYEmbedDrawerControllerSegue" customModule="KYDrawerController" id="6ro-18-BqM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSf-Mu-XNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1374" y="-46"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ACN-18-m9q">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="YWw-ut-fOU" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="VcH-vE-18n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="dwL-IM-ke9" kind="relationship" relationship="rootViewController" id="wcu-F0-AAl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pOf-Ju-rfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-581" y="-337"/>
         </scene>
         <!--Drawer View Controller-->
         <scene sceneID="Vhv-b4-0a8">
@@ -182,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAE-7u-Ii2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.80000000000001" y="-337.78110944527737"/>
+            <point key="canvasLocation" x="-596" y="-331"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Smd-FJ-F6U">

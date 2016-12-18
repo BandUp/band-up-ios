@@ -47,7 +47,7 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		let drawer = self.navigationController?.parent as! KYDrawerController
+		let drawer = self.parent as! KYDrawerController
 		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
 		mainController.updateView(row: indexPath.row)
 		drawer.setDrawerState(.closed, animated: true)
