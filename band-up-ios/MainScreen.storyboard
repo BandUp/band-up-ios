@@ -13,6 +13,9 @@
         <array key="CaviarDreams.ttf">
             <string>CaviarDreams</string>
         </array>
+        <array key="master_of_break.ttf">
+            <string>MasterOfBreak</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Drawer Controller-->
@@ -185,8 +188,8 @@
         <scene sceneID="Smd-FJ-F6U">
             <objects>
                 <navigationController storyboardIdentifier="MainNavigation" id="aAX-U0-odr" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="1pD-RP-QZP">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="1pD-RP-QZP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -202,32 +205,19 @@
         <!--Musicians Near You-->
         <scene sceneID="CmQ-7g-76Z">
             <objects>
-                <viewController id="gdX-Nl-c1F" customClass="MainScreenViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gdX-Nl-c1F" customClass="MainScreenViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBc-Ih-KHR"/>
                         <viewControllerLayoutGuide type="bottom" id="XaD-8e-c6F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fwD-A8-Ved">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06q-hr-1Jw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <connections>
-                                    <segue destination="K4P-jd-hm6" kind="embed" id="dbu-ay-vSG"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="06q-hr-1Jw" firstAttribute="top" secondItem="MBc-Ih-KHR" secondAttribute="bottom" id="7ex-xf-T0Y"/>
-                            <constraint firstItem="06q-hr-1Jw" firstAttribute="leading" secondItem="fwD-A8-Ved" secondAttribute="leading" id="bgW-o0-Pwm"/>
-                            <constraint firstAttribute="trailing" secondItem="06q-hr-1Jw" secondAttribute="trailing" id="fof-Rd-QtI"/>
-                            <constraint firstItem="XaD-8e-c6F" firstAttribute="top" secondItem="06q-hr-1Jw" secondAttribute="bottom" id="pFe-zM-FCN"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Musicians Near You" id="iT7-FL-RWn">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="fastForward" id="Tj1-Yb-29e">
+                        <barButtonItem key="leftBarButtonItem" image="menu-alt-512" style="plain" id="Tj1-Yb-29e">
+                            <color key="tintColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapOpenDrawer:" destination="gdX-Nl-c1F" id="x8w-YR-phw"/>
                             </connections>
@@ -241,13 +231,13 @@
         <!--User Item View Controller-->
         <scene sceneID="DLA-dc-hxc">
             <objects>
-                <viewController id="K4P-jd-hm6" customClass="UserItemViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K4P-jd-hm6" customClass="UserItemViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xsc-aL-jMz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9UZ-Eo-K5D">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="haQ-3Q-LOO">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
@@ -256,7 +246,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-8W-Ahk">
-                                        <rect key="frame" x="0.0" y="375" width="375" height="228"/>
+                                        <rect key="frame" x="0.0" y="375" width="375" height="292"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mhF-MU-TWX">
                                                 <rect key="frame" x="20" y="20" width="335" height="29.5"/>
@@ -310,12 +300,12 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-HY-5T3">
-                                                <rect key="frame" x="20" y="158" width="335" height="50"/>
+                                                <rect key="frame" x="20" y="222" width="335" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qo3-vP-09U">
                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <fontDescription key="fontDescription" name="MasterOfBreak" family="Master Of Break" pointSize="27"/>
                                                         <state key="normal" title="Details">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -323,7 +313,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da9-wJ-olW">
                                                         <rect key="frame" x="177.5" y="0.0" width="157.5" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.65098039215686276" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <fontDescription key="fontDescription" name="MasterOfBreak" family="Master Of Break" pointSize="27"/>
                                                         <state key="normal" title="Like">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -362,15 +352,109 @@
                             <constraint firstAttribute="trailing" secondItem="9UZ-Eo-K5D" secondAttribute="trailing" id="tD9-bb-zUB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnDetails" destination="Qo3-vP-09U" id="aHB-yf-SVQ"/>
+                        <outlet property="btnLike" destination="da9-wJ-olW" id="en6-Qf-lPd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfC-4b-4K3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-367"/>
+            <point key="canvasLocation" x="889" y="340"/>
         </scene>
-        <!--View Controller-->
+        <!--Matches View Controller-->
+        <scene sceneID="RQm-QQ-OLO">
+            <objects>
+                <viewController storyboardIdentifier="MatchesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IE4-DF-1la" customClass="MatchesViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wO3-kf-5eL"/>
+                        <viewControllerLayoutGuide type="bottom" id="sXG-c0-7lC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="edY-R3-302">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matches View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sy-iJ-zhe">
+                                <rect key="frame" x="16" y="20" width="187" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Sy-iJ-zhe" firstAttribute="leading" secondItem="edY-R3-302" secondAttribute="leadingMargin" id="9Ih-g6-8zO"/>
+                            <constraint firstItem="0Sy-iJ-zhe" firstAttribute="top" secondItem="wO3-kf-5eL" secondAttribute="bottom" id="M8b-bv-2eM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gar-kk-DFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="1018"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="BXS-bB-5dm">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e41-aH-fTr" customClass="SettingsViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jOE-I6-PQZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="L8Q-BT-KYf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQg-qK-cx5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-WH-upq">
+                                <rect key="frame" x="16" y="20" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Udd-WH-upq" firstAttribute="leading" secondItem="rQg-qK-cx5" secondAttribute="leadingMargin" id="90n-fg-eS2"/>
+                            <constraint firstItem="Udd-WH-upq" firstAttribute="top" secondItem="jOE-I6-PQZ" secondAttribute="bottom" id="xax-ht-qZF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKN-Lf-aft" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1618" y="1018"/>
+        </scene>
+        <!--Upcoming View Controller-->
+        <scene sceneID="db8-Zc-6wM">
+            <objects>
+                <viewController storyboardIdentifier="UpcomingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bjz-Lp-bNS" customClass="UpcomingViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4oI-uV-eg1"/>
+                        <viewControllerLayoutGuide type="bottom" id="r0A-ha-ABz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7V1-f0-cAX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0s-1F-zId">
+                                <rect key="frame" x="16" y="20" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="x0s-1F-zId" firstAttribute="leading" secondItem="7V1-f0-cAX" secondAttribute="leadingMargin" id="9hf-MM-CcC"/>
+                            <constraint firstItem="x0s-1F-zId" firstAttribute="top" secondItem="4oI-uV-eg1" secondAttribute="bottom" id="u1L-VU-I7J"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAV-Kj-fcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2319" y="1018"/>
+        </scene>
+        <!--Profile View Controller-->
         <scene sceneID="HV1-sL-faz">
             <objects>
-                <viewController id="bdn-Fd-L5f" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bdn-Fd-L5f" customClass="ProfileViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7WJ-Wk-AxY"/>
                         <viewControllerLayoutGuide type="bottom" id="87z-d5-m8p"/>
@@ -378,15 +462,43 @@
                     <view key="view" contentMode="scaleToFill" id="wk8-Us-DUA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="fcY-Ja-fHh">
+                                <rect key="frame" x="16" y="28" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpN-oq-s9q">
+                                <rect key="frame" x="139" y="28" width="96" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGf-QJ-mns">
+                                <rect key="frame" x="139" y="61" width="96" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favourite Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZD-Ar-8Yh">
+                                <rect key="frame" x="139" y="94" width="153" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8d-z4-4RB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="340"/>
+            <point key="canvasLocation" x="145" y="1018"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultmynd" width="2400" height="2400"/>
+        <image name="menu-alt-512" width="22" height="22"/>
     </resources>
 </document>

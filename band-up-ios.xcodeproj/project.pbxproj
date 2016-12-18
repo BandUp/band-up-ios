@@ -29,6 +29,7 @@
 		F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */; };
 		F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */; };
 		F2AB06191E061AD80039C761 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06181E061AD80039C761 /* Media.xcassets */; };
+		F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB061A1E063DE70039C761 /* master_of_break.ttf */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* MainScreen.storyboard */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
@@ -83,6 +84,7 @@
 		F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		F2AB06181E061AD80039C761 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		F2AB061A1E063DE70039C761 /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B023191E040B0800088622 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */,
 				F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */,
 				F2AB06051E0606D00039C761 /* CaviarDreams.ttf */,
+				F2AB061A1E063DE70039C761 /* master_of_break.ttf */,
 				F2AB06181E061AD80039C761 /* Media.xcassets */,
 			);
 			name = Resources;
@@ -340,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,

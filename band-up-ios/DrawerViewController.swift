@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KYDrawerController
 
 class DrawerViewController: UIViewController {
 	let listItems = [
@@ -42,6 +43,14 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return listItems.count
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		let drawer = self.navigationController?.parent as! KYDrawerController
+		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
+		mainController.updateView(row: indexPath.row)
+		drawer.setDrawerState(.closed, animated: true)
 	}
 }
 
