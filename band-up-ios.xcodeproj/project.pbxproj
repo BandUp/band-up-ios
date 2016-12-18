@@ -28,6 +28,7 @@
 		F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06121E0616C10039C761 /* SettingsViewController.swift */; };
 		F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */; };
 		F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */; };
+		F2AB06191E061AD80039C761 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06181E061AD80039C761 /* Media.xcassets */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* MainScreen.storyboard */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
@@ -60,7 +61,6 @@
 		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = band_up_ios.xcdatamodel; sourceTree = "<group>"; };
-		F217C0501DDFC47100EE16DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F217C0531DDFC47100EE16DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F217C0551DDFC47100EE16DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F217C05A1DDFC47100EE16DF /* band-up-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +82,7 @@
 		F2AB06121E0616C10039C761 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		F2AB06181E061AD80039C761 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B023191E040B0800088622 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
@@ -216,12 +217,12 @@
 			children = (
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
 				F217C0551DDFC47100EE16DF /* Info.plist */,
-				F217C0501DDFC47100EE16DF /* Assets.xcassets */,
 				F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */,
 				F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */,
 				F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */,
 				F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */,
 				F2AB06051E0606D00039C761 /* CaviarDreams.ttf */,
+				F2AB06181E061AD80039C761 /* Media.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -341,6 +342,7 @@
 			files = (
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
+				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */,
 				F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */,
 				F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */,
