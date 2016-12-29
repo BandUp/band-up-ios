@@ -34,6 +34,7 @@
 		F2B0231A1E040B0800088622 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* MainScreen.storyboard */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
 		F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */; };
+		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		F2B023191E040B0800088622 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
+				F2EA7B691E15BCC3005B1F34 /* User.swift */,
 				F2AB060A1E0614F20039C761 /* Setup */,
 				F2AB060B1E0615410039C761 /* Main Screen */,
 				F2B0231D1E04E49400088622 /* Resources */,
@@ -428,6 +431,7 @@
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F2AB060D1E0615C20039C761 /* UserItemViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
+				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,

@@ -30,41 +30,32 @@ class UserItemViewController: UIViewController {
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		bandUpAPI.nearby.loadIfNeeded()?.onSuccess({ (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			// Go through all of the setup items in the response
-			let itemDict = response.jsonArray[0] as? NSDictionary
 			print(response.jsonArray[0])
-			// If it isn't a dictionary, then skip it.
-			// Something is broken.
-			if (itemDict == nil) {
-				return
-			}
+			// Go through all of the setup items in the response
+			if let itemDict = response.jsonArray[0] as? NSDictionary {
+				let user = User(itemDict)
 				
-			// Now we are sure we have a dictionary
-			// Unwrap it and get the strings.
-			let _username   = itemDict!["username"] as? String
-			let _favInstrument = itemDict!["favoriteinstrument"] as? String
-			let _percentage = itemDict!["percentage"] as? Int
-			let _imgUrl = itemDict!["image"] as? NSDictionary
-			
-			if (_imgUrl != nil) {
-				
-				if let checkedUrl = URL(string: _imgUrl!["url"] as! String) {
+				if let checkedUrl = URL(string: user.image.url) {
 					self.imgUserImage.contentMode = .scaleAspectFill
 					self.downloadImage(url: checkedUrl)
 				}
-			}
 				
-			// If we don't find data, don't add it.
-			// This is ugly. Will need to refactor.
-			if (_username == nil || _favInstrument == nil || _percentage == nil) {
-				return
+				// All is well.
+				// Create a new object and unwrap the data into it.
+				self.lblUsername.text = user.username
+				self.lblFavouriteInstrument.text = user.favouriteInstrument
+				self.lblPercentage.text = String(format:"\(user.percentage)%%")
+				self.lblDistance.text = String(format:"%.0f km away from you", user.distance)
+				
+				if (user.genres.count > 0) {
+					self.lblGenre.text = user.genres[0]
+				} else {
+					self.lblGenre.text = "No Genre"
+				}
+				
+				self.lblAge.text = String(format:"\(user.getAge()) years old")
 			}
-			// All is well.
-			// Create a new object and unwrap the data into it.
-			self.lblUsername.text = _username
-			self.lblFavouriteInstrument.text = _favInstrument
-			self.lblPercentage.text = String(format:"\(_percentage!)%%")
-			
+
 		}).onFailure({ (error) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			print("ERROR")

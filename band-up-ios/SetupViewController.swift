@@ -12,22 +12,24 @@ import Siesta
 
 class SetupViewController: UIViewController {
 	
-	var ITEM_NAME_TAG = 1;
+	
 
+	// MARK: Interface Builder Outlets
 	@IBOutlet weak var lblTitleUpperLeft: UILabel!
 	@IBOutlet weak var lblErrorLabel: UILabel!
 	@IBOutlet weak var lblTitleUpperRight: UILabel!
 	@IBOutlet weak var lblTitleHint: UILabel!
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var btnNext: UIButton!
-	
-	var setupViewObject: SetupViewObject? = nil
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
-	
+	// MARK: Objects and Constants
+	var ITEM_NAME_TAG = 1;
+	var setupViewObject: SetupViewObject? = nil
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
 	
+	// MARK: Overridden functions
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -74,11 +76,28 @@ class SetupViewController: UIViewController {
 		super.viewWillAppear(animated)
 	}
 	
-	func displayErrorMessage(message : String) {
-		self.lblErrorLabel.text = message
-		self.lblErrorLabel.isHidden = false
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		// Do any additional setup after loading the view, typically from a nib.
+		collectionView.delegate = self
+		collectionView.dataSource = self
+		// Set the text of the labels and buttons
+		lblTitleUpperLeft.text = setupViewObject?.titleUpperLeft
+		
+		let index = setupViewObject?.setupViewIndex
+		let count = setupViewObject?.setupViewCount
+		
+		lblTitleUpperRight.text = "\(index!)/\(count!)"
+		lblTitleHint.text = setupViewObject?.titleHint
+		btnNext.setTitle(setupViewObject?.doneButtonText, for: .normal)
 	}
 	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
+	// MARK: Interface Builder Actions
 	@IBAction func onClickDone(_ sender: Any) {
 		var idArr = [String]()
 		for item in setupItemArray {
@@ -116,28 +135,12 @@ class SetupViewController: UIViewController {
 				present(vc, animated: true, completion: nil)
 			}
 		}
-		
-		
-	}
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-		collectionView.delegate = self
-		collectionView.dataSource = self
-		// Set the text of the labels and buttons
-		lblTitleUpperLeft.text = setupViewObject?.titleUpperLeft
-		
-		let index = setupViewObject?.setupViewIndex
-		let count = setupViewObject?.setupViewCount
-		
-		lblTitleUpperRight.text = "\(index!)/\(count!)"
-		lblTitleHint.text = setupViewObject?.titleHint
-		btnNext.setTitle(setupViewObject?.doneButtonText, for: .normal)
 	}
 	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	// MARK: Helper Functions
+	func displayErrorMessage(message : String) {
+		self.lblErrorLabel.text = message
+		self.lblErrorLabel.isHidden = false
 	}
 }
 
