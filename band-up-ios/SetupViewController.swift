@@ -79,10 +79,6 @@ class SetupViewController: UIViewController {
 		self.lblErrorLabel.isHidden = false
 	}
 	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-	}
-	
 	@IBAction func onClickDone(_ sender: Any) {
 		var idArr = [String]()
 		for item in setupItemArray {
@@ -90,10 +86,17 @@ class SetupViewController: UIViewController {
 				idArr.append(item.id)
 			}
 		}
-		NSLog(idArr.description)
+		
 		if (idArr.count == 0) {
 			NSLog("You need to select atleast one!")
 		} else {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = true
+			self.setupViewObject?.apiResource.request(.post, json: idArr).onSuccess({ (response) in
+				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			}).onFailure({ (error) in
+				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			})
+			
 			if (setupViewObject?.setupViewCount != setupViewObject?.setupViewIndex) {
 				// Setup has not been finished. Continue
 				let setupObject = SetupViewObject(setupResource: bandUpAPI.genres)
