@@ -111,38 +111,40 @@ class MainScreenViewController: UIViewController {
 		
 	}
 	
-	public func updateView(row: Int) {
-
+	public func updateView(row: String) {
+		
 		switch row {
-		case 0:
+		case "nav_near_me":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: userItemViewController)
 			currentViewController = userItemViewController
 			self.title = "Musicians Near You"
 			break
-		case 1:
+		case "nav_my_profile":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: profileViewController)
 			currentViewController = profileViewController
 			self.title = "My Profile"
 			break
-		case 2:
+		case "nav_matches":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: matchesViewController)
 			currentViewController = matchesViewController
 			self.title = "Matches"
 			break
-		case 3:
+		case "nav_settings":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: settingsViewController)
 			currentViewController = settingsViewController
 			self.title = "Settings"
 			break
-		case 4:
+		case "nav_upcoming":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: upcomingViewController)
 			currentViewController = upcomingViewController
 			self.title = "Coming Soon"
+			break
+		case "nav_log_out":
 			break
 		default:
 			break

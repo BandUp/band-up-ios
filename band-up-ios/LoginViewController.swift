@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KYDrawerController
 
 class LoginViewController: UIViewController {
 	@IBOutlet weak var btnLogin: UIButton!
@@ -18,15 +19,69 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var btnLoginGoogle: UIView!
 	
 	@IBAction func onClickLogin(_ sender: Any) {
+		// Display the network activity indicator in the status bar.
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		// Disable the button while making the request
+		// so that no more than one request can be made
+		btnLogin.isEnabled = false;
 		
-		let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-		myVC.setupViewObject.doneButtonText = "Next"
-		myVC.setupViewObject.titleUpperLeft = "Let's get started"
-		myVC.setupViewObject.setupViewIndex = 1
-		myVC.setupViewObject.setupViewCount = 2
-		myVC.setupViewObject.titleHint = "What instruments do you play?"
-		myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/instruments"
-		navigationController?.pushViewController(myVC, animated: true)
+		// Make the actual request using the Siesta Resource.
+		bandUpAPI.login.request(.post, json: ["username":txtEmail.text, "password":txtPassword.text])
+			.onSuccess { (data) in
+				// Hide the network activity indicator in the status bar.
+				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+				self.btnLogin.isEnabled = true;
+
+				let hasFinishedSetup = data.jsonDict["hasFinishedSetup"] as? Bool
+				
+				// Check if the boolean actually was in the response.
+				if (hasFinishedSetup != nil) {
+					// If it is in the response,
+					// unwrap it and check.
+					if (hasFinishedSetup ?? false)! {
+						self.displayMainScreenView()
+					} else {
+						self.displaySetupView()
+					}
+				} else {
+					self.displaySetupView()
+				}
+
+			}.onFailure { (error) in
+				// Hide the network activity indicator in the status bar.
+				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+				self.btnLogin.isEnabled = true;
+				if (error.httpStatusCode == 401) {
+					print("Wrong email or password")
+				} else {
+					print(error.httpStatusCode ?? 0)
+				}
+		}
+	}
+	
+	func displaySetupView() {
+		let myVC = self.storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+		
+		myVC.setupViewObject = prepareSetupObject()
+		self.navigationController?.pushViewController(myVC, animated: true)
+	}
+	
+	func displayMainScreenView() {
+		let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+		let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
+		self.present(mainViewController, animated: true, completion: nil)
+	}
+	
+	func prepareSetupObject() -> SetupViewObject {
+		let setupObject = SetupViewObject(setupResource: bandUpAPI.instruments)
+		
+		setupObject.doneButtonText = "Next"
+		setupObject.titleUpperLeft = "Let's get started"
+		setupObject.setupViewIndex = 1
+		setupObject.setupViewCount = 2
+		setupObject.titleHint      = "What instruments do you play?"
+		
+		return setupObject
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

@@ -7,18 +7,28 @@
 //
 
 import UIKit
+import Siesta
 
 class UserItemViewController: UIViewController {
-	
+
 	@IBOutlet weak var btnLike: UIButton!
 	
 	@IBOutlet weak var btnDetails: UIButton!
+	
+	@IBOutlet weak var lblUsername: UILabel!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		btnLike.layer.cornerRadius = 15;
 		btnDetails.layer.cornerRadius = 15;
+		
 
+		bandUpAPI.nearby.addObserver(owner: self) {
+			[weak self] resource, event in
+			self?.lblUsername.text = resource.jsonDict["username"] as? String
+		}
+		
+		bandUpAPI.nearby.loadIfNeeded()
 	}
 
 	override func didReceiveMemoryWarning() {

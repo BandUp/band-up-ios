@@ -217,6 +217,10 @@
         <scene sceneID="DLA-dc-hxc">
             <objects>
                 <viewController storyboardIdentifier="UserListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K4P-jd-hm6" customClass="UserItemViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7bz-B3-iDy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Phj-Yi-vz7"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xsc-aL-jMz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,11 +344,12 @@
                     <connections>
                         <outlet property="btnDetails" destination="Qo3-vP-09U" id="aHB-yf-SVQ"/>
                         <outlet property="btnLike" destination="da9-wJ-olW" id="en6-Qf-lPd"/>
+                        <outlet property="lblUsername" destination="J2K-jD-HIh" id="Ya2-ah-K5L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfC-4b-4K3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="340"/>
+            <point key="canvasLocation" x="1617" y="340"/>
         </scene>
         <!--Matches View Controller-->
         <scene sceneID="RQm-QQ-OLO">

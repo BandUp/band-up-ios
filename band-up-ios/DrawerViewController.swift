@@ -10,13 +10,14 @@ import UIKit
 import KYDrawerController
 
 class DrawerViewController: UIViewController {
+	
 	let listItems = [
-		ListItem(image: "near-me-icon", name: "Near Me"),
-		ListItem(image: "account",      name: "My Profile"),
-		ListItem(image: "link",         name: "Matches/Chat"),
-		ListItem(image: "settings",     name: "Settings"),
-		ListItem(image: "arrow-right",  name: "Coming Soon"),
-		ListItem(image: "logout",       name: "Log Out")
+		ListItem(id: "nav_near_me",    name: "Near Me"),
+		ListItem(id: "nav_my_profile", name: "My Profile"),
+		ListItem(id: "nav_matches",    name: "Matches/Chat"),
+		ListItem(id: "nav_settings",   name: "Settings"),
+		ListItem(id: "nav_upcoming",   name: "Coming Soon"),
+		ListItem(id: "nav_log_out",    name: "Log Out")
 	]
 	
 	let ITEM_IMAGE_TAG = 1
@@ -24,6 +25,8 @@ class DrawerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -49,17 +52,17 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		let drawer = self.parent as! KYDrawerController
 		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
-		mainController.updateView(row: indexPath.row)
+		mainController.updateView(row: listItems[indexPath.row].id)
 		drawer.setDrawerState(.closed, animated: true)
 	}
 }
 
 class ListItem {
-	init(image : String, name: String) {
+	init(id : String, name: String) {
 		self.name = name
-		self.image = image
+		self.id = id
 	}
 	
 	var name : String = ""
-	var image : String = ""
+	var id : String = ""
 }

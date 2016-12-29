@@ -10,9 +10,20 @@ import Foundation
 import Siesta
 
 class BandUpAPI: Service {
-	private let service = Service(baseURL: "https://band-up-server.herokuapp.com")
+	init() {
+		// http://192.168.1.5:3000
+		super.init(baseURL: "http://192.168.1.5:3000")
+	}
 	
-	var nearme: Resource { return resource("/near-me") }
+	var login:       Resource { return resource("/login-local") }
+	var instruments: Resource { return resource("/instruments") }
+	var genres:      Resource { return resource("/genres") }
+	var isLoggedIn:  Resource { return resource("/isLoggedIn") }
 	
-	let bandUpAPI = BandUpAPI()
+	var nearby:      Resource { return resource("/nearby-users") }
+	
+	
+	
 }
+
+let bandUpAPI = BandUpAPI()

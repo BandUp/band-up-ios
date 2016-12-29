@@ -8,6 +8,7 @@
 
 import UIKit
 import KYDrawerController
+import Siesta
 
 class SetupViewController: UIViewController {
 	
@@ -19,14 +20,21 @@ class SetupViewController: UIViewController {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var btnNext: UIButton!
 	
-	var setupViewObject = SetupViewObject()
+	var setupViewObject: SetupViewObject? = nil
 	
 	
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
 	
 	override func viewWillAppear(_ animated: Bool) {
-		self.navigationController?.setNavigationBarHidden(true, animated: animated)
+		self.navigationController?.setNavigationBarHidden(true, animated: false)
+		
+		self.setupViewObject?.apiResource.loadIfNeeded()?.onSuccess({ (success) in
+			print(success)
+		}).onFailure({ (error) in
+			print(error)
+		})
+		
 		super.viewWillAppear(animated)
 	}
 	
@@ -45,15 +53,18 @@ class SetupViewController: UIViewController {
 		if (idArr.count == 0) {
 			NSLog("You need to select atleast one!")
 		} else {
-			if (setupViewObject.setupViewCount != setupViewObject.setupViewIndex) {
+			if (setupViewObject?.setupViewCount != setupViewObject?.setupViewIndex) {
 				// Setup has not been finished. Continue
+				let setupObject = SetupViewObject(setupResource: bandUpAPI.genres)
+
 				let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-				myVC.setupViewObject.doneButtonText = "Finish"
-				myVC.setupViewObject.titleUpperLeft = "Let's get started"
-				myVC.setupViewObject.setupViewIndex = 2
-				myVC.setupViewObject.setupViewCount = 2
-				myVC.setupViewObject.titleHint = "What is your taste in music?"
-				myVC.setupViewObject.apiURL = "https://band-up-server.herokuapp.com/genres"
+				setupObject.doneButtonText = "Finish"
+				setupObject.titleUpperLeft = "Let's get started"
+				setupObject.setupViewIndex = 2
+				setupObject.setupViewCount = 2
+				setupObject.titleHint = "What is your taste in music?"
+				myVC.setupViewObject = setupObject
+				
 				navigationController?.pushViewController(myVC, animated: true)
 			} else {
 				let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
@@ -70,11 +81,14 @@ class SetupViewController: UIViewController {
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		// Set the text of the labels and buttons
-		lblTitleUpperLeft.text = setupViewObject.titleUpperLeft
+		lblTitleUpperLeft.text = setupViewObject?.titleUpperLeft
 		
-		lblTitleUpperRight.text = String(setupViewObject.setupViewIndex)+"/"+String(setupViewObject.setupViewCount)
-		lblTitleHint.text = setupViewObject.titleHint
-		btnNext.setTitle(setupViewObject.doneButtonText, for: .normal)
+		let index = setupViewObject?.setupViewIndex
+		let count = setupViewObject?.setupViewCount
+		
+		lblTitleUpperRight.text = "\(index!)/\(count!)"
+		lblTitleHint.text = setupViewObject?.titleHint
+		btnNext.setTitle(setupViewObject?.doneButtonText, for: .normal)
 		
 		stringArray = ["Vocals",      "Drums",
 		               "Guitar",      "Percussion",
@@ -172,7 +186,11 @@ class SetupItem {
 }
 
 class SetupViewObject {
-	var apiURL         : String = ""
+	init(setupResource: Resource) {
+		apiResource = setupResource
+	}
+	
+	var apiResource    : Resource
 	var titleUpperLeft : String = ""
 	var titleHint      : String = ""
 	var doneButtonText : String = ""
