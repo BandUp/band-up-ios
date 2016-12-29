@@ -33,6 +33,48 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Chat with Arngrímur</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string></string>
+			<key>UIApplicationShortcutItemType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>key1</key>
+				<string>Val1</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Matches</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string></string>
+			<key>UIApplicationShortcutItemType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>key1</key>
+				<string>Val1</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>My Profile</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string></string>
+			<key>UIApplicationShortcutItemType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>key1</key>
+				<string>Val1</string>
+			</dict>
+		</dict>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Setup</string>
 	<key>UIRequiredDeviceCapabilities</key>
