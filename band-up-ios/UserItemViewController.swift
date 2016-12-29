@@ -27,8 +27,9 @@ class UserItemViewController: UIViewController {
 		super.viewDidLoad()
 		btnLike.layer.cornerRadius = 15;
 		btnDetails.layer.cornerRadius = 15;
-		
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		bandUpAPI.nearby.loadIfNeeded()?.onSuccess({ (response) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			// Go through all of the setup items in the response
 			let itemDict = response.jsonArray[0] as? NSDictionary
 			print(response.jsonArray[0])
@@ -69,6 +70,7 @@ class UserItemViewController: UIViewController {
 			//self?.lblUsername.text = user["username"] as? String
 
 		}).onFailure({ (error) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			print("ERROR")
 			print(error)
 		})
@@ -80,8 +82,10 @@ class UserItemViewController: UIViewController {
 	}
 	
 	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		URLSession.shared.dataTask(with: url) {
 			(data, response, error) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			completion(data, response, error)
 			}.resume()
 	}

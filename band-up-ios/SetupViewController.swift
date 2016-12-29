@@ -15,12 +15,14 @@ class SetupViewController: UIViewController {
 	var ITEM_NAME_TAG = 1;
 
 	@IBOutlet weak var lblTitleUpperLeft: UILabel!
+	@IBOutlet weak var lblErrorLabel: UILabel!
 	@IBOutlet weak var lblTitleUpperRight: UILabel!
 	@IBOutlet weak var lblTitleHint: UILabel!
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var btnNext: UIButton!
 	
 	var setupViewObject: SetupViewObject? = nil
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	
 	var stringArray = [String]()
@@ -28,9 +30,10 @@ class SetupViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
-		
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		self.setupViewObject?.apiResource.loadIfNeeded()?.onSuccess({ (response) in
-			
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			self.activityIndicator.stopAnimating()
 			// Go through all of the setup items in the response
 			for item in response.jsonArray {
 				let itemDict = item as? NSDictionary
@@ -58,11 +61,22 @@ class SetupViewController: UIViewController {
 			// And finally display the data
 			// in the collection view
 			self.collectionView.reloadData()
+			if (self.setupItemArray.count == 0) {
+				self.displayErrorMessage(message: "Could not fetch information")
+			}
 		}).onFailure({ (error) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			self.activityIndicator.stopAnimating()
+			self.displayErrorMessage(message: "Could not fetch information")
 			print(error)
 		})
 		
 		super.viewWillAppear(animated)
+	}
+	
+	func displayErrorMessage(message : String) {
+		self.lblErrorLabel.text = message
+		self.lblErrorLabel.isHidden = false
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
