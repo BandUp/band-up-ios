@@ -171,7 +171,9 @@
             <objects>
                 <navigationController storyboardIdentifier="MainNavigation" id="aAX-U0-odr" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="1pD-RP-QZP">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1pD-RP-QZP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -182,7 +184,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXo-53-smH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationItem title="Title" id="291-CY-K3E"/>
             </objects>
-            <point key="canvasLocation" x="-596" y="340"/>
+            <point key="canvasLocation" x="-597" y="399"/>
         </scene>
         <!--Musicians Near You-->
         <scene sceneID="CmQ-7g-76Z">
@@ -198,7 +200,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Musicians Near You" id="iT7-FL-RWn">
-                        <barButtonItem key="leftBarButtonItem" image="menu-alt-512" style="plain" id="Tj1-Yb-29e">
+                        <barButtonItem key="leftBarButtonItem" image="menu-alt-512" style="done" id="Tj1-Yb-29e">
                             <color key="tintColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapOpenDrawer:" destination="gdX-Nl-c1F" id="x8w-YR-phw"/>
