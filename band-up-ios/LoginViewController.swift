@@ -46,6 +46,10 @@ class LoginViewController: UIViewController {
 				} else {
 					self.displaySetupView()
 				}
+				let alert = UIAlertController()
+				alert.title = "Success"
+				alert.message = data.charset
+				self.present(alert, animated: true);
 
 			}.onFailure { (error) in
 				// Hide the network activity indicator in the status bar.
@@ -56,6 +60,10 @@ class LoginViewController: UIViewController {
 				} else {
 					print(error.httpStatusCode ?? 0)
 				}
+				let alert = UIAlertController()
+				alert.title = "Error"
+				alert.message = error.userMessage
+				self.present(alert, animated: true);
 		}
 	}
 	
