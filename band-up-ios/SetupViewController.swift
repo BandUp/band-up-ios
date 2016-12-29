@@ -29,8 +29,35 @@ class SetupViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		
-		self.setupViewObject?.apiResource.loadIfNeeded()?.onSuccess({ (success) in
-			print(success)
+		self.setupViewObject?.apiResource.loadIfNeeded()?.onSuccess({ (response) in
+			
+			// Go through all of the setup items in the response
+			for item in response.jsonArray {
+				let itemDict = item as? NSDictionary
+				
+				// If it isn't a dictionary, then skip it.
+				// Something is broken.
+				if (itemDict == nil) {
+					continue
+				}
+				
+				// Now we are sure we have a dictionary
+				// Unwrap it and get the strings.
+				let _id   = itemDict!["_id"] as? String
+				let _name = itemDict!["name"] as? String
+				
+				// If we don't find data, don't add it.
+				if (_id == nil || _name == nil) {
+					continue
+				}
+				// All is well.
+				// Create a new object and unwrap the data into it.
+				let setupItem = SetupItem(id: _id!, name: _name!)
+				self.setupItemArray.append(setupItem)
+			}
+			// And finally display the data
+			// in the collection view
+			self.collectionView.reloadData()
 		}).onFailure({ (error) in
 			print(error)
 		})
@@ -89,20 +116,6 @@ class SetupViewController: UIViewController {
 		lblTitleUpperRight.text = "\(index!)/\(count!)"
 		lblTitleHint.text = setupViewObject?.titleHint
 		btnNext.setTitle(setupViewObject?.doneButtonText, for: .normal)
-		
-		stringArray = ["Vocals",      "Drums",
-		               "Guitar",      "Percussion",
-		               "Bass",        "Saxophone",
-		               "Strings",     "Trumpet",
-		               "Electronics", "Piano",
-		               "Keyboard",    "Other"]
-		
-		for item in stringArray {
-			let setupItem = SetupItem(id: item, name: item)
-			setupItemArray.append(setupItem)
-		}
-		
-
 	}
 	
 	override func didReceiveMemoryWarning() {

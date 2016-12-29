@@ -344,6 +344,12 @@
                     <connections>
                         <outlet property="btnDetails" destination="Qo3-vP-09U" id="aHB-yf-SVQ"/>
                         <outlet property="btnLike" destination="da9-wJ-olW" id="en6-Qf-lPd"/>
+                        <outlet property="imgUserImage" destination="haQ-3Q-LOO" id="TKX-Yp-DPk"/>
+                        <outlet property="lblAge" destination="huy-Ev-64I" id="dOW-M1-VJM"/>
+                        <outlet property="lblDistance" destination="HTP-Xf-MTM" id="crY-ON-73T"/>
+                        <outlet property="lblFavouriteInstrument" destination="hxv-hV-BeK" id="9mB-aR-dnE"/>
+                        <outlet property="lblGenre" destination="aDU-Ce-ISi" id="C8R-aG-4LW"/>
+                        <outlet property="lblPercentage" destination="QOR-5u-6hK" id="Wbo-SQ-8ZV"/>
                         <outlet property="lblUsername" destination="J2K-jD-HIh" id="Ya2-ah-K5L"/>
                     </connections>
                 </viewController>
