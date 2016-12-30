@@ -105,11 +105,11 @@ class LoginViewController: UIViewController {
 		let color = UIColor (colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5);
 		
 		let attributesDictionary = [NSForegroundColorAttributeName: color]
-		
-		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 
 		txtEmail.attributedPlaceholder = NSAttributedString(string:"Email", attributes: attributesDictionary)
 		txtPassword.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributesDictionary)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 		
 	}
 	
