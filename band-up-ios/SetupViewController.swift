@@ -12,8 +12,6 @@ import Siesta
 
 class SetupViewController: UIViewController {
 	
-	
-
 	// MARK: Interface Builder Outlets
 	@IBOutlet weak var lblTitleUpperLeft: UILabel!
 	@IBOutlet weak var lblErrorLabel: UILabel!

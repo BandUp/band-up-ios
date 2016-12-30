@@ -17,12 +17,13 @@
 		F217C06A1DDFC47100EE16DF /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0691DDFC47100EE16DF /* band_up_iosUITests.swift */; };
 		F217C0781DDFC48F00EE16DF /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0771DDFC48F00EE16DF /* Setup.storyboard */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
+		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
+		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */; };
 		F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */; };
 		F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */; };
 		F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06051E0606D00039C761 /* CaviarDreams.ttf */; };
-		F2AB060D1E0615C20039C761 /* UserItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB060C1E0615C20039C761 /* UserItemViewController.swift */; };
 		F2AB060F1E0616A20039C761 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB060E1E0616A20039C761 /* ProfileViewController.swift */; };
 		F2AB06111E0616B30039C761 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06101E0616B30039C761 /* MatchesViewController.swift */; };
 		F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06121E0616C10039C761 /* SettingsViewController.swift */; };
@@ -73,12 +74,13 @@
 		F217C06B1DDFC47100EE16DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F217C0771DDFC48F00EE16DF /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
+		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
 		F2AB06051E0606D00039C761 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
-		F2AB060C1E0615C20039C761 /* UserItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemViewController.swift; sourceTree = "<group>"; };
 		F2AB060E1E0616A20039C761 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F2AB06101E0616B30039C761 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
 		F2AB06121E0616C10039C761 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -207,12 +209,13 @@
 				F2B023191E040B0800088622 /* MainScreen.storyboard */,
 				F2B023171E04000600088622 /* MainScreenViewController.swift */,
 				F2B0231B1E049BDA00088622 /* DrawerViewController.swift */,
-				F2AB060C1E0615C20039C761 /* UserItemViewController.swift */,
 				F2AB060E1E0616A20039C761 /* ProfileViewController.swift */,
 				F2AB06101E0616B30039C761 /* MatchesViewController.swift */,
 				F2AB06121E0616C10039C761 /* SettingsViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
 				F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */,
+				F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */,
+				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
 			);
 			name = "Main Screen";
 			sourceTree = "<group>";
@@ -427,9 +430,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */,
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
+				F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
-				F2AB060D1E0615C20039C761 /* UserItemViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
@@ -493,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -543,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

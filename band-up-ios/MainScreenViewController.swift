@@ -45,11 +45,11 @@ class MainScreenViewController: UIViewController {
 		return viewController
 	}()
 	
-	public lazy var userItemViewController: UserItemViewController = {
+	public lazy var userItemViewController: UserListViewController = {
 		
 		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
 		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserListViewController") as! UserItemViewController
+		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserListViewController") as! UserListViewController
 		
 		return viewController
 	}()
