@@ -50,24 +50,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSk-Q8-b27">
-                                <rect key="frame" x="20" y="30" width="392" height="182"/>
+                                <rect key="frame" x="20" y="30" width="392" height="220"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3TJ-is-cJv">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3TJ-is-cJv">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJR-SV-5Lx">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iJR-SV-5Lx">
                                         <rect key="frame" x="0.0" y="38" width="392" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dA1-y1-JVk">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dA1-y1-JVk">
                                         <rect key="frame" x="0.0" y="76" width="392" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-eC-VPB">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-eC-VPB">
                                         <rect key="frame" x="0.0" y="114" width="392" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
@@ -77,17 +77,26 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgM-5D-gFg">
+                                        <rect key="frame" x="0.0" y="190" width="392" height="30"/>
+                                        <state key="normal" title="Register"/>
+                                        <connections>
+                                            <action selector="didTapRegister:" destination="WIJ-K1-kI3" eventType="touchUpInside" id="yZo-uR-aE4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="uqP-fZ-ISt" firstAttribute="leading" secondItem="wSk-Q8-b27" secondAttribute="leading" id="4f1-HY-JtR"/>
                                     <constraint firstItem="iJR-SV-5Lx" firstAttribute="leading" secondItem="wSk-Q8-b27" secondAttribute="leading" id="CpW-tj-ieR"/>
                                     <constraint firstAttribute="trailing" secondItem="dA1-y1-JVk" secondAttribute="trailing" id="Ctl-8V-mu2"/>
                                     <constraint firstItem="vTt-eC-VPB" firstAttribute="leading" secondItem="wSk-Q8-b27" secondAttribute="leading" id="IxJ-KT-bcG"/>
+                                    <constraint firstAttribute="trailing" secondItem="PgM-5D-gFg" secondAttribute="trailing" id="JYh-qD-7Vb"/>
                                     <constraint firstAttribute="trailing" secondItem="uqP-fZ-ISt" secondAttribute="trailing" id="Umw-fG-co9"/>
                                     <constraint firstItem="3TJ-is-cJv" firstAttribute="leading" secondItem="wSk-Q8-b27" secondAttribute="leading" id="ac5-Yc-7Wg"/>
                                     <constraint firstItem="dA1-y1-JVk" firstAttribute="leading" secondItem="wSk-Q8-b27" secondAttribute="leading" id="eVS-St-U8q"/>
                                     <constraint firstAttribute="trailing" secondItem="vTt-eC-VPB" secondAttribute="trailing" id="gZU-qP-wAU"/>
                                     <constraint firstAttribute="trailing" secondItem="iJR-SV-5Lx" secondAttribute="trailing" id="iuo-x5-g63"/>
+                                    <constraint firstItem="PgM-5D-gFg" firstAttribute="leading" secondItem="wSk-Q8-b27" secondAttribute="leading" id="kBe-go-Ctw"/>
                                     <constraint firstAttribute="trailing" secondItem="3TJ-is-cJv" secondAttribute="trailing" id="oc4-XB-ZCD"/>
                                 </constraints>
                             </stackView>
@@ -102,6 +111,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="432" height="768"/>
+                    <connections>
+                        <outlet property="btnRegister" destination="PgM-5D-gFg" id="Tty-hk-VYd"/>
+                        <outlet property="txtDateOfBirth" destination="uqP-fZ-ISt" id="Tak-QW-INz"/>
+                        <outlet property="txtEmail" destination="3TJ-is-cJv" id="hZt-0n-ctV"/>
+                        <outlet property="txtName" destination="iJR-SV-5Lx" id="nQF-RU-x0p"/>
+                        <outlet property="txtPassword1" destination="dA1-y1-JVk" id="Zd6-0c-myh"/>
+                        <outlet property="txtPassword2" destination="vTt-eC-VPB" id="WVd-zH-aqV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5m-W9-ktq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

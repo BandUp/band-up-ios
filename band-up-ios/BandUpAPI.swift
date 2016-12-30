@@ -15,6 +15,7 @@ class BandUpAPI: Service {
 		super.init(baseURL: "https://band-up-server.herokuapp.com")
 	}
 	
+	var register:    Resource { return resource("/signup-local") }
 	var login:       Resource { return resource("/login-local") }
 	var instruments: Resource { return resource("/instruments") }
 	var genres:      Resource { return resource("/genres") }
