@@ -68,7 +68,7 @@ class RegisterViewController: UIViewController {
 	
 	func dateChanged(_ datePicker: UIDatePicker) {
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		dateFormatter.dateStyle = .long
 		let formattedDate = dateFormatter.string(from: datePicker.date)
 		
 		let age = getAge(datePicker.date)
