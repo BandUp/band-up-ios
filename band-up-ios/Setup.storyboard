@@ -49,7 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="432" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDQ-Pj-nsB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="LDQ-Pj-nsB">
                                 <rect key="frame" x="0.0" y="20" width="432" height="748"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wSk-Q8-b27">
@@ -914,19 +914,19 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="onE-oU-wAT">
-                                                <rect key="frame" x="12.5" y="0.0" width="295.5" height="46.5"/>
+                                                <rect key="frame" x="21.5" y="0.0" width="278" height="46.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kho-yX-uG9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="278" height="21"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Let's get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0d-u4-4gW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="134" height="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="131.5" height="21"/>
                                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="18"/>
                                                                 <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBE-T4-3qA">
-                                                                <rect key="frame" x="267" y="0.0" width="28.5" height="21"/>
+                                                                <rect key="frame" x="251.5" y="0.0" width="26.5" height="21"/>
                                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="18"/>
                                                                 <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -934,7 +934,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What instruments do you play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK9-QY-FII">
-                                                        <rect key="frame" x="0.0" y="21" width="295.5" height="25.5"/>
+                                                        <rect key="frame" x="0.0" y="23" width="278" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>

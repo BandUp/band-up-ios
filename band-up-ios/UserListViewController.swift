@@ -14,6 +14,25 @@ class UserListViewController: UIViewController {
 	@IBOutlet weak var lblError: UILabel!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
+	public lazy var userDetailsViewController: UserDetailsViewController = {
+		
+		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+		
+		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+		
+		return viewController
+	}()
+	
+	@IBAction func didClickDetails(_ sender: UIButton) {
+		userDetailsViewController.currentUser = userArray[Int(currentIndex)]
+		self.navigationController?.pushViewController(userDetailsViewController, animated: true)
+	}
+	
+	@IBAction func didClickLike(_ sender: UIButton) {
+		print("User Liked at index \(Int(currentIndex)) with id \(userArray[Int(currentIndex)].id)")
+		
+	}
+	
 	let IMG_IMAGE_TAG      = 9
 	let LBL_USERNAME_TAG   = 1
 	let LBL_INSTRUMENT_TAG = 2
@@ -26,6 +45,8 @@ class UserListViewController: UIViewController {
 	let ACT_INDICATOR_TAG  = 10
 	
 	var userArray: [User] = []
+	
+	var currentIndex : CGFloat = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -120,6 +141,10 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
+	}
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		currentIndex = self.userCollectionView.contentOffset.x / self.userCollectionView.frame.size.width
 	}
 	
 	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
