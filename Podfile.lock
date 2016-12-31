@@ -3,15 +3,18 @@ PODS:
   - Siesta (1.0.1):
     - Siesta/Core (= 1.0.1)
   - Siesta/Core (1.0.1)
+  - Siesta/UI (1.0.1):
+    - Siesta/Core
 
 DEPENDENCIES:
   - KYDrawerController
   - Siesta (>= 1.0.1)
+  - Siesta/UI (>= 1.0.1)
 
 SPEC CHECKSUMS:
   KYDrawerController: b716cfa5730dc2133a67efcfc28b3b5a2cff6101
   Siesta: c7195fc65376360c76a27ce7bb64e0f1ce099a20
 
-PODFILE CHECKSUM: 296065dcdcae526c8cced4df2093b141691a7e08
+PODFILE CHECKSUM: a5938e148dc146afbc6f909436b7728e03041a97
 
 COCOAPODS: 1.1.1

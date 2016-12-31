@@ -7,62 +7,173 @@
 //
 
 import UIKit
+import Siesta
 
 class RegisterViewController: UIViewController {
-	
-	@IBAction func textChanged(_ sender: Any) {
-		lblEmail.isHidden = txtEmail.text == ""
-		lblName.isHidden = txtName.text == ""
-		lblPassword1.isHidden = txtPassword1.text == ""
-		lblPassword2.isHidden = txtPassword2.text == ""
-		lblDateOfBirth.isHidden = txtDateOfBirth.text == ""
+	@IBAction func emailChanged(_ sender: UITextField) {
+		lblEmail.isHidden = sender.text == ""
+		lblEmailError.isHidden = true
 	}
-
-	@IBOutlet weak var lblEmail: UILabel!
-
-	@IBOutlet weak var txtEmail: UITextField!
-	@IBOutlet weak var lblName: UILabel!
-	@IBOutlet weak var lblPassword1: UILabel!
-	@IBOutlet weak var lblPassword2: UILabel!
+	@IBAction func nameChanged(_ sender: UITextField) {
+		lblName.isHidden = sender.text == ""
+		lblNameError.isHidden = true
+	}
+	@IBAction func password1Changed(_ sender: UITextField) {
+		lblPassword1.isHidden = sender.text == ""
+		lblPassword1Error.isHidden = true
+	}
+	@IBAction func password2Changed(_ sender: UITextField) {
+		lblPassword2.isHidden = sender.text == ""
+		lblPassword2Error.isHidden = true
+	}
 	
+	@IBOutlet weak var scrollView: UIScrollView!
+	
+	@IBOutlet weak var emailView:       UIView!
+	@IBOutlet weak var nameView:        UIView!
+	@IBOutlet weak var password1View:   UIView!
+	@IBOutlet weak var password2View:   UIView!
+	@IBOutlet weak var dateOfBirthView: UIView!
+	
+	@IBOutlet weak var lblEmailError:       UILabel!
+	@IBOutlet weak var lblNameError:        UILabel!
+	@IBOutlet weak var lblPassword1Error:   UILabel!
+	@IBOutlet weak var lblPassword2Error:   UILabel!
+	@IBOutlet weak var lblDateOfBirthError: UILabel!
+	
+	@IBOutlet weak var lblEmail:       UILabel!
+	@IBOutlet weak var lblName:        UILabel!
+	@IBOutlet weak var lblPassword1:   UILabel!
+	@IBOutlet weak var lblPassword2:   UILabel!
 	@IBOutlet weak var lblDateOfBirth: UILabel!
-    @IBOutlet weak var btnRegister: UIButton!
+	
+	@IBOutlet weak var txtEmail:       UITextField!
+	@IBOutlet weak var txtName:        UITextField!
+	@IBOutlet weak var txtPassword1:   UITextField!
+	@IBOutlet weak var txtPassword2:   UITextField!
 	@IBOutlet weak var txtDateOfBirth: UITextField!
-	@IBOutlet weak var txtPassword1: UITextField!
-	@IBOutlet weak var txtPassword2: UITextField!
-	@IBOutlet weak var btnPassword1: UITextField!
-	@IBOutlet weak var txtName: UITextField!
+	
+	@IBOutlet weak var btnRegister: UIButton!
+	
+	let MIN_AGE = 13
+	let MAX_AGE = 99
+	
+	@IBAction func emailEditEnded(_ sender: UITextField) {
+		if (sender.text == "") {
+			lblEmailError.text = "You must fill in your email address"
+			lblEmailError.isHidden = false
+			return
+		}
+		
+		if (validateEmail(candidate: sender.text!)) {
+			lblEmailError.isHidden = true
+		} else {
+			lblEmailError.text = "This email address is not in the correct format"
+			lblEmailError.isHidden = false
+		}
+	}
+	@IBAction func nameEditEnded(_ sender: UITextField) {
+		if (sender.text == "") {
+			lblNameError.text = "You must fill in your name"
+			lblNameError.isHidden = false
+		}
+	}
+	@IBAction func password1EditEnded(_ sender: UITextField) {
+		if (sender.text == "") {
+			lblPassword1Error.text = "You must fill in a password"
+			lblPassword1Error.isHidden = false
+		} else if ((sender.text?.characters.count)! < 6) {
+			lblPassword1Error.text = "Your password must be at least 6 characters long"
+			lblPassword1Error.isHidden = false
+		}
+		
+		
+	}
+	@IBAction func password2EditEnded(_ sender: UITextField) {
+		if (sender.text == "") {
+			lblPassword2Error.text = "You must fill in your password again"
+			lblPassword2Error.isHidden = false
+			return
+		}
+		
+		if (txtPassword1.text != txtPassword2.text) {
+			lblPassword2Error.text = "Passwords do not match"
+			lblPassword2Error.isHidden = false
+		} else {
+			lblPassword2Error.isHidden = true
+		}
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(false, animated: animated)
 		super.viewWillAppear(animated)
 	}
-	
-	@IBAction func didTapRegister(_ sender: UIButton) {
-		// Make the actual request using the Siesta Resource.
-		self.btnRegister.isEnabled = false
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-		let datePicker = self.txtDateOfBirth.inputView as! UIDatePicker
-		let dateString:String? = dateFormatter.string(from: datePicker.date)
 		
-		bandUpAPI.register.request(.post, json: [
-			"username":    txtName.text,
-			"password":    txtPassword1.text,
-			"email":       txtEmail.text,
-			"dateOfBirth": dateString
-			]
-			).onSuccess { (data) in
-				// Hide the network activity indicator in the status bar.
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				self.navigationController?.popViewController(animated: true)
-				
-				self.btnRegister.isEnabled = true
-			}.onFailure { (error) in
-				// Hide the network activity indicator in the status bar.
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				self.btnRegister.isEnabled = true;
+	@IBAction func didTapRegister(_ sender: UIButton) {
+		
+		if (txtEmail.text == "") {
+			lblEmailError.text = "You must fill in your email address"
+			lblEmailError.isHidden = false
+			txtEmail.becomeFirstResponder()
+		} else if (txtName.text == "") {
+			lblNameError.text = "You must fill in your name"
+			lblNameError.isHidden = false
+			txtName.becomeFirstResponder()
+		} else if (txtPassword1.text == "") {
+			lblPassword1Error.text = "You must fill in a password"
+			lblPassword1Error.isHidden = false
+			txtPassword1.becomeFirstResponder()
+		} else if (txtPassword2.text == "") {
+			lblPassword2Error.text = "You must fill in your password again"
+			lblPassword2Error.isHidden = false
+			txtPassword2.becomeFirstResponder()
+		} else if (txtPassword1.text == "" && txtPassword2.text == "") {
+			lblPassword2Error.text = "Please fill in your password again"
+			lblPassword2Error.isHidden = false
+			txtPassword2.becomeFirstResponder()
+		} else if (txtPassword1.text != txtPassword2.text) {
+			lblPassword1Error.text = "Passwords don't match!"
+			lblPassword1Error.isHidden = false
+			txtPassword1.becomeFirstResponder()
+		} else if (txtDateOfBirth.text == "") {
+			lblDateOfBirthError.text = "You must fill in your date of birth"
+			lblDateOfBirthError.isHidden = false
+			txtDateOfBirth.becomeFirstResponder()
+		} else if (!formIsClean()) {
+			print("Please fix the remaining errors")
+		} else {
+			self.btnRegister.isEnabled = false
+			let dateFormatter = DateFormatter()
+			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+			let datePicker = self.txtDateOfBirth.inputView as! UIDatePicker
+			let dateString:String? = dateFormatter.string(from: datePicker.date)
+			// Make the actual request using the Siesta Resource.
+			bandUpAPI.register.request(.post, json: [
+				"username":    txtName.text,
+				"password":    txtPassword1.text,
+				"email":       txtEmail.text,
+				"dateOfBirth": dateString
+				]
+				).onSuccess { (data) in
+					// Hide the network activity indicator in the status bar.
+					UIApplication.shared.isNetworkActivityIndicatorVisible = false
+					_ = self.navigationController?.popViewController(animated: true)
+					
+					self.btnRegister.isEnabled = true
+				}.onFailure { (error) in
+					// Hide the network activity indicator in the status bar.
+					UIApplication.shared.isNetworkActivityIndicatorVisible = false
+					self.btnRegister.isEnabled = true;
+			}
 		}
+	}
+	
+	func formIsClean() -> Bool {
+		return  lblEmailError.isHidden &&
+				lblNameError.isHidden &&
+				lblPassword1Error.isHidden &&
+				lblPassword2Error.isHidden &&
+				lblDateOfBirthError.isHidden
 	}
 	
 	override func viewDidLoad() {
@@ -72,14 +183,13 @@ class RegisterViewController: UIViewController {
 		datePicker.datePickerMode = .date
 		self.txtDateOfBirth.inputView = datePicker
 		
-		
-		datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -13, to: Date())
-		datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -99, to: Date())
+		datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -(MIN_AGE), to: Date())
+		datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -(MAX_AGE), to: Date())
 		datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: datePicker.minimumDate!)
 		
 		datePicker.addTarget(self, action: #selector(dateChanged), for: UIControlEvents.valueChanged)
 		
-		let color = UIColor (colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5);
+		let color = UIColor (colorLiteralRed: 1.0, green: 211/255.0, blue: 2/255.0, alpha: 0.5);
 		
 		let attributesDictionary = [NSForegroundColorAttributeName: color]
 		
@@ -88,7 +198,33 @@ class RegisterViewController: UIViewController {
 		txtPassword1.attributedPlaceholder = NSAttributedString(string:"Password", attributes: attributesDictionary)
 		txtPassword2.attributedPlaceholder = NSAttributedString(string:"Confirm Password", attributes: attributesDictionary)
 		txtDateOfBirth.attributedPlaceholder = NSAttributedString(string:"Date of Birth", attributes: attributesDictionary)
+				
+		let notificationCenter = NotificationCenter.default
+		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+
 		
+	}
+
+	
+	func validateEmail(candidate: String) -> Bool {
+		let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+		return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
+	}
+	
+	func adjustForKeyboard(notification: Notification) {
+		let userInfo = notification.userInfo!
+		
+		let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+		
+		if notification.name == Notification.Name.UIKeyboardWillHide {
+			scrollView.contentInset = UIEdgeInsets.zero
+		} else {
+			scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+		}
+		
+		scrollView.scrollIndicatorInsets = scrollView.contentInset
 	}
 	
 	func dateChanged(_ datePicker: UIDatePicker) {
@@ -99,7 +235,7 @@ class RegisterViewController: UIViewController {
 		let age = getAge(datePicker.date)
 		self.txtDateOfBirth.text = String(format:"\(formattedDate) (\(age))")
 		lblDateOfBirth.isHidden = txtDateOfBirth.text == ""
-
+		lblDateOfBirthError.isHidden = true
 	}
 	
 	override func didReceiveMemoryWarning() {
