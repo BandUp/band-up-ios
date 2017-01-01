@@ -22,6 +22,8 @@ class MainScreenViewController: UIViewController {
 		self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : Any]
 		currentViewController = userItemViewController
 		add(asChildViewController: currentViewController)
+		
+		self.navigationController?.navigationBar.tintColor = bandUpColor
 	}
 	
 	
