@@ -42,7 +42,9 @@ class UserDetailsViewController: UIViewController {
 			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage, activityIndicator: actIndicator)
 		} else {
+			actIndicator.stopAnimating()
 			imgUserImage.image = UIImage(named: "defaultmynd")
+			
 		}
 		
 		lblUsername.text = currentUser.username
@@ -61,15 +63,24 @@ class UserDetailsViewController: UIViewController {
 		
 		var instrumentString = ""
 		for instrument in currentUser.instruments {
-			 instrumentString += "\(instrument)\n"
+			 instrumentString += instrument
+			if currentUser.instruments.index(of: instrument) !=
+				currentUser.instruments.count-1 {
+				instrumentString += "\n"
+			}
 		}
 		lblInstrumentList.numberOfLines = currentUser.instruments.count
 		lblInstrumentList.text = instrumentString
 		
 		var genreString = ""
 		for genre in currentUser.genres {
-			genreString += "\(genre)\n"
+			genreString += genre
+			if currentUser.genres.index(of: genre) !=
+				currentUser.genres.count-1 {
+				genreString += "\n"
+			}
 		}
+		
 		lblGenresList.numberOfLines = currentUser.genres.count
 		lblGenresList.text = genreString
 	}

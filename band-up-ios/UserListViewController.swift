@@ -33,15 +33,15 @@ class UserListViewController: UIViewController {
 		
 	}
 	
-	let IMG_IMAGE_TAG      = 9
 	let LBL_USERNAME_TAG   = 1
 	let LBL_INSTRUMENT_TAG = 2
-	let LBL_DISTANCE_TAG   = 3
-	let LBL_PERCENTAGE_TAG = 4
-	let LBL_AGE_TAG        = 5
-	let LBL_GENRE_TAG      = 6
+	let LBL_AGE_TAG        = 3
+	let LBL_GENRE_TAG      = 4
+	let LBL_DISTANCE_TAG   = 5
+	let LBL_PERCENTAGE_TAG = 6
 	let BTN_DETAILS_TAG    = 7
 	let BTN_LIKE_TAG       = 8
+	let IMG_IMAGE_TAG      = 9
 	let ACT_INDICATOR_TAG  = 10
 	
 	var userArray: [User] = []

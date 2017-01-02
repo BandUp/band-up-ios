@@ -10,8 +10,18 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 	
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var imgProfileImage: UIImageView!
+	@IBOutlet weak var lblUsername: UILabel!
+	@IBOutlet weak var lblAge: UILabel!
+	@IBOutlet weak var lblFavInstrument: UILabel!
+	@IBOutlet weak var lblInstrumentList: UILabel!
+	@IBOutlet weak var lblGenreList: UILabel!
+	@IBOutlet weak var lblAboutMe: UILabel!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		activityIndicator.stopAnimating()
 	}
 	
 	override func didReceiveMemoryWarning() {
