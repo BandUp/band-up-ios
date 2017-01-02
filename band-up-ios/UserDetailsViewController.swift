@@ -25,14 +25,12 @@ class UserDetailsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:.plain, target:nil, action:nil)
 		populateUser()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:.plain, target:nil, action:nil)
-
+		self.title = "Musician Details"
 		populateUser()
 	}
 	

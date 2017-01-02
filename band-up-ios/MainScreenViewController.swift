@@ -15,6 +15,7 @@ class MainScreenViewController: UIViewController {
 	
 	var currentViewController = UIViewController()
 	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let bandUpColor = UIColor (colorLiteralRed: 255/255, green: 211/255, blue: 2/255, alpha: 1);

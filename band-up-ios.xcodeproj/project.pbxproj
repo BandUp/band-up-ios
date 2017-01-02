@@ -20,6 +20,7 @@
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
+		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */; };
 		F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */; };
 		F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */; };
@@ -77,6 +78,7 @@
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
+		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */,
 				F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */,
 				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
+				F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */,
 			);
 			name = "Main Screen";
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */,
 				F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */,
 				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,
+				F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

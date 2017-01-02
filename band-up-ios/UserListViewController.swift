@@ -50,7 +50,7 @@ class UserListViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		registerForPreviewing(with: self, sourceView: userCollectionView)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
 		bandUpAPI.nearby.loadIfNeeded()?.onSuccess({ (response) in
@@ -165,5 +165,43 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 				imageView.image = UIImage(data: data)
 			}
 		}
+	}
+}
+
+extension UserListViewController: UIViewControllerPreviewingDelegate {
+	
+	// If you return nil, a preview presentation will not be performed
+	public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		userDetailsViewController.currentUser = userArray[Int(currentIndex)]
+		
+		
+		let indexPath: IndexPath = IndexPath(item: Int(currentIndex), section: 0)
+
+		let itemCell = userCollectionView.cellForItem(at: indexPath) as! UserListItemViewCell
+		
+		let imageViewRect = itemCell.imgUserImage.frame
+		print(imageViewRect)
+		print(itemCell.lblUsername.text!)
+//		if (!imageViewRect.contains(location)) {
+//			return nil
+//		}
+		guard let layoutAttributes = userCollectionView!.collectionViewLayout.layoutAttributesForElements(in: userCollectionView!.bounds) else { return nil }
+
+		for attributes in layoutAttributes {
+			let point = userCollectionView!.convert(location, from: userCollectionView!.superview)
+			
+			if attributes.representedElementKind == nil && attributes.frame.contains(point) {
+				if #available(iOS 9.0, *) {
+					previewingContext.sourceRect = userCollectionView!.convert(attributes.frame, to: userCollectionView!.superview)
+				}
+				break
+			}
+		}
+		return userDetailsViewController
+		
+	}
+	
+	public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		show(userDetailsViewController, sender: self)
 	}
 }
