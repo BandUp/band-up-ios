@@ -180,23 +180,18 @@ extension UserListViewController: UIViewControllerPreviewingDelegate {
 		let itemCell = userCollectionView.cellForItem(at: indexPath) as! UserListItemViewCell
 		
 		let imageViewRect = itemCell.imgUserImage.frame
-		print(imageViewRect)
-		print(itemCell.lblUsername.text!)
-//		if (!imageViewRect.contains(location)) {
-//			return nil
-//		}
-		guard let layoutAttributes = userCollectionView!.collectionViewLayout.layoutAttributesForElements(in: userCollectionView!.bounds) else { return nil }
-
-		for attributes in layoutAttributes {
-			let point = userCollectionView!.convert(location, from: userCollectionView!.superview)
-			
-			if attributes.representedElementKind == nil && attributes.frame.contains(point) {
-				if #available(iOS 9.0, *) {
-					previewingContext.sourceRect = userCollectionView!.convert(attributes.frame, to: userCollectionView!.superview)
-				}
-				break
-			}
+		let newX = location.x - itemCell.imgUserImage.frame.width * currentIndex
+		
+		let newLocation = CGPoint(x: newX, y: location.y)
+		
+		if (!imageViewRect.contains(newLocation)) {
+			return nil
 		}
+		
+		let sourceRect = previewingContext.sourceView.convert(imageViewRect, from: userCollectionView.superview)
+
+		previewingContext.sourceRect = sourceRect
+		
 		return userDetailsViewController
 		
 	}
