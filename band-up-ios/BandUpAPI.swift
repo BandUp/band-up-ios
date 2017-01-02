@@ -22,6 +22,7 @@ class BandUpAPI: Service {
 	var isLoggedIn:  Resource { return resource("/isLoggedIn") }
 	
 	var nearby:      Resource { return resource("/nearby-users") }
+	var like:        Resource { return resource("/like") }
 	
 	
 	

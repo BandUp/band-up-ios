@@ -405,7 +405,15 @@
                                         </constraints>
                                         <size key="customSize" width="348" height="654"/>
                                         <connections>
+                                            <outlet property="actIndicator" destination="mtO-nf-VjM" id="lYv-ui-4jJ"/>
+                                            <outlet property="btnDetails" destination="oMF-pm-HIz" id="QwF-9W-NBY"/>
+                                            <outlet property="btnLike" destination="z6S-hj-aiq" id="ViZ-T7-qRc"/>
                                             <outlet property="imgUserImage" destination="ESZ-fg-XAf" id="l6N-j9-cNz"/>
+                                            <outlet property="lblAge" destination="pZY-Dl-DOu" id="COE-Z4-SjA"/>
+                                            <outlet property="lblDistance" destination="qOa-rd-MxM" id="MwP-pI-j9W"/>
+                                            <outlet property="lblFavInstrument" destination="5No-L0-yvY" id="umw-tk-vHc"/>
+                                            <outlet property="lblGenre" destination="4J7-SZ-JIg" id="DeR-yb-hia"/>
+                                            <outlet property="lblPercentage" destination="VRS-zl-OW7" id="on6-sQ-CPD"/>
                                             <outlet property="lblUsername" destination="fbt-hX-EeZ" id="88H-k9-6Ga"/>
                                         </connections>
                                     </collectionViewCell>
@@ -476,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gar-kk-DFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="1128"/>
+            <point key="canvasLocation" x="505" y="1128"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="BXS-bB-5dm">
@@ -506,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKN-Lf-aft" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682" y="1128"/>
+            <point key="canvasLocation" x="1140" y="1128"/>
         </scene>
         <!--Upcoming View Controller-->
         <scene sceneID="db8-Zc-6wM">
@@ -536,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAV-Kj-fcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="1128"/>
+            <point key="canvasLocation" x="1780" y="1128"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="HV1-sL-faz">
@@ -972,6 +980,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didClickLike:" destination="53E-O8-xZ8" eventType="touchUpInside" id="rkb-3j-eSj"/>
+                                    <action selector="didClickLike:" destination="UQ9-BQ-15s" eventType="touchUpInside" id="yP5-pO-Hwe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -988,6 +997,7 @@
                     </view>
                     <connections>
                         <outlet property="actIndicator" destination="qih-YZ-VU4" id="9Az-CS-VIB"/>
+                        <outlet property="btnLike" destination="tCG-9h-a28" id="7A2-yO-zy4"/>
                         <outlet property="imgUserImage" destination="yWL-eU-hai" id="fM8-bL-Olo"/>
                         <outlet property="lblAboutMe" destination="nY5-35-2qU" id="xNu-S8-mF7"/>
                         <outlet property="lblAge" destination="IHj-LO-MBC" id="SGZ-KO-Hgs"/>

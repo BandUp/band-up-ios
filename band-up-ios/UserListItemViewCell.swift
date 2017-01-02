@@ -12,4 +12,14 @@ class UserListItemViewCell: UICollectionViewCell {
 	@IBOutlet weak var lblUsername: UILabel!
 	@IBOutlet weak var imgUserImage: UIImageView!
 	
+	@IBOutlet weak var lblAge: UILabel!
+	@IBOutlet weak var lblFavInstrument: UILabel!
+	@IBOutlet weak var lblDistance: UILabel!
+	@IBOutlet weak var lblGenre: UILabel!
+	@IBOutlet weak var lblPercentage: UILabel!
+	@IBOutlet weak var btnDetails: UIBigButton!
+	@IBOutlet weak var btnLike: UIBigButton!
+	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
+	
+	var user = User()
 }

@@ -29,20 +29,25 @@ class UserListViewController: UIViewController {
 	}
 	
 	@IBAction func didClickLike(_ sender: UIButton) {
-		print("User Liked at index \(Int(currentIndex)) with id \(userArray[Int(currentIndex)].id)")
+		let likedUser = userArray[Int(currentIndex)]
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
+		bandUpAPI.like.request(.post, json: ["userID": likedUser.id]).onSuccess { (response) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			
+			if let isMatch = response.jsonDict["isMatch"] as? Bool {
+				likedUser.isLiked = true
+				sender.setTitle("Liked", for: .normal)
+				sender.isEnabled = false
+				
+				if isMatch {
+					sender.setTitle("Matched", for: .normal)
+				}
+			}
+		}.onFailure { (error) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		}
 	}
-	
-	let LBL_USERNAME_TAG   = 1
-	let LBL_INSTRUMENT_TAG = 2
-	let LBL_AGE_TAG        = 3
-	let LBL_GENRE_TAG      = 4
-	let LBL_DISTANCE_TAG   = 5
-	let LBL_PERCENTAGE_TAG = 6
-	let BTN_DETAILS_TAG    = 7
-	let BTN_LIKE_TAG       = 8
-	let IMG_IMAGE_TAG      = 9
-	let ACT_INDICATOR_TAG  = 10
 	
 	var userArray: [User] = []
 	
@@ -84,50 +89,43 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let currentUser = userArray[indexPath.row]
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user_item_cell", for: indexPath)
+
 		
-		let imgUserImage  = cell.viewWithTag(IMG_IMAGE_TAG) as! UIImageView
-		let lblUsername   = cell.viewWithTag(LBL_USERNAME_TAG) as! UILabel
-		let lblInstrument = cell.viewWithTag(LBL_INSTRUMENT_TAG) as! UILabel
-		let lblDistance   = cell.viewWithTag(LBL_DISTANCE_TAG) as! UILabel
-		let lblPercentage = cell.viewWithTag(LBL_PERCENTAGE_TAG) as! UILabel
-		let lblAge        = cell.viewWithTag(LBL_AGE_TAG) as! UILabel
-		let lblGenre      = cell.viewWithTag(LBL_GENRE_TAG) as! UILabel
-		let actIndicator  = cell.viewWithTag(ACT_INDICATOR_TAG) as! UIActivityIndicatorView
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user_item_cell", for: indexPath) as! UserListItemViewCell
 		
-		//let btnDetails    = cell.viewWithTag(BTN_DETAILS_TAG) as! UIButton
-		//let btnLike       = cell.viewWithTag(BTN_LIKE_TAG) as! UIButton
+		cell.user = userArray[indexPath.row]
+		let currentUser = cell.user
 		
-		imgUserImage.image = nil
+		cell.imgUserImage.image = nil
 		if let checkedUrl = URL(string: currentUser.image.url) {
-			imgUserImage.contentMode = .scaleAspectFill
-			self.downloadImage(url: checkedUrl, imageView: imgUserImage, activityIndicator: actIndicator)
+			cell.imgUserImage.contentMode = .scaleAspectFill
+			self.downloadImage(url: checkedUrl, imageView: cell.imgUserImage, activityIndicator: cell.actIndicator)
 		} else {
-			imgUserImage.image = UIImage(named: "defaultmynd")
+			cell.imgUserImage.image = UIImage(named: "defaultmynd")
+			cell.actIndicator.stopAnimating()
 		}
 		
-		lblUsername.text = currentUser.username
-		lblPercentage.text = String(format:"\(currentUser.percentage)%%")
-		lblDistance.text = String(format:"%.0f km away from you", currentUser.distance)
+		cell.lblUsername.text = currentUser.username
+		cell.lblPercentage.text = String(format:"\(currentUser.percentage)%%")
+		cell.lblDistance.text = String(format:"%.0f km away from you", currentUser.distance)
 		
 		if (currentUser.favouriteInstrument == "") {
 			if (currentUser.instruments.count > 0) {
-				lblInstrument.text = currentUser.instruments[0]
+				cell.lblFavInstrument.text = currentUser.instruments[0]
 			} else {
-				lblInstrument.text = "No Instrument"
+				cell.lblFavInstrument.text = "No Instrument"
 			}
 		} else {
-			lblInstrument.text = currentUser.favouriteInstrument
+			cell.lblFavInstrument.text = currentUser.favouriteInstrument
 		}
 		
 		if (currentUser.genres.count > 0) {
-			lblGenre.text = currentUser.genres[0]
+			cell.lblGenre.text = currentUser.genres[0]
 		} else {
-			lblGenre.text = "No Genre"
+			cell.lblGenre.text = "No Genre"
 		}
 		
-		lblAge.text = String(format:"\(currentUser.getAge()) years old")
+		cell.lblAge.text = String(format:"\(currentUser.getAge()) years old")
 
 		return cell
 	}

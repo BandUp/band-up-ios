@@ -21,11 +21,32 @@ class UserDetailsViewController: UIViewController {
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblUsername: UILabel!
 	
+	@IBOutlet weak var btnLike: UIBigButton!
 	var currentUser = User()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
+	}
+	@IBAction func didClickLike(_ sender: UIBigButton) {
+		
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		
+		bandUpAPI.like.request(.post, json: ["userID": self.currentUser.id]).onSuccess { (response) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			
+			if let isMatch = response.jsonDict["isMatch"] as? Bool {
+				self.currentUser.isLiked = true
+				sender.setTitle("Liked", for: .normal)
+				sender.isEnabled = false
+				
+				if isMatch {
+					sender.setTitle("Matched", for: .normal)
+				}
+			}
+			}.onFailure { (error) in
+				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
