@@ -20,6 +20,7 @@ class BandUpAPI: Service {
 	var instruments: Resource { return resource("/instruments") }
 	var genres:      Resource { return resource("/genres") }
 	var isLoggedIn:  Resource { return resource("/isLoggedIn") }
+	var matches:     Resource { return resource("/matches") }
 	
 	var nearby:      Resource { return resource("/nearby-users") }
 	var like:        Resource { return resource("/like") }

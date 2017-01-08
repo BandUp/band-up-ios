@@ -57,6 +57,7 @@ class UserDetailsViewController: UIViewController {
 	
 	func populateUser() {
 		imgUserImage.image = nil
+		
 		if let checkedUrl = URL(string: currentUser.image.url) {
 			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage, activityIndicator: actIndicator)
