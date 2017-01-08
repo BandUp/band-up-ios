@@ -59,6 +59,11 @@ class LoginViewController: UIViewController {
 		}
 	}
 	
+	/**
+		Displays the setup view where instruments and genres are selected with the SetupViewController.
+	
+		- returns: No return value
+	*/
 	func displaySetupView() {
 		let myVC = self.storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
 		
@@ -66,6 +71,11 @@ class LoginViewController: UIViewController {
 		self.navigationController?.pushViewController(myVC, animated: true)
 	}
 	
+	/**
+		Displays the main screen where the user list will be shown first.
+	
+		- returns: No return value
+	*/
 	func displayMainScreenView() {
 		let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
 		let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
