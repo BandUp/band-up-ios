@@ -9,25 +9,41 @@
 import UIKit
 
 class UserDetailsViewController: UIViewController {
+	// MARK: - IBOutlets
 	@IBOutlet weak var lblAboutMe: UILabel!
 	@IBOutlet weak var lblGenresList: UILabel!
 	@IBOutlet weak var lblPercentage: UILabel!
-	
 	@IBOutlet weak var lblDistance: UILabel!
-	@IBOutlet weak var imgUserImage: UIImageView!
+	@IBOutlet weak var lblInstrumentList: UILabel!
 	@IBOutlet weak var lblInstrumentList: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
-	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblUsername: UILabel!
-	
+	@IBOutlet weak var imgUserImage: UIImageView!
+	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var btnLike: UIBigButton!
+	
+	// MARK: - Variables
 	var currentUser = User()
 	
+	// MARK: - Overridden Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
 	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.title = "Musician Details"
+		populateUser()
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
+	// MARK: - IBActions
 	@IBAction func didClickLike(_ sender: UIBigButton) {
 		
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -49,12 +65,7 @@ class UserDetailsViewController: UIViewController {
 		}
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		self.title = "Musician Details"
-		populateUser()
-	}
-	
+	// MARK: - Helper Functions
 	func populateUser() {
 		imgUserImage.image = nil
 		
@@ -105,11 +116,6 @@ class UserDetailsViewController: UIViewController {
 		lblGenresList.text = genreString
 	}
 	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
 	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
 		URLSession.shared.dataTask(with: url) {
 			(data, response, error) in
@@ -129,5 +135,4 @@ class UserDetailsViewController: UIViewController {
 			}
 		}
 	}
-	
 }

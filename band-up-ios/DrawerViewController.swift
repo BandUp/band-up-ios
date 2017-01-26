@@ -37,6 +37,11 @@ class DrawerViewController: UIViewController {
 }
 
 extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return listItems.count
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "drawerCell", for: indexPath)
 		let itemName = cell.viewWithTag(ITEM_NAME_TAG) as! UILabel
@@ -44,13 +49,10 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 		itemName.text = listItems[indexPath.row].name
 		return cell
 	}
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return listItems.count
-	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
 		let drawer = self.parent as! KYDrawerController
+		
 		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
 		mainController.updateView(row: listItems[indexPath.row].id)
 		drawer.setDrawerState(.closed, animated: true)

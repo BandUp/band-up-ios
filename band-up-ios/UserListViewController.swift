@@ -61,6 +61,7 @@ class UserListViewController: UIViewController {
 		bandUpAPI.nearby.loadIfNeeded()?.onSuccess({ (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
+			
 			for user in response.jsonArray {
 				if let jsonUser = user as? NSDictionary {
 					self.userArray.append(User(jsonUser))
