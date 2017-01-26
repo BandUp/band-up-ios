@@ -15,7 +15,6 @@ class UserDetailsViewController: UIViewController {
 	@IBOutlet weak var lblPercentage: UILabel!
 	@IBOutlet weak var lblDistance: UILabel!
 	@IBOutlet weak var lblInstrumentList: UILabel!
-	@IBOutlet weak var lblInstrumentList: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblUsername: UILabel!
