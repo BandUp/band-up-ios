@@ -12,7 +12,7 @@ import Siesta
 
 class SetupViewController: UIViewController {
 	
-	// MARK: Interface Builder Outlets
+	// MARK: - Interface Builder Outlets
 	@IBOutlet weak var lblTitleUpperLeft: UILabel!
 	@IBOutlet weak var lblErrorLabel: UILabel!
 	@IBOutlet weak var lblTitleUpperRight: UILabel!
@@ -21,13 +21,13 @@ class SetupViewController: UIViewController {
 	@IBOutlet weak var btnNext: UIButton!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
-	// MARK: Objects and Constants
+	// MARK: - Objects and Constants
 	var ITEM_NAME_TAG = 1;
 	var setupViewObject: SetupViewObject? = nil
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
 	
-	// MARK: Overridden functions
+	// MARK: - Overridden Functions
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -95,7 +95,7 @@ class SetupViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	// MARK: Interface Builder Actions
+	// MARK: - Interface Builder Actions
 	@IBAction func onClickDone(_ sender: Any) {
 		var idArr = [String]()
 		for item in setupItemArray {
@@ -135,13 +135,14 @@ class SetupViewController: UIViewController {
 		}
 	}
 	
-	// MARK: Helper Functions
+	// MARK: - Helper Functions
 	func displayErrorMessage(message : String) {
 		self.lblErrorLabel.text = message
 		self.lblErrorLabel.isHidden = false
 	}
 }
 
+// MARK: - Extensions
 extension SetupViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return setupItemArray.count
@@ -205,6 +206,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 	}
 }
 
+// MARK: - Helper Classes
 class SetupItem {
 	init(id: String, name: String) {
 		self.id = id

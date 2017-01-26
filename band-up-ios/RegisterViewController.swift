@@ -10,6 +10,46 @@ import UIKit
 import Siesta
 
 class RegisterViewController: UIViewController {
+	// MARK: - IBOutlets
+	@IBOutlet weak var scrollView: UIScrollView!
+	
+	// MARK: Views
+	@IBOutlet weak var emailView:       UIView!
+	@IBOutlet weak var nameView:        UIView!
+	@IBOutlet weak var password1View:   UIView!
+	@IBOutlet weak var password2View:   UIView!
+	@IBOutlet weak var dateOfBirthView: UIView!
+	
+	// MARK: Labels
+	@IBOutlet weak var lblEmail:       UILabel!
+	@IBOutlet weak var lblName:        UILabel!
+	@IBOutlet weak var lblPassword1:   UILabel!
+	@IBOutlet weak var lblPassword2:   UILabel!
+	@IBOutlet weak var lblDateOfBirth: UILabel!
+	
+	// MARK: Text Fields
+	@IBOutlet weak var txtEmail:       UITextField!
+	@IBOutlet weak var txtName:        UITextField!
+	@IBOutlet weak var txtPassword1:   UITextField!
+	@IBOutlet weak var txtPassword2:   UITextField!
+	@IBOutlet weak var txtDateOfBirth: UITextField!
+	
+	// MARK: Error Labels
+	@IBOutlet weak var lblEmailError:       UILabel!
+	@IBOutlet weak var lblNameError:        UILabel!
+	@IBOutlet weak var lblPassword1Error:   UILabel!
+	@IBOutlet weak var lblPassword2Error:   UILabel!
+	@IBOutlet weak var lblDateOfBirthError: UILabel!
+	
+	// MARK: Buttons
+	@IBOutlet weak var btnRegister: UIButton!
+	
+	// MARK: - Variables
+	let MIN_AGE = 13
+	let MAX_AGE = 99
+	
+	// MARK: - IBActions
+	// MARK: Text Field Changed
 	@IBAction func emailChanged(_ sender: UITextField) {
 		lblEmail.isHidden = sender.text == ""
 		lblEmailError.isHidden = true
@@ -27,37 +67,7 @@ class RegisterViewController: UIViewController {
 		lblPassword2Error.isHidden = true
 	}
 	
-	@IBOutlet weak var scrollView: UIScrollView!
-	
-	@IBOutlet weak var emailView:       UIView!
-	@IBOutlet weak var nameView:        UIView!
-	@IBOutlet weak var password1View:   UIView!
-	@IBOutlet weak var password2View:   UIView!
-	@IBOutlet weak var dateOfBirthView: UIView!
-	
-	@IBOutlet weak var lblEmailError:       UILabel!
-	@IBOutlet weak var lblNameError:        UILabel!
-	@IBOutlet weak var lblPassword1Error:   UILabel!
-	@IBOutlet weak var lblPassword2Error:   UILabel!
-	@IBOutlet weak var lblDateOfBirthError: UILabel!
-	
-	@IBOutlet weak var lblEmail:       UILabel!
-	@IBOutlet weak var lblName:        UILabel!
-	@IBOutlet weak var lblPassword1:   UILabel!
-	@IBOutlet weak var lblPassword2:   UILabel!
-	@IBOutlet weak var lblDateOfBirth: UILabel!
-	
-	@IBOutlet weak var txtEmail:       UITextField!
-	@IBOutlet weak var txtName:        UITextField!
-	@IBOutlet weak var txtPassword1:   UITextField!
-	@IBOutlet weak var txtPassword2:   UITextField!
-	@IBOutlet weak var txtDateOfBirth: UITextField!
-	
-	@IBOutlet weak var btnRegister: UIButton!
-	
-	let MIN_AGE = 13
-	let MAX_AGE = 99
-	
+	// MARK: Editing Ended
 	@IBAction func emailEditEnded(_ sender: UITextField) {
 		if (sender.text == "") {
 			lblEmailError.text = "You must fill in your email address"
@@ -102,11 +112,6 @@ class RegisterViewController: UIViewController {
 		} else {
 			lblPassword2Error.isHidden = true
 		}
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		self.navigationController?.setNavigationBarHidden(false, animated: animated)
-		super.viewWillAppear(animated)
 	}
 		
 	@IBAction func didTapRegister(_ sender: UIButton) {
@@ -168,12 +173,10 @@ class RegisterViewController: UIViewController {
 		}
 	}
 	
-	func formIsClean() -> Bool {
-		return  lblEmailError.isHidden &&
-				lblNameError.isHidden &&
-				lblPassword1Error.isHidden &&
-				lblPassword2Error.isHidden &&
-				lblDateOfBirthError.isHidden
+	// MARK: - Overridden Functions
+	override func viewWillAppear(_ animated: Bool) {
+		self.navigationController?.setNavigationBarHidden(false, animated: animated)
+		super.viewWillAppear(animated)
 	}
 	
 	override func viewDidLoad() {
@@ -205,7 +208,20 @@ class RegisterViewController: UIViewController {
 
 		
 	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 
+	// MARK: - Helper Functions
+	func formIsClean() -> Bool {
+		return  lblEmailError.isHidden &&
+			lblNameError.isHidden &&
+			lblPassword1Error.isHidden &&
+			lblPassword2Error.isHidden &&
+			lblDateOfBirthError.isHidden
+	}
 	
 	func validateEmail(candidate: String) -> Bool {
 		let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
@@ -236,11 +252,6 @@ class RegisterViewController: UIViewController {
 		self.txtDateOfBirth.text = String(format:"\(formattedDate) (\(age))")
 		lblDateOfBirth.isHidden = txtDateOfBirth.text == ""
 		lblDateOfBirthError.isHidden = true
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 	
 	func getAge(_ dateOfBirth: Date) -> Int {
