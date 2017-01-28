@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class User: CustomStringConvertible {
 	convenience init(_ dictionary: NSDictionary) {
 		self.init()
 		
@@ -120,9 +120,27 @@ class User {
 		let ageComponents = calendar.dateComponents([.year], from: self.dateOfBirth, to: now)
 		return ageComponents.year!
 	}
+	
+	var description: String {
+		
+		var bla = [String:String]()
+		
+		bla["ID"] = id;
+		bla["Name"] = username;
+		bla["About Me"] = aboutme;
+		bla["Image"] = image.description;
+		
+		var desc = "\(User.self)\n"
+		
+		for (key, value) in bla {
+			desc += String(format: "%25s: %s\n", (key as NSString).utf8String!, (value as NSString).utf8String!)
+		}
+		
+		return desc;
+	}
 }
 
-class UserLocation {
+class UserLocation: CustomStringConvertible {
 	convenience init(_ dictionary: NSDictionary) {
 		self.init()
 		
@@ -143,9 +161,13 @@ class UserLocation {
 	var latitude:  Double = 0.0
 	var longitude: Double = 0.0
 	var valid:     Bool   = false
+	
+	var description: String {
+		return "\(UserLocation.self)\n\tLatitude:\(latitude)\n\tLongitude:\(longitude)\n\tValid:\(valid)"
+	}
 }
 
-class UserImage {
+class UserImage: CustomStringConvertible {
 	convenience init(_ dictionary: NSDictionary) {
 		self.init()
 		
@@ -160,5 +182,20 @@ class UserImage {
 
 	var publicId: String = ""
 	var url:      String = ""
+	
+	var description: String {
+		var bla = [String:String]()
+		
+		bla["URL"] = url;
+		bla["Public ID"] = publicId;
+		
+		var desc = "\(UserImage.self)\n"
+		
+		for (key, value) in bla {
+			desc += String(format: "%25s: %s\n", (key as NSString).utf8String!, (value as NSString).utf8String!)
+		}
+		
+		return desc;
+	}
 	
 }

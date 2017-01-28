@@ -19,8 +19,6 @@ class MainScreenViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let bandUpColor = UIColor (colorLiteralRed: 255/255, green: 211/255, blue: 2/255, alpha: 1);
-		let titleDict: NSDictionary = [NSForegroundColorAttributeName: bandUpColor]
-		self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : Any]
 		currentViewController = userItemViewController
 		add(asChildViewController: currentViewController)
 		
@@ -43,7 +41,7 @@ class MainScreenViewController: UIViewController {
 		
 		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
 		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+		var viewController = ProfileViewController(nibName: "ProfileView", bundle: nil)
 		
 		return viewController
 	}()
@@ -122,6 +120,7 @@ class MainScreenViewController: UIViewController {
 			self.add(asChildViewController: userItemViewController)
 			currentViewController = userItemViewController
 			self.title = "Musicians Near You"
+			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "nav_my_profile":
 			self.remove(asChildViewController: currentViewController)
@@ -134,24 +133,30 @@ class MainScreenViewController: UIViewController {
 			self.add(asChildViewController: matchesViewController)
 			currentViewController = matchesViewController
 			self.title = "Matches"
+			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "nav_settings":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: settingsViewController)
 			currentViewController = settingsViewController
 			self.title = "Settings"
+			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "nav_upcoming":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: upcomingViewController)
 			currentViewController = upcomingViewController
 			self.title = "Coming Soon"
+			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "nav_log_out":
+			dismiss(animated: true, completion: nil)
 			break
 		default:
 			break
 		}
 	}
+	
+
 }
 

@@ -12,7 +12,7 @@ import Siesta
 class BandUpAPI: Service {
 	init() {
 		// http://192.168.1.5:3000
-		super.init(baseURL: "https://band-up-server.herokuapp.com")
+		super.init(baseURL: "http://192.168.1.14:3000")
 	}
 	
 	var register:    Resource { return resource("/signup-local") }
@@ -21,6 +21,7 @@ class BandUpAPI: Service {
 	var genres:      Resource { return resource("/genres") }
 	var isLoggedIn:  Resource { return resource("/isLoggedIn") }
 	var matches:     Resource { return resource("/matches") }
+	var profile:     Resource { return resource("/user") }
 	
 	var nearby:      Resource { return resource("/nearby-users") }
 	var like:        Resource { return resource("/like") }

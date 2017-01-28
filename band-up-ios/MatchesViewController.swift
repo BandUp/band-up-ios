@@ -14,12 +14,21 @@ class MatchesViewController: UIViewController {
 	
 	var matchedUsers = [User]()
 	
+	@IBOutlet weak var lblError: UILabel!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		bandUpAPI.matches.loadIfNeeded()?.onSuccess({ (response) in
+			self.activityIndicator.stopAnimating()
+			self.tableView.isHidden = false;
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-
+			if (response.jsonArray.count == 0) {
+				self.activityIndicator.stopAnimating()
+				self.lblError.text = "You haven't matched with anyone, yet."
+				self.lblError.isHidden = false
+				return
+			}
 			for user in response.jsonArray {
 				if let jsonUser = user as? NSDictionary {
 					self.matchedUsers.append(User(jsonUser))
@@ -27,7 +36,9 @@ class MatchesViewController: UIViewController {
 			}
 			self.tableView.reloadData()
 		}).onFailure({ (error) in
-			
+			self.activityIndicator.stopAnimating()
+			self.lblError.text = "Could not get your matches"
+			self.lblError.isHidden = false
 		})
 	}
 	
