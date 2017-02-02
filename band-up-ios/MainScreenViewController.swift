@@ -38,17 +38,12 @@ class MainScreenViewController: UIViewController {
 	}
 	
 	public lazy var profileViewController: ProfileViewController = {
-		
-		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
-		
-		var viewController = ProfileViewController(nibName: "ProfileView", bundle: nil)
-		
-		return viewController
+		return ProfileViewController(nibName: "ProfileView", bundle: nil)
 	}()
 	
 	public lazy var userItemViewController: UserListViewController = {
 		
-		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: "UserListView", bundle: Bundle.main)
 		
 		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserListViewController") as! UserListViewController
 		
@@ -57,7 +52,7 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var matchesViewController: MatchesViewController = {
 		
-		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
 		
 		var viewController =  storyboard.instantiateViewController(withIdentifier: "MatchesViewController") as! MatchesViewController
 		
@@ -66,7 +61,7 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var settingsViewController: SettingsViewController = {
 		
-		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: "SettingsView", bundle: Bundle.main)
 		
 		var viewController =  storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
 		
@@ -75,7 +70,7 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var upcomingViewController: UpcomingViewController = {
 		
-		let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: "UpcomingView", bundle: Bundle.main)
 		
 		var viewController =  storyboard.instantiateViewController(withIdentifier: "UpcomingViewController") as! UpcomingViewController
 		

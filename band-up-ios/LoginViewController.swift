@@ -91,7 +91,7 @@ class LoginViewController: UIViewController {
 	- returns: No return value
 	*/
 	func displayMainScreenView() {
-		let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+		let storyboard = UIStoryboard(name: "DrawerView", bundle: nil)
 		let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
 		self.present(mainViewController, animated: true, completion: nil)
 	}
