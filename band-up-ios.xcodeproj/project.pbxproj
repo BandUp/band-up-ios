@@ -19,11 +19,13 @@
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
-		F252C9211E43885E002B2E2B /* UserDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F252C9201E43885E002B2E2B /* UserDetailsView.xib */; };
 		F252C92D1E43FC45002B2E2B /* UserListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C92C1E43FC45002B2E2B /* UserListView.storyboard */; };
 		F252C92F1E43FC73002B2E2B /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */; };
 		F252C9311E43FCB1002B2E2B /* MatchesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */; };
 		F252C9331E43FCC2002B2E2B /* UpcomingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9321E43FCC2002B2E2B /* UpcomingView.storyboard */; };
+		F252C9371E44D751002B2E2B /* EditProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9361E44D751002B2E2B /* EditProfileView.storyboard */; };
+		F252C9391E44D763002B2E2B /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9381E44D763002B2E2B /* ProfileView.storyboard */; };
+		F252C93B1E44D7B0002B2E2B /* UserDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C93A1E44D7B0002B2E2B /* UserDetailsView.storyboard */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */; };
@@ -41,8 +43,6 @@
 		F2B0231A1E040B0800088622 /* DrawerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B023191E040B0800088622 /* DrawerView.storyboard */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
 		F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */; };
-		F2CF64C21E3C17560017B70E /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CF64C11E3C17560017B70E /* ProfileView.xib */; };
-		F2CF64C71E3C23380017B70E /* EditProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CF64C61E3C23380017B70E /* EditProfileView.xib */; };
 		F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */; };
 		F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
@@ -86,11 +86,13 @@
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
-		F252C9201E43885E002B2E2B /* UserDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailsView.xib; sourceTree = "<group>"; };
 		F252C92C1E43FC45002B2E2B /* UserListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserListView.storyboard; sourceTree = "<group>"; };
 		F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
 		F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MatchesView.storyboard; sourceTree = "<group>"; };
 		F252C9321E43FCC2002B2E2B /* UpcomingView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UpcomingView.storyboard; sourceTree = "<group>"; };
+		F252C9361E44D751002B2E2B /* EditProfileView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfileView.storyboard; sourceTree = "<group>"; };
+		F252C9381E44D763002B2E2B /* ProfileView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
+		F252C93A1E44D7B0002B2E2B /* UserDetailsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserDetailsView.storyboard; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
@@ -108,8 +110,6 @@
 		F2B023191E040B0800088622 /* DrawerView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DrawerView.storyboard; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
-		F2CF64C11E3C17560017B70E /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
-		F2CF64C61E3C23380017B70E /* EditProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileView.xib; sourceTree = "<group>"; };
 		F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -255,10 +255,10 @@
 			children = (
 				F2B023191E040B0800088622 /* DrawerView.storyboard */,
 				F252C92C1E43FC45002B2E2B /* UserListView.storyboard */,
-				F252C9201E43885E002B2E2B /* UserDetailsView.xib */,
-				F2CF64C11E3C17560017B70E /* ProfileView.xib */,
-				F2CF64C61E3C23380017B70E /* EditProfileView.xib */,
+				F252C93A1E44D7B0002B2E2B /* UserDetailsView.storyboard */,
 				F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */,
+				F252C9381E44D763002B2E2B /* ProfileView.storyboard */,
+				F252C9361E44D751002B2E2B /* EditProfileView.storyboard */,
 				F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */,
 				F252C9321E43FCC2002B2E2B /* UpcomingView.storyboard */,
 			);
@@ -406,18 +406,18 @@
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F252C92F1E43FC73002B2E2B /* SettingsView.storyboard in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
+				F252C9371E44D751002B2E2B /* EditProfileView.storyboard in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */,
 				F252C9331E43FCC2002B2E2B /* UpcomingView.storyboard in Resources */,
+				F252C9391E44D763002B2E2B /* ProfileView.storyboard in Resources */,
 				F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */,
-				F2CF64C21E3C17560017B70E /* ProfileView.xib in Resources */,
 				F252C92D1E43FC45002B2E2B /* UserListView.storyboard in Resources */,
+				F252C93B1E44D7B0002B2E2B /* UserDetailsView.storyboard in Resources */,
 				F2B0231A1E040B0800088622 /* DrawerView.storyboard in Resources */,
-				F252C9211E43885E002B2E2B /* UserDetailsView.xib in Resources */,
 				F217C0781DDFC48F00EE16DF /* Setup.storyboard in Resources */,
 				F252C9311E43FCB1002B2E2B /* MatchesView.storyboard in Resources */,
-				F2CF64C71E3C23380017B70E /* EditProfileView.xib in Resources */,
 				F217C0541DDFC47100EE16DF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

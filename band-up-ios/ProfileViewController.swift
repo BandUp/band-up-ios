@@ -125,7 +125,10 @@ class ProfileViewController: UIViewController {
 	}
 	
 	public func someAction() {
-		let viewController = EditProfileViewController(nibName: "EditProfileView", bundle: nil)
+		let storyboard = UIStoryboard(name: "EditProfileView", bundle: Bundle.main)
+		
+		let viewController =  storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
+		
 		self.present(viewController, animated: true, completion: nil)
 	}
 }

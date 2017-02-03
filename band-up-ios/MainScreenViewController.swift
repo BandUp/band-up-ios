@@ -38,7 +38,11 @@ class MainScreenViewController: UIViewController {
 	}
 	
 	public lazy var profileViewController: ProfileViewController = {
-		return ProfileViewController(nibName: "ProfileView", bundle: nil)
+		let storyboard = UIStoryboard(name: "ProfileView", bundle: Bundle.main)
+		
+		var viewController =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+		
+		return viewController
 	}()
 	
 	public lazy var userItemViewController: UserListViewController = {

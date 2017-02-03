@@ -11,6 +11,9 @@ import UIKit
 class EditProfileViewController: UIViewController {
 	@IBOutlet weak var btnDone: UIBarButtonItem!
 	@IBOutlet weak var btnCancel: UIBarButtonItem!
+	
+	var user = User()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -19,10 +22,11 @@ class EditProfileViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+
 	@IBAction func didTapDone(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
-	}
 
+	}
 	@IBAction func didTapCancel(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
 	}

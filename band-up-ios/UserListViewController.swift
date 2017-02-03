@@ -15,7 +15,11 @@ class UserListViewController: UIViewController {
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	public lazy var userDetailsViewController: UserDetailsViewController = {
-		return UserDetailsViewController(nibName: "UserDetailsView", bundle: nil)
+		let storyboard = UIStoryboard(name: "UserDetailsView", bundle: Bundle.main)
+		
+		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+		
+		return viewController
 	}()
 	
 	@IBAction func didClickDetails(_ sender: UIButton) {
