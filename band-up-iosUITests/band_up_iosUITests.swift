@@ -2,8 +2,8 @@
 //  band_up_iosUITests.swift
 //  band-up-iosUITests
 //
-//  Created by Bergþór on 18.11.2016.
-//  Copyright © 2016 Bad Melody. All rights reserved.
+//  Created by Bergþór on 3.2.2017.
+//  Copyright © 2017 Bad Melody. All rights reserved.
 //
 
 import XCTest
