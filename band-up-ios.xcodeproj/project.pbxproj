@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006897B1E44F3C200EAD907 /* ChatViewController.swift */; };
 		6CED448BE20703F847A8E635 /* Pods_band_up_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */; };
 		F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F63F1E02DBB000F57892 /* SetupViewController.swift */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */; };
 		F217C0541DDFC47100EE16DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */; };
-		F217C05F1DDFC47100EE16DF /* band_up_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C05E1DDFC47100EE16DF /* band_up_iosTests.swift */; };
-		F217C06A1DDFC47100EE16DF /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0691DDFC47100EE16DF /* band_up_iosUITests.swift */; };
 		F217C0781DDFC48F00EE16DF /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0771DDFC48F00EE16DF /* Setup.storyboard */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
@@ -48,25 +47,9 @@
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F217C05B1DDFC47100EE16DF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F217C0421DDFC47100EE16DF;
-			remoteInfo = "band-up-ios";
-		};
-		F217C0661DDFC47100EE16DF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F217C0421DDFC47100EE16DF;
-			remoteInfo = "band-up-ios";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2006897B1E44F3C200EAD907 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
 		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		F207F63F1E02DBB000F57892 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -76,10 +59,8 @@
 		F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = band_up_ios.xcdatamodel; sourceTree = "<group>"; };
 		F217C0531DDFC47100EE16DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F217C0551DDFC47100EE16DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F217C05A1DDFC47100EE16DF /* band-up-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C05E1DDFC47100EE16DF /* band_up_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosTests.swift; sourceTree = "<group>"; };
 		F217C0601DDFC47100EE16DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F217C0651DDFC47100EE16DF /* band-up-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C0691DDFC47100EE16DF /* band_up_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosUITests.swift; sourceTree = "<group>"; };
 		F217C06B1DDFC47100EE16DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F217C0771DDFC48F00EE16DF /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
@@ -124,20 +105,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F217C0571DDFC47100EE16DF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F217C0621DDFC47100EE16DF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -174,8 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				F217C0431DDFC47100EE16DF /* band-up-ios.app */,
-				F217C05A1DDFC47100EE16DF /* band-up-iosTests.xctest */,
-				F217C0651DDFC47100EE16DF /* band-up-iosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +233,7 @@
 		F2CF64C41E3C1DB90017B70E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2006897B1E44F3C200EAD907 /* ChatViewController.swift */,
 				F2B023171E04000600088622 /* MainScreenViewController.swift */,
 				F2B0231B1E049BDA00088622 /* DrawerViewController.swift */,
 				F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */,
@@ -313,42 +279,6 @@
 			productReference = F217C0431DDFC47100EE16DF /* band-up-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F217C0591DDFC47100EE16DF /* band-up-iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F217C0711DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-iosTests" */;
-			buildPhases = (
-				F217C0561DDFC47100EE16DF /* Sources */,
-				F217C0571DDFC47100EE16DF /* Frameworks */,
-				F217C0581DDFC47100EE16DF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F217C05C1DDFC47100EE16DF /* PBXTargetDependency */,
-			);
-			name = "band-up-iosTests";
-			productName = "band-up-iosTests";
-			productReference = F217C05A1DDFC47100EE16DF /* band-up-iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F217C0641DDFC47100EE16DF /* band-up-iosUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F217C0741DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */;
-			buildPhases = (
-				F217C0611DDFC47100EE16DF /* Sources */,
-				F217C0621DDFC47100EE16DF /* Frameworks */,
-				F217C0631DDFC47100EE16DF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F217C0671DDFC47100EE16DF /* PBXTargetDependency */,
-			);
-			name = "band-up-iosUITests";
-			productName = "band-up-iosUITests";
-			productReference = F217C0651DDFC47100EE16DF /* band-up-iosUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -363,18 +293,6 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = NJU97Y2JX6;
 						ProvisioningStyle = Automatic;
-					};
-					F217C0591DDFC47100EE16DF = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = NJU97Y2JX6;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F217C0421DDFC47100EE16DF;
-					};
-					F217C0641DDFC47100EE16DF = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = NJU97Y2JX6;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F217C0421DDFC47100EE16DF;
 					};
 				};
 			};
@@ -392,8 +310,6 @@
 			projectRoot = "";
 			targets = (
 				F217C0421DDFC47100EE16DF /* band-up-ios */,
-				F217C0591DDFC47100EE16DF /* band-up-iosTests */,
-				F217C0641DDFC47100EE16DF /* band-up-iosUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -419,20 +335,6 @@
 				F217C0781DDFC48F00EE16DF /* Setup.storyboard in Resources */,
 				F252C9311E43FCB1002B2E2B /* MatchesView.storyboard in Resources */,
 				F217C0541DDFC47100EE16DF /* LaunchScreen.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F217C0581DDFC47100EE16DF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F217C0631DDFC47100EE16DF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +395,7 @@
 			files = (
 				F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */,
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
+				2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */,
 				F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
@@ -514,36 +417,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F217C0561DDFC47100EE16DF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F217C05F1DDFC47100EE16DF /* band_up_iosTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F217C0611DDFC47100EE16DF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F217C06A1DDFC47100EE16DF /* band_up_iosUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F217C05C1DDFC47100EE16DF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F217C0421DDFC47100EE16DF /* band-up-ios */;
-			targetProxy = F217C05B1DDFC47100EE16DF /* PBXContainerItemProxy */;
-		};
-		F217C0671DDFC47100EE16DF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F217C0421DDFC47100EE16DF /* band-up-ios */;
-			targetProxy = F217C0661DDFC47100EE16DF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */ = {
@@ -684,64 +558,6 @@
 			};
 			name = Release;
 		};
-		F217C0721DDFC47100EE16DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = NJU97Y2JX6;
-				INFOPLIST_FILE = "band-up-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-iosTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/band-up-ios.app/band-up-ios";
-			};
-			name = Debug;
-		};
-		F217C0731DDFC47100EE16DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = NJU97Y2JX6;
-				INFOPLIST_FILE = "band-up-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-iosTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/band-up-ios.app/band-up-ios";
-			};
-			name = Release;
-		};
-		F217C0751DDFC47100EE16DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = NJU97Y2JX6;
-				INFOPLIST_FILE = "band-up-iosUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-iosUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "band-up-ios";
-			};
-			name = Debug;
-		};
-		F217C0761DDFC47100EE16DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = NJU97Y2JX6;
-				INFOPLIST_FILE = "band-up-iosUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-iosUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "band-up-ios";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -759,24 +575,6 @@
 			buildConfigurations = (
 				F217C06F1DDFC47100EE16DF /* Debug */,
 				F217C0701DDFC47100EE16DF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F217C0711DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F217C0721DDFC47100EE16DF /* Debug */,
-				F217C0731DDFC47100EE16DF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F217C0741DDFC47100EE16DF /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F217C0751DDFC47100EE16DF /* Debug */,
-				F217C0761DDFC47100EE16DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

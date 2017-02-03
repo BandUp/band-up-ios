@@ -46,8 +46,6 @@ class MatchesViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	
 }
 
 
@@ -73,6 +71,16 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 		}
 		return cell
 	}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = matchedUsers[indexPath.row]
+        let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
+        let viewController =  storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        
+        viewController.user = user
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 	
 	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
 		URLSession.shared.dataTask(with: url) {
