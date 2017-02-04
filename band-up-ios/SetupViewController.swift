@@ -56,7 +56,7 @@ class SetupViewController: UIViewController {
 				}
 				// All is well.
 				// Create a new object and unwrap the data into it.
-				var setupItem = SetupItem(id: _id!, name: _name!)
+				let setupItem = SetupItem(id: _id!, name: _name!)
 				
 				if (self.setupViewObject?.first?.selected.contains(_name!))! {
 					setupItem.isSelected = true

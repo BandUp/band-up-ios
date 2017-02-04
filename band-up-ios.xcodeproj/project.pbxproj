@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006897B1E44F3C200EAD907 /* ChatViewController.swift */; };
-		6CED448BE20703F847A8E635 /* Pods_band_up_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */; };
+		200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200B434E1E4639CD004C06F1 /* SocketIOManager.swift */; };
 		F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F63F1E02DBB000F57892 /* SetupViewController.swift */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
@@ -67,8 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2006897B1E44F3C200EAD907 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		200B434E1E4639CD004C06F1 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
 		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		F207F63F1E02DBB000F57892 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CED448BE20703F847A8E635 /* Pods_band_up_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,14 +155,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A47F07222AC257D1DC27BA12 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0338EE7E02EEFD4ECA1E2C72 /* Pods_band_up_ios.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F217C03A1DDFC47100EE16DF = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +165,6 @@
 				F252C9501E44FCA6002B2E2B /* band-up-iosUITests */,
 				F217C0441DDFC47100EE16DF /* Products */,
 				05BEBC4A550603964996EAAD /* Pods */,
-				A47F07222AC257D1DC27BA12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +185,7 @@
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
 				F2EA7B691E15BCC3005B1F34 /* User.swift */,
 				F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */,
+				200B434E1E4639CD004C06F1 /* SocketIOManager.swift */,
 				F2AB060A1E0614F20039C761 /* Setup */,
 				F2AB060B1E0615410039C761 /* Main Screen */,
 				F2B0231D1E04E49400088622 /* Resources */,
@@ -539,6 +530,7 @@
 				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,
 				F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
+				200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

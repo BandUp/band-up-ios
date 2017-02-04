@@ -13,7 +13,7 @@ class BandUpAPI: Service {
 	init() {
 		// http://192.168.1.5:3000
 		// https://band-up-server.herokuapp.com
-		super.init(baseURL: "https://band-up-server.herokuapp.com")
+		super.init(baseURL: "http://192.168.99.1:3000")
 	}
 	
 	var register:    Resource { return resource("/signup-local") }

@@ -21,6 +21,8 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        socketIO.socket.emit("adduser")
+        
         bandUpAPI.chatHistory.child(user.id).load().onSuccess({ (response) in
             if let history = response.jsonDict["chatHistory"] {
                 for message in history as! NSArray {
