@@ -16,6 +16,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtMessage: UITextField!
+	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +31,36 @@ class ChatViewController: UIViewController {
         }).onFailure({ (error) in
             print(error)
         })
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func keyboardWillShow(sender: NSNotification) {
+		print("ASDF")
+		let info = sender.userInfo!
+		let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+		bottomConstraint.constant = keyboardSize - bottomLayoutGuide.length
+		
+		let duration: TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+		
+		UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+	}
+	
+	func keyboardWillHide(sender: NSNotification) {
+		let info = sender.userInfo!
+		let duration: TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+		bottomConstraint.constant = 0
+		
+		UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+	}
 }
 
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
