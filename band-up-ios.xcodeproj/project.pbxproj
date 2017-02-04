@@ -22,11 +22,11 @@
 		F252C92F1E43FC73002B2E2B /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */; };
 		F252C9311E43FCB1002B2E2B /* MatchesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */; };
 		F252C9331E43FCC2002B2E2B /* UpcomingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9321E43FCC2002B2E2B /* UpcomingView.storyboard */; };
-		F252C9371E44D751002B2E2B /* EditProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9361E44D751002B2E2B /* EditProfileView.storyboard */; };
 		F252C9391E44D763002B2E2B /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9381E44D763002B2E2B /* ProfileView.storyboard */; };
 		F252C93B1E44D7B0002B2E2B /* UserDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C93A1E44D7B0002B2E2B /* UserDetailsView.storyboard */; };
 		F252C9441E44FCA0002B2E2B /* band_up_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9431E44FCA0002B2E2B /* band_up_iosTests.swift */; };
 		F252C9521E44FCA6002B2E2B /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9511E44FCA6002B2E2B /* band_up_iosUITests.swift */; };
+		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */; };
@@ -90,7 +90,6 @@
 		F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
 		F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MatchesView.storyboard; sourceTree = "<group>"; };
 		F252C9321E43FCC2002B2E2B /* UpcomingView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UpcomingView.storyboard; sourceTree = "<group>"; };
-		F252C9361E44D751002B2E2B /* EditProfileView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfileView.storyboard; sourceTree = "<group>"; };
 		F252C9381E44D763002B2E2B /* ProfileView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
 		F252C93A1E44D7B0002B2E2B /* UserDetailsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserDetailsView.storyboard; sourceTree = "<group>"; };
 		F252C9411E44FCA0002B2E2B /* band-up-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +98,7 @@
 		F252C94F1E44FCA6002B2E2B /* band-up-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F252C9511E44FCA6002B2E2B /* band_up_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosUITests.swift; sourceTree = "<group>"; };
 		F252C9531E44FCA6002B2E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
@@ -284,7 +284,6 @@
 				F252C93A1E44D7B0002B2E2B /* UserDetailsView.storyboard */,
 				F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */,
 				F252C9381E44D763002B2E2B /* ProfileView.storyboard */,
-				F252C9361E44D751002B2E2B /* EditProfileView.storyboard */,
 				F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */,
 				F252C9321E43FCC2002B2E2B /* UpcomingView.storyboard */,
 			);
@@ -294,7 +293,6 @@
 		F2CF64C41E3C1DB90017B70E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2006897B1E44F3C200EAD907 /* ChatViewController.swift */,
 				F2B023171E04000600088622 /* MainScreenViewController.swift */,
 				F2B0231B1E049BDA00088622 /* DrawerViewController.swift */,
 				F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */,
@@ -302,8 +300,10 @@
 				F2AB060E1E0616A20039C761 /* ProfileViewController.swift */,
 				F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */,
 				F2AB06101E0616B30039C761 /* MatchesViewController.swift */,
+				2006897B1E44F3C200EAD907 /* ChatViewController.swift */,
 				F2AB06121E0616C10039C761 /* SettingsViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
+				F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -433,7 +433,6 @@
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F252C92F1E43FC73002B2E2B /* SettingsView.storyboard in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
-				F252C9371E44D751002B2E2B /* EditProfileView.storyboard in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */,
@@ -525,6 +524,7 @@
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
+				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */,
@@ -794,6 +794,7 @@
 				F252C9491E44FCA0002B2E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F252C9561E44FCA6002B2E2B /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -802,6 +803,7 @@
 				F252C9581E44FCA6002B2E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -121,6 +121,15 @@ class User: CustomStringConvertible {
 		return ageComponents.year!
 	}
 	
+	func getAgeString() -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateStyle = .long
+		let formattedDate = dateFormatter.string(from: self.dateOfBirth)
+		
+		let age = getAge()
+		return String(format:"\(formattedDate) (\(age))")
+	}
+	
 	var description: String {
 		
 		var bla = [String:String]()

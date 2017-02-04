@@ -29,7 +29,6 @@ class ProfileViewController: UIViewController {
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(someAction))
 		self.parent?.navigationItem.rightBarButtonItem?.isEnabled = false
 		bandUpAPI.profile.load().onSuccess({ (response) in
-			print("SUCCESS")
 			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
 			self.viewActivityIndicator.stopAnimating()
 			self.currentUser = User(response.jsonDict as NSDictionary)
@@ -125,10 +124,10 @@ class ProfileViewController: UIViewController {
 	}
 	
 	public func someAction() {
-		let storyboard = UIStoryboard(name: "EditProfileView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: "ProfileView", bundle: Bundle.main)
 		
 		let viewController =  storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
-		
+		viewController.user = currentUser
 		self.present(viewController, animated: true, completion: nil)
 	}
 }

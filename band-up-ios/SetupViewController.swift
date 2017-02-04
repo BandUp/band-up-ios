@@ -23,7 +23,7 @@ class SetupViewController: UIViewController {
 	
 	// MARK: - Objects and Constants
 	var ITEM_NAME_TAG = 1;
-	var setupViewObject: SetupViewObject? = nil
+	var setupViewObject: [SetupViewObject]? = nil
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
 	
@@ -31,7 +31,8 @@ class SetupViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		self.setupViewObject?.apiResource.loadIfNeeded()?.onSuccess({ (response) in
+		
+		self.setupViewObject?.first?.apiResource.load().onSuccess({ (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			// Go through all of the setup items in the response
@@ -55,7 +56,12 @@ class SetupViewController: UIViewController {
 				}
 				// All is well.
 				// Create a new object and unwrap the data into it.
-				let setupItem = SetupItem(id: _id!, name: _name!)
+				var setupItem = SetupItem(id: _id!, name: _name!)
+				
+				if (self.setupViewObject?.first?.selected.contains(_name!))! {
+					setupItem.isSelected = true
+				}
+				
 				self.setupItemArray.append(setupItem)
 			}
 			// And finally display the data
@@ -80,14 +86,19 @@ class SetupViewController: UIViewController {
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		// Set the text of the labels and buttons
-		lblTitleUpperLeft.text = setupViewObject?.titleUpperLeft
+		lblTitleUpperLeft.text = setupViewObject?.first?.titleUpperLeft
 		
-		let index = setupViewObject?.setupViewIndex
-		let count = setupViewObject?.setupViewCount
+		let index = setupViewObject?.first?.setupViewIndex
+		let count = setupViewObject?.first?.setupViewCount
 		
-		lblTitleUpperRight.text = "\(index!)/\(count!)"
-		lblTitleHint.text = setupViewObject?.titleHint
-		btnNext.setTitle(setupViewObject?.doneButtonText, for: .normal)
+		if index != 0 && count != 0 {
+			lblTitleUpperRight.text = "\(index!)/\(count!)"
+		} else {
+			lblTitleUpperRight.text = ""
+		}
+		
+		lblTitleHint.text = setupViewObject?.first?.titleHint
+		btnNext.setTitle(setupViewObject?.first?.doneButtonText, for: .normal)
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -105,32 +116,33 @@ class SetupViewController: UIViewController {
 		}
 		
 		if (idArr.count == 0) {
-			NSLog("You need to select atleast one!")
+			NSLog("You need to select at least one!")
 		} else {
+			
 			UIApplication.shared.isNetworkActivityIndicatorVisible = true
-			self.setupViewObject?.apiResource.request(.post, json: idArr).onSuccess({ (response) in
+			self.setupViewObject?.first?.apiResource.request(.post, json: idArr).onSuccess({ (response) in
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			}).onFailure({ (error) in
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			})
 			
-			if (setupViewObject?.setupViewCount != setupViewObject?.setupViewIndex) {
+			
+			if (setupViewObject?.first?.setupViewCount != setupViewObject?.first?.setupViewIndex) {
 				// Setup has not been finished. Continue
-				let setupObject = SetupViewObject(setupResource: bandUpAPI.genres)
 
 				let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-				setupObject.doneButtonText = "Finish"
-				setupObject.titleUpperLeft = "Let's get started"
-				setupObject.setupViewIndex = 2
-				setupObject.setupViewCount = 2
-				setupObject.titleHint = "What is your taste in music?"
-				myVC.setupViewObject = setupObject
+				
+				myVC.setupViewObject = Array((setupViewObject?.dropFirst())!)
 				
 				navigationController?.pushViewController(myVC, animated: true)
 			} else {
-				let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-				let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
-				present(vc, animated: true, completion: nil)
+				if (self.setupViewObject?.first?.shouldDismiss)! {
+					dismiss(animated: true, completion: nil)
+				} else {
+					let storyboard = UIStoryboard(name: "DrawerView", bundle: nil)
+					let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
+					present(vc, animated: true, completion: nil)
+				}
 			}
 		}
 	}
@@ -222,11 +234,12 @@ class SetupViewObject {
 	init(setupResource: Resource) {
 		apiResource = setupResource
 	}
-	
+	var shouldDismiss  : Bool = false
 	var apiResource    : Resource
 	var titleUpperLeft : String = ""
 	var titleHint      : String = ""
 	var doneButtonText : String = ""
 	var setupViewIndex : Int = 0
 	var setupViewCount : Int = 0
+	var selected       : [String] = []
 }
