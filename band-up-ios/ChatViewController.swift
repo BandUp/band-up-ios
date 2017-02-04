@@ -37,6 +37,14 @@ class ChatViewController: UIViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.title = user.username
+		let infoButton = UIButton(type: .infoLight)
+		infoButton.addTarget(self, action: #selector(someAction), for: .touchUpInside)
+		let barButton = UIBarButtonItem(customView: infoButton)
+		self.navigationItem.rightBarButtonItem = barButton
+	}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,7 +52,6 @@ class ChatViewController: UIViewController {
     }
 	
 	func keyboardWillShow(sender: NSNotification) {
-		print("ASDF")
 		let info = sender.userInfo!
 		let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
 		bottomConstraint.constant = keyboardSize - bottomLayoutGuide.length
@@ -60,6 +67,23 @@ class ChatViewController: UIViewController {
 		bottomConstraint.constant = 0
 		
 		UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+	}
+	
+	public func someAction() {
+		let storyboard = UIStoryboard(name: "UserDetailsView", bundle: Bundle.main)
+		
+		let viewController = storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+		viewController.currentUser = user
+		
+		let navController = UINavigationController(rootViewController: viewController)
+		let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(dismissDetails))
+
+		navController.navigationItem.rightBarButtonItem = button
+		present(navController, animated: true, completion: nil)
+	}
+	
+	func dismissDetails() {
+		dismiss(animated:true, completion:nil)
 	}
 }
 

@@ -69,12 +69,16 @@ class UserDetailsViewController: UIViewController {
 		imgUserImage.image = nil
 		
 		if let checkedUrl = URL(string: currentUser.image.url) {
-			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage, activityIndicator: actIndicator)
 		} else {
 			actIndicator.stopAnimating()
 			imgUserImage.image = UIImage(named: "defaultmynd")
 			
+		}
+		
+		if (currentUser.isLiked) {
+			btnLike.setTitle("Liked", for: .normal)
+			btnLike.isEnabled = false
 		}
 		
 		lblUsername.text = currentUser.username

@@ -21,7 +21,9 @@ class MainScreenViewController: UIViewController {
 		let bandUpColor = UIColor (colorLiteralRed: 255/255, green: 211/255, blue: 2/255, alpha: 1);
 		currentViewController = userItemViewController
 		add(asChildViewController: currentViewController)
-		
+		let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		self.navigationItem.backBarButtonItem = backItem
+
 		self.navigationController?.navigationBar.tintColor = bandUpColor
 	}
 	
@@ -106,8 +108,6 @@ class MainScreenViewController: UIViewController {
 		
 		// Notify Child View Controller
 		viewController.removeFromParentViewController()
-		
-		
 		
 	}
 	

@@ -78,7 +78,7 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
         let viewController =  storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
         viewController.user = user
-        
+		
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 	

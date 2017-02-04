@@ -50,8 +50,9 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA3-06-jjn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-JY-H5I">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="disco" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-JY-H5I">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                                                <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="XcQ-JY-H5I" secondAttribute="height" multiplier="1:1" id="MNv-Wq-lOY"/>
                                                                                 </constraints>
@@ -61,7 +62,7 @@
                                                                                 <color key="color" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </activityIndicatorView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="XcQ-JY-H5I" secondAttribute="bottom" id="CEC-If-kvf"/>
                                                                             <constraint firstAttribute="height" constant="150" id="Gd2-dp-heV"/>
@@ -251,17 +252,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="actIndicator" destination="58d-fD-Oyg" id="jH1-zn-q0K"/>
-                        <outlet property="btnLike" destination="Uzb-xU-jom" id="kXS-7T-AWl"/>
-                        <outlet property="imgUserImage" destination="XcQ-JY-H5I" id="eOl-ad-NGQ"/>
-                        <outlet property="lblAboutMe" destination="bwM-S1-rQm" id="7Kv-yo-eQd"/>
-                        <outlet property="lblAge" destination="zCG-Lq-Uk7" id="wFz-qZ-tT9"/>
-                        <outlet property="lblDistance" destination="ItW-ZY-euV" id="Z1O-Le-IHB"/>
-                        <outlet property="lblFavInstrument" destination="LUf-Fl-ecF" id="Cie-32-n6L"/>
-                        <outlet property="lblGenresList" destination="3JZ-bN-5gc" id="5nK-dE-4pA"/>
-                        <outlet property="lblInstrumentList" destination="ItW-ZY-euV" id="yA4-iy-tnK"/>
-                        <outlet property="lblPercentage" destination="t0z-kr-Bok" id="azK-4i-0n4"/>
-                        <outlet property="lblUsername" destination="to6-tV-Y1n" id="mdu-hy-7xK"/>
+                        <outlet property="actIndicator" destination="58d-fD-Oyg" id="zdX-0g-fgl"/>
+                        <outlet property="btnLike" destination="Uzb-xU-jom" id="ZGm-Ml-R5l"/>
+                        <outlet property="imgUserImage" destination="XcQ-JY-H5I" id="z5U-qC-8PO"/>
+                        <outlet property="lblAboutMe" destination="bwM-S1-rQm" id="VFx-UG-oJG"/>
+                        <outlet property="lblAge" destination="A7F-8a-7xw" id="QQw-E6-Tr7"/>
+                        <outlet property="lblDistance" destination="ItW-ZY-euV" id="peH-PD-pMp"/>
+                        <outlet property="lblFavInstrument" destination="zCG-Lq-Uk7" id="Dbw-r5-ahx"/>
+                        <outlet property="lblGenresList" destination="3JZ-bN-5gc" id="9CU-7Z-mlU"/>
+                        <outlet property="lblInstrumentList" destination="LUf-Fl-ecF" id="0Yb-Nm-ISE"/>
+                        <outlet property="lblPercentage" destination="t0z-kr-Bok" id="thK-kS-ln5"/>
+                        <outlet property="lblUsername" destination="to6-tV-Y1n" id="ZNZ-UF-1pm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kv3-vd-Vyu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -270,6 +271,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultmynd" width="2400" height="2400"/>
+        <image name="disco" width="1050" height="700"/>
     </resources>
 </document>
