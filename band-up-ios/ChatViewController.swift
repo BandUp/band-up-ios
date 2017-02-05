@@ -17,11 +17,24 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtMessage: UITextField!
 	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    
+	
+	@IBAction func didClickSend(_ sender: Any) {
+		
+	}
+	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        socketIO.socket.emit("adduser")
+		
+		SocketIOManager.sharedInstance.startSocket()
+		SocketIOManager.sharedInstance.establishConnection()
+		SocketIOManager.sharedInstance.socket.on("connect") { (data, ack) in
+			print("connected")
+			SocketIOManager.sharedInstance.registerUser().timingOut(after: 100, callback: { (data) in
+				print("WOO")
+			})
+		}
         
         bandUpAPI.chatHistory.child(user.id).load().onSuccess({ (response) in
             if let history = response.jsonDict["chatHistory"] {

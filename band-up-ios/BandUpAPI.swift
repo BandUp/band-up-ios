@@ -11,11 +11,10 @@ import Siesta
 
 class BandUpAPI: Service {
 	init() {
-		// http://192.168.1.5:3000
-		// https://band-up-server.herokuapp.com
-		super.init(baseURL: "http://192.168.99.1:3000")
+		super.init(baseURL: Constants.BAND_UP_ADDRESS)
 	}
 	
+	var headers =    [String:String]()
 	var register:    Resource { return resource("/signup-local") }
 	var login:       Resource { return resource("/login-local") }
 	var instruments: Resource { return resource("/instruments") }
@@ -26,6 +25,14 @@ class BandUpAPI: Service {
 	var like:        Resource { return resource("/like") }
     var profile:     Resource { return resource("/user") }
     var chatHistory: Resource { return resource("/chat_history") }
+	
+	func getCookie () -> [String:String] {
+		if let setCookie = self.headers["set-cookie"] {
+			return ["cookie" : setCookie]
+		} else {
+			return [:]
+		}
+	}
 }
 
 let bandUpAPI = BandUpAPI()

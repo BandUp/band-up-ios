@@ -14,18 +14,23 @@ class SocketIOManager: NSObject {
     override init() {
         super.init()
     }
-    
-    // https://band-up-server.herokuapp.com
-    // http://192.168.99.1:3000
-    var socket: SocketIOClient = SocketIOClient(socketURL: NSURL(string: "http://192.168.99.1:3000") as! URL)
+	
+    var socket: SocketIOClient = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!)
 
     func establishConnection() {
+		print("Connecting")
         socket.connect()
     }
     
     func closeConnection() {
         socket.disconnect()
     }
+	
+	func startSocket() {
+		socket = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!, config: [.log(true), .forcePolling(true), .extraHeaders(bandUpAPI.getCookie())])
+	}
+	
+	func registerUser() -> OnAckCallback {
+		return socket.emitWithAck("adduser")
+	}
 }
-
-let socketIO = SocketIOManager()

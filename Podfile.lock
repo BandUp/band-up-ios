@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
   - KYDrawerController (2.0.1)
   - Siesta (1.0.1):
     - Siesta/Core (= 1.0.1)
@@ -8,16 +9,18 @@ PODS:
   - Socket.IO-Client-Swift (8.2.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 2.2.0)
   - KYDrawerController
   - Siesta (>= 1.0.1)
   - Siesta/UI (>= 1.0.1)
   - Socket.IO-Client-Swift (~> 8.2.0)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   KYDrawerController: b716cfa5730dc2133a67efcfc28b3b5a2cff6101
   Siesta: c7195fc65376360c76a27ce7bb64e0f1ce099a20
   Socket.IO-Client-Swift: 900cf511777045c80d1ce1f11f71261e87765dd1
 
-PODFILE CHECKSUM: 3415c46acb17c41c8873175c534625bde6bc5d52
+PODFILE CHECKSUM: 1d91fbd1b28e8b26cd49c0318624734ea38557ba
 
 COCOAPODS: 1.1.1

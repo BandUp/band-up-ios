@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006897B1E44F3C200EAD907 /* ChatViewController.swift */; };
 		200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200B434E1E4639CD004C06F1 /* SocketIOManager.swift */; };
+		56E0DC742C6C4A4124732CA8 /* Pods_band_up_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */; };
 		F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F63F1E02DBB000F57892 /* SetupViewController.swift */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
@@ -29,6 +30,7 @@
 		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
+		F29B9E851E47688E00BDB645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E841E47688E00BDB645 /* Constants.swift */; };
 		F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */; };
 		F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */; };
 		F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */; };
@@ -70,6 +72,7 @@
 		2006897B1E44F3C200EAD907 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		200B434E1E4639CD004C06F1 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
+		8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		F207F63F1E02DBB000F57892 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		F217C0431DDFC47100EE16DF /* band-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "band-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +104,7 @@
 		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
+		F29B9E841E47688E00BDB645 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E0DC742C6C4A4124732CA8 /* Pods_band_up_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +170,7 @@
 				F252C9501E44FCA6002B2E2B /* band-up-iosUITests */,
 				F217C0441DDFC47100EE16DF /* Products */,
 				05BEBC4A550603964996EAAD /* Pods */,
+				F6AB3D0A6932E4ADEE2F518F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
+				F29B9E841E47688E00BDB645 /* Constants.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
 				F2EA7B691E15BCC3005B1F34 /* User.swift */,
 				F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */,
@@ -306,6 +313,14 @@
 				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
 			);
 			name = Elements;
+			sourceTree = "<group>";
+		};
+		F6AB3D0A6932E4ADEE2F518F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,6 +546,7 @@
 				F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
 				200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */,
+				F29B9E851E47688E00BDB645 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,7 +692,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
@@ -692,7 +708,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";

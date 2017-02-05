@@ -134,7 +134,13 @@ class LoginViewController: UIViewController {
 				// Hide the network activity indicator in the status bar.
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 				self.btnLogin.isEnabled = true;
+				bandUpAPI.headers = data.headers
 				
+				
+				if let setCookie = data.headers["set-cookie"] {
+					let cookies = HTTPCookie.cookies(withResponseHeaderFields: ["set-cookie": setCookie], for: Constants.BAND_UP_ADDRESS!)
+					HTTPCookieStorage.shared.setCookies(cookies, for: Constants.BAND_UP_ADDRESS!, mainDocumentURL: Constants.BAND_UP_ADDRESS)
+				}
 				let hasFinishedSetup = data.jsonDict["hasFinishedSetup"] as? Bool
 				
 				// Check if the boolean actually was in the response.

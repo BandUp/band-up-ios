@@ -44,10 +44,6 @@ class RegisterViewController: UIViewController {
 	// MARK: Buttons
 	@IBOutlet weak var btnRegister: UIButton!
 	
-	// MARK: - Variables
-	let MIN_AGE = 13
-	let MAX_AGE = 99
-	
 	// MARK: - IBActions
 	// MARK: Text Field Changed
 	@IBAction func emailChanged(_ sender: UITextField) {
@@ -186,8 +182,8 @@ class RegisterViewController: UIViewController {
 		datePicker.datePickerMode = .date
 		self.txtDateOfBirth.inputView = datePicker
 		
-		datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -(MIN_AGE), to: Date())
-		datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -(MAX_AGE), to: Date())
+		datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MIN_AGE), to: Date())
+		datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MAX_AGE), to: Date())
 		datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: datePicker.minimumDate!)
 		
 		datePicker.addTarget(self, action: #selector(dateChanged), for: UIControlEvents.valueChanged)

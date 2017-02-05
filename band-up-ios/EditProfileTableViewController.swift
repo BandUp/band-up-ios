@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
+
 
 class EditProfileTableViewController: UITableViewController {
 	@IBOutlet weak var txtName: UITextField!
@@ -15,6 +17,7 @@ class EditProfileTableViewController: UITableViewController {
 	@IBOutlet weak var lblGenres: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
 	@IBOutlet weak var txtAboutMe: UITextView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		txtName.delegate = self
@@ -33,9 +36,10 @@ class EditProfileTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("Section:\(indexPath.section), Row: \(indexPath.row)")
+		
 		if indexPath.section == 1 {
 			let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
-
+			
 			let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
 			
 			myVC.setupViewObject = prepareSetupObjectInstruments()
@@ -47,6 +51,32 @@ class EditProfileTableViewController: UITableViewController {
 			
 			myVC.setupViewObject = prepareSetupObjectGenres()
 			present(myVC, animated: true, completion: nil)
+		} else if indexPath.section == 0 && indexPath.row == 1 {
+			let datePicker = ActionSheetDatePicker(title: "Date of Birth", datePickerMode: UIDatePickerMode.date, selectedDate: (parent as! EditProfileViewController).user.dateOfBirth, doneBlock: {
+				picker, value, index in
+				(self.parent as! EditProfileViewController).user.dateOfBirth = value as! Date
+				self.lblAge.text = (self.parent as! EditProfileViewController).user.getAgeString()
+				tableView.deselectRow(at: indexPath, animated: true)
+				return
+			}, cancel: { ActionStringCancelBlock in
+				tableView.deselectRow(at: indexPath, animated: true)
+				return
+			}, origin: tableView.cellForRow(at: indexPath)?.superview!.superview)
+			datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MIN_AGE), to: Date())
+			datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MAX_AGE), to: Date())
+			datePicker?.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: (datePicker?.minimumDate!)!)
+			datePicker?.show()
+		} else if indexPath.section == 0 && indexPath.row == 2 {
+			ActionSheetMultipleStringPicker.show(withTitle: "Select Instrument", rows: [
+				(parent as! EditProfileViewController).user.instruments
+				], initialSelection: [0], doneBlock: {
+					picker, indexes, values in
+					self.lblFavInstrument.text = String(describing: (values as! NSArray)[0])
+					tableView.deselectRow(at: indexPath, animated: true)
+					return
+			}, cancel: { ActionMultipleStringCancelBlock in
+				tableView.deselectRow(at: indexPath, animated: true)
+				return }, origin: tableView.cellForRow(at: indexPath))
 		}
 	}
 	
