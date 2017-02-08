@@ -56,7 +56,7 @@ class EditProfileTableViewController: UITableViewController {
 		if indexPath.section == 1 {
 			return tagInstruments.intrinsicContentSize.height+16
 		} else if indexPath.section == 2 {
-			//return tagGenres.intrinsicContentSize.height+16
+			return tagGenres.intrinsicContentSize.height+16
 		} else if indexPath.section == 3 {
 			return 150
 		}

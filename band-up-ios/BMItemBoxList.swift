@@ -74,7 +74,7 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		currCell.layer.borderColor = self.borderColor?.cgColor
 		currCell.layer.cornerRadius = self.cornerRadius
 		currCell.cornerRadius = self.cornerRadius
-		currCell.contentView.backgroundColor = self.backColor
+		currCell.layer.backgroundColor = self.backColor?.cgColor
 		
 		// Content
 		currCell.title = self.strings[indexPath.row]
