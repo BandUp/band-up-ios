@@ -7,6 +7,7 @@ PODS:
   - Siesta/UI (1.0.1):
     - Siesta/Core
   - Socket.IO-Client-Swift (8.2.0)
+  - UICollectionViewLeftAlignedLayout (1.0.2)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.2.0)
@@ -14,13 +15,15 @@ DEPENDENCIES:
   - Siesta (>= 1.0.1)
   - Siesta/UI (>= 1.0.1)
   - Socket.IO-Client-Swift (~> 8.2.0)
+  - UICollectionViewLeftAlignedLayout
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   KYDrawerController: b716cfa5730dc2133a67efcfc28b3b5a2cff6101
   Siesta: c7195fc65376360c76a27ce7bb64e0f1ce099a20
   Socket.IO-Client-Swift: 900cf511777045c80d1ce1f11f71261e87765dd1
+  UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: 1d91fbd1b28e8b26cd49c0318624734ea38557ba
+PODFILE CHECKSUM: a27c6e6d2e9d0b3b3c7d89eaf6e50153aed9d49a
 
 COCOAPODS: 1.1.1

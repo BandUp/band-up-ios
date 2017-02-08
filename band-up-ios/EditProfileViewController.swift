@@ -43,7 +43,7 @@ class EditProfileViewController: UIViewController {
 					instruString += ", "
 				}
 			}
-			tableViewController.lblInstruments.text = instruString
+			//tableViewController.lblInstruments.text = instruString
 		}
 		
 		
@@ -57,7 +57,6 @@ class EditProfileViewController: UIViewController {
 					genreString += ", "
 				}
 			}
-			tableViewController.lblGenres.text = genreString
 		}
 	}
 	

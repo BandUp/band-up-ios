@@ -19,6 +19,7 @@
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
+		F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */; };
 		F252C92D1E43FC45002B2E2B /* UserListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C92C1E43FC45002B2E2B /* UserListView.storyboard */; };
 		F252C92F1E43FC73002B2E2B /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */; };
 		F252C9311E43FCB1002B2E2B /* MatchesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */; };
@@ -31,6 +32,7 @@
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F29B9E851E47688E00BDB645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E841E47688E00BDB645 /* Constants.swift */; };
+		F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */; };
 		F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */; };
 		F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */; };
 		F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */; };
@@ -89,6 +91,7 @@
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxListCell.swift; sourceTree = "<group>"; };
 		F252C92C1E43FC45002B2E2B /* UserListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserListView.storyboard; sourceTree = "<group>"; };
 		F252C92E1E43FC73002B2E2B /* SettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
 		F252C9301E43FCB1002B2E2B /* MatchesView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MatchesView.storyboard; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F29B9E841E47688E00BDB645 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxList.swift; sourceTree = "<group>"; };
 		F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 			children = (
 				F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */,
 				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
+				F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */,
+				F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -542,8 +548,10 @@
 				F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */,
 				F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */,
 				F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */,
+				F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */,
 				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,
 				F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */,
+				F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
 				200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */,
 				F29B9E851E47688E00BDB645 /* Constants.swift in Sources */,

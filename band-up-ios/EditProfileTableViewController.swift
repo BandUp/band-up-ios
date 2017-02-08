@@ -13,30 +13,83 @@ import ActionSheetPicker_3_0
 class EditProfileTableViewController: UITableViewController {
 	@IBOutlet weak var txtName: UITextField!
 	@IBOutlet weak var lblAge: UILabel!
-	@IBOutlet weak var lblInstruments: UILabel!
-	@IBOutlet weak var lblGenres: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
 	@IBOutlet weak var txtAboutMe: UITextView!
 	
+	@IBOutlet weak var tagGenres: BMItemBoxList!
+	@IBOutlet weak var tagInstruments: BMItemBoxList!
+	
+	@IBOutlet weak var tbcInstruments: UITableViewCell!
+	var user = User()
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		user = (self.parent as! EditProfileViewController).user
+		tagInstruments.strings = user.instruments
+		tagGenres.strings = user.genres
+		
+	}
+	func selectInstrumentCell(_ sender: UIButton) {
+		print("SELECTED INSTRUMENTS")
+		tableView.selectRow(at: IndexPath(row: 1, section:0), animated: true, scrollPosition: UITableViewScrollPosition(rawValue: 0)!)
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		let selectInstruments = UIGestureRecognizer(target: self, action: #selector(self.selectInstrumentCell(_:)))
+		
+		tagInstruments.addGestureRecognizer(selectInstruments)
 		txtName.delegate = self
 		txtAboutMe.delegate = self
 		let nameStr = NSAttributedString(string: "Name", attributes: [NSForegroundColorAttributeName:UIColor.gray])
 		
 		txtName.attributedPlaceholder = nameStr
-		//txtAboutMe.attributedPlaceholder = aboutMeStr
-		tableView.keyboardDismissMode = .onDrag
+		tableView.keyboardDismissMode = .interactive
+		tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: UITableViewRowAnimation.none)
 	}
-	
+
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print("Section:\(indexPath.section), Row: \(indexPath.row)")
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.section == 1 {
+			return tagInstruments.intrinsicContentSize.height+16
+		} else if indexPath.section == 2 {
+			//return tagGenres.intrinsicContentSize.height+16
+		} else if indexPath.section == 3 {
+			return 150
+		}
+		return 44
+	}
+	
+	override public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.section == 1 {
+			return tagInstruments.intrinsicContentSize.height+16
+		} else if indexPath.section == 2 {
+			return tagGenres.intrinsicContentSize.height+16
+		} else if indexPath.section == 3 {
+			return 150
+		}
+		return 44
+	}
+	
+	override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		if indexPath.section == 0 && indexPath.row == 1 {
+			return true
+		} else if indexPath.section == 0 && indexPath.row == 2 {
+			return true
+		} else if indexPath.section == 1 {
+			return true
+		} else if indexPath.section == 2 {
+			return true
+		}
 		
+		return false
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	
 		if indexPath.section == 1 {
 			let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 			
@@ -44,6 +97,7 @@ class EditProfileTableViewController: UITableViewController {
 			
 			myVC.setupViewObject = prepareSetupObjectInstruments()
 			present(myVC, animated: true, completion: nil)
+			tagInstruments.layoutSubviews()
 		} else if indexPath.section == 2 {
 			let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 			

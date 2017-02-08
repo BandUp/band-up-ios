@@ -7,4 +7,5 @@ target 'band-up-ios' do
     pod 'KYDrawerController'
     pod 'Socket.IO-Client-Swift', '~> 8.2.0'
     pod 'ActionSheetPicker-3.0', '~> 2.2.0'
+    pod 'UICollectionViewLeftAlignedLayout'
 end

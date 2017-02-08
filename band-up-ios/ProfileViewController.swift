@@ -53,6 +53,7 @@ class ProfileViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
+	
 	// MARK: - Helper Functions
 	func populateUser() {
 		imgProfileImage.image = nil
