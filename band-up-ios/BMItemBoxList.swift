@@ -17,19 +17,18 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	let CELL_VIEW_TAG = "cellTag"
 	
 	// MARK: IBInspectables
-	@IBInspectable open var tagColor: UIColor?
-	@IBInspectable open var tagBorderColor: UIColor?
+	@IBInspectable open var backColor: UIColor?
+	@IBInspectable open var borderColor: UIColor?
 	@IBInspectable open var textColor: UIColor?
 	
 	@IBInspectable open var fontSize: CGFloat = 17.0
 	@IBInspectable open var fontType = "System"
 	
-	
 	@IBInspectable open var horizontalMargin: CGFloat = 10
 	@IBInspectable open var verticalMargin: CGFloat = 10
-	
 	@IBInspectable open var horizontalPadding: CGFloat = 6
 	@IBInspectable open var verticalPadding: CGFloat = 3
+	
 	@IBInspectable open var cornerRadius: CGFloat = 3
 	
 	// MARK: Variables
@@ -72,10 +71,10 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		
 		// Box style
 		currCell.layer.borderWidth = 0.5
-		currCell.layer.borderColor = self.tagBorderColor?.cgColor
+		currCell.layer.borderColor = self.borderColor?.cgColor
 		currCell.layer.cornerRadius = self.cornerRadius
 		currCell.cornerRadius = self.cornerRadius
-		currCell.contentView.backgroundColor = self.tagColor
+		currCell.contentView.backgroundColor = self.backColor
 		
 		// Content
 		currCell.title = self.strings[indexPath.row]
