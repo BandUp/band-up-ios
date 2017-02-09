@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fy8-UO-FuW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fy8-UO-FuW">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -425,7 +425,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="432" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loginbackground" translatesAutoresizingMaskIntoConstraints="NO" id="gbV-GP-QrF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gbV-GP-QrF">
                                 <rect key="frame" x="0.0" y="0.0" width="432" height="768"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8F2-d9-ozK">
@@ -434,7 +434,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="G81-IY-7hg">
                                         <rect key="frame" x="0.0" y="75" width="432" height="615"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banduplogo" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-M1-CqQ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BandUpLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-M1-CqQ">
                                                 <rect key="frame" x="141" y="0.0" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="2eB-bH-l23"/>
@@ -629,7 +629,7 @@
                                                                     <constraint firstAttribute="width" id="OrA-uA-1CN"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square-facebook-512" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-Xv-evw">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginFacebook" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-Xv-evw">
                                                                 <rect key="frame" x="5" y="5" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="C7J-Xv-evw" secondAttribute="height" multiplier="1:1" id="FJl-f6-hue"/>
@@ -694,7 +694,7 @@
                                                                     <constraint firstAttribute="width" id="psT-bs-X95"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundcloud-logo" translatesAutoresizingMaskIntoConstraints="NO" id="dlt-p8-g9N">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginSoundCloud" translatesAutoresizingMaskIntoConstraints="NO" id="dlt-p8-g9N">
                                                                 <rect key="frame" x="5" y="5" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="dlt-p8-g9N" secondAttribute="height" multiplier="1:1" id="P2n-Ij-x8N"/>
@@ -752,7 +752,7 @@
                                                                     <constraint firstAttribute="width" id="4lk-ge-La0"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google_logo1600" translatesAutoresizingMaskIntoConstraints="NO" id="0OB-4k-VOQ">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginGoogle" translatesAutoresizingMaskIntoConstraints="NO" id="0OB-4k-VOQ">
                                                                 <rect key="frame" x="5" y="5" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="0OB-4k-VOQ" secondAttribute="height" multiplier="1:1" id="dWP-dM-KuQ"/>
@@ -914,7 +914,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="onE-oU-wAT">
-                                                <rect key="frame" x="13" y="0.0" width="295.5" height="46.5"/>
+                                                <rect key="frame" x="12.5" y="0.0" width="295.5" height="46.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kho-yX-uG9">
                                                         <rect key="frame" x="0.0" y="0.0" width="295.5" height="21"/>
@@ -970,7 +970,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                     <rect key="frame" x="0.0" y="0.0" width="214" height="99"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disco" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-AI-0YN">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Disco" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-AI-0YN">
                                                             <rect key="frame" x="0.0" y="0.0" width="214" height="99"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="6bs-0i-KIl">
@@ -1074,11 +1074,11 @@ Then follow the instructions in the email, that we will send you, to reset your 
         </scene>
     </scenes>
     <resources>
-        <image name="Loginbackground" width="1080" height="1920"/>
-        <image name="banduplogo" width="567" height="568"/>
-        <image name="disco" width="1050" height="700"/>
-        <image name="google_logo1600" width="1334" height="1334"/>
-        <image name="soundcloud-logo" width="1280" height="556"/>
-        <image name="square-facebook-512" width="512" height="512"/>
+        <image name="BandUpLogo" width="567" height="568"/>
+        <image name="Disco" width="1050" height="700"/>
+        <image name="LoginBackground" width="1080" height="1920"/>
+        <image name="LoginFacebook" width="512" height="512"/>
+        <image name="LoginGoogle" width="1334" height="1334"/>
+        <image name="LoginSoundCloud" width="1280" height="556"/>
     </resources>
 </document>

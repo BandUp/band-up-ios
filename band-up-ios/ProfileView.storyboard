@@ -48,7 +48,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXC-W6-Yg0">
                                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="J0F-Sk-6T4">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="J0F-Sk-6T4">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="J0F-Sk-6T4" secondAttribute="height" multiplier="1:1" id="zyu-p9-ffg"/>
@@ -541,6 +541,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultmynd" width="2400" height="2400"/>
+        <image name="ProfilePlaceholder" width="2400" height="2400"/>
     </resources>
 </document>

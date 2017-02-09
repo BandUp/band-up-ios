@@ -66,7 +66,7 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage)
 		} else {
-			imgUserImage.image = UIImage(named: "defaultmynd")
+			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			
 		}
 		return cell

@@ -72,7 +72,7 @@ class UserDetailsViewController: UIViewController {
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage, activityIndicator: actIndicator)
 		} else {
 			actIndicator.stopAnimating()
-			imgUserImage.image = UIImage(named: "defaultmynd")
+			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			
 		}
 		

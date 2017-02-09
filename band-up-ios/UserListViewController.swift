@@ -102,7 +102,7 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 			cell.imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: cell.imgUserImage, activityIndicator: cell.actIndicator)
 		} else {
-			cell.imgUserImage.image = UIImage(named: "defaultmynd")
+			cell.imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			cell.actIndicator.stopAnimating()
 		}
 		

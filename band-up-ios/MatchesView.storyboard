@@ -46,7 +46,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-at-cPh">
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-at-cPh">
                                                     <rect key="frame" x="15" y="8" width="73" height="73"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="K6h-at-cPh" secondAttribute="height" multiplier="1:1" id="szJ-Zx-aQn"/>
@@ -223,6 +223,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultmynd" width="2400" height="2400"/>
+        <image name="ProfilePlaceholder" width="2400" height="2400"/>
     </resources>
 </document>

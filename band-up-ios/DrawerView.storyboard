@@ -62,7 +62,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd7-bD-f1Y">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultmynd" translatesAutoresizingMaskIntoConstraints="NO" id="20n-PF-WJq">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="20n-PF-WJq">
                                                 <rect key="frame" x="10" y="10" width="55" height="55"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="20n-PF-WJq" secondAttribute="height" multiplier="1:1" id="pAP-Hk-YOb"/>
@@ -115,7 +115,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NearMe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-XC-PCU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drawer Item Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-XC-PCU">
                                                             <rect key="frame" x="18" y="8" width="339" height="42"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="30"/>
                                                             <nil key="textColor"/>
@@ -174,7 +174,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MainNavigation" id="aAX-U0-odr" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1pD-RP-QZP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="1pD-RP-QZP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -207,7 +207,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Musicians Near You" id="iT7-FL-RWn">
-                        <barButtonItem key="leftBarButtonItem" image="menu-alt-512" style="done" id="Tj1-Yb-29e">
+                        <barButtonItem key="leftBarButtonItem" image="DrawerButton" style="done" id="Tj1-Yb-29e">
                             <color key="tintColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapOpenDrawer:" destination="gdX-Nl-c1F" id="x8w-YR-phw"/>
@@ -221,7 +221,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultmynd" width="2400" height="2400"/>
-        <image name="menu-alt-512" width="22" height="22"/>
+        <image name="DrawerButton" width="22" height="22"/>
+        <image name="ProfilePlaceholder" width="2400" height="2400"/>
     </resources>
 </document>

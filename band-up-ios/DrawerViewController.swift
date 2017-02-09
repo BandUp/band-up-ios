@@ -53,7 +53,7 @@ class DrawerViewController: UIViewController {
 			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage)
 		} else {
-			imgUserImage.image = UIImage(named: "defaultmynd")
+			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			
 		}
 	}
@@ -80,6 +80,7 @@ class DrawerViewController: UIViewController {
 
 extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 	
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return listItems.count
 	}
@@ -99,14 +100,4 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 		mainController.updateView(row: listItems[indexPath.row].id)
 		drawer.setDrawerState(.closed, animated: true)
 	}
-}
-
-class ListItem {
-	init(id : String, name: String) {
-		self.name = name
-		self.id = id
-	}
-	
-	var name : String = ""
-	var id : String = ""
 }

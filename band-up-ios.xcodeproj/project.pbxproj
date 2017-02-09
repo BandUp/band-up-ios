@@ -30,6 +30,10 @@
 		F252C9521E44FCA6002B2E2B /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9511E44FCA6002B2E2B /* band_up_iosUITests.swift */; };
 		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
+		F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511A1E4C01DE00E2974C /* UserImage.swift */; };
+		F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511C1E4C01E900E2974C /* UserLocation.swift */; };
+		F270511F1E4C022D00E2974C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511E1E4C022D00E2974C /* ChatMessage.swift */; };
+		F27051211E4C027600E2974C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27051201E4C027600E2974C /* ListItem.swift */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F29B9E851E47688E00BDB645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E841E47688E00BDB645 /* Constants.swift */; };
 		F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */; };
@@ -106,6 +110,10 @@
 		F252C9531E44FCA6002B2E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
+		F270511A1E4C01DE00E2974C /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
+		F270511C1E4C01E900E2974C /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		F270511E1E4C022D00E2974C /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		F27051201E4C027600E2974C /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F29B9E841E47688E00BDB645 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxList.swift; sourceTree = "<group>"; };
@@ -194,9 +202,9 @@
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
 				F29B9E841E47688E00BDB645 /* Constants.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
-				F2EA7B691E15BCC3005B1F34 /* User.swift */,
 				F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */,
 				200B434E1E4639CD004C06F1 /* SocketIOManager.swift */,
+				F27051191E4C01C600E2974C /* Models */,
 				F2AB060A1E0614F20039C761 /* Setup */,
 				F2AB060B1E0615410039C761 /* Main Screen */,
 				F2B0231D1E04E49400088622 /* Resources */,
@@ -238,6 +246,18 @@
 				F252C9531E44FCA6002B2E2B /* Info.plist */,
 			);
 			path = "band-up-iosUITests";
+			sourceTree = "<group>";
+		};
+		F27051191E4C01C600E2974C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2EA7B691E15BCC3005B1F34 /* User.swift */,
+				F270511A1E4C01DE00E2974C /* UserImage.swift */,
+				F270511C1E4C01E900E2974C /* UserLocation.swift */,
+				F270511E1E4C022D00E2974C /* ChatMessage.swift */,
+				F27051201E4C027600E2974C /* ListItem.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		F2AB060A1E0614F20039C761 /* Setup */ = {
@@ -529,17 +549,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27051211E4C027600E2974C /* ListItem.swift in Sources */,
 				F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */,
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
 				2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */,
 				F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
+				F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
 				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */,
+				F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */,
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
 				F2AB06111E0616B30039C761 /* MatchesViewController.swift in Sources */,
 				F2AB060F1E0616A20039C761 /* ProfileViewController.swift in Sources */,
@@ -547,6 +570,7 @@
 				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
 				F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */,
 				F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */,
+				F270511F1E4C022D00E2974C /* ChatMessage.swift in Sources */,
 				F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */,
 				F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */,
 				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,

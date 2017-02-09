@@ -150,62 +150,6 @@ class User: CustomStringConvertible {
 	}
 }
 
-class UserLocation: CustomStringConvertible {
-	convenience init(_ dictionary: NSDictionary) {
-		self.init()
-		
-		if let jsonLat = dictionary["lat"] as? Double {
-			self.latitude = jsonLat
-		}
-		
-		if let jsonLon = dictionary["lon"] as? Double {
-			self.longitude = jsonLon
-		}
-		
-		if let jsonValid = dictionary["valid"] as? Bool {
-			self.valid = jsonValid
-		}
 
-	}
-	
-	var latitude:  Double = 0.0
-	var longitude: Double = 0.0
-	var valid:     Bool   = false
-	
-	var description: String {
-		return "\(UserLocation.self)\n\tLatitude:\(latitude)\n\tLongitude:\(longitude)\n\tValid:\(valid)"
-	}
-}
 
-class UserImage: CustomStringConvertible {
-	convenience init(_ dictionary: NSDictionary) {
-		self.init()
-		
-		if let jsonUrl = dictionary["url"] as? String {
-			self.url = jsonUrl
-		}
-		
-		if let jsonPublicId = dictionary["public_id"] as? String {
-			self.publicId = jsonPublicId
-		}
-	}
 
-	var publicId: String = ""
-	var url:      String = ""
-	
-	var description: String {
-		var bla = [String:String]()
-		
-		bla["URL"] = url;
-		bla["Public ID"] = publicId;
-		
-		var desc = "\(UserImage.self)\n"
-		
-		for (key, value) in bla {
-			desc += String(format: "%25s: %s\n", (key as NSString).utf8String!, (value as NSString).utf8String!)
-		}
-		
-		return desc;
-	}
-	
-}

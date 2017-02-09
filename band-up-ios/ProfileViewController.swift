@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController {
 			self.downloadImage(url: checkedUrl, imageView: imgProfileImage, activityIndicator: imageActivityIndicator)
 		} else {
 			imageActivityIndicator.stopAnimating()
-			imgProfileImage.image = UIImage(named: "defaultmynd")
+			imgProfileImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			
 		}
 		

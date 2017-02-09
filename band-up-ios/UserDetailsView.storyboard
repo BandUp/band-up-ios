@@ -50,7 +50,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA3-06-jjn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="disco" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-JY-H5I">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-JY-H5I">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                                                 <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
@@ -271,6 +271,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="disco" width="1050" height="700"/>
+        <image name="ProfilePlaceholder" width="2400" height="2400"/>
     </resources>
 </document>
