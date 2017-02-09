@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fy8-UO-FuW">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,7 +25,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="YKd-DY-io9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YKd-DY-io9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -66,13 +66,13 @@
                                                 <rect key="frame" x="0.0" y="10" width="376" height="69"/>
                                                 <subviews>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQX-xV-Lza">
-                                                        <rect key="frame" x="0.0" y="0.0" width="32.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="32.333333333333336" height="15.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eV2-Eg-r4I">
-                                                        <rect key="frame" x="0.0" y="21" width="376" height="22"/>
+                                                        <rect key="frame" x="0.0" y="20.666666666666664" width="376" height="22.000000000000007"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="Owp-Jp-bXQ"/>
                                                         </constraints>
@@ -85,13 +85,13 @@
                                                         </connections>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The email is not in the correct format." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcP-ct-0oU">
-                                                        <rect key="frame" x="0.0" y="52" width="376" height="16"/>
+                                                        <rect key="frame" x="0.0" y="51.666666666666671" width="376" height="15.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gej-X0-sdO">
-                                                        <rect key="frame" x="0.0" y="46" width="376" height="2"/>
+                                                        <rect key="frame" x="0.0" y="45.666666666666671" width="376" height="2"/>
                                                         <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="y1p-pB-yg6"/>
@@ -118,13 +118,13 @@
                                                 <rect key="frame" x="0.0" y="79" width="376" height="69"/>
                                                 <subviews>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjf-db-zra">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35.333333333333336" height="15.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-Ty-aPr">
-                                                        <rect key="frame" x="0.0" y="21" width="376" height="22"/>
+                                                        <rect key="frame" x="0.0" y="20.666666666666671" width="376" height="21.999999999999986"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="Abf-gy-kBT"/>
                                                         </constraints>
@@ -137,13 +137,13 @@
                                                         </connections>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The email is not in the correct format." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btl-54-j9b">
-                                                        <rect key="frame" x="0.0" y="52" width="376" height="16"/>
+                                                        <rect key="frame" x="0.0" y="51.666666666666657" width="376" height="15.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20c-pa-eE2">
-                                                        <rect key="frame" x="0.0" y="46" width="376" height="2"/>
+                                                        <rect key="frame" x="0.0" y="45.666666666666657" width="376" height="2"/>
                                                         <color key="backgroundColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="3QN-JR-kAf"/>
@@ -170,13 +170,13 @@
                                                 <rect key="frame" x="0.0" y="148" width="376" height="69"/>
                                                 <subviews>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up8-oy-11L">
-                                                        <rect key="frame" x="0.0" y="0.0" width="58.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="58.333333333333329" height="15.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sRA-J6-c0x">
-                                                        <rect key="frame" x="0.0" y="21" width="376" height="22"/>
+                                                        <rect key="frame" x="0.0" y="20.666666666666657" width="376" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="tqe-zS-fQ1"/>
                                                         </constraints>
@@ -189,13 +189,13 @@
                                                         </connections>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The email is not in the correct format." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi4-rV-nQE">
-                                                        <rect key="frame" x="0.0" y="52" width="376" height="16"/>
+                                                        <rect key="frame" x="0.0" y="51.666666666666657" width="376" height="15.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6Y-Yg-0eE">
-                                                        <rect key="frame" x="0.0" y="46" width="376" height="2"/>
+                                                        <rect key="frame" x="0.0" y="45.666666666666657" width="376" height="2"/>
                                                         <color key="backgroundColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="RAk-aI-aqu"/>
@@ -222,13 +222,13 @@
                                                 <rect key="frame" x="0.0" y="217" width="376" height="69"/>
                                                 <subviews>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNh-kh-pWo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="110.33333333333334" height="15.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="miC-ps-8mL">
-                                                        <rect key="frame" x="0.0" y="21" width="376" height="22"/>
+                                                        <rect key="frame" x="0.0" y="20.666666666666686" width="376" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="Qox-rz-awe"/>
                                                         </constraints>
@@ -241,13 +241,13 @@
                                                         </connections>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The email is not in the correct format." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="im0-Ph-CaR">
-                                                        <rect key="frame" x="0.0" y="52" width="376" height="16"/>
+                                                        <rect key="frame" x="0.0" y="51.666666666666686" width="376" height="15.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnk-U9-lT7">
-                                                        <rect key="frame" x="0.0" y="46" width="376" height="2"/>
+                                                        <rect key="frame" x="0.0" y="45.666666666666686" width="376" height="2"/>
                                                         <color key="backgroundColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="w7s-CL-cmi"/>
@@ -274,13 +274,13 @@
                                                 <rect key="frame" x="0.0" y="286" width="376" height="69"/>
                                                 <subviews>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-gv-fK2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="15.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DateOfBirth" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qMv-LX-U5M">
-                                                        <rect key="frame" x="0.0" y="21" width="376" height="22"/>
+                                                        <rect key="frame" x="0.0" y="20.666666666666686" width="376" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="eph-vO-QeP"/>
                                                         </constraints>
@@ -289,13 +289,13 @@
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The email is not in the correct format." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5P-pI-d6h">
-                                                        <rect key="frame" x="0.0" y="52" width="376" height="16"/>
+                                                        <rect key="frame" x="0.0" y="51.666666666666686" width="376" height="15.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgE-19-aXN">
-                                                        <rect key="frame" x="0.0" y="46" width="376" height="2"/>
+                                                        <rect key="frame" x="0.0" y="45.666666666666686" width="376" height="2"/>
                                                         <color key="backgroundColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="jOS-jg-4GN"/>
@@ -580,7 +580,7 @@
                                                 <rect key="frame" x="91" y="467" width="250" height="20"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tx3-ch-Jyr">
-                                                        <rect key="frame" x="0.0" y="9.5" width="100" height="1"/>
+                                                        <rect key="frame" x="0.0" y="9.6666666666666288" width="100" height="1"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="REC-Fs-dy6"/>
@@ -597,7 +597,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="iBd-P0-qIU">
-                                                        <rect key="frame" x="150" y="9.5" width="100" height="1"/>
+                                                        <rect key="frame" x="150" y="9.6666666666666288" width="100" height="1"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="ZGY-ho-JuZ"/>
@@ -871,7 +871,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-d4-xpw">
-                                        <rect key="frame" x="101.5" y="111" width="189" height="30"/>
+                                        <rect key="frame" x="101.66666666666669" y="111" width="189" height="30"/>
                                         <state key="normal" title="Send Password Reset Email"/>
                                     </button>
                                 </subviews>
@@ -904,29 +904,29 @@ Then follow the instructions in the email, that we will send you, to reset your 
                         <viewControllerLayoutGuide type="bottom" id="aJX-HD-NRE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xal-NM-fbE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-ao-Uj3">
-                                <rect key="frame" x="0.0" y="30" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="696"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FN8-Mw-TDM">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
+                                        <rect key="frame" x="47" y="0.0" width="320" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="onE-oU-wAT">
-                                                <rect key="frame" x="12.5" y="0.0" width="295.5" height="46.5"/>
+                                                <rect key="frame" x="13" y="0.0" width="295.33333333333331" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kho-yX-uG9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295.33333333333331" height="21"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Let's get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0d-u4-4gW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="134" height="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="133.66666666666666" height="21"/>
                                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="18"/>
                                                                 <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBE-T4-3qA">
-                                                                <rect key="frame" x="267" y="0.0" width="28.5" height="21"/>
+                                                                <rect key="frame" x="266.66666666666669" y="0.0" width="28.666666666666629" height="21"/>
                                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="18"/>
                                                                 <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -934,7 +934,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What instruments do you play?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK9-QY-FII">
-                                                        <rect key="frame" x="0.0" y="21" width="295.5" height="25.5"/>
+                                                        <rect key="frame" x="0.0" y="24.666666666666661" width="295.33333333333331" height="25.333333333333339"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -954,7 +954,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sEN-TI-EDN">
-                                        <rect key="frame" x="0.0" y="56.5" width="320" height="323.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="576"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Q2T-MK-tJl">
                                             <size key="itemSize" width="214" height="99"/>
@@ -964,7 +964,7 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xEq-EJ-7ua">
-                                                <rect key="frame" x="53" y="0.0" width="214" height="99"/>
+                                                <rect key="frame" x="100" y="0.0" width="214" height="99"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="214" height="99"/>
@@ -998,10 +998,10 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYu-3o-YnB">
-                                        <rect key="frame" x="0.0" y="390" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="646" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-W4-k6J">
-                                                <rect key="frame" x="230" y="0.0" width="80" height="50"/>
+                                                <rect key="frame" x="324" y="0.0" width="80" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="nKl-5u-xLL"/>
                                                 </constraints>
@@ -1031,11 +1031,11 @@ Then follow the instructions in the email, that we will send you, to reset your 
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-Dy-gJi">
-                                <rect key="frame" x="141.5" y="221.5" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
                                 <color key="color" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhw-rq-Xah">
-                                <rect key="frame" x="16" y="225" width="288" height="30"/>
+                                <rect key="frame" x="20" y="353" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="r2s-bN-VO3"/>
                                 </constraints>
@@ -1081,4 +1081,5 @@ Then follow the instructions in the email, that we will send you, to reset your 
         <image name="LoginGoogle" width="1334" height="1334"/>
         <image name="LoginSoundCloud" width="1280" height="556"/>
     </resources>
+    <color key="tintColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

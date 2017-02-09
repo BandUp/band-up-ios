@@ -1,0 +1,51 @@
+
+/* Class = "UITableViewSection"; headerTitle = "Your Band Up Account"; ObjectID = "7GA-bK-qBP"; */
+"7GA-bK-qBP.headerTitle" = "Band Up reikningurinn þinn";
+
+/* Class = "UILabel"; text = "Messages"; ObjectID = "C06-ck-6B7"; */
+"C06-ck-6B7.text" = "Skilaboð";
+
+/* Class = "UILabel"; text = "Use Imperial Units"; ObjectID = "E3Q-Q5-Cij"; */
+"E3Q-Q5-Cij.text" = "Nota breskar mælieiningar";
+
+/* Class = "UILabel"; text = "Delete Account"; ObjectID = "Ehu-2I-9xN"; */
+"Ehu-2I-9xN.text" = "Eyða reikningi";
+
+/* Class = "UITableViewSection"; headerTitle = "Push Notifications"; ObjectID = "Jje-QA-fjI"; */
+"Jje-QA-fjI.headerTitle" = "Tilkynningar";
+
+/* Class = "UILabel"; text = "Inactive Alert"; ObjectID = "PzO-5N-lYL"; */
+"PzO-5N-lYL.text" = "Óvirknistilkynning";
+
+/* Class = "UILabel"; text = "Open Source Software"; ObjectID = "Qwv-IT-pAj"; */
+"Qwv-IT-pAj.text" = "Opinn hugbúnaður";
+
+/* Class = "UILabel"; text = "New Matches"; ObjectID = "XXc-Z7-MnT"; */
+"XXc-Z7-MnT.text" = "Nýjar tengingar";
+
+/* Class = "UILabel"; text = "Email Support"; ObjectID = "YML-aG-oId"; */
+"YML-aG-oId.text" = "Senda tölvupóst til okkar";
+
+/* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "aYG-Xu-Zal"; */
+"aYG-Xu-Zal.text" = "Persónuverndarstefna";
+
+/* Class = "UILabel"; text = "Ages"; ObjectID = "gOe-NR-Wsm"; */
+"gOe-NR-Wsm.text" = "Aldur";
+
+/* Class = "UITableViewSection"; headerTitle = "Measurement"; ObjectID = "nFU-Qu-KaV"; */
+"nFU-Qu-KaV.headerTitle" = "Mælieiningar";
+
+/* Class = "UITableViewSection"; footerTitle = "Don't hesitate to contact us if something isn't working, or you need help."; ObjectID = "oST-CZ-ywx"; */
+"oST-CZ-ywx.footerTitle" = "Ekki hika við að hafa samband við okkur ef eitthvað virkar ekki, eða þig vantar hjálp.";
+
+/* Class = "UITableViewSection"; headerTitle = "Support"; ObjectID = "oST-CZ-ywx"; */
+"oST-CZ-ywx.headerTitle" = "Aðstoð";
+
+/* Class = "UITableViewSection"; headerTitle = "Filter"; ObjectID = "rij-rK-Zo0"; */
+"rij-rK-Zo0.headerTitle" = "Sía";
+
+/* Class = "UILabel"; text = "Radius: 300 km"; ObjectID = "uD1-9s-Gy2"; */
+"uD1-9s-Gy2.text" = "Radíus: 300 km";
+
+/* Class = "UITableViewSection"; headerTitle = "Legal"; ObjectID = "v0n-Tk-46X"; */
+"v0n-Tk-46X.headerTitle" = "Lagaleg ákvæði";

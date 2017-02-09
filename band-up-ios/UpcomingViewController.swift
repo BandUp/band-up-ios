@@ -12,7 +12,8 @@ class UpcomingViewController: UIViewController {
 	var upcomingFeatures = [String]()
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		upcomingFeatures.append("Share found users to friends via social media")
+		let shareFriends = NSLocalizedString("Share found users to friends via social media", comment: "List item in the Upcoming Features List")
+		upcomingFeatures.append(shareFriends)
 		upcomingFeatures.append("Band Start-Up: Support for upcoming bands")
 		upcomingFeatures.append("Concert Calendar")
 	}
@@ -45,5 +46,11 @@ extension UpcomingViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
+	}
+}
+
+extension String {
+	var localized: String {
+		return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
 	}
 }

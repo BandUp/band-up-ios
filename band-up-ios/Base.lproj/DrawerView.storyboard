@@ -224,4 +224,5 @@
         <image name="DrawerButton" width="22" height="22"/>
         <image name="ProfilePlaceholder" width="2400" height="2400"/>
     </resources>
+    <color key="tintColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

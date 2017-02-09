@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Genres"; ObjectID = "3JZ-bN-5gc"; */
+"3JZ-bN-5gc.text" = "Tónlistarstefnur";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "A7F-8a-7xw"; */
+"A7F-8a-7xw.text" = "Aldur";
+
+/* Class = "UILabel"; text = "Distance"; ObjectID = "ItW-ZY-euV"; */
+"ItW-ZY-euV.text" = "Vegalengd";
+
+/* Class = "UILabel"; text = "Instruments"; ObjectID = "LUf-Fl-ecF"; */
+"LUf-Fl-ecF.text" = "Hljóðfæri";
+
+/* Class = "UIButton"; normalTitle = "Like"; ObjectID = "Uzb-xU-jom"; */
+"Uzb-xU-jom.normalTitle" = "Líka";
+
+/* Class = "UILabel"; text = "About me"; ObjectID = "bwM-S1-rQm"; */
+"bwM-S1-rQm.text" = "Um mig";
+
+/* Class = "UILabel"; text = "Genres"; ObjectID = "gBH-uc-l29"; */
+"gBH-uc-l29.text" = "Tónlistarstefnur";
+
+/* Class = "UILabel"; text = "Instruments"; ObjectID = "lRH-Xf-2EV"; */
+"lRH-Xf-2EV.text" = "Hljóðfæri";
+
+/* Class = "UILabel"; text = "00%"; ObjectID = "t0z-kr-Bok"; */
+"t0z-kr-Bok.text" = "00%";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "to6-tV-Y1n"; */
+"to6-tV-Y1n.text" = "Notandanafn";
+
+/* Class = "UILabel"; text = "Favourite Instrument"; ObjectID = "zCG-Lq-Uk7"; */
+"zCG-Lq-Uk7.text" = "Uppáhalds hljóðfæri";

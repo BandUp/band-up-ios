@@ -40,7 +40,8 @@ class EditProfileTableViewController: UITableViewController {
 		tagInstruments.addGestureRecognizer(selectInstruments)
 		txtName.delegate = self
 		txtAboutMe.delegate = self
-		let nameStr = NSAttributedString(string: "Name", attributes: [NSForegroundColorAttributeName:UIColor.gray])
+		let nameString = NSLocalizedString("Name", comment: "Placeholder for the Name Text Field")
+		let nameStr = NSAttributedString(string: nameString, attributes: [NSForegroundColorAttributeName:UIColor.gray])
 		
 		txtName.attributedPlaceholder = nameStr
 		tableView.keyboardDismissMode = .interactive

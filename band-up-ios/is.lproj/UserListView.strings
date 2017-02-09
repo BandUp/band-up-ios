@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "Like"; ObjectID = "26B-aI-8Zh"; */
+"26B-aI-8Zh.normalTitle" = "Líka";
+
+/* Class = "UILabel"; text = "Genre"; ObjectID = "5Et-4H-Pqe"; */
+"5Et-4H-Pqe.text" = "Genre";
+
+/* Class = "UILabel"; text = "Percentage"; ObjectID = "938-bP-mwQ"; */
+"938-bP-mwQ.text" = "Percentage";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "OYm-Xs-faq"; */
+"OYm-Xs-faq.text" = "Age";
+
+/* Class = "UILabel"; text = "Usernamefdjskfljdsklfdsl"; ObjectID = "QPG-Vs-tC4"; */
+"QPG-Vs-tC4.text" = "Usernamefdjskfljdsklfdsl";
+
+/* Class = "UILabel"; text = "MYLABEL IS BEST"; ObjectID = "aH5-SE-Kuy"; */
+"aH5-SE-Kuy.text" = "MYLABEL IS BEST";
+
+/* Class = "UIButton"; normalTitle = "Details"; ObjectID = "cMG-pC-GXI"; */
+"cMG-pC-GXI.normalTitle" = "Nánar";
+
+/* Class = "UILabel"; text = "Instrument"; ObjectID = "h54-fb-EQ5"; */
+"h54-fb-EQ5.text" = "Instrument";
+
+/* Class = "UILabel"; text = "Distance"; ObjectID = "vWU-Zt-gat"; */
+"vWU-Zt-gat.text" = "Distance";
