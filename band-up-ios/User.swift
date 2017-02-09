@@ -124,6 +124,7 @@ class User: CustomStringConvertible {
 	func getAgeString() -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateStyle = .long
+		dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
 		let formattedDate = dateFormatter.string(from: self.dateOfBirth)
 		
 		let age = getAge()
