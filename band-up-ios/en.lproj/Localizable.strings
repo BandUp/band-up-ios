@@ -5,42 +5,24 @@
   Created by Bergþór on 9.2.2017.
   Copyright © 2017 Bad Melody. All rights reserved.
 */
-/* The name of the app as displayed on the home screen */
 "app_name" = "Band Up";
-/* Login Screen */
-/* The hint displayed on the email text field. */
 "login_username" = "Email";
-/* The hint displayed on the password text field. */
 "login_password" = "Password";
-/* An error that appears when a user hasn't entered his/her email. */
 "login_username_validation" = "Please enter your email";
-/* An error that appears when a user hasn't entered his/her password. */
 "login_password_validation" = "Please enter your password";
-/* The log in button */;
 "login_sign_in" = "Log in";
-/* A button that allows you to open another screen where you register for a new account */
 "login_sign_up" = "Do not have an account? Sign up here.";
-/* The text on the button to log in with Facebook */
 "login_btn_facebook_hint" = "Log in with Facebook";
-/* The text on the button to log in with Google */
 "login_btn_google_hint" = "Log in with Google";
-/* The text on the button to log in with SoundCloud */
 "login_btn_soundcloud_hint" = "Log in with SoundCloud";
-/* The text that appears above the Facebook SoundCloud and Google sign in buttons. */
 "login_sign_up_with_services" = "Or sign up with these services";
-/* A button that allows you to open another screen where you can reset your password */
 "forgot_your_password" = "Forgot your password?";
-/* The title of a progress indicator that appears while logging in */
 "login_progress_title" = "Logging in";
-/* The description of a progress indicator that appears while logging in */
 "login_progress_description" = "Please wait...";
-/* A message that appears as a Toast when the user has entered incorrect email or password */
 "login_credentials_incorrect" = "Email or password incorrect";
-/* Sound Cloud Login*/;
 "prompt_email" = "Email";
 "action_sign_in" = "Sign in to SoundCloud";
 "action_sign_in_short" = "Sign in";
-/* Register Screen */
 "register_email" = "Email";
 "register_username" = "Name";
 "register_password" = "Password";
@@ -62,12 +44,10 @@
 "register_enter_dateofbirth" = "Please enter your Date Of Birth.";
 "register_progress_description" = "Please wait...";
 "register_progress_title" = "Registering";
-/* Password Reset */
 "title_activity_password_reset" = "Password Reset";
 "send_password_reset_e_mail" = "Send password reset email";
 "please_enter_your_e_mail" = "Please enter your email address.\nThen follow the instructions in the email, that we will send you, to reset your password.";
 "password_reset_email_sent" = "If this is a registered email, then you will receive an email shortly.";
-/* Setup Screens (Instruments and Genres) */
 "setup_get_started" = "Let\'s get started";
 "setup_instruments_hint" = "What instruments do you play?";
 "setup_instruments_next" = "Next";
@@ -78,19 +58,16 @@
 "setup_no_genre_selection" = "You need to select at least one genre";
 "setup_no_instrument_selection" = "You need to select at least one instrument";
 "setup_no_items" = "No items available";
-/* User List Screen */
 "main_title_user_list" = "Musicians near you";
 "user_list_like" = "Like";
 "user_list_liked" = "Liked";
 "user_list_details" = "Details";
 "user_list_no_users" = "No Musicians Nearby";
-/* Chat Screen */
 "chat_title1" = "Chat";
 "chat_title2" = "Chat with";
 "chat_message_hint" = "Type a message&#8230;";
 "chat_send" = "Send";
 "chat_view_profile" = "View Profile";
-/* Settings screen */
 "settings_title_filter" = "Filter";
 "settings_title_push_notifications" = "Push Notifications";
 "settings_title_measurement" = "Measurement";
@@ -110,7 +87,6 @@
 "settings_progress_delete_title" = "Deleting Your Account";
 "settings_progress_delete_message" = "Please wait...";
 "settings_email_support" = "Email Support";
-/* Advanced Search */
 "search_no_results" = "Could not find anyone matching your criteria";
 "search_ok" = "OK";
 "search_cancel" = "Cancel";
@@ -124,12 +100,11 @@
 "please_enter_search_parameters" = "Use these tools to find the perfect musician";
 "search_find_username" = "Search by name";
 "main_title_search_results" = "Search Results";
-/* Upcoming Features */
 "upcoming_event_calendar" = "Concert Calendar";
 "upcoming_share_users" = "Share found users to friends via social media";
 "upcoming_rent_practice" = "Band Start-Up: Support for upcoming bands";
-"coming_soon" = "Coming soon";
-/* My Profile */
+"main_nav_upcoming" = "Coming soon";
+"edit_profile_fav_instrument" = "Select Instrument";
 "edit_profile_favourite_instument_hint" = "Your Favourite Instrument";
 "edit_profile_influences" = "Tell us about your influences and experience";
 "edit_profile_more_info" = "More information is better for other users.";
@@ -142,20 +117,15 @@
 "user_error" = "Something went wrong";
 "user_allow_storage" = "Please allow access to select a photo.";
 "title_activity_sound_cloud" = "Sign Up";
-/* Matches */
 "main_title_matches" = "Matches";
-/* Settings */
 "main_title_settings" = "Settings";
-/* Navigation Drawer */
 "main_nav_settings" = "Settings";
 "main_nav_my_profile" = "My Profile";
 "main_nav_matches" = "Matches/Chat";
 "main_nav_near_me" = "Near Me";
 "main_nav_log_out" = "Log Out";
-/* User Details */
 "details_instruments" = "Instruments";
 "details_genres" = "Genres";
-/* General text */
 "age_year_singular" = "year old";
 "age_year_plural" = "years old";
 "exit_bandup_toast" = "To exit BandUp, click BACK again.";
@@ -208,6 +178,7 @@
 "about_me" = "About Me";
 "profile_take_photo" = "Take a photo";
 "profile_choose_photo" = "Choose a photo";
-/* Other */;
+"main_title_user_details" = "Musician Details";
+
 "navigation_drawer_open" = "Open navigation drawer";
 "navigation_drawer_close" = "Close navigation drawer";

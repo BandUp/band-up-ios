@@ -6,7 +6,7 @@
 "8z1-cq-S2i.text" = "Age";
 
 /* Class = "UINavigationItem"; title = "Edit Profile"; ObjectID = "9Tr-cb-7cO"; */
-"9Tr-cb-7cO.title" = "Edit Profile";
+"9Tr-cb-7cO.title" = "Breyta prófíl";
 
 /* Class = "UILabel"; text = "Instruments"; ObjectID = "AWe-LL-vrT"; Note = "Placeholder. No need to translate."; */
 "AWe-LL-vrT.text" = "Instruments";
@@ -15,43 +15,43 @@
 "B6p-SJ-ZFb.text" = "Genres";
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "UCy-VU-6Tl"; */
-"UCy-VU-6Tl.title" = "Save";
+"UCy-VU-6Tl.title" = "Vista";
 
 /* Class = "UITableViewSection"; headerTitle = "What instruments do you play?"; ObjectID = "VK7-2A-SnZ"; */
-"VK7-2A-SnZ.headerTitle" = "What instruments do you play?";
+"VK7-2A-SnZ.headerTitle" = "Á hvaða hljóðfæri spilar þú?";
 
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "VeK-L0-Kyh"; */
-"VeK-L0-Kyh.placeholder" = "Name";
+"VeK-L0-Kyh.placeholder" = "Nafn";
 
 /* Class = "UITextField"; text = "Name"; ObjectID = "VeK-L0-Kyh"; */
-"VeK-L0-Kyh.text" = "Name";
+"VeK-L0-Kyh.text" = "Nafn";
 
 /* Class = "UILabel"; text = "Favourite Instrument"; ObjectID = "Xiu-7f-OBw"; */
-"Xiu-7f-OBw.text" = "Favourite Instrument";
+"Xiu-7f-OBw.text" = "Uppáhalds hljóðfæri";
 
 /* Class = "UILabel"; text = "Instrument"; ObjectID = "ZbJ-3H-hsf"; Note = "Placeholder. No need to translate."; */
 "ZbJ-3H-hsf.text" = "Instrument";
 
 /* Class = "UILabel"; text = "Date of Birth"; ObjectID = "a1e-Ly-htP"; */
-"a1e-Ly-htP.text" = "Date of Birth";
+"a1e-Ly-htP.text" = "Fæðingardagur";
 
 /* Class = "UILabel"; text = "Genres"; ObjectID = "d2C-gG-dRe"; */
-"d2C-gG-dRe.text" = "Genres";
+"d2C-gG-dRe.text" = "Tónlistarstefnur";
 
 /* Class = "UITableViewSection"; footerTitle = "More information is better for other users."; ObjectID = "fdU-bN-0YB"; */
-"fdU-bN-0YB.footerTitle" = "More information is better for other users.";
+"fdU-bN-0YB.footerTitle" = "Meiri upplýsingar eru betri fyrir aðra notendur.";
 
 /* Class = "UITableViewSection"; headerTitle = "About Me"; ObjectID = "fdU-bN-0YB"; */
-"fdU-bN-0YB.headerTitle" = "About Me";
+"fdU-bN-0YB.headerTitle" = "Um mig";
 
 /* Class = "UILabel"; text = "Instruments"; ObjectID = "hXA-QJ-hBE"; */
-"hXA-QJ-hBE.text" = "Instruments";
+"hXA-QJ-hBE.text" = "Hljóðfæri";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "m46-Vh-zEG"; Note = "Placeholder. No need to translate."; */
 "m46-Vh-zEG.text" = "Username";
 
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "m5H-Z0-C8U"; */
-"m5H-Z0-C8U.title" = "Cancel";
+"m5H-Z0-C8U.title" = "Hætta við";
 
 /* Class = "UILabel"; text = "MYLABEL IS BEST"; ObjectID = "odF-37-kCE"; Note = "Placeholder. No need to translate."; */
 "odF-37-kCE.text" = "MYLABEL IS BEST";
@@ -60,7 +60,7 @@
 "tKg-pL-jsX.text" = "Favourite Instrument";
 
 /* Class = "UILabel"; text = "About me"; ObjectID = "vfF-j9-MbK"; */
-"vfF-j9-MbK.text" = "About me";
+"vfF-j9-MbK.text" = "Um mig";
 
 /* Class = "UITableViewSection"; headerTitle = "What is your taste in music?"; ObjectID = "wGx-Yt-ftS"; */
-"wGx-Yt-ftS.headerTitle" = "What is your taste in music?";
+"wGx-Yt-ftS.headerTitle" = "Hvaða tónlist fílar þú?";

@@ -1,6 +1,6 @@
 
 /* Class = "UIButton"; normalTitle = "Send"; ObjectID = "NZf-0F-qas"; */
-"NZf-0F-qas.normalTitle" = "Send";
+"NZf-0F-qas.normalTitle" = "Senda";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "QNI-eq-JJP"; Note = "Placeholder. No need to translate."; */
 "QNI-eq-JJP.text" = "Label";
@@ -9,7 +9,7 @@
 "RNm-CB-fkK.text" = "MYLABEL IS BEST";
 
 /* Class = "UITextField"; placeholder = "Type a message..."; ObjectID = "RXY-Bl-26W"; */
-"RXY-Bl-26W.placeholder" = "Type a message...";
+"RXY-Bl-26W.placeholder" = "Skrifaðu skilaboð...";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Vqz-Dh-4zS"; */
 "Vqz-Dh-4zS.text" = "Label";

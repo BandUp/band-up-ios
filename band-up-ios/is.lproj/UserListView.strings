@@ -2,26 +2,26 @@
 /* Class = "UIButton"; normalTitle = "Líka"; ObjectID = "26B-aI-8Zh"; */
 "26B-aI-8Zh.normalTitle" = "Líka";
 
-/* Class = "UILabel"; text = "Genre"; ObjectID = "5Et-4H-Pqe"; */
+/* Class = "UILabel"; text = "Genre"; ObjectID = "5Et-4H-Pqe"; Note = "Placeholder. No need to translate."; */
 "5Et-4H-Pqe.text" = "Genre";
 
-/* Class = "UILabel"; text = "Percentage"; ObjectID = "938-bP-mwQ"; */
+/* Class = "UILabel"; text = "Percentage"; ObjectID = "938-bP-mwQ"; Note = "Placeholder. No need to translate."; */
 "938-bP-mwQ.text" = "Percentage";
 
-/* Class = "UILabel"; text = "Age"; ObjectID = "OYm-Xs-faq"; */
+/* Class = "UILabel"; text = "Age"; ObjectID = "OYm-Xs-faq"; Note = "Placeholder. No need to translate."; */
 "OYm-Xs-faq.text" = "Age";
 
-/* Class = "UILabel"; text = "Usernamefdjskfljdsklfdsl"; ObjectID = "QPG-Vs-tC4"; */
+/* Class = "UILabel"; text = "Usernamefdjskfljdsklfdsl"; ObjectID = "QPG-Vs-tC4"; Note = "Placeholder. No need to translate."; */
 "QPG-Vs-tC4.text" = "Usernamefdjskfljdsklfdsl";
 
-/* Class = "UILabel"; text = "MYLABEL IS BEST"; ObjectID = "aH5-SE-Kuy"; */
+/* Class = "UILabel"; text = "MYLABEL IS BEST"; ObjectID = "aH5-SE-Kuy"; Note = "Placeholder. No need to translate."; */
 "aH5-SE-Kuy.text" = "MYLABEL IS BEST";
 
 /* Class = "UIButton"; normalTitle = "Nánar"; ObjectID = "cMG-pC-GXI"; */
 "cMG-pC-GXI.normalTitle" = "Nánar";
 
-/* Class = "UILabel"; text = "Instrument"; ObjectID = "h54-fb-EQ5"; */
+/* Class = "UILabel"; text = "Instrument"; ObjectID = "h54-fb-EQ5"; Note = "Placeholder. No need to translate."; */
 "h54-fb-EQ5.text" = "Instrument";
 
-/* Class = "UILabel"; text = "Distance"; ObjectID = "vWU-Zt-gat"; */
+/* Class = "UILabel"; text = "Distance"; ObjectID = "vWU-Zt-gat"; Note = "Placeholder. No need to translate."; */
 "vWU-Zt-gat.text" = "Distance";
