@@ -12,10 +12,9 @@ class UpcomingViewController: UIViewController {
 	var upcomingFeatures = [String]()
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let shareFriends = NSLocalizedString("Share found users to friends via social media", comment: "List item in the Upcoming Features List")
-		upcomingFeatures.append(shareFriends)
-		upcomingFeatures.append("Band Start-Up: Support for upcoming bands")
-		upcomingFeatures.append("Concert Calendar")
+		upcomingFeatures.append(NSLocalizedString("upcoming_share_users", comment: "List item in the Upcoming Features List"))
+		upcomingFeatures.append(NSLocalizedString("upcoming_rent_practice", comment: "List item in the Upcoming Features List"))
+		upcomingFeatures.append(NSLocalizedString("upcoming_event_calendar", comment: "List item in the Upcoming Features List"))
 	}
 	
 	override func didReceiveMemoryWarning() {
