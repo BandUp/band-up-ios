@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="o1O-lf-jQ4">
+            <objects>
+                <viewController storyboardIdentifier="LaunchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V1I-IC-ZoO" customClass="LaunchViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="646-Kd-0I9"/>
+                        <viewControllerLayoutGuide type="bottom" id="cMC-bX-M3P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t7a-OM-E10">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Lx0-vf-MgS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="BandUpLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VaB-xE-OOo">
+                                <rect key="frame" x="100" y="246" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="WuK-2n-XcK"/>
+                                    <constraint firstAttribute="height" constant="175" id="tJ1-jq-T0g"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ON5-eN-ThL">
+                                <rect key="frame" x="169" y="580" width="37" height="37"/>
+                                <color key="color" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lx0-vf-MgS" firstAttribute="leading" secondItem="t7a-OM-E10" secondAttribute="leading" id="1vV-65-z5d"/>
+                            <constraint firstItem="ON5-eN-ThL" firstAttribute="centerX" secondItem="t7a-OM-E10" secondAttribute="centerX" id="9UM-ie-erq"/>
+                            <constraint firstItem="Lx0-vf-MgS" firstAttribute="top" secondItem="t7a-OM-E10" secondAttribute="top" id="Fhn-C3-Ilf"/>
+                            <constraint firstAttribute="bottom" secondItem="Lx0-vf-MgS" secondAttribute="bottom" id="bvR-k9-3EE"/>
+                            <constraint firstItem="VaB-xE-OOo" firstAttribute="centerX" secondItem="t7a-OM-E10" secondAttribute="centerX" id="lvF-tT-Juv"/>
+                            <constraint firstAttribute="trailing" secondItem="Lx0-vf-MgS" secondAttribute="trailing" id="muY-5k-GAM"/>
+                            <constraint firstItem="VaB-xE-OOo" firstAttribute="centerY" secondItem="t7a-OM-E10" secondAttribute="centerY" id="xsG-Da-CTv"/>
+                            <constraint firstItem="cMC-bX-M3P" firstAttribute="top" secondItem="ON5-eN-ThL" secondAttribute="bottom" constant="50" id="yx2-U0-4WJ"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ON5-eN-ThL" id="nbR-TM-pU7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPA-On-dGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BandUpLogo" width="567" height="568"/>
+        <image name="LoginBackground" width="1080" height="1920"/>
+    </resources>
+</document>

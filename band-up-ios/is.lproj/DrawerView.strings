@@ -1,12 +1,12 @@
 
-/* Class = "UILabel"; text = "Drawer Item Title"; ObjectID = "OjP-XC-PCU"; */
-"OjP-XC-PCU.text" = "Drawer Item Title";
+/* Class = "UILabel"; text = "Skúffuhlutur"; ObjectID = "OjP-XC-PCU"; */
+"OjP-XC-PCU.text" = "Skúffuhlutur";
 
-/* Class = "UILabel"; text = "Favourite Instrument"; ObjectID = "h95-a9-6Vn"; */
+/* Class = "UILabel"; text = "Uppáhalds hljóðfæri"; ObjectID = "h95-a9-6Vn"; */
 "h95-a9-6Vn.text" = "Uppáhalds hljóðfæri";
 
-/* Class = "UINavigationItem"; title = "Musicians Near You"; ObjectID = "iT7-FL-RWn"; */
+/* Class = "UINavigationItem"; title = "Tónlistarfólk nálægt þér"; ObjectID = "iT7-FL-RWn"; */
 "iT7-FL-RWn.title" = "Tónlistarfólk nálægt þér";
 
-/* Class = "UILabel"; text = "Username"; ObjectID = "urv-Ff-nFO"; */
+/* Class = "UILabel"; text = "Notandanafn"; ObjectID = "urv-Ff-nFO"; */
 "urv-Ff-nFO.text" = "Notandanafn";

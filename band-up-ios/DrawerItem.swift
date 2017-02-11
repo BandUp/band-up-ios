@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListItem {
+class DrawerItem {
 	init(id : String, name: String) {
 		self.name = name
 		self.id = id

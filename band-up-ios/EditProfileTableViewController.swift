@@ -29,18 +29,13 @@ class EditProfileTableViewController: UITableViewController {
 		tagGenres.strings = user.genres
 		
 	}
-	func selectInstrumentCell(_ sender: UIButton) {
-		print("SELECTED INSTRUMENTS")
-		tableView.selectRow(at: IndexPath(row: 1, section:0), animated: true, scrollPosition: UITableViewScrollPosition(rawValue: 0)!)
-	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let selectInstruments = UIGestureRecognizer(target: self, action: #selector(self.selectInstrumentCell(_:)))
 		
-		tagInstruments.addGestureRecognizer(selectInstruments)
 		txtName.delegate = self
 		txtAboutMe.delegate = self
-		let nameString = NSLocalizedString("Name", comment: "Placeholder for the Name Text Field")
+		let nameString = NSLocalizedString("register_username", comment: "Placeholder for the Name Text Field")
 		let nameStr = NSAttributedString(string: nameString, attributes: [NSForegroundColorAttributeName:UIColor.gray])
 		
 		txtName.attributedPlaceholder = nameStr
@@ -107,7 +102,7 @@ class EditProfileTableViewController: UITableViewController {
 			myVC.setupViewObject = prepareSetupObjectGenres()
 			present(myVC, animated: true, completion: nil)
 		} else if indexPath.section == 0 && indexPath.row == 1 {
-			let datePicker = ActionSheetDatePicker(title: "Date of Birth", datePickerMode: UIDatePickerMode.date, selectedDate: (parent as! EditProfileViewController).user.dateOfBirth, doneBlock: {
+			let datePicker = ActionSheetDatePicker(title: NSLocalizedString("dateOfBirth", comment: "Title of ActionSheetDatePicker."), datePickerMode: UIDatePickerMode.date, selectedDate: (parent as! EditProfileViewController).user.dateOfBirth, doneBlock: {
 				picker, value, index in
 				(self.parent as! EditProfileViewController).user.dateOfBirth = value as! Date
 				self.lblAge.text = (self.parent as! EditProfileViewController).user.getAgeString()
@@ -122,7 +117,7 @@ class EditProfileTableViewController: UITableViewController {
 			datePicker?.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: (datePicker?.minimumDate!)!)
 			datePicker?.show()
 		} else if indexPath.section == 0 && indexPath.row == 2 {
-			ActionSheetMultipleStringPicker.show(withTitle: "Select Instrument", rows: [
+			ActionSheetMultipleStringPicker.show(withTitle: NSLocalizedString("edit_profile_fav_instrument", comment: "Title of ActionSheetStringPicker."), rows: [
 				(parent as! EditProfileViewController).user.instruments
 				], initialSelection: [0], doneBlock: {
 					picker, indexes, values in
@@ -138,8 +133,8 @@ class EditProfileTableViewController: UITableViewController {
 	func prepareSetupObjectInstruments() -> [SetupViewObject] {
 		let setupObject = SetupViewObject(setupResource: bandUpAPI.instruments)
 		
-		setupObject.doneButtonText = "Done"
-		setupObject.titleHint      = "What instruments do you play?"
+		setupObject.doneButtonText = NSLocalizedString("edit_profile_save", comment: "Button on the bottom of the Instrument and Genre selection screen")
+		setupObject.titleHint      = NSLocalizedString("setup_instruments_hint", comment: "Button on the bottom of the Instrument and Genre selection screen")
 		setupObject.selected = (self.parent as! EditProfileViewController).user.instruments
 		setupObject.shouldDismiss = true
 		
@@ -149,8 +144,8 @@ class EditProfileTableViewController: UITableViewController {
 	func prepareSetupObjectGenres() -> [SetupViewObject] {
 		let setupObject = SetupViewObject(setupResource: bandUpAPI.genres)
 		
-		setupObject.doneButtonText = "Done"
-		setupObject.titleHint      = "What is your taste in music?"
+		setupObject.doneButtonText = NSLocalizedString("edit_profile_save", comment: "Button on the bottom of the Instrument and Genre selection screen")
+		setupObject.titleHint      = NSLocalizedString("setup_genres_hint", comment: "Button on the bottom of the Instrument and Genre selection screen")
 		setupObject.selected = (self.parent as! EditProfileViewController).user.genres
 		setupObject.shouldDismiss = true
 		
@@ -170,7 +165,7 @@ extension EditProfileTableViewController: UITextViewDelegate {
 	
 	func textViewDidEndEditing(_ textView: UITextView) {
 		if textView.text.isEmpty {
-			textView.text = "Tell us about your influences and experience"
+			textView.text = NSLocalizedString("edit_profile_influences", comment: "About Me Placeholder")
 			textView.textColor = UIColor.lightGray
 		}
 	}

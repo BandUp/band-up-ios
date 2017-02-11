@@ -14,13 +14,14 @@ class DrawerViewController: UIViewController {
 	@IBOutlet weak var lblUsername: UILabel!
 	@IBOutlet weak var imgUserImage: UIImageView!
 	@IBOutlet weak var lblFavInstrument: UILabel!
+	
 	let listItems = [
-		ListItem(id: "nav_near_me",    name: "Near Me"),
-		ListItem(id: "nav_my_profile", name: "My Profile"),
-		ListItem(id: "nav_matches",    name: "Matches/Chat"),
-		ListItem(id: "nav_settings",   name: "Settings"),
-		ListItem(id: "nav_upcoming",   name: "Coming Soon"),
-		ListItem(id: "nav_log_out",    name: "Log Out")
+		DrawerItem(id: "main_nav_near_me",    name: "Near Me"),
+		DrawerItem(id: "main_nav_my_profile", name: "My Profile"),
+		DrawerItem(id: "main_nav_matches",    name: "Matches/Chat"),
+		DrawerItem(id: "main_nav_settings",   name: "Settings"),
+		DrawerItem(id: "main_nav_upcoming",   name: "Coming Soon"),
+		DrawerItem(id: "main_nav_log_out",    name: "Log Out")
 	]
 	
 	let ITEM_IMAGE_TAG = 1
@@ -30,6 +31,9 @@ class DrawerViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		for i in listItems {
+			i.name = NSLocalizedString(i.id, comment: "List item in the drawer")
+		}
 		bandUpAPI.profile.loadIfNeeded()?.onSuccess({ (response) in
 			self.currentUser = User(response.jsonDict as NSDictionary)
 			self.populateUser()

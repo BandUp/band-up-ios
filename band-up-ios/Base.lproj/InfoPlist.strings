@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  band-up-ios
+
+  Created by Bergþór on 9.2.2017.
+  Copyright © 2017 Bad Melody. All rights reserved.
+*/
+/* The name of the app as it appears on the home screen.*/
+"CFBundleDisplayName" = "Band Up";

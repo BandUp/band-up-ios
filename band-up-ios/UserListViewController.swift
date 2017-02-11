@@ -36,7 +36,7 @@ class UserListViewController: UIViewController {
 			
 			if let isMatch = response.jsonDict["isMatch"] as? Bool {
 				likedUser.isLiked = true
-				sender.setTitle("Liked", for: .normal)
+				sender.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
 				sender.isEnabled = false
 				
 				if isMatch {
@@ -127,10 +127,10 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		}
 		
 		if currentUser.isLiked {
-			cell.btnLike.setTitle("Liked", for: .normal)
+			cell.btnLike.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
 			cell.btnLike.isEnabled = false;
 		} else {
-			cell.btnLike.setTitle("Like", for: .normal)
+			cell.btnLike.setTitle(NSLocalizedString("user_list_like", comment: "Text on the green like button"), for: .normal)
 			cell.btnLike.isEnabled = true;
 		}
 		

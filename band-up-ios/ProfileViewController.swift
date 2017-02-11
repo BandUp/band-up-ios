@@ -73,7 +73,7 @@ class ProfileViewController: UIViewController {
 		if (currentUser.aboutme != "") {
 			lblAboutMe.text = currentUser.aboutme
 		} else {
-			lblAboutMe.text = "About Me"
+			lblAboutMe.text = NSLocalizedString("about_me", comment: "About Me string displayed on the profiles")
 		}
 		
 		var instrumentString = ""

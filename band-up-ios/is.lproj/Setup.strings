@@ -1,18 +1,18 @@
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "2qc-mU-n5x"; */
-"2qc-mU-n5x.placeholder" = "Tölvupóstur";
+"2qc-mU-n5x.placeholder" = "Email";
 
 /* Class = "UIButton"; normalTitle = "Log in"; ObjectID = "4Ng-65-LBv"; */
-"4Ng-65-LBv.normalTitle" = "Skrá inn";
+"4Ng-65-LBv.normalTitle" = "Log in";
 
 /* Class = "UILabel"; text = "Item"; ObjectID = "6bs-0i-KIl"; */
 "6bs-0i-KIl.text" = "Item";
 
 /* Class = "UITextField"; accessibilityHint = "Username"; ObjectID = "70J-3Q-gTp"; */
-"70J-3Q-gTp.accessibilityHint" = "Notandanafn";
+"70J-3Q-gTp.accessibilityHint" = "Username";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "70J-3Q-gTp"; */
-"70J-3Q-gTp.placeholder" = "Tölvupóstur";
+"70J-3Q-gTp.placeholder" = "Email";
 
 /* Class = "UITextField"; text = "bergtor05@me.com"; ObjectID = "70J-3Q-gTp"; */
 "70J-3Q-gTp.text" = "bergtor05@me.com";
@@ -21,52 +21,52 @@
 "Btl-54-j9b.text" = "The email is not in the correct format.";
 
 /* Class = "UILabel"; text = "Log in with Facebook"; ObjectID = "C3G-4x-Bb9"; */
-"C3G-4x-Bb9.text" = "Skrá inn með Facebook";
+"C3G-4x-Bb9.text" = "Log in with Facebook";
 
 /* Class = "UILabel"; text = "Date of Birth"; ObjectID = "Fzd-gv-fK2"; */
-"Fzd-gv-fK2.text" = "Fæðingardagur";
+"Fzd-gv-fK2.text" = "Date of Birth";
 
 /* Class = "UITextField"; accessibilityHint = "Password"; ObjectID = "GhI-sR-eFx"; */
-"GhI-sR-eFx.accessibilityHint" = "Lykilorð";
+"GhI-sR-eFx.accessibilityHint" = "Password";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "GhI-sR-eFx"; */
-"GhI-sR-eFx.placeholder" = "Lykilorð";
+"GhI-sR-eFx.placeholder" = "Password";
 
 /* Class = "UITextField"; text = "asdfasdf"; ObjectID = "GhI-sR-eFx"; */
 "GhI-sR-eFx.text" = "asdfasdf";
 
 /* Class = "UILabel"; text = "Let's get started"; ObjectID = "L0d-u4-4gW"; */
-"L0d-u4-4gW.text" = "Hefjumst handa";
+"L0d-u4-4gW.text" = "Let's get started";
 
 /* Class = "UIButton"; normalTitle = "Send Password Reset Email"; ObjectID = "LaO-d4-xpw"; */
-"LaO-d4-xpw.normalTitle" = "Senda endursetningartölvupóst";
+"LaO-d4-xpw.normalTitle" = "Send Password Reset Email";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Nhw-rq-Xah"; */
 "Nhw-rq-Xah.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "PGh-W4-k6J"; */
-"PGh-W4-k6J.normalTitle" = "Áfram";
+"PGh-W4-k6J.normalTitle" = "Next";
 
 /* Class = "UIButton"; normalTitle = "Register"; ObjectID = "PgM-5D-gFg"; */
-"PgM-5D-gFg.normalTitle" = "Nýskrá";
+"PgM-5D-gFg.normalTitle" = "Register";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "Qjf-db-zra"; */
-"Qjf-db-zra.text" = "Nafn";
+"Qjf-db-zra.text" = "Name";
 
 /* Class = "UIViewController"; title = "Password Reset"; ObjectID = "Trk-mY-rSI"; */
-"Trk-mY-rSI.title" = "Endursetja lykilorð";
+"Trk-mY-rSI.title" = "Password Reset";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "Up8-oy-11L"; */
-"Up8-oy-11L.text" = "Lykilorð";
+"Up8-oy-11L.text" = "Password";
 
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "W0K-Ty-aPr"; */
-"W0K-Ty-aPr.placeholder" = "Nafn";
+"W0K-Ty-aPr.placeholder" = "Name";
 
 /* Class = "UIViewController"; title = "Register"; ObjectID = "WIJ-K1-kI3"; */
-"WIJ-K1-kI3.title" = "Nýskráning";
+"WIJ-K1-kI3.title" = "Register";
 
 /* Class = "UILabel"; text = "Email"; ObjectID = "ZQX-xV-Lza"; */
-"ZQX-xV-Lza.text" = "Tölvupóstur";
+"ZQX-xV-Lza.text" = "Email";
 
 /* Class = "UILabel"; text = "The email is not in the correct format."; ObjectID = "Zi4-rV-nQE"; */
 "Zi4-rV-nQE.text" = "The email is not in the correct format.";
@@ -75,13 +75,13 @@
 "aBE-T4-3qA.text" = "1/2";
 
 /* Class = "UILabel"; text = "Log in with SoundCloud"; ObjectID = "cNd-Pw-Ztp"; */
-"cNd-Pw-Ztp.text" = "Skrá inn með SoundCloud";
+"cNd-Pw-Ztp.text" = "Log in with SoundCloud";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "eV2-Eg-r4I"; */
-"eV2-Eg-r4I.placeholder" = "Tölvupóstur";
+"eV2-Eg-r4I.placeholder" = "Email";
 
 /* Class = "UILabel"; text = "What instruments do you play?"; ObjectID = "fK9-QY-FII"; */
-"fK9-QY-FII.text" = "Á hvaða hljóðfæri spilar þú?";
+"fK9-QY-FII.text" = "What instruments do you play?";
 
 /* Class = "UILabel"; text = "The email is not in the correct format."; ObjectID = "im0-Ph-CaR"; */
 "im0-Ph-CaR.text" = "The email is not in the correct format.";
@@ -90,31 +90,31 @@
 "kcP-ct-0oU.text" = "The email is not in the correct format.";
 
 /* Class = "UIButton"; normalTitle = "Do not have an account? Sign up here."; ObjectID = "mDe-Bx-yuT"; */
-"mDe-Bx-yuT.normalTitle" = "Ekki með reikning? Skráðu þig hér.";
+"mDe-Bx-yuT.normalTitle" = "Do not have an account? Sign up here.";
 
 /* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "miC-ps-8mL"; */
-"miC-ps-8mL.placeholder" = "Staðfesta lykilorð";
+"miC-ps-8mL.placeholder" = "Confirm Password";
 
 /* Class = "UILabel"; text = "Please enter your email address.\nThen follow the instructions in the email, that we will send you, to reset your password."; ObjectID = "qFp-JX-E3U"; */
-"qFp-JX-E3U.text" = "Vinsamlegast sláðu inn tölvupóstfangið þitt.\nFylgdu síðan leiðbeiningunum í tölvupóstinum sem við sendum þér, til þess að endursetja lykilorðið þitt.";
+"qFp-JX-E3U.text" = "Please enter your email address.\nThen follow the instructions in the email, that we will send you, to reset your password.";
 
 /* Class = "UITextField"; placeholder = "DateOfBirth"; ObjectID = "qMv-LX-U5M"; */
 "qMv-LX-U5M.placeholder" = "DateOfBirth";
 
 /* Class = "UIButton"; normalTitle = "Forgot your password?"; ObjectID = "rLF-Xp-v7E"; */
-"rLF-Xp-v7E.normalTitle" = "Gleymdirðu lykilorðinu?";
+"rLF-Xp-v7E.normalTitle" = "Forgot your password?";
 
 /* Class = "UILabel"; text = "Confirm Password"; ObjectID = "sNh-kh-pWo"; */
-"sNh-kh-pWo.text" = "Staðfesta lykilorð";
+"sNh-kh-pWo.text" = "Confirm Password";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "sRA-J6-c0x"; */
-"sRA-J6-c0x.placeholder" = "Lykilorð";
+"sRA-J6-c0x.placeholder" = "Password";
 
 /* Class = "UILabel"; text = "Log in with Google"; ObjectID = "uVY-Ft-rxc"; */
-"uVY-Ft-rxc.text" = "Skrá inn með Google";
+"uVY-Ft-rxc.text" = "Log in with Google";
 
 /* Class = "UILabel"; text = "Or sign up with these services"; ObjectID = "ve7-mz-NCk"; */
-"ve7-mz-NCk.text" = "Eða skráðu þig með þessum þjónustum";
+"ve7-mz-NCk.text" = "Or sign up with these services";
 
 /* Class = "UILabel"; text = "The email is not in the correct format."; ObjectID = "x5P-pI-d6h"; */
 "x5P-pI-d6h.text" = "The email is not in the correct format.";

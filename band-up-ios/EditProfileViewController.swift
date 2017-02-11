@@ -23,7 +23,7 @@ class EditProfileViewController: UIViewController {
 		tableViewController.txtName.textColor = UIColor.lightGray
 		
 		if (user.aboutme == "") {
-			tableViewController.txtAboutMe.text = "Tell us about your influences and experience"
+			tableViewController.txtAboutMe.text = NSLocalizedString("edit_profile_influences", comment: "About Me Placeholder")
 			tableViewController.txtAboutMe.textColor = UIColor.lightGray
 		} else {
 			tableViewController.txtAboutMe.text = user.aboutme

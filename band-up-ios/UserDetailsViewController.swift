@@ -33,7 +33,7 @@ class UserDetailsViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.title = "Musician Details"
+		self.title = NSLocalizedString("main_title_user_details", comment: "Title of the User Details screen.")
 		populateUser()
 	}
 	
@@ -52,7 +52,7 @@ class UserDetailsViewController: UIViewController {
 			
 			if let isMatch = response.jsonDict["isMatch"] as? Bool {
 				self.currentUser.isLiked = true
-				sender.setTitle("Liked", for: .normal)
+				sender.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
 				sender.isEnabled = false
 				
 				if isMatch {
@@ -77,7 +77,7 @@ class UserDetailsViewController: UIViewController {
 		}
 		
 		if (currentUser.isLiked) {
-			btnLike.setTitle("Liked", for: .normal)
+			btnLike.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
 			btnLike.isEnabled = false
 		}
 		
@@ -87,7 +87,7 @@ class UserDetailsViewController: UIViewController {
 		if (currentUser.aboutme != "") {
 			lblAboutMe.text = currentUser.aboutme
 		} else {
-			lblAboutMe.text = "About Me"
+			lblAboutMe.text = NSLocalizedString("about_me", comment: "About Me string displayed on the profiles")
 		}
 		
 		lblDistance.text = String(format:"%.0f km away from you", currentUser.distance)

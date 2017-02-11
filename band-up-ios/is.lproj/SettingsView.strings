@@ -1,51 +1,51 @@
 
 /* Class = "UITableViewSection"; headerTitle = "Your Band Up Account"; ObjectID = "7GA-bK-qBP"; */
-"7GA-bK-qBP.headerTitle" = "Band Up reikningurinn þinn";
+"7GA-bK-qBP.headerTitle" = "Your Band Up Account";
 
 /* Class = "UILabel"; text = "Messages"; ObjectID = "C06-ck-6B7"; */
-"C06-ck-6B7.text" = "Skilaboð";
+"C06-ck-6B7.text" = "Messages";
 
 /* Class = "UILabel"; text = "Use Imperial Units"; ObjectID = "E3Q-Q5-Cij"; */
-"E3Q-Q5-Cij.text" = "Nota breskar mælieiningar";
+"E3Q-Q5-Cij.text" = "Use Imperial Units";
 
 /* Class = "UILabel"; text = "Delete Account"; ObjectID = "Ehu-2I-9xN"; */
-"Ehu-2I-9xN.text" = "Eyða reikningi";
+"Ehu-2I-9xN.text" = "Delete Account";
 
 /* Class = "UITableViewSection"; headerTitle = "Push Notifications"; ObjectID = "Jje-QA-fjI"; */
-"Jje-QA-fjI.headerTitle" = "Tilkynningar";
+"Jje-QA-fjI.headerTitle" = "Push Notifications";
 
 /* Class = "UILabel"; text = "Inactive Alert"; ObjectID = "PzO-5N-lYL"; */
-"PzO-5N-lYL.text" = "Óvirknistilkynning";
+"PzO-5N-lYL.text" = "Inactive Alert";
 
 /* Class = "UILabel"; text = "Open Source Software"; ObjectID = "Qwv-IT-pAj"; */
-"Qwv-IT-pAj.text" = "Opinn hugbúnaður";
+"Qwv-IT-pAj.text" = "Open Source Software";
 
 /* Class = "UILabel"; text = "New Matches"; ObjectID = "XXc-Z7-MnT"; */
-"XXc-Z7-MnT.text" = "Nýjar tengingar";
+"XXc-Z7-MnT.text" = "New Matches";
 
 /* Class = "UILabel"; text = "Email Support"; ObjectID = "YML-aG-oId"; */
-"YML-aG-oId.text" = "Senda tölvupóst til okkar";
+"YML-aG-oId.text" = "Email Support";
 
 /* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "aYG-Xu-Zal"; */
-"aYG-Xu-Zal.text" = "Persónuverndarstefna";
+"aYG-Xu-Zal.text" = "Privacy Policy";
 
 /* Class = "UILabel"; text = "Ages"; ObjectID = "gOe-NR-Wsm"; */
-"gOe-NR-Wsm.text" = "Aldur";
+"gOe-NR-Wsm.text" = "Ages";
 
 /* Class = "UITableViewSection"; headerTitle = "Measurement"; ObjectID = "nFU-Qu-KaV"; */
-"nFU-Qu-KaV.headerTitle" = "Mælieiningar";
+"nFU-Qu-KaV.headerTitle" = "Measurement";
 
 /* Class = "UITableViewSection"; footerTitle = "Don't hesitate to contact us if something isn't working, or you need help."; ObjectID = "oST-CZ-ywx"; */
-"oST-CZ-ywx.footerTitle" = "Ekki hika við að hafa samband við okkur ef eitthvað virkar ekki, eða þig vantar hjálp.";
+"oST-CZ-ywx.footerTitle" = "Don't hesitate to contact us if something isn't working, or you need help.";
 
 /* Class = "UITableViewSection"; headerTitle = "Support"; ObjectID = "oST-CZ-ywx"; */
-"oST-CZ-ywx.headerTitle" = "Aðstoð";
+"oST-CZ-ywx.headerTitle" = "Support";
 
 /* Class = "UITableViewSection"; headerTitle = "Filter"; ObjectID = "rij-rK-Zo0"; */
-"rij-rK-Zo0.headerTitle" = "Sía";
+"rij-rK-Zo0.headerTitle" = "Filter";
 
 /* Class = "UILabel"; text = "Radius: 300 km"; ObjectID = "uD1-9s-Gy2"; */
-"uD1-9s-Gy2.text" = "Radíus: 300 km";
+"uD1-9s-Gy2.text" = "Radius: 300 km";
 
 /* Class = "UITableViewSection"; headerTitle = "Legal"; ObjectID = "v0n-Tk-46X"; */
-"v0n-Tk-46X.headerTitle" = "Lagaleg ákvæði";
+"v0n-Tk-46X.headerTitle" = "Legal";

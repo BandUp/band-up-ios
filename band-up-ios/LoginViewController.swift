@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		btnLogin.layer.cornerRadius = 12;
+		btnLogin.layer.cornerRadius = 15;
 		btnLoginFacebook.layer.cornerRadius = 2;
 		btnLoginSoundCloud.layer.cornerRadius = 2;
 		btnLoginGoogle.layer.cornerRadius = 2;

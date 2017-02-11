@@ -114,41 +114,41 @@ class MainScreenViewController: UIViewController {
 	public func updateView(row: String) {
 		
 		switch row {
-		case "nav_near_me":
+		case "main_nav_near_me":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: userItemViewController)
 			currentViewController = userItemViewController
-			self.title = "Musicians Near You"
+			self.title = NSLocalizedString("main_title_user_list", comment: "Title of view in Navigation Bar")
 			self.navigationItem.rightBarButtonItem = nil
 			break
-		case "nav_my_profile":
+		case "main_nav_my_profile":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: profileViewController)
 			currentViewController = profileViewController
-			self.title = "My Profile"
+			self.title = NSLocalizedString("main_title_my_profile", comment: "Title of view in Navigation Bar")
 			break
-		case "nav_matches":
+		case "main_nav_matches":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: matchesViewController)
 			currentViewController = matchesViewController
-			self.title = "Matches"
+			self.title = NSLocalizedString("main_title_matches", comment: "Title of view in Navigation Bar")
 			self.navigationItem.rightBarButtonItem = nil
 			break
-		case "nav_settings":
+		case "main_nav_settings":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: settingsViewController)
 			currentViewController = settingsViewController
-			self.title = "Settings"
+			self.title = NSLocalizedString("main_title_settings", comment: "Title of view in Navigation Bar")
 			self.navigationItem.rightBarButtonItem = nil
 			break
-		case "nav_upcoming":
+		case "main_nav_upcoming":
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: upcomingViewController)
 			currentViewController = upcomingViewController
-			self.title = "Coming Soon"
+			self.title = NSLocalizedString("main_title_upcoming_features", comment: "Title of view in Navigation Bar")
 			self.navigationItem.rightBarButtonItem = nil
 			break
-		case "nav_log_out":
+		case "main_nav_log_out":
 			dismiss(animated: true, completion: nil)
 			break
 		default:
