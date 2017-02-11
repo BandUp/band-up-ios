@@ -27,7 +27,7 @@ class SocketIOManager: NSObject {
     }
 	
 	func startSocket() {
-		socket = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!, config: [.log(true), .forcePolling(true), .extraHeaders(UserDefaults.standard.dictionary(forKey: defaultsKeys.headers) as! [String:String])])
+		socket = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!, config: [.log(true), .forcePolling(true), .extraHeaders(UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as! [String:String])])
 	}
 	
 	func registerUser() -> OnAckCallback {

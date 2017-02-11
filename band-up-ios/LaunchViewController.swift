@@ -20,8 +20,11 @@ class LaunchViewController: UIViewController {
 	}
 	
 	func startSetup() {
-		// TODO: Open the setup screen.
-		startLoginScreen()
+		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
+		let vc = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+		vc.setupViewObject = Constants.completeSetup
+		let navController = UINavigationController(rootViewController: vc)
+		(UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = navController
 	}
 	
 	func startMain() {
@@ -32,33 +35,58 @@ class LaunchViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		BandUpAPI.sharedInstance.isLoggedIn.request(.get).onSuccess { (response) in
-			print(response)
-			guard let loggedIn = response.jsonDict["isLoggedIn"] as! Bool? else {
-				self.startLoginScreen()
-				return
-			}
-			
-			guard let finishedSetup = response.jsonDict["hasFinishedSetup"] as! Bool? else {
-				self.startLoginScreen()
-				return
-			}
-			
-			if loggedIn {
-				if !finishedSetup {
-					self.startSetup()
-				} else {
-					self.startMain()
-				}
-				
-			} else {
-				self.startLoginScreen()
-			}
-			
-			
-			
-		}.onFailure { (error) in
+		
+		let uDef = UserDefaults.standard
+		guard let storedHeaders = uDef.dictionary(forKey: DefaultsKeys.headers) else {
 			self.startLoginScreen()
+			return
+		}
+		
+		if (storedHeaders as! [String:String])[BandUpAPI.cookieKey] != nil {
+			
+			if UserDefaults.standard.object(forKey: DefaultsKeys.finishedSetup) == nil {
+				BandUpAPI.sharedInstance.isLoggedIn.request(.get).onSuccess { (response) in
+					print(response)
+					guard let loggedIn = response.jsonDict["isLoggedIn"] as! Bool? else {
+						self.startLoginScreen()
+						return
+					}
+					
+					guard let finishedSetup = response.jsonDict["hasFinishedSetup"] as! Bool? else {
+						self.startLoginScreen()
+						return
+					}
+					
+					uDef.set(finishedSetup, forKey: DefaultsKeys.finishedSetup)
+					
+					if loggedIn {
+						if !finishedSetup {
+							self.startSetup()
+						} else {
+							self.startMain()
+						}
+						
+					} else {
+						self.startLoginScreen()
+					}
+					
+					
+					
+					}.onFailure { (error) in
+						self.startLoginScreen()
+				}
+			} else {
+				if UserDefaults.standard.bool(forKey: DefaultsKeys.finishedSetup) {
+					self.startMain()
+				} else {
+					
+					self.startSetup()
+				}
+			}
+			return
+		} else {
+			self.startLoginScreen()
+			return
 		}
 	}
 	

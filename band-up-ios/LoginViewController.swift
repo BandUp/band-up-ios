@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
 	func displaySetupView() {
 		let myVC = self.storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
 		
-		myVC.setupViewObject = prepareSetupObject()
+		myVC.setupViewObject = Constants.completeSetup
 		self.navigationController?.pushViewController(myVC, animated: true)
 	}
 	
@@ -94,30 +94,6 @@ class LoginViewController: UIViewController {
 		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
 		let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
 		self.present(mainViewController, animated: true, completion: nil)
-	}
-	
-	func prepareSetupObject() -> [SetupViewObject] {
-		var setupArr = [SetupViewObject]();
-		
-		let setupObjectInstruments = SetupViewObject(setupResource: BandUpAPI.sharedInstance.instruments)
-		let setupObjectGenres = SetupViewObject(setupResource: BandUpAPI.sharedInstance.genres)
-		
-		setupObjectInstruments.doneButtonText = "Next"
-		setupObjectInstruments.titleUpperLeft = "Let's get started"
-		setupObjectInstruments.setupViewIndex = 1
-		setupObjectInstruments.setupViewCount = 2
-		setupObjectInstruments.titleHint      = "What instruments do you play?"
-		
-		setupObjectGenres.doneButtonText = "Finish"
-		setupObjectGenres.titleUpperLeft = "Let's get started"
-		setupObjectGenres.setupViewIndex = 2
-		setupObjectGenres.setupViewCount = 2
-		setupObjectGenres.titleHint = "What is your taste in music?"
-		
-		setupArr.append(setupObjectInstruments)
-		setupArr.append(setupObjectGenres)
-		
-		return setupArr
 	}
 	
 	// MARK: IBActions

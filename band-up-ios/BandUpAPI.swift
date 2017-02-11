@@ -14,29 +14,49 @@ class BandUpAPI: Service {
 	static let sharedInstance = BandUpAPI()
 	static let cookieKey = "cookie"
 	static let setCookieKey = "set-cookie"
+	static let hasFinishedSetup = "hasFinishedSetup"
 	
 	init() {
 		super.init(baseURL: Constants.BAND_UP_ADDRESS)
 		
+		// Put the header onto every request.
 		configure() {
 			let uDef = UserDefaults.standard
-			guard let storedHeaders = uDef.dictionary(forKey: defaultsKeys.headers) else {
+			guard let storedHeaders = uDef.dictionary(forKey: DefaultsKeys.headers) else {
 				return
 			}
-			
+
 			if $0.headers[BandUpAPI.cookieKey] == nil {
 				$0.headers[BandUpAPI.cookieKey] = (storedHeaders as! [String:String])[BandUpAPI.cookieKey]
 			}
 		}
 		
+		// Get the header of a response and save it.
+		// Also save the hasFinishedSetup variable if it is in the payload.
 		configure() {
 			$0.decorateRequests { _, req in
-				req.onSuccess({ (request) in
-					if request.headers[BandUpAPI.setCookieKey] != nil {
-						self.headers = request.headers
-						UserDefaults.standard.set(self.getCookie(), forKey: defaultsKeys.headers)
+				req.onSuccess({ (response) in
+					if response.headers[BandUpAPI.setCookieKey] != nil {
+						self.headers = response.headers
+						UserDefaults.standard.set(self.getCookie(), forKey: DefaultsKeys.headers)
+					}
+					
+					if let finishedSetup = response.jsonDict[BandUpAPI.hasFinishedSetup] as! Bool? {
+						UserDefaults.standard.set(finishedSetup, forKey: DefaultsKeys.finishedSetup)
 					}
 				})
+			}
+		}
+		
+		// Display the login screen when receiving a 401.
+		configure(whenURLMatches: { $0 != self.login.url }) {
+			$0.decorateRequests { _, req in
+				req.onFailure { error in
+					if error.httpStatusCode == 401 {
+						(UIApplication.shared.delegate as! AppDelegate).showLoginScreen()
+						self.invalidateConfiguration()
+					}
+				}
 			}
 		}
 	}

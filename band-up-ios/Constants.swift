@@ -17,4 +17,33 @@ class Constants {
 	static var BAND_UP_ADDRESS = URL(string: "https://band-up-server.herokuapp.com")
 	static var MAX_AGE = 99
 	static var MIN_AGE = 13
+	
+	static var setupInstruments : SetupViewObject = {
+		let setupObjectInstruments = SetupViewObject(setupResource: BandUpAPI.sharedInstance.instruments)
+		
+		setupObjectInstruments.doneButtonText = "Next"
+		setupObjectInstruments.titleUpperLeft = "Let's get started"
+		setupObjectInstruments.setupViewIndex = 1
+		setupObjectInstruments.setupViewCount = 2
+		setupObjectInstruments.titleHint      = "What instruments do you play?"
+		
+		return setupObjectInstruments
+	}()
+	
+	static var setupGenres : SetupViewObject =  {
+		let setupObjectGenres = SetupViewObject(setupResource: BandUpAPI.sharedInstance.genres)
+		
+		setupObjectGenres.doneButtonText    = "Finish"
+		setupObjectGenres.titleUpperLeft    = "Let's get started"
+		setupObjectGenres.setupViewIndex    = 2
+		setupObjectGenres.setupViewCount    = 2
+		setupObjectGenres.titleHint         = "What is your taste in music?"
+		setupObjectGenres.shouldFinishSetup = true
+		
+		return setupObjectGenres
+	}()
+	
+	static var completeSetup : [SetupViewObject] = {
+		return [setupInstruments, setupGenres]
+	}()
 }

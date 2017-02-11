@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct defaultsKeys {
+struct DefaultsKeys {
 	static let headers = "headers"
+	static let finishedSetup = "hasFinishedSetup"
 }

@@ -142,6 +142,9 @@ class SetupViewController: UIViewController {
 					let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
 					let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
 					present(vc, animated: true, completion: nil)
+					if (self.setupViewObject?.first?.shouldFinishSetup)! {
+						UserDefaults.standard.set(true, forKey: DefaultsKeys.finishedSetup)
+					}
 				}
 			}
 		}
@@ -235,6 +238,7 @@ class SetupViewObject {
 		apiResource = setupResource
 	}
 	var shouldDismiss  : Bool = false
+	var shouldFinishSetup: Bool = false
 	var apiResource    : Resource
 	var titleUpperLeft : String = ""
 	var titleHint      : String = ""
