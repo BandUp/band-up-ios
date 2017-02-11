@@ -25,7 +25,8 @@ class MatchesViewController: UIViewController {
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			if (response.jsonArray.count == 0) {
 				self.activityIndicator.stopAnimating()
-				self.lblError.text = "You haven't matched with anyone, yet."
+				self.lblError.text = NSLocalizedString("matches_no_users", comment: "Displayed on the matches screen.")
+				self.tableView.isHidden = true
 				self.lblError.isHidden = false
 				return
 			}
@@ -37,7 +38,8 @@ class MatchesViewController: UIViewController {
 			self.tableView.reloadData()
 		}).onFailure({ (error) in
 			self.activityIndicator.stopAnimating()
-			self.lblError.text = "Could not get your matches"
+			self.tableView.isHidden = true
+			self.lblError.text = NSLocalizedString("matches_failed_to_fetch", comment: "Error displayed on the matches screen.")
 			self.lblError.isHidden = false
 		})
 	}

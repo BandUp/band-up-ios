@@ -75,8 +75,8 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MYLABEL IS BEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNm-CB-fkK">
-                                <rect key="frame" x="107.5" y="320.5" width="160.5" height="25.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MYLABEL IS BEST" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNm-CB-fkK">
+                                <rect key="frame" x="16" y="320.5" width="343" height="25.5"/>
                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                 <color key="textColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -84,13 +84,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="RNm-CB-fkK" firstAttribute="centerX" secondItem="4KO-CU-Chh" secondAttribute="centerX" id="IZn-9G-tv9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RNm-CB-fkK" secondAttribute="trailing" id="GH7-sx-QzY"/>
                             <constraint firstAttribute="trailing" secondItem="elM-fG-nWf" secondAttribute="trailing" id="PDi-it-vdP"/>
                             <constraint firstItem="FIa-8R-PPf" firstAttribute="centerY" secondItem="4KO-CU-Chh" secondAttribute="centerY" id="X1r-Za-0pu"/>
                             <constraint firstItem="FIa-8R-PPf" firstAttribute="centerX" secondItem="4KO-CU-Chh" secondAttribute="centerX" id="c2s-f5-Kox"/>
                             <constraint firstItem="RNm-CB-fkK" firstAttribute="centerY" secondItem="4KO-CU-Chh" secondAttribute="centerY" id="mKG-C7-Twu"/>
                             <constraint firstItem="elM-fG-nWf" firstAttribute="top" secondItem="a3g-nJ-xvv" secondAttribute="bottom" id="pTR-g8-FQN"/>
                             <constraint firstItem="elM-fG-nWf" firstAttribute="leading" secondItem="4KO-CU-Chh" secondAttribute="leading" id="q4m-Ck-y8z"/>
+                            <constraint firstItem="RNm-CB-fkK" firstAttribute="leading" secondItem="4KO-CU-Chh" secondAttribute="leadingMargin" id="qAS-ma-KiF"/>
                             <constraint firstItem="7JH-w6-fJl" firstAttribute="top" secondItem="elM-fG-nWf" secondAttribute="bottom" id="rEN-8s-JE7"/>
                         </constraints>
                     </view>
