@@ -31,7 +31,7 @@ class UserListViewController: UIViewController {
 		let likedUser = userArray[Int(currentIndex)]
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
-		bandUpAPI.like.request(.post, json: ["userID": likedUser.id]).onSuccess { (response) in
+		BandUpAPI.sharedInstance.like.request(.post, json: ["userID": likedUser.id]).onSuccess { (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			
 			if let isMatch = response.jsonDict["isMatch"] as? Bool {
@@ -58,7 +58,7 @@ class UserListViewController: UIViewController {
 		registerForPreviewing(with: self, sourceView: userCollectionView)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
-		bandUpAPI.nearby.loadIfNeeded()?.onSuccess({ (response) in
+		BandUpAPI.sharedInstance.nearby.loadIfNeeded()?.onSuccess({ (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			

@@ -139,7 +139,7 @@ class SetupViewController: UIViewController {
 				if (self.setupViewObject?.first?.shouldDismiss)! {
 					dismiss(animated: true, completion: nil)
 				} else {
-					let storyboard = UIStoryboard(name: "DrawerView", bundle: nil)
+					let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
 					let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
 					present(vc, animated: true, completion: nil)
 				}

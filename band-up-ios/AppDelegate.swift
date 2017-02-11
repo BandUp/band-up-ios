@@ -27,12 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// use UITableViewCell.appearance() to configure
 		// the default appearance of all UITableViewCells in your app
 		UITableViewCell.appearance().selectedBackgroundView = colorView
-		
-		let storyboard = UIStoryboard(name: "LaunchView", bundle: Bundle.main)
-		
-		let viewController =  storyboard.instantiateViewController(withIdentifier: "LaunchViewController") as! LaunchViewController
-		
-		self.window?.rootViewController = viewController
 
 		return true
 	}

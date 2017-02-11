@@ -25,13 +25,15 @@ class LaunchViewController: UIViewController {
 	}
 	
 	func startMain() {
-		
+		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
+		let vc = storyboard.instantiateInitialViewController()
+		self.present(vc!, animated: false, completion: nil)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		bandUpAPI.isLoggedIn.request(.get).onSuccess { (response) in
-			
+		BandUpAPI.sharedInstance.isLoggedIn.request(.get).onSuccess { (response) in
+			print(response)
 			guard let loggedIn = response.jsonDict["isLoggedIn"] as! Bool? else {
 				self.startLoginScreen()
 				return
@@ -52,6 +54,7 @@ class LaunchViewController: UIViewController {
 			} else {
 				self.startLoginScreen()
 			}
+			
 			
 			
 		}.onFailure { (error) in

@@ -91,7 +91,7 @@ class LoginViewController: UIViewController {
 	- returns: No return value
 	*/
 	func displayMainScreenView() {
-		let storyboard = UIStoryboard(name: "DrawerView", bundle: nil)
+		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
 		let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
 		self.present(mainViewController, animated: true, completion: nil)
 	}
@@ -99,8 +99,8 @@ class LoginViewController: UIViewController {
 	func prepareSetupObject() -> [SetupViewObject] {
 		var setupArr = [SetupViewObject]();
 		
-		let setupObjectInstruments = SetupViewObject(setupResource: bandUpAPI.instruments)
-		let setupObjectGenres = SetupViewObject(setupResource: bandUpAPI.genres)
+		let setupObjectInstruments = SetupViewObject(setupResource: BandUpAPI.sharedInstance.instruments)
+		let setupObjectGenres = SetupViewObject(setupResource: BandUpAPI.sharedInstance.genres)
 		
 		setupObjectInstruments.doneButtonText = "Next"
 		setupObjectInstruments.titleUpperLeft = "Let's get started"
@@ -129,18 +129,12 @@ class LoginViewController: UIViewController {
 		btnLogin.isEnabled = false;
 		
 		// Make the actual request using the Siesta Resource.
-		bandUpAPI.login.request(.post, json: ["username":txtEmail.text, "password":txtPassword.text])
+		BandUpAPI.sharedInstance.login.request(.post, json: ["username":txtEmail.text, "password":txtPassword.text])
 			.onSuccess { (data) in
 				// Hide the network activity indicator in the status bar.
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 				self.btnLogin.isEnabled = true;
-				bandUpAPI.headers = data.headers
 				
-				
-				if let setCookie = data.headers["set-cookie"] {
-					let cookies = HTTPCookie.cookies(withResponseHeaderFields: ["set-cookie": setCookie], for: Constants.BAND_UP_ADDRESS!)
-					HTTPCookieStorage.shared.setCookies(cookies, for: Constants.BAND_UP_ADDRESS!, mainDocumentURL: Constants.BAND_UP_ADDRESS)
-				}
 				let hasFinishedSetup = data.jsonDict["hasFinishedSetup"] as? Bool
 				
 				// Check if the boolean actually was in the response.

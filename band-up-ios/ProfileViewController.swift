@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
 		super.viewDidLoad()
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(someAction))
 		self.parent?.navigationItem.rightBarButtonItem?.isEnabled = false
-		bandUpAPI.profile.load().onSuccess({ (response) in
+		BandUpAPI.sharedInstance.profile.load().onSuccess({ (response) in
 			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
 			self.viewActivityIndicator.stopAnimating()
 			self.currentUser = User(response.jsonDict as NSDictionary)

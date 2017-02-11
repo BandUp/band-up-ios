@@ -10,8 +10,35 @@ import Foundation
 import Siesta
 
 class BandUpAPI: Service {
+	
+	static let sharedInstance = BandUpAPI()
+	static let cookieKey = "cookie"
+	static let setCookieKey = "set-cookie"
+	
 	init() {
 		super.init(baseURL: Constants.BAND_UP_ADDRESS)
+		
+		configure() {
+			let uDef = UserDefaults.standard
+			guard let storedHeaders = uDef.dictionary(forKey: defaultsKeys.headers) else {
+				return
+			}
+			
+			if $0.headers[BandUpAPI.cookieKey] == nil {
+				$0.headers[BandUpAPI.cookieKey] = (storedHeaders as! [String:String])[BandUpAPI.cookieKey]
+			}
+		}
+		
+		configure() {
+			$0.decorateRequests { _, req in
+				req.onSuccess({ (request) in
+					if request.headers[BandUpAPI.setCookieKey] != nil {
+						self.headers = request.headers
+						UserDefaults.standard.set(self.getCookie(), forKey: defaultsKeys.headers)
+					}
+				})
+			}
+		}
 	}
 	
 	var headers =    [String:String]()
@@ -26,13 +53,11 @@ class BandUpAPI: Service {
     var profile:     Resource { return resource("/user") }
     var chatHistory: Resource { return resource("/chat_history") }
 	
-	func getCookie () -> [String:String] {
-		if let setCookie = self.headers["set-cookie"] {
-			return ["cookie" : setCookie]
+	private func getCookie () -> [String:String] {
+		if let setCookie = self.headers[BandUpAPI.setCookieKey] {
+			return [BandUpAPI.cookieKey : setCookie]
 		} else {
 			return [:]
 		}
 	}
 }
-
-let bandUpAPI = BandUpAPI()

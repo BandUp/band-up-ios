@@ -36,7 +36,7 @@ class ChatViewController: UIViewController {
 			})
 		}
         
-        bandUpAPI.chatHistory.child(user.id).load().onSuccess({ (response) in
+        BandUpAPI.sharedInstance.chatHistory.child(user.id).load().onSuccess({ (response) in
             if let history = response.jsonDict["chatHistory"] {
                 for message in history as! NSArray {
                     self.chatHistory.append(ChatMessage(message as! NSDictionary))

@@ -19,7 +19,7 @@ class MatchesViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		bandUpAPI.matches.loadIfNeeded()?.onSuccess({ (response) in
+		BandUpAPI.sharedInstance.matches.loadIfNeeded()?.onSuccess({ (response) in
 			self.activityIndicator.stopAnimating()
 			self.tableView.isHidden = false;
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false

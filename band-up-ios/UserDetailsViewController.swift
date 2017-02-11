@@ -47,7 +47,7 @@ class UserDetailsViewController: UIViewController {
 		
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
-		bandUpAPI.like.request(.post, json: ["userID": self.currentUser.id]).onSuccess { (response) in
+		BandUpAPI.sharedInstance.like.request(.post, json: ["userID": self.currentUser.id]).onSuccess { (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			
 			if let isMatch = response.jsonDict["isMatch"] as? Bool {

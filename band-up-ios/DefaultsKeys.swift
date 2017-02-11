@@ -9,6 +9,5 @@
 import Foundation
 
 struct defaultsKeys {
-	static let keyOne = "firstStringKey"
-	static let keyTwo = "secondStringKey"
+	static let headers = "headers"
 }

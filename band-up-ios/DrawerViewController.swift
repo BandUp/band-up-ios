@@ -34,7 +34,7 @@ class DrawerViewController: UIViewController {
 		for i in listItems {
 			i.name = NSLocalizedString(i.id, comment: "List item in the drawer")
 		}
-		bandUpAPI.profile.loadIfNeeded()?.onSuccess({ (response) in
+		BandUpAPI.sharedInstance.profile.loadIfNeeded()?.onSuccess({ (response) in
 			self.currentUser = User(response.jsonDict as NSDictionary)
 			self.populateUser()
 		}).onFailure({ (error) in

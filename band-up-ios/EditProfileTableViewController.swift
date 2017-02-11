@@ -131,7 +131,7 @@ class EditProfileTableViewController: UITableViewController {
 	}
 	
 	func prepareSetupObjectInstruments() -> [SetupViewObject] {
-		let setupObject = SetupViewObject(setupResource: bandUpAPI.instruments)
+		let setupObject = SetupViewObject(setupResource: BandUpAPI.sharedInstance.instruments)
 		
 		setupObject.doneButtonText = NSLocalizedString("edit_profile_save", comment: "Button on the bottom of the Instrument and Genre selection screen")
 		setupObject.titleHint      = NSLocalizedString("setup_instruments_hint", comment: "Button on the bottom of the Instrument and Genre selection screen")
@@ -142,7 +142,7 @@ class EditProfileTableViewController: UITableViewController {
 	}
 	
 	func prepareSetupObjectGenres() -> [SetupViewObject] {
-		let setupObject = SetupViewObject(setupResource: bandUpAPI.genres)
+		let setupObject = SetupViewObject(setupResource: BandUpAPI.sharedInstance.genres)
 		
 		setupObject.doneButtonText = NSLocalizedString("edit_profile_save", comment: "Button on the bottom of the Instrument and Genre selection screen")
 		setupObject.titleHint      = NSLocalizedString("setup_genres_hint", comment: "Button on the bottom of the Instrument and Genre selection screen")

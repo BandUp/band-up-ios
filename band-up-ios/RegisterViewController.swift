@@ -149,7 +149,7 @@ class RegisterViewController: UIViewController {
 			let datePicker = self.txtDateOfBirth.inputView as! UIDatePicker
 			let dateString:String? = dateFormatter.string(from: datePicker.date)
 			// Make the actual request using the Siesta Resource.
-			bandUpAPI.register.request(.post, json: [
+			BandUpAPI.sharedInstance.register.request(.post, json: [
 				"username":    txtName.text,
 				"password":    txtPassword1.text,
 				"email":       txtEmail.text,
