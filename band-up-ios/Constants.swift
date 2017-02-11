@@ -12,6 +12,7 @@ class Constants {
 	// https://band-up-server.herokuapp.com
 	// http://192.168.99.1:3000
 	// http://192.168.1.5:3000
+	// http://192.168.1.14:3000
 	
 	static var BAND_UP_ADDRESS = URL(string: "https://band-up-server.herokuapp.com")
 	static var MAX_AGE = 99

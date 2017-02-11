@@ -33,7 +33,6 @@ class LaunchViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		BandUpAPI.sharedInstance.isLoggedIn.request(.get).onSuccess { (response) in
-			print(response)
 			guard let loggedIn = response.jsonDict["isLoggedIn"] as! Bool? else {
 				self.startLoginScreen()
 				return

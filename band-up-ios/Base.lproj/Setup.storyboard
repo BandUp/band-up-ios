@@ -447,7 +447,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="VKb-S4-Frf"/>
                                                 </constraints>
                                             </stackView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="bergtor05@me.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70J-3Q-gTp">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70J-3Q-gTp">
                                                 <rect key="frame" x="91" y="195" width="250" height="23"/>
                                                 <accessibility key="accessibilityConfiguration" hint="Username"/>
                                                 <constraints>
@@ -479,7 +479,7 @@
                                                     <constraint firstAttribute="width" constant="250" id="Zup-Ep-Rma"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="asdfasdf" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GhI-sR-eFx">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GhI-sR-eFx">
                                                 <rect key="frame" x="91" y="248" width="250" height="23"/>
                                                 <accessibility key="accessibilityConfiguration" hint="Password"/>
                                                 <constraints>
