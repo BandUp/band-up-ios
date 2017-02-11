@@ -73,6 +73,7 @@ class UserListViewController: UIViewController {
 		}).onFailure({ (error) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
+			self.lblError.text = NSLocalizedString("user_list_error_fetch_list", comment: "Musician List error message")
 			print("ERROR")
 			print(error)
 		})
