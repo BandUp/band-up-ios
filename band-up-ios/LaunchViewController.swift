@@ -16,7 +16,7 @@ class LaunchViewController: UIViewController {
 	func startLoginScreen() {
 		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
-		self.present(vc!, animated: false, completion: nil)
+		(UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = vc
 	}
 	
 	func startSetup() {
@@ -27,12 +27,13 @@ class LaunchViewController: UIViewController {
 	func startMain() {
 		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
-		self.present(vc!, animated: false, completion: nil)
+		(UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = vc
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		BandUpAPI.sharedInstance.isLoggedIn.request(.get).onSuccess { (response) in
+			print(response)
 			guard let loggedIn = response.jsonDict["isLoggedIn"] as! Bool? else {
 				self.startLoginScreen()
 				return
