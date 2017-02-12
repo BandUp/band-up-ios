@@ -22,12 +22,14 @@ class EditProfileTableViewController: UITableViewController {
 	@IBOutlet weak var tbcInstruments: UITableViewCell!
 	var user = User()
 	
+	let INSTRUMENTS_ID = 0
+	let GENRES_ID = 1
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		user = (self.parent as! EditProfileViewController).user
 		tagInstruments.strings = user.instruments
 		tagGenres.strings = user.genres
-		
 	}
 	
 	override func viewDidLoad() {
@@ -50,9 +52,9 @@ class EditProfileTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.section == 1 {
-			return tagInstruments.intrinsicContentSize.height+16
+			return tagInstruments.intrinsicContentSize.height + 16
 		} else if indexPath.section == 2 {
-			return tagGenres.intrinsicContentSize.height+16
+			return tagGenres.intrinsicContentSize.height + 16
 		} else if indexPath.section == 3 {
 			return 150
 		}
@@ -61,9 +63,9 @@ class EditProfileTableViewController: UITableViewController {
 	
 	override public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.section == 1 {
-			return tagInstruments.intrinsicContentSize.height+16
+			return tagInstruments.intrinsicContentSize.height + 16
 		} else if indexPath.section == 2 {
-			return tagGenres.intrinsicContentSize.height+16
+			return tagGenres.intrinsicContentSize.height + 16
 		} else if indexPath.section == 3 {
 			return 150
 		}
@@ -92,14 +94,18 @@ class EditProfileTableViewController: UITableViewController {
 			let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
 			
 			myVC.setupViewObject = prepareSetupObjectInstruments()
+			myVC.delegate = self
+			
 			present(myVC, animated: true, completion: nil)
-			tagInstruments.layoutSubviews()
+			//tagInstruments.layoutSubviews()
 		} else if indexPath.section == 2 {
 			let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 			
 			let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
 			
 			myVC.setupViewObject = prepareSetupObjectGenres()
+			myVC.delegate = self
+			
 			present(myVC, animated: true, completion: nil)
 		} else if indexPath.section == 0 && indexPath.row == 1 {
 			let datePicker = ActionSheetDatePicker(title: NSLocalizedString("dateOfBirth", comment: "Title of ActionSheetDatePicker."), datePickerMode: UIDatePickerMode.date, selectedDate: (parent as! EditProfileViewController).user.dateOfBirth, doneBlock: {
@@ -117,11 +123,13 @@ class EditProfileTableViewController: UITableViewController {
 			datePicker?.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: (datePicker?.minimumDate!)!)
 			datePicker?.show()
 		} else if indexPath.section == 0 && indexPath.row == 2 {
+			
 			ActionSheetMultipleStringPicker.show(withTitle: NSLocalizedString("edit_profile_fav_instrument", comment: "Title of ActionSheetStringPicker."), rows: [
 				(parent as! EditProfileViewController).user.instruments
-				], initialSelection: [0], doneBlock: {
+				], initialSelection: [(parent as! EditProfileViewController).user.instruments.index(of: (parent as! EditProfileViewController).user.favouriteInstrument)], doneBlock: {
 					picker, indexes, values in
 					self.lblFavInstrument.text = String(describing: (values as! NSArray)[0])
+					(self.parent as! EditProfileViewController).user.favouriteInstrument = String(describing: (values as! NSArray)[0])
 					tableView.deselectRow(at: indexPath, animated: true)
 					return
 			}, cancel: { ActionMultipleStringCancelBlock in
@@ -137,6 +145,7 @@ class EditProfileTableViewController: UITableViewController {
 		setupObject.titleHint      = NSLocalizedString("setup_instruments_hint", comment: "Button on the bottom of the Instrument and Genre selection screen")
 		setupObject.selected = (self.parent as! EditProfileViewController).user.instruments
 		setupObject.shouldDismiss = true
+		setupObject.id = INSTRUMENTS_ID
 		
 		return [setupObject]
 	}
@@ -148,14 +157,32 @@ class EditProfileTableViewController: UITableViewController {
 		setupObject.titleHint      = NSLocalizedString("setup_genres_hint", comment: "Button on the bottom of the Instrument and Genre selection screen")
 		setupObject.selected = (self.parent as! EditProfileViewController).user.genres
 		setupObject.shouldDismiss = true
+		setupObject.id = GENRES_ID
 		
 		return [setupObject]
 	}
 	
 }
 
+
+
+extension EditProfileTableViewController: SetupViewControllerDelegate {
+	func didSave(_ setup: Int, with data: [String]) {
+		if setup == INSTRUMENTS_ID {
+			tableView.beginUpdates()
+			tagInstruments.update(strings: data)
+			user.instruments = data
+			tableView.endUpdates()
+		} else if setup == GENRES_ID {
+			tableView.beginUpdates()
+			tagGenres.update(strings: data)
+			user.genres = data
+			tableView.endUpdates()
+		}
+	}
+}
+
 extension EditProfileTableViewController: UITextViewDelegate {
-	
 	func textViewDidBeginEditing(_ textView: UITextView) {
 		if textView.textColor == UIColor.lightGray {
 			textView.text = nil

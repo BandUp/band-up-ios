@@ -43,11 +43,30 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		initialize()
 	}
 	
+	func update(strings newStrings: [String]) {
+		for item in strings {
+			if (!newStrings.contains(item)) {
+				let myIndex: Int = strings.index(of: item)!
+				strings.remove(at: myIndex)
+				collectionView?.deleteItems(at: [IndexPath(row: myIndex, section: 0)])
+			}
+		}
+		
+		for (index, item) in newStrings.enumerated() {
+			if (!strings.contains(item)) {
+				strings.insert(item, at: index)
+				layoutSubviews()
+				collectionView?.insertItems(at: [IndexPath(row: index, section: 0)])
+			}
+		}
+	}
+	
 	// MARK: - Overridden Functions
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		let size = CGSize(width: bounds.width, height: self.estimateHeight())
 		collectionView?.frame = CGRect(origin: CGPoint(x: 0,y: 0), size: size)
+		collectionView?.layoutSubviews()
 		invalidateIntrinsicContentSize()
 	}
 	
@@ -83,10 +102,13 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let measuringLabel = UILabel()
-		measuringLabel.text = self.strings[indexPath.row]
+		let tempLabel = UILabel()
+		tempLabel.text = self.strings[indexPath.row]
+		tempLabel.font = UIFont(name: fontType, size: fontSize)
+		tempLabel.textColor = textColor
+		tempLabel.textAlignment = .center
 		
-		var size = measuringLabel.intrinsicContentSize
+		var size = tempLabel.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
 		size.height += 2 * verticalPadding
 		size.width += 2 * horizontalPadding
 		

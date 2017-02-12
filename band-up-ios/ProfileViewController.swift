@@ -125,6 +125,14 @@ class ProfileViewController: UIViewController {
 		
 		let viewController =  storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
 		viewController.user = currentUser
+		viewController.delegate = self
 		self.present(viewController, animated: true, completion: nil)
+	}
+}
+
+extension ProfileViewController: EditProfileViewControllerDelegate {
+	func userUpdated(_ newUser: User) {
+		self.currentUser = newUser
+		populateUser()
 	}
 }

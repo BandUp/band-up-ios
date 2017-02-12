@@ -72,6 +72,7 @@ class BandUpAPI: Service {
 	var like:        Resource { return resource("/like") }
     var profile:     Resource { return resource("/user") }
     var chatHistory: Resource { return resource("/chat_history") }
+	var editProfile: Resource { return resource("/edit-user") }
 	
 	private func getCookie () -> [String:String] {
 		if let setCookie = self.headers[BandUpAPI.setCookieKey] {

@@ -10,7 +10,13 @@ import UIKit
 import KYDrawerController
 import Siesta
 
+protocol SetupViewControllerDelegate {
+	func didSave(_ setup: Int, with data: [String])
+}
+
 class SetupViewController: UIViewController {
+	
+	var delegate: SetupViewControllerDelegate?
 	
 	// MARK: - Interface Builder Outlets
 	@IBOutlet weak var lblTitleUpperLeft: UILabel!
@@ -137,7 +143,17 @@ class SetupViewController: UIViewController {
 				navigationController?.pushViewController(myVC, animated: true)
 			} else {
 				if (self.setupViewObject?.first?.shouldDismiss)! {
-					dismiss(animated: true, completion: nil)
+					dismiss(animated: true, completion: {
+						if let del = self.delegate {
+							var nameArr = [String]()
+							for item in self.setupItemArray {
+								if (item.isSelected) {
+									nameArr.append(item.name)
+								}
+							}
+							del.didSave((self.setupViewObject?.first?.id)!, with: nameArr)
+						}
+					})
 				} else {
 					let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
 					let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
@@ -237,6 +253,7 @@ class SetupViewObject {
 	init(setupResource: Resource) {
 		apiResource = setupResource
 	}
+	var id : Int?
 	var shouldDismiss  : Bool = false
 	var shouldFinishSetup: Bool = false
 	var apiResource    : Resource

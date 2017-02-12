@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EditProfileViewControllerDelegate {
+	func userUpdated(_ newUser: User)
+}
+
 class EditProfileViewController: UIViewController {
 	@IBOutlet weak var btnDone: UIBarButtonItem!
 	@IBOutlet weak var btnCancel: UIBarButtonItem!
@@ -15,6 +19,7 @@ class EditProfileViewController: UIViewController {
 	var tableViewController: EditProfileTableViewController = EditProfileTableViewController()
 	
 	var user = User()
+	var delegate : EditProfileViewControllerDelegate?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -72,7 +77,33 @@ class EditProfileViewController: UIViewController {
 	}
 
 	@IBAction func didTapDone(_ sender: Any) {
-		self.dismiss(animated: true, completion: nil)
+		
+		
+		var updatedUser: [String:String] = [:]
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		let dateString:String? = dateFormatter.string(from: tableViewController.user.dateOfBirth)
+		
+		
+		updatedUser["username"] = tableViewController.txtName.text
+		updatedUser["favoriteinstrument"] = tableViewController.user.favouriteInstrument
+		updatedUser["aboutme"] = tableViewController.txtAboutMe.text
+		updatedUser["dateOfBirth"] = dateString
+		
+		user.username = tableViewController.txtName.text!
+		user.aboutme = tableViewController.txtAboutMe.text
+		
+		navigationItem.rightBarButtonItem?.isEnabled = false
+		BandUpAPI.sharedInstance.editProfile.request(.post,  json: updatedUser).onSuccess { (response) in
+			if let del = self.delegate {
+				del.userUpdated(self.user)
+			}
+			self.dismiss(animated: true, completion: nil)
+			
+		}.onFailure { (error) in
+			self.navigationItem.rightBarButtonItem?.isEnabled = true
+		}
+		
 
 	}
 	
