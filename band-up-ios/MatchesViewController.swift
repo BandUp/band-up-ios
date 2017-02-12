@@ -37,6 +37,7 @@ class MatchesViewController: UIViewController {
 			}
 			self.tableView.reloadData()
 		}).onFailure({ (error) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			self.tableView.isHidden = true
 			self.lblError.text = NSLocalizedString("matches_failed_to_fetch", comment: "Error displayed on the matches screen.")

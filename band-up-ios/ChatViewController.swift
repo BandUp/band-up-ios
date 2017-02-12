@@ -22,8 +22,6 @@ class ChatViewController: UIViewController {
 		
 	}
 	
-	
-	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -91,9 +89,11 @@ class ChatViewController: UIViewController {
 		viewController.currentUser = user
 		
 		let navController = UINavigationController(rootViewController: viewController)
-		let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(dismissDetails))
+		let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(dismissDetails))
+		button.tintColor = UIColor.bandUpYellow
 
-		navController.navigationItem.rightBarButtonItem = button
+		navController.navigationBar.barStyle = .black
+		viewController.navigationItem.rightBarButtonItem = button
 		present(navController, animated: true, completion: nil)
 	}
 	

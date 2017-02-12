@@ -120,7 +120,7 @@
 "main_title_search_results" = "Leitarniðurstöður";
 "main_title_upcoming_features" = "Á döfinni";
 "matches_error_json" = "Gat ekki parsað JSON hlutinn.";
-"matches_failed_to_fetch" = "Gat ekki náð í tenginga listann";
+"matches_failed_to_fetch" = "Gat ekki náð í tengingalistann";
 "mi_distance" = "mílur frá þér";
 "password_reset_email_sent" = "Ef þetta netfang er skráð hjá okkur, þá mun þér berast póstur innan skamms";
 "profile_error_updating_user" = "Gat ekki uppfært notanda";

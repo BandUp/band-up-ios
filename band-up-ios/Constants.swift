@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants {
 	// https://band-up-server.herokuapp.com
@@ -46,4 +47,12 @@ class Constants {
 	static var completeSetup : [SetupViewObject] = {
 		return [setupInstruments, setupGenres]
 	}()
+}
+
+extension UIColor {
+	// 0xFFD302
+	static let bandUpYellow = UIColor(red:255/255.0, green:211/255.0, blue:2/255.0, alpha: 1.0)
+	
+	// 0x0D0D0D
+	static let bandUpGrey = UIColor(red: 13/255.0, green: 13/255.0, blue: 13/255.0, alpha: 1)
 }

@@ -172,7 +172,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		
 		lblItemName.text = setupItem.name
 		
-		cell.layer.borderColor = UIColor(red:255/255.0, green:211/255.0, blue:2/255.0, alpha: 1.0).cgColor
+		cell.layer.borderColor = UIColor.bandUpYellow.cgColor
 		
 		if (setupItem.isSelected) {
 			cell.layer.borderWidth = 5
@@ -196,7 +196,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		collectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor(red:255/255.0, green:211/255.0, blue:2/255.0, alpha: 1.0).cgColor
+		collectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.bandUpYellow.cgColor
 		
 		if (setupItemArray[indexPath.row].isSelected) {
 			let anim = CABasicAnimation(keyPath: "borderWidth")
