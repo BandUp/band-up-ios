@@ -18,6 +18,9 @@ class MatchesViewController: UIViewController {
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		registerForPreviewing(with: self, sourceView: tableView)
+		
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		BandUpAPI.sharedInstance.matches.loadIfNeeded()?.onSuccess({ (response) in
 			self.activityIndicator.stopAnimating()
@@ -66,7 +69,6 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 		imgUserImage.image = nil
 		
 		if let checkedUrl = URL(string: matchedUsers[indexPath.row].image.url) {
-			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage)
 		} else {
 			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
@@ -101,5 +103,27 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 				imageView.image = UIImage(data: data)
 			}
 		}
+	}
+}
+
+extension MatchesViewController: UIViewControllerPreviewingDelegate {
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+		
+		let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
+		let viewController =  storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+		
+		viewController.user = matchedUsers[indexPath.row]
+		
+		let cellRect = tableView.rectForRow(at: indexPath)
+		let sourceRect = previewingContext.sourceView.convert(cellRect, from: tableView)
+		previewingContext.sourceRect = sourceRect
+		
+		return viewController
+
+	}
+	
+	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		show(viewControllerToCommit, sender: self)
 	}
 }

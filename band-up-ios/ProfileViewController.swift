@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProfileViewDelegate {
+	func update(user: User)
+}
+
 class ProfileViewController: UIViewController {
 	
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -23,7 +27,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var lblError: UILabel!
 	
 	var currentUser = User()
-	
+	var delegate : ProfileViewDelegate?
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(someAction))
@@ -59,7 +63,6 @@ class ProfileViewController: UIViewController {
 		imgProfileImage.image = nil
 		
 		if let checkedUrl = URL(string: currentUser.image.url) {
-			imgProfileImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgProfileImage, activityIndicator: imageActivityIndicator)
 		} else {
 			imageActivityIndicator.stopAnimating()

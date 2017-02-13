@@ -82,11 +82,11 @@ class EditProfileViewController: UIViewController {
 		var updatedUser: [String:String] = [:]
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-		let dateString:String? = dateFormatter.string(from: tableViewController.user.dateOfBirth)
+		let dateString:String? = dateFormatter.string(from: tableViewController.newUser.dateOfBirth)
 		
 		
 		updatedUser["username"] = tableViewController.txtName.text
-		updatedUser["favoriteinstrument"] = tableViewController.user.favouriteInstrument
+		updatedUser["favoriteinstrument"] = tableViewController.newUser.favouriteInstrument
 		updatedUser["aboutme"] = tableViewController.txtAboutMe.text
 		updatedUser["dateOfBirth"] = dateString
 		
@@ -108,6 +108,9 @@ class EditProfileViewController: UIViewController {
 	}
 	
 	@IBAction func didTapCancel(_ sender: Any) {
+		if let del = self.delegate {
+			del.userUpdated(tableViewController.oldUser)
+		}
 		self.dismiss(animated: true, completion: nil)
 	}
 }

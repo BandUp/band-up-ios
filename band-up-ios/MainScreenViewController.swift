@@ -43,6 +43,10 @@ class MainScreenViewController: UIViewController {
 		
 		var viewController =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
 		
+		if let drawerController = self.navigationController?.parent as? KYDrawerController {
+		}
+		
+		
 		return viewController
 	}()
 	

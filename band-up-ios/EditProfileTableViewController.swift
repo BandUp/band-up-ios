@@ -20,16 +20,18 @@ class EditProfileTableViewController: UITableViewController {
 	@IBOutlet weak var tagInstruments: BMItemBoxList!
 	
 	@IBOutlet weak var tbcInstruments: UITableViewCell!
-	var user = User()
+	var oldUser = User()
+	var newUser = User()
 	
 	let INSTRUMENTS_ID = 0
 	let GENRES_ID = 1
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		user = (self.parent as! EditProfileViewController).user
-		tagInstruments.strings = user.instruments
-		tagGenres.strings = user.genres
+		oldUser = (self.parent as! EditProfileViewController).user
+		newUser = oldUser
+		tagInstruments.strings = oldUser.instruments
+		tagGenres.strings = oldUser.genres
 	}
 	
 	override func viewDidLoad() {
@@ -89,52 +91,13 @@ class EditProfileTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 	
 		if indexPath.section == 1 {
-			let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
-			
-			let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-			
-			myVC.setupViewObject = prepareSetupObjectInstruments()
-			myVC.delegate = self
-			
-			present(myVC, animated: true, completion: nil)
-			//tagInstruments.layoutSubviews()
+			displayInstrumentSetup(at: indexPath)
 		} else if indexPath.section == 2 {
-			let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
-			
-			let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-			
-			myVC.setupViewObject = prepareSetupObjectGenres()
-			myVC.delegate = self
-			
-			present(myVC, animated: true, completion: nil)
+			displayGenreSetup(at: indexPath)
 		} else if indexPath.section == 0 && indexPath.row == 1 {
-			let datePicker = ActionSheetDatePicker(title: NSLocalizedString("dateOfBirth", comment: "Title of ActionSheetDatePicker."), datePickerMode: UIDatePickerMode.date, selectedDate: (parent as! EditProfileViewController).user.dateOfBirth, doneBlock: {
-				picker, value, index in
-				(self.parent as! EditProfileViewController).user.dateOfBirth = value as! Date
-				self.lblAge.text = (self.parent as! EditProfileViewController).user.getAgeString()
-				tableView.deselectRow(at: indexPath, animated: true)
-				return
-			}, cancel: { ActionStringCancelBlock in
-				tableView.deselectRow(at: indexPath, animated: true)
-				return
-			}, origin: tableView.cellForRow(at: indexPath)?.superview!.superview)
-			datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MIN_AGE), to: Date())
-			datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MAX_AGE), to: Date())
-			datePicker?.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: (datePicker?.minimumDate!)!)
-			datePicker?.show()
+			displayDatePicker(at: indexPath)
 		} else if indexPath.section == 0 && indexPath.row == 2 {
-			
-			ActionSheetMultipleStringPicker.show(withTitle: NSLocalizedString("edit_profile_fav_instrument", comment: "Title of ActionSheetStringPicker."), rows: [
-				(parent as! EditProfileViewController).user.instruments
-				], initialSelection: [(parent as! EditProfileViewController).user.instruments.index(of: (parent as! EditProfileViewController).user.favouriteInstrument)], doneBlock: {
-					picker, indexes, values in
-					self.lblFavInstrument.text = String(describing: (values as! NSArray)[0])
-					(self.parent as! EditProfileViewController).user.favouriteInstrument = String(describing: (values as! NSArray)[0])
-					tableView.deselectRow(at: indexPath, animated: true)
-					return
-			}, cancel: { ActionMultipleStringCancelBlock in
-				tableView.deselectRow(at: indexPath, animated: true)
-				return }, origin: tableView.cellForRow(at: indexPath))
+			displayInstrumentPicker(at: indexPath)
 		}
 	}
 	
@@ -162,21 +125,83 @@ class EditProfileTableViewController: UITableViewController {
 		return [setupObject]
 	}
 	
+	func displayInstrumentSetup(at indexPath: IndexPath) {
+		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
+		
+		let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+		
+		myVC.setupViewObject = prepareSetupObjectInstruments()
+		myVC.delegate = self
+		
+		present(myVC, animated: true, completion: nil)
+	}
+	
+	func displayGenreSetup(at indexPath: IndexPath) {
+		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
+		
+		let myVC = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+		
+		myVC.setupViewObject = prepareSetupObjectGenres()
+		myVC.delegate = self
+		
+		present(myVC, animated: true, completion: nil)
+	}
+	
+	func displayDatePicker(at indexPath: IndexPath) {
+		let pickerTitle = NSLocalizedString("dateOfBirth", comment: "Title of ActionSheetDatePicker.")
+		
+		let datePicker = ActionSheetDatePicker(
+			title: pickerTitle,
+			datePickerMode: UIDatePickerMode.date,
+			selectedDate: newUser.dateOfBirth,
+			doneBlock: { picker, value, index in
+				self.newUser.dateOfBirth = value as! Date
+				self.lblAge.text = self.newUser.getAgeString()
+				return
+			}, cancel: { ActionStringCancelBlock in
+				return
+			}, origin: tableView.cellForRow(at: indexPath)?.superview!.superview
+		)
+		
+		datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MIN_AGE), to: Date())
+		datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MAX_AGE), to: Date())
+		datePicker?.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: (datePicker?.minimumDate!)!)
+		datePicker?.show()
+	}
+	
+	func displayInstrumentPicker(at indexPath: IndexPath) {
+		let pickerTitle = NSLocalizedString("edit_profile_fav_instrument", comment: "Title of ActionSheetStringPicker.")
+		let initSelection = newUser.instruments.index(of: newUser.favouriteInstrument) ?? 0
+		
+		ActionSheetMultipleStringPicker.show(
+			withTitle: pickerTitle,
+			rows: [newUser.instruments],
+			initialSelection: [initSelection],
+			doneBlock: { picker, indexes, values in
+				self.lblFavInstrument.text = String(describing: (values as! NSArray)[0])
+				self.newUser.favouriteInstrument = String(describing: (values as! NSArray)[0])
+				return
+			}, cancel: { ActionMultipleStringCancelBlock in
+				self.tableView.deselectRow(at: indexPath, animated: true)
+				return
+			}, origin: tableView.cellForRow(at: indexPath)
+		)
+	}
 }
-
-
 
 extension EditProfileTableViewController: SetupViewControllerDelegate {
 	func didSave(_ setup: Int, with data: [String]) {
 		if setup == INSTRUMENTS_ID {
 			tableView.beginUpdates()
 			tagInstruments.update(strings: data)
-			user.instruments = data
+			oldUser.instruments = data
+			newUser.instruments = data
 			tableView.endUpdates()
 		} else if setup == GENRES_ID {
 			tableView.beginUpdates()
 			tagGenres.update(strings: data)
-			user.genres = data
+			oldUser.genres = data
+			newUser.genres = data
 			tableView.endUpdates()
 		}
 	}

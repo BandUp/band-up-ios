@@ -9,6 +9,8 @@
 import UIKit
 import KYDrawerController
 
+
+
 class DrawerViewController: UIViewController {
 	
 	@IBOutlet weak var lblUsername: UILabel!
@@ -54,7 +56,6 @@ class DrawerViewController: UIViewController {
 		imgUserImage.image = nil
 		
 		if let checkedUrl = URL(string: currentUser.image.url) {
-			imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage)
 		} else {
 			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
@@ -80,6 +81,13 @@ class DrawerViewController: UIViewController {
 		}
 	}
 	
+}
+
+extension DrawerViewController: ProfileViewDelegate {
+	func update(user: User) {
+		currentUser = user
+		populateUser()
+	}
 }
 
 extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {

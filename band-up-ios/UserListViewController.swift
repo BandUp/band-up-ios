@@ -98,12 +98,10 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		cell.user = userArray[indexPath.row]
 		let currentUser = cell.user
 		
-		cell.imgUserImage.image = nil
+		cell.imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 		if let checkedUrl = URL(string: currentUser.image.url) {
-			cell.imgUserImage.contentMode = .scaleAspectFill
 			self.downloadImage(url: checkedUrl, imageView: cell.imgUserImage, activityIndicator: cell.actIndicator)
 		} else {
-			cell.imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			cell.actIndicator.stopAnimating()
 		}
 		
