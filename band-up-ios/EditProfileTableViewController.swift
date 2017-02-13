@@ -44,7 +44,6 @@ class EditProfileTableViewController: UITableViewController {
 		
 		txtName.attributedPlaceholder = nameStr
 		tableView.keyboardDismissMode = .interactive
-		tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: UITableViewRowAnimation.none)
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -92,8 +91,10 @@ class EditProfileTableViewController: UITableViewController {
 	
 		if indexPath.section == 1 {
 			displayInstrumentSetup(at: indexPath)
+			tableView.deselectRow(at: indexPath, animated: true)
 		} else if indexPath.section == 2 {
 			displayGenreSetup(at: indexPath)
+			tableView.deselectRow(at: indexPath, animated: true)
 		} else if indexPath.section == 0 && indexPath.row == 1 {
 			displayDatePicker(at: indexPath)
 		} else if indexPath.section == 0 && indexPath.row == 2 {

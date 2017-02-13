@@ -43,8 +43,10 @@ class LoginViewController: UIViewController {
 
 		txtEmail.attributedPlaceholder = NSAttributedString(string:"Email", attributes: attributesDictionary)
 		txtPassword.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributesDictionary)
+		txtPassword.delegate = self
 	}
 	
+
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
@@ -76,6 +78,10 @@ class LoginViewController: UIViewController {
 	
 	// MARK: IBActions
 	@IBAction func onClickLogin(_ sender: Any) {
+		login()
+	}
+	
+	func login() {
 		// Display the network activity indicator in the status bar.
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		// Disable the button while making the request
@@ -114,6 +120,17 @@ class LoginViewController: UIViewController {
 					print(error.httpStatusCode ?? 0)
 				}
 		}
+	}
+}
+
+extension LoginViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if textField == txtPassword {
+			textField.resignFirstResponder()
+			login()
+			return false
+		}
+		return true
 	}
 }
 

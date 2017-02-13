@@ -344,12 +344,12 @@
 				F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */,
 				F2AB060E1E0616A20039C761 /* ProfileViewController.swift */,
 				F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */,
+				F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */,
 				F2AB06101E0616B30039C761 /* MatchesViewController.swift */,
 				2006897B1E44F3C200EAD907 /* ChatViewController.swift */,
 				F2AB06121E0616C10039C761 /* SettingsViewController.swift */,
 				F24E08171E4D1B1F00C45A76 /* SettingsTableViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
-				F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
