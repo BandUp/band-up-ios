@@ -156,8 +156,8 @@ class EditProfileTableViewController: UITableViewController {
 			datePickerMode: UIDatePickerMode.date,
 			selectedDate: newUser.dateOfBirth,
 			doneBlock: { picker, value, index in
-				self.newUser.dateOfBirth = value as! Date
-				self.lblAge.text = self.newUser.getAgeString()
+				self.newUser.dateOfBirth = value as? Date
+				self.lblAge.text = self.newUser.getBirthString()
 				return
 			}, cancel: { ActionStringCancelBlock in
 				return

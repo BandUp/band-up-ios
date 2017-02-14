@@ -98,7 +98,7 @@ class User: CustomStringConvertible {
 	
 	var id:                  String       = ""
 	var aboutme:             String       = ""
-	var dateOfBirth:         Date         = Date()
+	var dateOfBirth:         Date?
 	var distance:            Double       = 0.0
 	var favouriteInstrument: String       = ""
 	var genres:              [String]     = []
@@ -113,24 +113,49 @@ class User: CustomStringConvertible {
 	var status:              String       = ""
 	var username:            String       = ""
 	
-	func getAge() -> Int{
+	func getAge() -> Int {
 		let calendar = Calendar.current
 		let now = Date()
-		
-		let ageComponents = calendar.dateComponents([.year], from: self.dateOfBirth, to: now)
-		return ageComponents.year!
+		if let safeDate = self.dateOfBirth {
+			let ageComponents = calendar.dateComponents([.year], from: safeDate, to: now)
+			return ageComponents.year!
+		} else {
+			return -1
+		}
 	}
 	
-	func getAgeString() -> String {
+	func getBirthString() -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateStyle = .long
 		dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-		let formattedDate = dateFormatter.string(from: self.dateOfBirth)
-		
-		let age = getAge()
-		return String(format:"\(formattedDate) (\(age))")
+		if let safeDate = self.dateOfBirth {
+			let formattedDate = dateFormatter.string(from: safeDate)
+			let age = getAge()
+			return String(format:"\(formattedDate) (\(age))")
+		} else {
+			return ""
+		}
 	}
-	
+
+	func getAgeString() -> String {
+		if self.dateOfBirth != nil {
+			let yearOld = NSLocalizedString("age_year_plural", comment: "")
+			return "\(self.getAge()) \(yearOld)"
+		} else {
+			return NSLocalizedString("age_not_available", comment: "Appears whenever the age is not available.")
+		}
+	}
+
+	func getDistanceString() -> String {
+		// Temporary
+		if self.distance == 0.0 {
+			return NSLocalizedString("no_distance_available", comment: "")
+		} else {
+			let distanceType = NSLocalizedString("km_distance", comment: "")
+			return "\(Int(round(self.distance))) \(distanceType)"
+		}
+	}
+
 	var description: String {
 		
 		var bla = [String:String]()

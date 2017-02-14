@@ -35,7 +35,7 @@ class EditProfileViewController: UIViewController {
 			tableViewController.txtAboutMe.textColor = UIColor.white
 		}
 		
-		tableViewController.lblAge.text = String(user.getAgeString())
+		tableViewController.lblAge.text = String(user.getBirthString())
 
 		
 		var count = user.instruments.count
@@ -77,13 +77,16 @@ class EditProfileViewController: UIViewController {
 	}
 
 	@IBAction func didTapDone(_ sender: Any) {
-		
-		
+		print("bla")
+		btnDone.isEnabled = false
+
 		var updatedUser: [String:String] = [:]
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-		let dateString:String? = dateFormatter.string(from: tableViewController.newUser.dateOfBirth)
-		
+		var dateString: String = ""
+		if let safeDate = tableViewController.newUser.dateOfBirth {
+			dateString = dateFormatter.string(from: safeDate)
+		}
 		
 		updatedUser["username"] = tableViewController.txtName.text
 		updatedUser["favoriteinstrument"] = tableViewController.newUser.favouriteInstrument
@@ -93,8 +96,10 @@ class EditProfileViewController: UIViewController {
 		user.username = tableViewController.txtName.text!
 		user.aboutme = tableViewController.txtAboutMe.text
 		
-		navigationItem.rightBarButtonItem?.isEnabled = false
+
 		BandUpAPI.sharedInstance.editProfile.request(.post,  json: updatedUser).onSuccess { (response) in
+			self.tableViewController.txtName.resignFirstResponder()
+			self.tableViewController.txtAboutMe.resignFirstResponder()
 			if let del = self.delegate {
 				del.userUpdated(self.user)
 			}
@@ -108,6 +113,8 @@ class EditProfileViewController: UIViewController {
 	}
 	
 	@IBAction func didTapCancel(_ sender: Any) {
+		tableViewController.txtName.resignFirstResponder()
+		tableViewController.txtAboutMe.resignFirstResponder()
 		if let del = self.delegate {
 			del.userUpdated(tableViewController.oldUser)
 		}

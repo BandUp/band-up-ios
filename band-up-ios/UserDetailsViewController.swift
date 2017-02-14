@@ -96,15 +96,15 @@ class UserDetailsViewController: UIViewController {
 		}
 		
 		lblUsername.text = currentUser.username
-		lblAge.text = "\(currentUser.getAge()) years old"
+		lblAge.text = currentUser.getAgeString()
 		lblFavInstrument.text = currentUser.favouriteInstrument
 		if (currentUser.aboutme != "") {
 			lblAboutMe.text = currentUser.aboutme
 		} else {
 			lblAboutMe.text = NSLocalizedString("about_me", comment: "About Me string displayed on the profiles")
 		}
-		
-		lblDistance.text = String(format:"%.0f km away from you", currentUser.distance)
+
+		lblDistance.text = currentUser.getDistanceString()
 		
 		lblPercentage.text = "\(currentUser.percentage)%"
 

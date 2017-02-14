@@ -370,7 +370,7 @@
                                                             <attributedString key="userComments">
                                                                 <fragment content="Placeholder. No need to translate.">
                                                                     <attributes>
-                                                                        <font key="NSFont" metaFont="smallSystem"/>
+                                                                        <font key="NSFont" metaFont="toolTip"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>

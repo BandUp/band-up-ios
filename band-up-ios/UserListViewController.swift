@@ -107,8 +107,9 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		
 		cell.lblUsername.text = currentUser.username
 		cell.lblPercentage.text = String(format:"\(currentUser.percentage)%%")
-		cell.lblDistance.text = String(format:"%.0f km away from you", currentUser.distance)
-		
+
+		cell.lblDistance.text = currentUser.getDistanceString()
+
 		if (currentUser.favouriteInstrument == "") {
 			if (currentUser.instruments.count > 0) {
 				cell.lblFavInstrument.text = currentUser.instruments[0]
@@ -132,9 +133,9 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 			cell.btnLike.setTitle(NSLocalizedString("user_list_like", comment: "Text on the green like button"), for: .normal)
 			cell.btnLike.isEnabled = true;
 		}
-		
-		cell.lblAge.text = String(format:"\(currentUser.getAge()) years old")
-		
+
+		cell.lblAge.text = currentUser.getAgeString()
+
 		return cell
 	}
 	

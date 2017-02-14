@@ -178,6 +178,10 @@ class ProfileViewController: UIViewController {
 	var delegate : ProfileViewDelegate?
 	override func viewDidLoad() {
 		super.viewDidLoad()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(someAction))
 		self.parent?.navigationItem.rightBarButtonItem?.isEnabled = false
 		BandUpAPI.sharedInstance.profile.load().onSuccess({ (response) in
@@ -192,13 +196,7 @@ class ProfileViewController: UIViewController {
 			self.scrollView.isHidden = true
 			self.lblError.text = "Could not get your profile"
 			self.lblError.isHidden = false
-
 		})
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(someAction))
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -220,7 +218,7 @@ class ProfileViewController: UIViewController {
 		}
 		
 		lblUsername.text = currentUser.username
-		lblAge.text = "\(currentUser.getAge()) years old"
+		lblAge.text = currentUser.getAgeString()
 		lblFavInstrument.text = currentUser.favouriteInstrument
 		if (currentUser.aboutme != "") {
 			lblAboutMe.text = currentUser.aboutme
