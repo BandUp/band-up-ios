@@ -10,7 +10,7 @@
 import UIKit
 import UICollectionViewLeftAlignedLayout
 
-class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+@IBDesignable class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	// MARK: - Variables
 	// MARK: Constants
@@ -35,12 +35,22 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	var strings: [String] = []
 	var collectionView: UICollectionView?
 	var layout: UICollectionViewLayout = UICollectionViewLeftAlignedLayout()
-	
+
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		initialize()
+	}
 
 	// MARK: - Initializers
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		initialize()
+	}
+
+	override func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+		strings = ["ASDF", "FDSA"]
+		layoutSubviews()
 	}
 	
 	func update(strings newStrings: [String]) {
@@ -102,16 +112,13 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let tempLabel = UILabel()
-		tempLabel.text = self.strings[indexPath.row]
-		tempLabel.font = UIFont(name: fontType, size: fontSize)
-		tempLabel.textColor = textColor
-		tempLabel.textAlignment = .center
-		
-		var size = tempLabel.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+		let measuringLabel = UILabel()
+		measuringLabel.text = self.strings[indexPath.row]
+
+		var size = measuringLabel.intrinsicContentSize
 		size.height += 2 * verticalPadding
 		size.width += 2 * horizontalPadding
-		
+
 		return size
 	}
 	

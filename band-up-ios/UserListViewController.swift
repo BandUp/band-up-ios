@@ -197,12 +197,13 @@ extension UserListViewController: UIViewControllerPreviewingDelegate {
 		let sourceRect = previewingContext.sourceView.convert(imageViewRect, from: userCollectionView.superview)
 
 		previewingContext.sourceRect = sourceRect
-		
+		userDetailsViewController.shouldDisplayLike = false
 		return userDetailsViewController
 		
 	}
 	
 	public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+		userDetailsViewController.shouldDisplayLike = true
 		show(userDetailsViewController, sender: self)
 	}
 }

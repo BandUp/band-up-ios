@@ -122,7 +122,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottomMargin" secondItem="OjP-XC-PCU" secondAttribute="bottom" id="AcV-TV-1RE"/>
                                                         <constraint firstItem="OjP-XC-PCU" firstAttribute="leading" secondItem="b1s-y2-pbd" secondAttribute="leadingMargin" constant="10" id="ELV-gS-y8q"/>
@@ -130,6 +130,7 @@
                                                         <constraint firstAttribute="trailingMargin" secondItem="OjP-XC-PCU" secondAttribute="trailing" constant="10" id="lAw-Yj-7Fr"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="tintColor" red="0.542992115" green="0.091354943810000006" blue="0.00058800249830000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableViewCell>
                                         </prototypes>
                                         <sections/>

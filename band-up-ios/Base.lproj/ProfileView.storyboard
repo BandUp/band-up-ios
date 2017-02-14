@@ -58,6 +58,12 @@
                                                                                 <rect key="frame" x="40" y="40" width="20" height="20"/>
                                                                                 <color key="color" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </activityIndicatorView>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S62-OC-6fq">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                                <connections>
+                                                                                    <action selector="didTapImage:" destination="JgJ-Jk-Vxz" eventType="touchUpInside" id="eSM-Yh-Tgx"/>
+                                                                                </connections>
+                                                                            </button>
                                                                         </subviews>
                                                                         <constraints>
                                                                             <constraint firstItem="hor-HK-Nis" firstAttribute="centerY" secondItem="SXC-W6-Yg0" secondAttribute="centerY" id="38x-Ve-N0X"/>
@@ -66,11 +72,15 @@
                                                                             <constraint firstItem="J0F-Sk-6T4" firstAttribute="top" secondItem="SXC-W6-Yg0" secondAttribute="top" id="9HI-i3-riG"/>
                                                                             <constraint firstAttribute="width" constant="100" id="APt-fR-sso"/>
                                                                             <constraint firstItem="J0F-Sk-6T4" firstAttribute="centerY" secondItem="SXC-W6-Yg0" secondAttribute="centerY" id="D16-rU-uqs"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="S62-OC-6fq" secondAttribute="trailing" id="F3i-Wj-KJM"/>
+                                                                            <constraint firstItem="S62-OC-6fq" firstAttribute="leading" secondItem="SXC-W6-Yg0" secondAttribute="leading" id="JHC-z8-PNk"/>
+                                                                            <constraint firstItem="S62-OC-6fq" firstAttribute="top" secondItem="SXC-W6-Yg0" secondAttribute="top" id="NqL-OC-xNm"/>
                                                                             <constraint firstAttribute="bottom" secondItem="J0F-Sk-6T4" secondAttribute="bottom" id="O6q-G5-NAM"/>
                                                                             <constraint firstItem="J0F-Sk-6T4" firstAttribute="centerX" secondItem="SXC-W6-Yg0" secondAttribute="centerX" id="OP3-Ae-M5F"/>
                                                                             <constraint firstItem="J0F-Sk-6T4" firstAttribute="leading" secondItem="SXC-W6-Yg0" secondAttribute="leading" id="Rw0-pT-unF"/>
                                                                             <constraint firstItem="hor-HK-Nis" firstAttribute="centerX" secondItem="SXC-W6-Yg0" secondAttribute="centerX" id="SJk-RO-rnG"/>
                                                                             <constraint firstAttribute="trailing" secondItem="J0F-Sk-6T4" secondAttribute="trailing" id="i59-Dv-9yz"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="S62-OC-6fq" secondAttribute="bottom" id="re9-Ru-dEk"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -283,7 +293,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageActivityIndicator" destination="hor-HK-Nis" id="40E-IS-zrF"/>
+                        <outlet property="imageActivityIndicator" destination="hor-HK-Nis" id="xsV-NF-kLn"/>
                         <outlet property="imgProfileImage" destination="J0F-Sk-6T4" id="Xal-e5-Iyf"/>
                         <outlet property="lblAboutMe" destination="vfF-j9-MbK" id="DDr-rX-h5W"/>
                         <outlet property="lblAge" destination="8z1-cq-S2i" id="eo8-IL-GXS"/>
@@ -320,7 +330,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VeK-L0-Kyh">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                                     <color key="tintColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -387,7 +397,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EQQ-VK-nmh">
                                                     <rect key="frame" x="16" y="11.5" width="343" height="20.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xiu-7f-OBw">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Favourite Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xiu-7f-OBw">
                                                             <rect key="frame" x="0.0" y="0.0" width="157.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -529,7 +539,6 @@
                     <connections>
                         <outlet property="lblAge" destination="5GD-cz-tuz" id="A0E-QA-eQQ"/>
                         <outlet property="lblFavInstrument" destination="ZbJ-3H-hsf" id="DxI-VH-a3B"/>
-                        <outlet property="tableView" destination="QUL-xY-4oO" id="bKc-XE-DP7"/>
                         <outlet property="tagGenres" destination="9aC-wB-RVI" id="KMT-fX-TJQ"/>
                         <outlet property="tagInstruments" destination="6M9-Qn-NiX" id="sXv-th-uXs"/>
                         <outlet property="tbcInstruments" destination="WCE-b3-bRZ" id="nRg-dY-Um8"/>

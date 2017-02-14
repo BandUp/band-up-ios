@@ -21,20 +21,34 @@ class UserDetailsViewController: UIViewController {
 	@IBOutlet weak var imgUserImage: UIImageView!
 	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var btnLike: UIBigButton!
+	@IBOutlet weak var likeButtonHeight: NSLayoutConstraint!
 	
 	// MARK: - Variables
 	var currentUser = User()
+	var shouldDisplayLike = true
 	
 	// MARK: - Overridden Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
 	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		shouldDisplayLike = true
+	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.title = NSLocalizedString("main_title_user_details", comment: "Title of the User Details screen.")
 		populateUser()
+		if shouldDisplayLike {
+			likeButtonHeight.constant = 85
+			btnLike.isHidden = false
+		} else {
+			likeButtonHeight.constant = 0
+			btnLike.isHidden = true
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {
