@@ -18,8 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		var shouldPerformAdditionalDelegateHandling = true
+
+		// If a shortcut was launched, display its information and take the appropriate action
+		if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+
+			launchedShortcutItem = shortcutItem
+
+			// This will block "performActionForShortcutItem:completionHandler" from being called.
+			shouldPerformAdditionalDelegateHandling = false
+		}
+
 		UIApplication.shared.statusBarStyle = .lightContent
-		
+
 		// set up your background color view
 		let colorView = UIView()
 		colorView.backgroundColor = UIColor.darkGray
@@ -49,13 +60,68 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         //SocketIOManager.sharedInstance.establishConnection()
+		guard let shortcut = launchedShortcutItem else { return }
+
+		handleShortCutItem(shortcutItem: shortcut)
+
+		launchedShortcutItem = nil
 	}
 
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 		// Saves changes in the application's managed object context before the application terminates.
 	}
-	
+
+	var launchedShortcutItem: UIApplicationShortcutItem?
+	func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+		var handled = false
+
+		// Verify that the provided `shortcutItem`'s `type` is one handled by the application.
+
+		guard let shortCutType = shortcutItem.type as String? else { return false }
+
+		switch (shortCutType) {
+		case "com.melodies.bandup.profile":
+			// Handle shortcut 1 (static).
+			if window?.rootViewController is KYDrawerController {
+				let drawcont = (window?.rootViewController as! KYDrawerController)
+				let nav = drawcont.mainViewController as! UINavigationController
+				let cont = nav.topViewController as! MainScreenViewController
+
+				cont.updateView(row: "main_nav_my_profile")
+			}
+			handled = true
+			break
+		case "com.melodies.bandup.matches":
+			// Handle shortcut 1 (static).
+			if window?.rootViewController is KYDrawerController {
+				let drawcont = (window?.rootViewController as! KYDrawerController)
+				let nav = drawcont.mainViewController as! UINavigationController
+				let cont = nav.topViewController as! MainScreenViewController
+
+				cont.updateView(row: "main_nav_matches")
+			}
+			handled = true
+			break
+		default:
+			break
+		}
+
+		return handled
+	}
+
+	/*
+	Called when the user activates your application by selecting a shortcut on the home screen, except when
+	application(_:,willFinishLaunchingWithOptions:) or application(_:didFinishLaunchingWithOptions) returns `false`.
+	You should handle the shortcut in those callbacks and return `false` if possible. In that case, this
+	callback is used if your application is already launched in the background.
+	*/
+	func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+		let handledShortCutItem = handleShortCutItem(shortcutItem: shortcutItem)
+
+		completionHandler(handledShortCutItem)
+	}
+
 	func showLoginScreen() {
 		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()

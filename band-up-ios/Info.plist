@@ -37,9 +37,9 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string></string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Chat with Arngrímur</string>
+			<string>shortcut_matches</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string></string>
+			<string>com.melodies.bandup.matches</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>key1</key>
@@ -47,25 +47,12 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string></string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeContact</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Matches</string>
+			<string>shortcut_profile</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string></string>
-			<key>UIApplicationShortcutItemUserInfo</key>
-			<dict>
-				<key>key1</key>
-				<string>Val1</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string></string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>My Profile</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string></string>
+			<string>com.melodies.bandup.profile</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>key1</key>

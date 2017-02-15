@@ -9,8 +9,6 @@
 import UIKit
 import KYDrawerController
 
-
-
 class DrawerViewController: UIViewController {
 	
 	@IBOutlet weak var lblUsername: UILabel!

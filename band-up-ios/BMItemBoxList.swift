@@ -10,7 +10,8 @@
 import UIKit
 import UICollectionViewLeftAlignedLayout
 
-@IBDesignable class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+@IBDesignable
+class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	// MARK: - Variables
 	// MARK: Constants

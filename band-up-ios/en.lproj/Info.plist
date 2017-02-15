@@ -37,7 +37,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string></string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Tengingar</string>
+			<string>Matches</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.melodies.bandup.matches</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
@@ -50,7 +50,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string></string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Prófíllinn minn</string>
+			<string>My Profile</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.melodies.bandup.profile</string>
 			<key>UIApplicationShortcutItemUserInfo</key>

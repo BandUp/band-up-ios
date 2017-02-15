@@ -32,12 +32,14 @@ class ProfileViewController: UIViewController {
 	}
 
 	func openLibrary() -> Bool {
+
 		if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
 			let imagePicker = UIImagePickerController()
 			imagePicker.delegate = self
 			imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
 			imagePicker.allowsEditing = false
-			self.present(imagePicker, animated: true, completion: nil)
+			self.present(imagePicker, animated: true, completion: {UIApplication.shared.statusBarStyle = .default})
+
 			return true
 		}
 		return false
@@ -192,6 +194,7 @@ class ProfileViewController: UIViewController {
 			self.scrollView.isHidden = false
 		}).onFailure({ (error) in
 			print("FAILURE")
+			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
 			self.viewActivityIndicator.stopAnimating()
 			self.scrollView.isHidden = true
 			self.lblError.text = "Could not get your profile"
@@ -207,8 +210,10 @@ class ProfileViewController: UIViewController {
 	
 	// MARK: - Helper Functions
 	func populateUser() {
-		imgProfileImage.image = nil
-		
+		if imgProfileImage.image == #imageLiteral(resourceName: "ProfilePlaceholder") {
+			imgProfileImage.image = nil
+		}
+
 		if let checkedUrl = URL(string: currentUser.image.url) {
 			self.downloadImage(url: checkedUrl, imageView: imgProfileImage, activityIndicator: imageActivityIndicator)
 		} else {
@@ -285,11 +290,13 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 		print(info)
 		imgProfileImage.image = (info["UIImagePickerControllerOriginalImage"] as! UIImage)
 		picker.dismiss(animated: true, completion: nil)
+		UIApplication.shared.statusBarStyle = .lightContent
 	}
 
 
 	public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		picker.dismiss(animated: true, completion: nil)
+		UIApplication.shared.statusBarStyle = .lightContent
 	}
 }
 
