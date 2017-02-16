@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import KYDrawerController
 
 
@@ -86,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			if window?.rootViewController is KYDrawerController {
 				let drawcont = (window?.rootViewController as! KYDrawerController)
 				let nav = drawcont.mainViewController as! UINavigationController
-				let cont = nav.topViewController as! MainScreenViewController
+				let cont = nav.viewControllers.first as! MainScreenViewController
 
 				cont.updateView(row: "main_nav_my_profile")
 			}
@@ -106,7 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		default:
 			break
 		}
-
 		return handled
 	}
 

@@ -13,7 +13,7 @@ class BMItemBoxListCell: UICollectionViewCell {
 	var fontSize: CGFloat = 17.0
 	var textColor: UIColor?
 	var fontType = "System"
-	var cornerRadius: CGFloat = 3.0
+	var cornerRadius: CGFloat = 0.0
 	
 	var title = "" {
 		didSet {

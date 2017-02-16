@@ -86,6 +86,7 @@ class ChatViewController: UIViewController {
 		let storyboard = UIStoryboard(name: "UserDetailsView", bundle: Bundle.main)
 		
 		let viewController = storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+		viewController.shouldDisplayLike = false
 		viewController.currentUser = user
 		
 		let navController = UINavigationController(rootViewController: viewController)

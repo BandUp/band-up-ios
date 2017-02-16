@@ -13,7 +13,6 @@
 		F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F63F1E02DBB000F57892 /* SetupViewController.swift */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
-		F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
@@ -31,14 +30,14 @@
 		F24E08181E4D1B1F00C45A76 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E08171E4D1B1F00C45A76 /* SettingsTableViewController.swift */; };
 		F24E081D1E4D231C00C45A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F24E081F1E4D231C00C45A76 /* InfoPlist.strings */; };
 		F2508B0D1E53EDFA009EF48B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */; };
-		F252C9441E44FCA0002B2E2B /* band_up_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9431E44FCA0002B2E2B /* band_up_iosTests.swift */; };
-		F252C9521E44FCA6002B2E2B /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9511E44FCA6002B2E2B /* band_up_iosUITests.swift */; };
 		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511A1E4C01DE00E2974C /* UserImage.swift */; };
 		F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511C1E4C01E900E2974C /* UserLocation.swift */; };
 		F270511F1E4C022D00E2974C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511E1E4C022D00E2974C /* ChatMessage.swift */; };
 		F27051211E4C027600E2974C /* DrawerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27051201E4C027600E2974C /* DrawerItem.swift */; };
+		F277C27F1E560DCF008AF036 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F277C2761E560D8C008AF036 /* UserTests.swift */; };
+		F277C2881E561F41008AF036 /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F277C2871E561F41008AF036 /* band_up_iosUITests.swift */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F29B9E851E47688E00BDB645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E841E47688E00BDB645 /* Constants.swift */; };
 		F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */; };
@@ -66,14 +65,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F252C9461E44FCA0002B2E2B /* PBXContainerItemProxy */ = {
+		F277C2791E560D8C008AF036 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F217C0421DDFC47100EE16DF;
 			remoteInfo = "band-up-ios";
 		};
-		F252C9541E44FCA6002B2E2B /* PBXContainerItemProxy */ = {
+		F277C28A1E561F41008AF036 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
 			proxyType = 1;
@@ -92,7 +91,6 @@
 		F217C0431DDFC47100EE16DF /* band-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "band-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = band_up_ios.xcdatamodel; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
 		F22935F41E53F1B5007F182B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -120,18 +118,18 @@
 		F24E081E1E4D231C00C45A76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F24E08221E4D245300C45A76 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Setup.strings; sourceTree = "<group>"; };
 		F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F252C9411E44FCA0002B2E2B /* band-up-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F252C9431E44FCA0002B2E2B /* band_up_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosTests.swift; sourceTree = "<group>"; };
-		F252C9451E44FCA0002B2E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F252C94F1E44FCA6002B2E2B /* band-up-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F252C9511E44FCA6002B2E2B /* band_up_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosUITests.swift; sourceTree = "<group>"; };
-		F252C9531E44FCA6002B2E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F270511A1E4C01DE00E2974C /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		F270511C1E4C01E900E2974C /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		F270511E1E4C022D00E2974C /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F27051201E4C027600E2974C /* DrawerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerItem.swift; sourceTree = "<group>"; };
+		F277C2741E560D8C008AF036 /* band-up-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F277C2761E560D8C008AF036 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		F277C2781E560D8C008AF036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F277C2871E561F41008AF036 /* band_up_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosUITests.swift; sourceTree = "<group>"; };
+		F277C2891E561F41008AF036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F29B9E841E47688E00BDB645 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxList.swift; sourceTree = "<group>"; };
@@ -168,14 +166,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F252C93E1E44FCA0002B2E2B /* Frameworks */ = {
+		F277C2711E560D8C008AF036 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F252C94C1E44FCA6002B2E2B /* Frameworks */ = {
+		F277C2821E561F41008AF036 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -199,8 +197,8 @@
 			children = (
 				F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */,
 				F217C0451DDFC47100EE16DF /* band-up-ios */,
-				F252C9421E44FCA0002B2E2B /* band-up-iosTests */,
-				F252C9501E44FCA6002B2E2B /* band-up-iosUITests */,
+				F277C2751E560D8C008AF036 /* band-up-iosTests */,
+				F277C2861E561F41008AF036 /* band-up-iosUITests */,
 				F217C0441DDFC47100EE16DF /* Products */,
 				05BEBC4A550603964996EAAD /* Pods */,
 				F6AB3D0A6932E4ADEE2F518F /* Frameworks */,
@@ -211,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				F217C0431DDFC47100EE16DF /* band-up-ios.app */,
-				F252C9411E44FCA0002B2E2B /* band-up-iosTests.xctest */,
-				F252C94F1E44FCA6002B2E2B /* band-up-iosUITests.xctest */,
+				F277C2741E560D8C008AF036 /* band-up-iosTests.xctest */,
+				F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,24 +233,6 @@
 			path = "band-up-ios";
 			sourceTree = "<group>";
 		};
-		F252C9421E44FCA0002B2E2B /* band-up-iosTests */ = {
-			isa = PBXGroup;
-			children = (
-				F252C9431E44FCA0002B2E2B /* band_up_iosTests.swift */,
-				F252C9451E44FCA0002B2E2B /* Info.plist */,
-			);
-			path = "band-up-iosTests";
-			sourceTree = "<group>";
-		};
-		F252C9501E44FCA6002B2E2B /* band-up-iosUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F252C9511E44FCA6002B2E2B /* band_up_iosUITests.swift */,
-				F252C9531E44FCA6002B2E2B /* Info.plist */,
-			);
-			path = "band-up-iosUITests";
-			sourceTree = "<group>";
-		};
 		F27051191E4C01C600E2974C /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +243,24 @@
 				F27051201E4C027600E2974C /* DrawerItem.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		F277C2751E560D8C008AF036 /* band-up-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				F277C2761E560D8C008AF036 /* UserTests.swift */,
+				F277C2781E560D8C008AF036 /* Info.plist */,
+			);
+			path = "band-up-iosTests";
+			sourceTree = "<group>";
+		};
+		F277C2861E561F41008AF036 /* band-up-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F277C2871E561F41008AF036 /* band_up_iosUITests.swift */,
+				F277C2891E561F41008AF036 /* Info.plist */,
+			);
+			path = "band-up-iosUITests";
 			sourceTree = "<group>";
 		};
 		F2AB060A1E0614F20039C761 /* Setup */ = {
@@ -295,7 +293,6 @@
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
 				F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */,
 				F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */,
-				F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */,
 				F2AB06021E0606D00039C761 /* CaviarDreams_Bold.ttf */,
 				F2AB06031E0606D00039C761 /* CaviarDreams_BoldItalic.ttf */,
 				F2AB06041E0606D00039C761 /* CaviarDreams_Italic.ttf */,
@@ -381,40 +378,40 @@
 			productReference = F217C0431DDFC47100EE16DF /* band-up-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F252C9401E44FCA0002B2E2B /* band-up-iosTests */ = {
+		F277C2731E560D8C008AF036 /* band-up-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F252C94A1E44FCA0002B2E2B /* Build configuration list for PBXNativeTarget "band-up-iosTests" */;
+			buildConfigurationList = F277C27B1E560D8C008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosTests" */;
 			buildPhases = (
-				F252C93D1E44FCA0002B2E2B /* Sources */,
-				F252C93E1E44FCA0002B2E2B /* Frameworks */,
-				F252C93F1E44FCA0002B2E2B /* Resources */,
+				F277C2701E560D8C008AF036 /* Sources */,
+				F277C2711E560D8C008AF036 /* Frameworks */,
+				F277C2721E560D8C008AF036 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F252C9471E44FCA0002B2E2B /* PBXTargetDependency */,
+				F277C27A1E560D8C008AF036 /* PBXTargetDependency */,
 			);
 			name = "band-up-iosTests";
 			productName = "band-up-iosTests";
-			productReference = F252C9411E44FCA0002B2E2B /* band-up-iosTests.xctest */;
+			productReference = F277C2741E560D8C008AF036 /* band-up-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F252C94E1E44FCA6002B2E2B /* band-up-iosUITests */ = {
+		F277C2841E561F41008AF036 /* band-up-iosUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F252C9561E44FCA6002B2E2B /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */;
+			buildConfigurationList = F277C28C1E561F41008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */;
 			buildPhases = (
-				F252C94B1E44FCA6002B2E2B /* Sources */,
-				F252C94C1E44FCA6002B2E2B /* Frameworks */,
-				F252C94D1E44FCA6002B2E2B /* Resources */,
+				F277C2811E561F41008AF036 /* Sources */,
+				F277C2821E561F41008AF036 /* Frameworks */,
+				F277C2831E561F41008AF036 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F252C9551E44FCA6002B2E2B /* PBXTargetDependency */,
+				F277C28B1E561F41008AF036 /* PBXTargetDependency */,
 			);
 			name = "band-up-iosUITests";
 			productName = "band-up-iosUITests";
-			productReference = F252C94F1E44FCA6002B2E2B /* band-up-iosUITests.xctest */;
+			productReference = F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -433,13 +430,13 @@
 						DevelopmentTeam = NJU97Y2JX6;
 						ProvisioningStyle = Automatic;
 					};
-					F252C9401E44FCA0002B2E2B = {
+					F277C2731E560D8C008AF036 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = NJU97Y2JX6;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F217C0421DDFC47100EE16DF;
 					};
-					F252C94E1E44FCA6002B2E2B = {
+					F277C2841E561F41008AF036 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = NJU97Y2JX6;
 						ProvisioningStyle = Automatic;
@@ -462,8 +459,8 @@
 			projectRoot = "";
 			targets = (
 				F217C0421DDFC47100EE16DF /* band-up-ios */,
-				F252C9401E44FCA0002B2E2B /* band-up-iosTests */,
-				F252C94E1E44FCA6002B2E2B /* band-up-iosUITests */,
+				F277C2731E560D8C008AF036 /* band-up-iosTests */,
+				F277C2841E561F41008AF036 /* band-up-iosUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -497,14 +494,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F252C93F1E44FCA0002B2E2B /* Resources */ = {
+		F277C2721E560D8C008AF036 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F252C94D1E44FCA6002B2E2B /* Resources */ = {
+		F277C2831E561F41008AF036 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -576,7 +573,6 @@
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
-				F217C04F1DDFC47100EE16DF /* band_up_ios.xcdatamodeld in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */,
 				F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */,
@@ -601,34 +597,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F252C93D1E44FCA0002B2E2B /* Sources */ = {
+		F277C2701E560D8C008AF036 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F252C9441E44FCA0002B2E2B /* band_up_iosTests.swift in Sources */,
+				F277C27F1E560DCF008AF036 /* UserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F252C94B1E44FCA6002B2E2B /* Sources */ = {
+		F277C2811E561F41008AF036 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F252C9521E44FCA6002B2E2B /* band_up_iosUITests.swift in Sources */,
+				F277C2881E561F41008AF036 /* band_up_iosUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F252C9471E44FCA0002B2E2B /* PBXTargetDependency */ = {
+		F277C27A1E560D8C008AF036 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F217C0421DDFC47100EE16DF /* band-up-ios */;
-			targetProxy = F252C9461E44FCA0002B2E2B /* PBXContainerItemProxy */;
+			targetProxy = F277C2791E560D8C008AF036 /* PBXContainerItemProxy */;
 		};
-		F252C9551E44FCA6002B2E2B /* PBXTargetDependency */ = {
+		F277C28B1E561F41008AF036 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F217C0421DDFC47100EE16DF /* band-up-ios */;
-			targetProxy = F252C9541E44FCA6002B2E2B /* PBXContainerItemProxy */;
+			targetProxy = F277C28A1E561F41008AF036 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -872,8 +868,9 @@
 			};
 			name = Release;
 		};
-		F252C9481E44FCA0002B2E2B /* Debug */ = {
+		F277C27C1E560D8C008AF036 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
@@ -886,7 +883,7 @@
 			};
 			name = Debug;
 		};
-		F252C9491E44FCA0002B2E2B /* Release */ = {
+		F277C27D1E560D8C008AF036 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -900,7 +897,7 @@
 			};
 			name = Release;
 		};
-		F252C9571E44FCA6002B2E2B /* Debug */ = {
+		F277C28D1E561F41008AF036 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
@@ -913,7 +910,7 @@
 			};
 			name = Debug;
 		};
-		F252C9581E44FCA6002B2E2B /* Release */ = {
+		F277C28E1E561F41008AF036 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
@@ -947,38 +944,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F252C94A1E44FCA0002B2E2B /* Build configuration list for PBXNativeTarget "band-up-iosTests" */ = {
+		F277C27B1E560D8C008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F252C9481E44FCA0002B2E2B /* Debug */,
-				F252C9491E44FCA0002B2E2B /* Release */,
+				F277C27C1E560D8C008AF036 /* Debug */,
+				F277C27D1E560D8C008AF036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		F252C9561E44FCA6002B2E2B /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */ = {
+		F277C28C1E561F41008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F252C9571E44FCA6002B2E2B /* Debug */,
-				F252C9581E44FCA6002B2E2B /* Release */,
+				F277C28D1E561F41008AF036 /* Debug */,
+				F277C28E1E561F41008AF036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F217C04D1DDFC47100EE16DF /* band_up_ios.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */,
-			);
-			currentVersion = F217C04E1DDFC47100EE16DF /* band_up_ios.xcdatamodel */;
-			path = band_up_ios.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F217C03B1DDFC47100EE16DF /* Project object */;
 }

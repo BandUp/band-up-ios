@@ -18,19 +18,19 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	let CELL_VIEW_TAG = "cellTag"
 	
 	// MARK: IBInspectables
-	@IBInspectable open var backColor: UIColor?
+	@IBInspectable open var boxColor: UIColor?
 	@IBInspectable open var borderColor: UIColor?
 	@IBInspectable open var textColor: UIColor?
 	
 	@IBInspectable open var fontSize: CGFloat = 17.0
 	@IBInspectable open var fontType = "System"
 	
-	@IBInspectable open var horizontalMargin: CGFloat = 10
-	@IBInspectable open var verticalMargin: CGFloat = 10
-	@IBInspectable open var horizontalPadding: CGFloat = 6
-	@IBInspectable open var verticalPadding: CGFloat = 3
+	@IBInspectable open var horizontalMargin: CGFloat = 0
+	@IBInspectable open var verticalMargin: CGFloat = 0
+	@IBInspectable open var horizontalPadding: CGFloat = 0
+	@IBInspectable open var verticalPadding: CGFloat = 0
 	
-	@IBInspectable open var cornerRadius: CGFloat = 3
+	@IBInspectable open var cornerRadius: CGFloat = 0
 	
 	// MARK: Variables
 	var strings: [String] = []
@@ -48,10 +48,19 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		initialize()
 	}
 
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		//initialize()
+	}
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
-		strings = ["ASDF", "FDSA"]
-		layoutSubviews()
+		strings = ["Band Up", "Item", "Text", "Box"]
+		initialize()
+	}
+
+	override func draw(_ rect: CGRect) {
+		super.draw(rect)
+		//initialize()
 	}
 	
 	func update(strings newStrings: [String]) {
@@ -104,7 +113,7 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		currCell.layer.borderColor = self.borderColor?.cgColor
 		currCell.layer.cornerRadius = self.cornerRadius
 		currCell.cornerRadius = self.cornerRadius
-		currCell.layer.backgroundColor = self.backColor?.cgColor
+		currCell.layer.backgroundColor = self.boxColor?.cgColor
 		
 		// Content
 		currCell.title = self.strings[indexPath.row]
@@ -137,6 +146,7 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		collectionView?.delegate = self
 		collectionView?.dataSource = self
 		collectionView?.backgroundColor = UIColor.clear
+		self.backgroundColor = UIColor.clear
 		collectionView?.register(BMItemBoxListCell.self, forCellWithReuseIdentifier: CELL_VIEW_TAG)
 		if let collectionView = collectionView {
 			self.addSubview(collectionView)
