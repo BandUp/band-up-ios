@@ -22,15 +22,16 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	@IBInspectable open var borderColor: UIColor?
 	@IBInspectable open var textColor: UIColor?
 	
-	@IBInspectable open var fontSize: CGFloat = 17.0
+	@IBInspectable open var fontSize: CGFloat = 14.0
 	@IBInspectable open var fontType = "System"
 	
-	@IBInspectable open var horizontalMargin: CGFloat = 0
-	@IBInspectable open var verticalMargin: CGFloat = 0
-	@IBInspectable open var horizontalPadding: CGFloat = 0
-	@IBInspectable open var verticalPadding: CGFloat = 0
+	@IBInspectable open var horizontalMargin: CGFloat = 0.0
+	@IBInspectable open var verticalMargin: CGFloat = 0.0
+	@IBInspectable open var horizontalPadding: CGFloat = 0.0
+	@IBInspectable open var verticalPadding: CGFloat = 0.0
 	
-	@IBInspectable open var cornerRadius: CGFloat = 0
+	@IBInspectable open var cornerRadius: CGFloat = 0.0
+	@IBInspectable open var borderWidth: CGFloat = 0.0
 	
 	// MARK: Variables
 	var strings: [String] = []
@@ -48,19 +49,10 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		initialize()
 	}
 
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		//initialize()
-	}
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
-		strings = ["Band Up", "Item", "Text", "Box"]
+		strings = ["Item", "Text", "Box", "List"]
 		initialize()
-	}
-
-	override func draw(_ rect: CGRect) {
-		super.draw(rect)
-		//initialize()
 	}
 	
 	func update(strings newStrings: [String]) {
@@ -85,7 +77,7 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		let size = CGSize(width: bounds.width, height: self.estimateHeight())
-		collectionView?.frame = CGRect(origin: CGPoint(x: 0,y: 0), size: size)
+		collectionView?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
 		collectionView?.layoutSubviews()
 		invalidateIntrinsicContentSize()
 	}
@@ -109,7 +101,7 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		currCell.textColor =  self.textColor
 		
 		// Box style
-		currCell.layer.borderWidth = 0.5
+		currCell.layer.borderWidth = borderWidth
 		currCell.layer.borderColor = self.borderColor?.cgColor
 		currCell.layer.cornerRadius = self.cornerRadius
 		currCell.cornerRadius = self.cornerRadius
@@ -124,6 +116,8 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let measuringLabel = UILabel()
 		measuringLabel.text = self.strings[indexPath.row]
+		measuringLabel.font = UIFont(name: fontType, size: fontSize)
+		measuringLabel.font = measuringLabel.font.withSize(fontSize)
 
 		var size = measuringLabel.intrinsicContentSize
 		size.height += 2 * verticalPadding
@@ -146,7 +140,6 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		collectionView?.delegate = self
 		collectionView?.dataSource = self
 		collectionView?.backgroundColor = UIColor.clear
-		self.backgroundColor = UIColor.clear
 		collectionView?.register(BMItemBoxListCell.self, forCellWithReuseIdentifier: CELL_VIEW_TAG)
 		if let collectionView = collectionView {
 			self.addSubview(collectionView)
@@ -157,17 +150,18 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		let collectionWidth = self.bounds.width
 		var currentWidthOfLine: CGFloat = 0.0
 		var lines: CGFloat = 1
-		let itemPadding : CGFloat = CGFloat(horizontalPadding * 2)
+		let itemPadding : CGFloat = CGFloat(horizontalPadding * 2.0)
 		let itemMargin: CGFloat = CGFloat(horizontalMargin)
-		let itemHeight = fontSize + (verticalPadding * 2)
-		let vertSpace = verticalMargin
-		
+		var labelHeight : CGFloat = 0.0
+
 		for item in self.strings {
 			
 			let tmpLabel = UILabel()
 			tmpLabel.text = item
 			tmpLabel.font = UIFont(name: fontType, size: fontSize)
-			
+			tmpLabel.font = tmpLabel.font.withSize(fontSize)
+			tmpLabel.sizeToFit()
+			labelHeight = tmpLabel.frame.height
 			let labelWidth = tmpLabel.intrinsicContentSize.width + itemPadding
 			
 			if collectionWidth >= (currentWidthOfLine + labelWidth) {
@@ -177,7 +171,8 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 				lines += 1
 			}
 		}
-		let estimatedHeight = (lines * 3.5) + CGFloat((itemHeight * lines)+((lines-1) * vertSpace))
+		
+		let estimatedHeight = lines * (2 * verticalPadding + labelHeight) + (verticalMargin * (lines - 1))
 		return estimatedHeight
 	}
 }

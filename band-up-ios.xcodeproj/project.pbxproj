@@ -54,7 +54,6 @@
 		F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB061A1E063DE70039C761 /* master_of_break.ttf */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
-		F2B82FE71E53EFAD000F71D1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B82FE61E53EFAD000F71D1 /* Info.plist */; };
 		F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */; };
 		F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */; };
 		F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */; };
@@ -478,7 +477,6 @@
 				F24E07EC1E4CE4C100C45A76 /* UserDetailsView.storyboard in Resources */,
 				F24E081D1E4D231C00C45A76 /* InfoPlist.strings in Resources */,
 				F24E07ED1E4CE4C100C45A76 /* ProfileView.storyboard in Resources */,
-				F2B82FE71E53EFAD000F71D1 /* Info.plist in Resources */,
 				F24E07EE1E4CE4C100C45A76 /* MatchesView.storyboard in Resources */,
 				F24E07EF1E4CE4C100C45A76 /* SettingsView.storyboard in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,

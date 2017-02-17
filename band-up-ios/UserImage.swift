@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class UserImage: CustomStringConvertible {
 	convenience init(_ dictionary: NSDictionary) {
@@ -23,6 +24,7 @@ class UserImage: CustomStringConvertible {
 	
 	var publicId: String = ""
 	var url:      String = ""
+	var image:    UIImage = UIImage()
 	
 	var description: String {
 		var bla = [String:String]()

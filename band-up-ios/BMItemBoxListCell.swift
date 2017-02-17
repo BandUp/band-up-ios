@@ -10,10 +10,10 @@ import UIKit
 
 class BMItemBoxListCell: UICollectionViewCell {
 	
-	var fontSize: CGFloat = 17.0
+	var fontSize: CGFloat = 11.0
 	var textColor: UIColor?
 	var fontType = "System"
-	var cornerRadius: CGFloat = 0.0
+	var cornerRadius: CGFloat = 3.0
 	
 	var title = "" {
 		didSet {
@@ -41,15 +41,17 @@ class BMItemBoxListCell: UICollectionViewCell {
 	func setup() {
 		let titleLabel = UILabel(frame: bounds)
 		boxText = titleLabel
-		update(label: boxText!, with: "")
+		update(label: titleLabel, with: "")
 		contentView.addSubview(titleLabel)
 	}
 	
 	func update(label: UILabel, with text: String) {
-		boxText?.text = text
-		boxText?.font = UIFont(name: fontType, size: fontSize)
-		boxText?.textColor = textColor
-		boxText?.textAlignment = .center
+		label.text = text
+		label.font = UIFont(name: fontType, size: fontSize)
+		label.font = label.font.withSize(fontSize)
+		label.textColor = textColor
+
+		label.textAlignment = .center
 	}
 	
 	override func layoutSubviews() {

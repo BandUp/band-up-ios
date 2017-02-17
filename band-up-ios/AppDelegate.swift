@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		var shouldPerformAdditionalDelegateHandling = true
+		//var shouldPerformAdditionalDelegateHandling = true
 
 		// If a shortcut was launched, display its information and take the appropriate action
 		if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			launchedShortcutItem = shortcutItem
 
 			// This will block "performActionForShortcutItem:completionHandler" from being called.
-			shouldPerformAdditionalDelegateHandling = false
+			//shouldPerformAdditionalDelegateHandling = false
 		}
 
 		UIApplication.shared.statusBarStyle = .lightContent
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //SocketIOManager.sharedInstance.establishConnection()
 		guard let shortcut = launchedShortcutItem else { return }
 
-		handleShortCutItem(shortcutItem: shortcut)
+		_ = handleShortCutItem(shortcutItem: shortcut)
 
 		launchedShortcutItem = nil
 	}
