@@ -31,6 +31,14 @@ class SocketIOManager: NSObject {
 	}
 	
 	func registerUser() -> OnAckCallback {
-		return socket.emitWithAck("adduser")
+		return socket.emitWithAck("adduser", "")
+	}
+
+	func send(message: String, to userId: String) -> OnAckCallback {
+		var dict = [String:Any]()
+
+		dict["message"] = message
+		dict["nick"] = userId
+		return socket.emitWithAck("privatemsg", dict as SocketData)
 	}
 }

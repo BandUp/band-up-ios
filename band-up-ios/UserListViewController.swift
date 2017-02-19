@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class UserListViewController: UIViewController {
 
@@ -77,6 +78,16 @@ class UserListViewController: UIViewController {
 			print("ERROR")
 			print(error)
 		})
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(self.locationChanged),
+			name: NSNotification.Name(rawValue: "NewLocation"),
+			object: nil)
+	}
+
+	func locationChanged(notification: NSNotification) {
+		guard let locations = notification.userInfo?["locations"] else { return }
+		print("From ULVC \((locations as! [CLLocation])[0])")
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -89,6 +100,8 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return userArray.count
 	}
+
+	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
@@ -98,17 +111,24 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		cell.user = userArray[indexPath.row]
 		let currentUser = cell.user
 		
-		cell.imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
+		cell.imgUserImage.image = nil
 		if let checkedUrl = URL(string: currentUser.image.url) {
 			self.downloadImage(url: checkedUrl, imageView: cell.imgUserImage, activityIndicator: cell.actIndicator)
 		} else {
 			cell.actIndicator.stopAnimating()
+			cell.imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 		}
 		
 		cell.lblUsername.text = currentUser.username
 		cell.lblPercentage.text = String(format:"\(currentUser.percentage)%%")
 
-		cell.lblDistance.text = currentUser.getDistanceString()
+		let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+
+		if let userLocation = appDelegate.lastKnownLocation {
+			cell.lblDistance.text = currentUser.getDistanceString(between: userLocation)
+		} else {
+			cell.lblDistance.text = currentUser.getDistanceString()
+		}
 
 		if (currentUser.favouriteInstrument == "") {
 			if (currentUser.instruments.count > 0) {
@@ -146,8 +166,14 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		return CGSize(width: view.frame.width, height: view.frame.height)
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
+	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+		let userCell = cell as! UserListItemViewCell
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+		if let lastLocation = appDelegate.lastKnownLocation {
+			userCell.lblDistance.text = userCell.user.getDistanceString(between: lastLocation)
+		}
 	}
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {

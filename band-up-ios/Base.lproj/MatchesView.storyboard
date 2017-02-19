@@ -179,6 +179,9 @@
                                                         <state key="normal" title="Send">
                                                             <color key="titleColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="didClickSend:" destination="wiJ-QG-GTR" eventType="touchUpInside" id="5S2-jf-01V"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -214,7 +217,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstraint" destination="6dZ-VB-qDl" id="yu0-el-GEQ"/>
-                        <outlet property="btnSend" destination="NZf-0F-qas" id="NWK-pL-EZu"/>
+                        <outlet property="btnSend" destination="NZf-0F-qas" id="7Uy-PC-Hj4"/>
                         <outlet property="tableView" destination="Y4Y-IW-yxg" id="90S-O7-CFo"/>
                         <outlet property="txtMessage" destination="RXY-Bl-26W" id="PBj-zX-uci"/>
                     </connections>

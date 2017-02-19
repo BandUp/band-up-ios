@@ -8,12 +8,16 @@
 
 import UIKit
 import KYDrawerController
-
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
+
+	let manager = CLLocationManager()
+
+	var locationTimer = Timer()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -27,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			// This will block "performActionForShortcutItem:completionHandler" from being called.
 			//shouldPerformAdditionalDelegateHandling = false
 		}
+		manager.delegate = self
+		manager.desiredAccuracy = kCLLocationAccuracyKilometer
+
+		// Run Request updates every 60 seconds.
+		startLocationTimer()
 
 		UIApplication.shared.statusBarStyle = .lightContent
 
@@ -36,29 +45,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// use UITableViewCell.appearance() to configure
 		// the default appearance of all UITableViewCells in your app
-		UITableViewCell.appearance().selectedBackgroundView = colorView
+		//UITableViewCell.appearance().selectedBackgroundView = colorView
 
 		return true
+	}
+	func startLocationTimer() {
+		locationTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.myTimerFunc), userInfo: nil, repeats: true)
+	}
+
+	func myTimerFunc() {
+		manager.requestLocation()
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+		SocketIOManager.sharedInstance.closeConnection()
+		locationTimer.invalidate()
 	}
 
 	func applicationDidEnterBackground(_ application: UIApplication) {
 		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        //SocketIOManager.sharedInstance.closeConnection()
+        SocketIOManager.sharedInstance.closeConnection()
+		locationTimer.invalidate()
 	}
 
 	func applicationWillEnterForeground(_ application: UIApplication) {
 		// Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+		startLocationTimer()
 	}
 
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         //SocketIOManager.sharedInstance.establishConnection()
+		startLocationTimer()
 		guard let shortcut = launchedShortcutItem else { return }
 
 		_ = handleShortCutItem(shortcutItem: shortcut)
@@ -69,6 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 		// Saves changes in the application's managed object context before the application terminates.
+		SocketIOManager.sharedInstance.closeConnection()
 	}
 
 	var launchedShortcutItem: UIApplicationShortcutItem?
@@ -125,6 +147,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let vc = storyboard.instantiateInitialViewController()
 		(UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = vc
 
+	}
+	var lastKnownLocation : CLLocation?
+}
+
+extension AppDelegate: CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+		if status == .authorizedWhenInUse {
+			manager.delegate = self
+		}
+	}
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if locations.count > 0 {
+			if locations[0].horizontalAccuracy < .abs(1000) {
+				lastKnownLocation = locations[0]
+				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil,  userInfo: ["locations": locations])
+
+			}
+		}
+		
+	}
+
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print(error)
 	}
 }
 

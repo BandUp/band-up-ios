@@ -4,6 +4,8 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to the camera to take a photo.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We will use your location to measure distance between you and other musicians.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to the photo library to choose a photo.</string>
 	<key>CFBundleDevelopmentRegion</key>

@@ -18,8 +18,27 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var txtMessage: UITextField!
 	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 	
-	@IBAction func didClickSend(_ sender: Any) {
-		
+	@IBAction func didClickSend(_ sender: UIButton) {
+		if (txtMessage.text?.characters.count)! <= 0 {
+			return
+		}
+
+		btnSend.isEnabled = false
+		//txtMessage.isEnabled = false
+		SocketIOManager.sharedInstance.send(message: txtMessage.text!, to: user.id).timingOut(after: 0) { (data) in
+			print(data)
+			let msg = ChatMessage()
+			msg.message = self.txtMessage.text!
+			self.btnSend.isEnabled = true
+			self.txtMessage.text = ""
+			self.txtMessage.isEnabled = true
+
+			self.chatHistory.append(msg)
+			self.tableView.beginUpdates()
+			self.tableView.insertRows(at: [IndexPath(row:self.chatHistory.count-1, section: 0)], with: .bottom)
+			self.tableView.endUpdates()
+			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+		}
 	}
 	
     override func viewDidLoad() {
@@ -29,7 +48,7 @@ class ChatViewController: UIViewController {
 		SocketIOManager.sharedInstance.establishConnection()
 		SocketIOManager.sharedInstance.socket.on("connect") { (data, ack) in
 			print("connected")
-			SocketIOManager.sharedInstance.registerUser().timingOut(after: 100, callback: { (data) in
+			SocketIOManager.sharedInstance.registerUser().timingOut(after: 0, callback: { (data) in
 				print("WOO")
 			})
 		}
@@ -41,6 +60,8 @@ class ChatViewController: UIViewController {
                 }
             }
             self.tableView.reloadData()
+			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
+
         }).onFailure({ (error) in
             print(error)
         })
@@ -72,6 +93,8 @@ class ChatViewController: UIViewController {
 		let duration: TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
 		
 		UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+		self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+
 	}
 	
 	func keyboardWillHide(sender: NSNotification) {

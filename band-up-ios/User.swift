@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class User: CustomStringConvertible {
 	convenience init(_ dictionary: NSDictionary) {
@@ -153,6 +154,18 @@ class User: CustomStringConvertible {
 		} else {
 			let distanceType = NSLocalizedString("km_distance", comment: "")
 			return "\(Int(round(self.distance))) \(distanceType)"
+		}
+	}
+
+	func getDistanceString(between location:CLLocation) -> String {
+		// Temporary
+		if self.distance == 0.0 {
+			return NSLocalizedString("no_distance_available", comment: "")
+		} else {
+			let distanceType = NSLocalizedString("km_distance", comment: "")
+			let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
+			let distance = location.distance(from: userLocation)
+			return "\(Int(round(distance / 1000.0))) \(distanceType)"
 		}
 	}
 

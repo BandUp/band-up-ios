@@ -229,7 +229,17 @@ class EditProfileTableViewController: UITableViewController {
 		}
 		return 44
 	}
-	
+
+	func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: IndexPath) {
+		let cell  = tableView.cellForRow(at: indexPath)
+		cell!.contentView.backgroundColor = .red
+	}
+
+	func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: IndexPath) {
+		let cell  = tableView.cellForRow(at: indexPath)
+		cell!.contentView.backgroundColor = .clear
+	}
+
 	override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
 		if indexPath.section == 0 && indexPath.row == 1 {
 			return true
@@ -245,7 +255,6 @@ class EditProfileTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-	
 		if indexPath.section == 1 {
 			displayInstrumentSetup(at: indexPath)
 			tableView.deselectRow(at: indexPath, animated: true)

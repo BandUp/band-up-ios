@@ -42,7 +42,6 @@ class ProfileViewController: UIViewController {
 			self.populateUser()
 			self.scrollView.isHidden = false
 		}).onFailure({ (error) in
-			print("FAILURE")
 			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
 			self.viewActivityIndicator.stopAnimating()
 			self.scrollView.isHidden = true

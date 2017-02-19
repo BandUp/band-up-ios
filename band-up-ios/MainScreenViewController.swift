@@ -8,21 +8,35 @@
 
 import UIKit
 import KYDrawerController
+import CoreLocation
 
 class MainScreenViewController: UIViewController {
 	
 	@IBOutlet weak var viewContainer: UIView!
 	
 	var currentViewController = UIViewController()
-	
-	
+
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		currentViewController = userItemViewController
-		add(asChildViewController: currentViewController)
+
+		let status = CLLocationManager.authorizationStatus()
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+		if status == .authorizedWhenInUse || status == .authorizedAlways {
+			currentViewController = userItemViewController
+			add(asChildViewController: currentViewController)
+
+		} else if status == .notDetermined {
+			appDelegate.manager.requestWhenInUseAuthorization()
+		} else if status == .denied {
+			// Display some screen that says that we need location
+		} else if status == .restricted {
+			// Display some screen that says that we need location but the user has restricted access.
+		}
+
 		let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		self.navigationItem.backBarButtonItem = backItem
-
 		self.navigationController?.navigationBar.tintColor = UIColor.bandUpYellow
 	}
 	
@@ -158,7 +172,4 @@ class MainScreenViewController: UIViewController {
 			break
 		}
 	}
-	
-
 }
-

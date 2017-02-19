@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class UserDetailsViewController: UIViewController {
 	// MARK: - IBOutlets
@@ -31,11 +32,22 @@ class UserDetailsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
+
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(self.locationChanged),
+			name: NSNotification.Name(rawValue: "NewLocation"),
+			object: nil)
+	}
+	func locationChanged(notification: NSNotification) {
+		guard let locations = notification.userInfo?["locations"] else { return }
+		lblDistance.text = currentUser.getDistanceString(between: (locations as! [CLLocation])[0])
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		shouldDisplayLike = true
+
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -104,8 +116,14 @@ class UserDetailsViewController: UIViewController {
 			lblAboutMe.text = NSLocalizedString("about_me", comment: "About Me string displayed on the profiles")
 		}
 
-		lblDistance.text = currentUser.getDistanceString()
-		
+		let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+
+		if let userLocation = appDelegate.lastKnownLocation {
+			lblDistance.text = currentUser.getDistanceString(between: userLocation)
+		} else {
+			lblDistance.text = currentUser.getDistanceString()
+		}
+
 		lblPercentage.text = "\(currentUser.percentage)%"
 
 		
