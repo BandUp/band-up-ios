@@ -13,6 +13,8 @@ class ChatViewController: UIViewController {
     var user = User()
     var chatHistory = [ChatMessage]()
     
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var lblError: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtMessage: UITextField!
@@ -25,8 +27,15 @@ class ChatViewController: UIViewController {
 
 		btnSend.isEnabled = false
 		//txtMessage.isEnabled = false
-		SocketIOManager.sharedInstance.send(message: txtMessage.text!, to: user.id).timingOut(after: 0) { (data) in
-			print(data)
+		ChatSocket.sharedInstance.send(message: txtMessage.text!, to: user.id).timingOut(after: 0) { (data) in
+			if data.count > 0 {
+				if (data[0] as! Bool) {
+					print("Message sent.")
+				} else {
+					print("Sending message failed on server.")
+				}
+			}
+
 			let msg = ChatMessage()
 			msg.message = self.txtMessage.text!
 			self.btnSend.isEnabled = true
@@ -34,35 +43,68 @@ class ChatViewController: UIViewController {
 			self.txtMessage.isEnabled = true
 
 			self.chatHistory.append(msg)
-			self.tableView.beginUpdates()
-			self.tableView.insertRows(at: [IndexPath(row:self.chatHistory.count-1, section: 0)], with: .bottom)
-			self.tableView.endUpdates()
-			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+
+			if self.chatHistory.count >= 2 {
+				self.tableView.reloadData()
+				self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
+			}
+
+			if self.chatHistory.count >= 1 {
+				self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+			}
 		}
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		SocketIOManager.sharedInstance.startSocket()
-		SocketIOManager.sharedInstance.establishConnection()
-		SocketIOManager.sharedInstance.socket.on("connect") { (data, ack) in
-			print("connected")
-			SocketIOManager.sharedInstance.registerUser().timingOut(after: 0, callback: { (data) in
-				print("WOO")
+		self.tableView.estimatedRowHeight = 44
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		ChatSocket.sharedInstance.startSocket()
+		ChatSocket.sharedInstance.establishConnection()
+
+		ChatSocket.sharedInstance.socket.on("recv_privatemsg") { (dataList, callback) in
+			if dataList.count < 2 {
+				return
+			}
+
+
+			let msg = ChatMessage()
+			msg.message = dataList[1] as! String
+			msg.sender = dataList[0] as! String
+			
+			self.chatHistory.append(msg)
+			self.tableView.reloadData()
+			//self.tableView.insertRows(at: [IndexPath(row:self.chatHistory.count-1, section: 0)], with: .bottom)
+			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
+			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+
+		}
+		ChatSocket.sharedInstance.socket.on("connect") { (data, ack) in
+			print("Connected. Registering...")
+			ChatSocket.sharedInstance.registerUser().timingOut(after: 0, callback: { (data) in
+				if data.count > 0 {
+					if (data[0] as! Bool) {
+						print("Registration Successful")
+					} else {
+						print("Could not register. Username already taken")
+					}
+				}
 			})
 		}
-        
-        BandUpAPI.sharedInstance.chatHistory.child(user.id).load().onSuccess({ (response) in
+
+		BandUpAPI.sharedInstance.chatHistory.child(user.id).load().onSuccess({ (response) in
+			self.activityIndicator.stopAnimating()
             if let history = response.jsonDict["chatHistory"] {
                 for message in history as! NSArray {
                     self.chatHistory.append(ChatMessage(message as! NSDictionary))
                 }
             }
+
             self.tableView.reloadData()
 			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
 
         }).onFailure({ (error) in
+			self.activityIndicator.stopAnimating()
             print(error)
         })
 		
@@ -79,7 +121,7 @@ class ChatViewController: UIViewController {
 		let barButton = UIBarButtonItem(customView: infoButton)
 		self.navigationItem.rightBarButtonItem = barButton
 	}
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -93,8 +135,9 @@ class ChatViewController: UIViewController {
 		let duration: TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
 		
 		UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
-		self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
-
+		if chatHistory.count > 0 {
+			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+		}
 	}
 	
 	func keyboardWillHide(sender: NSNotification) {
@@ -133,9 +176,19 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell", for: indexPath)
-        let lblMessage = cell.viewWithTag(1) as! UILabel
-        lblMessage.text = chatHistory[indexPath.row].message
+		var cell: UITableViewCell
+
+		if chatHistory[indexPath.row].sender == user.id {
+			cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell_other", for: indexPath)
+		} else {
+			cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell_me", for: indexPath)
+		}
+
+        let messageCell = (cell.viewWithTag(1) as! BMChatLabel)
+        messageCell.text = chatHistory[indexPath.row].message
+		messageCell.sizeToFit()
+		messageCell.clipsToBounds = true
+		messageCell.layer.cornerRadius = 15.25
         return cell
     }
 }

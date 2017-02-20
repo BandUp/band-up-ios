@@ -32,6 +32,7 @@
 		F2508B0D1E53EDFA009EF48B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */; };
 		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
+		F26FB44C1E5A0C2F00D0FBF8 /* BMChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FB44B1E5A0C2F00D0FBF8 /* BMChatLabel.swift */; };
 		F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511A1E4C01DE00E2974C /* UserImage.swift */; };
 		F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511C1E4C01E900E2974C /* UserLocation.swift */; };
 		F270511F1E4C022D00E2974C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511E1E4C022D00E2974C /* ChatMessage.swift */; };
@@ -119,6 +120,7 @@
 		F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
+		F26FB44B1E5A0C2F00D0FBF8 /* BMChatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMChatLabel.swift; sourceTree = "<group>"; };
 		F270511A1E4C01DE00E2974C /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		F270511C1E4C01E900E2974C /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		F270511E1E4C022D00E2974C /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
 				F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */,
 				F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */,
+				F26FB44B1E5A0C2F00D0FBF8 /* BMChatLabel.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */,
 				F24E08181E4D1B1F00C45A76 /* SettingsTableViewController.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
+				F26FB44C1E5A0C2F00D0FBF8 /* BMChatLabel.swift in Sources */,
 				200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */,
 				F29B9E851E47688E00BDB645 /* Constants.swift in Sources */,
 			);
@@ -949,6 +953,7 @@
 				F277C27D1E560D8C008AF036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F277C28C1E561F41008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -957,6 +962,7 @@
 				F277C28E1E561F41008AF036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

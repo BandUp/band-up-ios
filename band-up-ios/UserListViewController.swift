@@ -59,7 +59,7 @@ class UserListViewController: UIViewController {
 		registerForPreviewing(with: self, sourceView: userCollectionView)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
-		BandUpAPI.sharedInstance.nearby.loadIfNeeded()?.onSuccess({ (response) in
+		BandUpAPI.sharedInstance.nearby.load().onSuccess({ (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			
@@ -74,10 +74,11 @@ class UserListViewController: UIViewController {
 		}).onFailure({ (error) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
+			self.lblError.isHidden = false
 			self.lblError.text = NSLocalizedString("user_list_error_fetch_list", comment: "Musician List error message")
-			print("ERROR")
-			print(error)
+			print(error.userMessage)
 		})
+		
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(self.locationChanged),

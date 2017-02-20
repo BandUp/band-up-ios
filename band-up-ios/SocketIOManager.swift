@@ -8,8 +8,8 @@
 
 import SocketIO
 
-class SocketIOManager: NSObject {
-    static let sharedInstance = SocketIOManager()
+class ChatSocket: NSObject {
+    static let sharedInstance = ChatSocket()
     
     override init() {
         super.init()
@@ -18,7 +18,7 @@ class SocketIOManager: NSObject {
     var socket: SocketIOClient = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!)
 
     func establishConnection() {
-		print("Connecting")
+		print("Connecting...")
         socket.connect()
     }
     
@@ -27,7 +27,7 @@ class SocketIOManager: NSObject {
     }
 	
 	func startSocket() {
-		socket = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!, config: [.log(true), .forcePolling(true), .extraHeaders(UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as! [String:String])])
+		socket = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!, config: [.log(false), .forcePolling(true), .extraHeaders(UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as! [String:String])])
 	}
 	
 	func registerUser() -> OnAckCallback {
