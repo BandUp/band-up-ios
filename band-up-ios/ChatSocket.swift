@@ -23,6 +23,7 @@ class ChatSocket: NSObject {
     }
     
     func closeConnection() {
+		print("Disonnecting")
         socket.disconnect()
     }
 	

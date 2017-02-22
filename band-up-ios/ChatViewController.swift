@@ -44,8 +44,8 @@ class ChatViewController: UIViewController {
 
 			self.chatHistory.append(msg)
 
+			self.tableView.reloadData()
 			if self.chatHistory.count >= 2 {
-				self.tableView.reloadData()
 				self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
 			}
 
@@ -184,11 +184,12 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
 			cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell_me", for: indexPath)
 		}
 
-        let messageCell = (cell.viewWithTag(1) as! BMChatLabel)
+        let messageCell = (cell.viewWithTag(1) as! UILabel)
+		let messageViewCell = cell.viewWithTag(2)
         messageCell.text = chatHistory[indexPath.row].message
 		messageCell.sizeToFit()
-		messageCell.clipsToBounds = true
-		messageCell.layer.cornerRadius = 15.25
+		//messageCell.clipsToBounds = true
+		messageViewCell?.layer.cornerRadius = 12
         return cell
     }
 }

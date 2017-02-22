@@ -14,6 +14,7 @@ class DrawerViewController: UIViewController {
 	@IBOutlet weak var lblUsername: UILabel!
 	@IBOutlet weak var imgUserImage: UIImageView!
 	@IBOutlet weak var lblFavInstrument: UILabel!
+	@IBOutlet weak var tableView: UITableView!
 	
 	let listItems = [
 		DrawerItem(id: "main_nav_near_me",    name: "Near Me"),
@@ -29,6 +30,13 @@ class DrawerViewController: UIViewController {
 	
 	var currentUser = User();
 	
+	@IBAction func tappedProfile(_ sender: UIButton) {
+		let drawer = self.parent as! KYDrawerController
+
+		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
+		mainController.updateView(row: "main_nav_my_profile")
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		for i in listItems {
@@ -78,7 +86,21 @@ class DrawerViewController: UIViewController {
 			}
 		}
 	}
-	
+
+	func getIndexPath(of item: String) -> IndexPath? {
+		for (index, listItem) in listItems.enumerated() {
+			if listItem.id == item {
+				return IndexPath(row: index, section: 0)
+			}
+		}
+		return nil
+	}
+
+	func selectControllerWith(id: String) {
+		if let index = getIndexPath(of: id) {
+			tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.top)
+		}
+	}
 }
 
 extension DrawerViewController: ProfileViewDelegate {
@@ -100,6 +122,9 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 		let itemName = cell.viewWithTag(ITEM_NAME_TAG) as! UILabel
 		
 		itemName.text = listItems[indexPath.row].name
+		let colorView = UIView()
+		colorView.backgroundColor = UIColor.bandUpDarkYellow
+		cell.selectedBackgroundView = colorView
 		return cell
 	}
 	

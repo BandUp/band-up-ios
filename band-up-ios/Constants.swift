@@ -52,7 +52,10 @@ class Constants {
 extension UIColor {
 	// 0xFFD302
 	static let bandUpYellow = UIColor(red:255/255.0, green:211/255.0, blue:2/255.0, alpha: 1.0)
-	
+
+	// 0xE5C404
+	static let bandUpDarkYellow = UIColor(red:229/255.0, green:196/255.0, blue:4/255.0, alpha: 1.0)
+
 	// 0x0D0D0D
 	static let bandUpGrey = UIColor(red: 13/255.0, green: 13/255.0, blue: 13/255.0, alpha: 1)
 }

@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var lblAboutMe: UILabel!
 	@IBOutlet weak var lblError: UILabel!
 	
-	var currentUser = User()
+	var currentUser : User?
 	var delegate : ProfileViewDelegate?
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,20 +34,25 @@ class ProfileViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(someAction))
-		self.parent?.navigationItem.rightBarButtonItem?.isEnabled = false
-		BandUpAPI.sharedInstance.profile.load().onSuccess({ (response) in
-			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
-			self.viewActivityIndicator.stopAnimating()
-			self.currentUser = User(response.jsonDict as NSDictionary)
-			self.populateUser()
-			self.scrollView.isHidden = false
-		}).onFailure({ (error) in
-			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
-			self.viewActivityIndicator.stopAnimating()
-			self.scrollView.isHidden = true
-			self.lblError.text = "Could not get your profile"
-			self.lblError.isHidden = false
-		})
+
+		if currentUser == nil {
+			self.parent?.navigationItem.rightBarButtonItem?.isEnabled = false
+
+			BandUpAPI.sharedInstance.profile.load().onSuccess({ (response) in
+				self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
+				self.viewActivityIndicator.stopAnimating()
+				self.currentUser = User(response.jsonDict as NSDictionary)
+				self.populateUser()
+				self.scrollView.isHidden = false
+			}).onFailure({ (error) in
+				self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
+				self.viewActivityIndicator.stopAnimating()
+				self.scrollView.isHidden = true
+				self.lblError.text = "Could not get your profile"
+				self.lblError.isHidden = false
+			})
+		}
+
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -58,6 +63,9 @@ class ProfileViewController: UIViewController {
 	
 	// MARK: - Helper Functions
 	func populateUser() {
+		guard let currentUser = currentUser else {
+			return
+		}
 		if imgProfileImage.image == #imageLiteral(resourceName: "ProfilePlaceholder") {
 			imgProfileImage.image = nil
 		}
@@ -116,16 +124,22 @@ class ProfileViewController: UIViewController {
 		getDataFromUrl(url: url) { (data, response, error)  in
 			guard let data = data, error == nil else { return }
 			DispatchQueue.main.async() { () -> Void in
+				guard let currentUser = self.currentUser else {
+					return
+				}
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 				activityIndicator.stopAnimating()
 				let image = UIImage(data:data)
 				imageView.image = image
-				self.currentUser.image.image = image!
+				currentUser.image.image = image!
 			}
 		}
 	}
 	
 	public func someAction() {
+		guard let currentUser = currentUser else {
+			return
+		}
 		let storyboard = UIStoryboard(name: "ProfileView", bundle: Bundle.main)
 		
 		let viewController =  storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController

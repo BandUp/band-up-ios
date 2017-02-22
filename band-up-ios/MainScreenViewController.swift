@@ -24,6 +24,9 @@ class MainScreenViewController: UIViewController {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 		if status == .authorizedWhenInUse || status == .authorizedAlways {
+			if let drawerController = navigationController?.parent as? KYDrawerController {
+				(drawerController.drawerViewController as! DrawerViewController).selectControllerWith(id:"main_nav_near_me")
+			}
 			currentViewController = userItemViewController
 			add(asChildViewController: currentViewController)
 
@@ -171,5 +174,9 @@ class MainScreenViewController: UIViewController {
 		default:
 			break
 		}
+		if let drawerController = navigationController?.parent as? KYDrawerController {
+			(drawerController.drawerViewController as! DrawerViewController).selectControllerWith(id: row)
+		}
+
 	}
 }

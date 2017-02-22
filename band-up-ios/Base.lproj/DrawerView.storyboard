@@ -65,6 +65,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd7-bD-f1Y">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-gY-eeZ">
+                                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="75"/>
+                                                <connections>
+                                                    <action selector="tappedProfile:" destination="dwL-IM-ke9" eventType="touchUpInside" id="EgP-wy-Qi0"/>
+                                                </connections>
+                                            </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="20n-PF-WJq">
                                                 <rect key="frame" x="10" y="10" width="55" height="55"/>
                                                 <constraints>
@@ -96,22 +102,28 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="3LE-aN-0DQ" secondAttribute="trailing" constant="10" id="0gn-Bp-Jww"/>
+                                            <constraint firstItem="EP2-gY-eeZ" firstAttribute="width" secondItem="qd7-bD-f1Y" secondAttribute="width" id="2wl-DQ-Xtr"/>
                                             <constraint firstItem="3LE-aN-0DQ" firstAttribute="top" secondItem="qd7-bD-f1Y" secondAttribute="top" constant="10" id="FdI-Qk-e7M"/>
+                                            <constraint firstItem="EP2-gY-eeZ" firstAttribute="height" secondItem="qd7-bD-f1Y" secondAttribute="height" id="HzD-ON-kcl"/>
                                             <constraint firstItem="20n-PF-WJq" firstAttribute="top" secondItem="qd7-bD-f1Y" secondAttribute="top" constant="10" id="NG2-0m-kwH"/>
                                             <constraint firstAttribute="bottom" secondItem="20n-PF-WJq" secondAttribute="bottom" constant="10" id="YEb-tl-J93"/>
+                                            <constraint firstItem="EP2-gY-eeZ" firstAttribute="centerX" secondItem="qd7-bD-f1Y" secondAttribute="centerX" id="YqK-x1-TvY"/>
                                             <constraint firstItem="3LE-aN-0DQ" firstAttribute="leading" secondItem="20n-PF-WJq" secondAttribute="trailing" constant="8" symbolic="YES" id="dMx-7n-ylC"/>
+                                            <constraint firstItem="EP2-gY-eeZ" firstAttribute="centerY" secondItem="qd7-bD-f1Y" secondAttribute="centerY" id="ebQ-Xu-ku4"/>
                                             <constraint firstItem="20n-PF-WJq" firstAttribute="leading" secondItem="qd7-bD-f1Y" secondAttribute="leading" constant="10" id="icO-6I-RTH"/>
                                             <constraint firstAttribute="bottom" secondItem="3LE-aN-0DQ" secondAttribute="bottom" constant="10" id="xTp-Q2-TY6"/>
                                             <constraint firstAttribute="height" constant="75" id="y3l-4X-vqU"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="2" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOB-Gu-8kg">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOB-Gu-8kg">
                                         <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                         <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.050980392156862744" green="0.5803837159863946" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="separatorColor" red="0.050980392156862744" green="0.5803837159863946" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="1" green="0.82745098039215681" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="sectionIndexTrackingBackgroundColor" red="0.050980392156862744" green="0.5803837159863946" blue="0.050980392156862744" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="sectionIndexTrackingBackgroundColor" red="0.050980392156862744" green="0.5803837159863946" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="drawerCell" rowHeight="58" id="k52-Aj-i4B">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="drawerCell" rowHeight="58" id="k52-Aj-i4B">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k52-Aj-i4B" id="b1s-y2-pbd">
@@ -167,6 +179,7 @@
                         <outlet property="imgUserImage" destination="20n-PF-WJq" id="lEN-2E-wOy"/>
                         <outlet property="lblFavInstrument" destination="h95-a9-6Vn" id="hTD-cq-tE8"/>
                         <outlet property="lblUsername" destination="urv-Ff-nFO" id="rh7-VB-Svk"/>
+                        <outlet property="tableView" destination="tOB-Gu-8kg" id="wyY-Q5-NeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAE-7u-Ii2" userLabel="First Responder" sceneMemberID="firstResponder"/>

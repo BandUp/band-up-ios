@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006897B1E44F3C200EAD907 /* ChatViewController.swift */; };
-		200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200B434E1E4639CD004C06F1 /* SocketIOManager.swift */; };
+		200B434F1E4639CD004C06F1 /* ChatSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200B434E1E4639CD004C06F1 /* ChatSocket.swift */; };
 		56E0DC742C6C4A4124732CA8 /* Pods_band_up_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */; };
 		F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F63F1E02DBB000F57892 /* SetupViewController.swift */; };
 		F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0461DDFC47100EE16DF /* AppDelegate.swift */; };
@@ -32,7 +32,6 @@
 		F2508B0D1E53EDFA009EF48B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */; };
 		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
-		F26FB44C1E5A0C2F00D0FBF8 /* BMChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FB44B1E5A0C2F00D0FBF8 /* BMChatLabel.swift */; };
 		F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511A1E4C01DE00E2974C /* UserImage.swift */; };
 		F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511C1E4C01E900E2974C /* UserLocation.swift */; };
 		F270511F1E4C022D00E2974C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511E1E4C022D00E2974C /* ChatMessage.swift */; };
@@ -83,7 +82,7 @@
 
 /* Begin PBXFileReference section */
 		2006897B1E44F3C200EAD907 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		200B434E1E4639CD004C06F1 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		200B434E1E4639CD004C06F1 /* ChatSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocket.swift; sourceTree = "<group>"; };
 		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
 		8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 		F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
-		F26FB44B1E5A0C2F00D0FBF8 /* BMChatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMChatLabel.swift; sourceTree = "<group>"; };
 		F270511A1E4C01DE00E2974C /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		F270511C1E4C01E900E2974C /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		F270511E1E4C022D00E2974C /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
@@ -223,7 +221,7 @@
 				F29B9E841E47688E00BDB645 /* Constants.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
 				F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */,
-				200B434E1E4639CD004C06F1 /* SocketIOManager.swift */,
+				200B434E1E4639CD004C06F1 /* ChatSocket.swift */,
 				F27051191E4C01C600E2974C /* Models */,
 				F2AB060A1E0614F20039C761 /* Setup */,
 				F2AB060B1E0615410039C761 /* Main Screen */,
@@ -344,7 +342,6 @@
 				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
 				F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */,
 				F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */,
-				F26FB44B1E5A0C2F00D0FBF8 /* BMChatLabel.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -593,8 +590,7 @@
 				F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */,
 				F24E08181E4D1B1F00C45A76 /* SettingsTableViewController.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
-				F26FB44C1E5A0C2F00D0FBF8 /* BMChatLabel.swift in Sources */,
-				200B434F1E4639CD004C06F1 /* SocketIOManager.swift in Sources */,
+				200B434F1E4639CD004C06F1 /* ChatSocket.swift in Sources */,
 				F29B9E851E47688E00BDB645 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,6 +47,13 @@ class MatchesViewController: UIViewController {
 			self.lblError.isHidden = false
 		})
 	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		let selectedIndexPath = tableView.indexPathForSelectedRow
+		if let indexPath = selectedIndexPath {
+			tableView.deselectRow(at: indexPath, animated: true)
+		}
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
@@ -74,11 +81,14 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
 			
 		}
+		let colorView = UIView()
+		colorView.backgroundColor = UIColor.darkGray
+		cell.selectedBackgroundView = colorView
 		return cell
 	}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = matchedUsers[indexPath.row]
+		let user = matchedUsers[indexPath.row]
         let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
         let viewController =  storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
@@ -103,6 +113,15 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 				imageView.image = UIImage(data: data)
 			}
 		}
+	}
+	func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+		let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+		selectedCell.contentView.backgroundColor = UIColor.darkGray
+
+	}
+	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		let cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath)!
+		cellToDeSelect.contentView.backgroundColor = UIColor.clear
 	}
 }
 

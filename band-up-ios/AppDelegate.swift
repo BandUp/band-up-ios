@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// use UITableViewCell.appearance() to configure
 		// the default appearance of all UITableViewCells in your app
-		//UITableViewCell.appearance().selectedBackgroundView = colorView
+		//UITableViewCell.
 
 		return true
 	}
@@ -111,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				let cont = nav.viewControllers.first as! MainScreenViewController
 
 				cont.updateView(row: "main_nav_my_profile")
+				drawcont.setDrawerState(.closed, animated: false)
 			}
 			handled = true
 			break
@@ -122,6 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				let cont = nav.topViewController as! MainScreenViewController
 
 				cont.updateView(row: "main_nav_matches")
+				drawcont.setDrawerState(.closed, animated: false)
 			}
 			handled = true
 			break
@@ -171,7 +173,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 	}
 
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		print(error)
+		//print(error)
 	}
 }
 

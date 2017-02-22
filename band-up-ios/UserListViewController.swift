@@ -88,7 +88,6 @@ class UserListViewController: UIViewController {
 
 	func locationChanged(notification: NSNotification) {
 		guard let locations = notification.userInfo?["locations"] else { return }
-		print("From ULVC \((locations as! [CLLocation])[0])")
 	}
 	
 	override func didReceiveMemoryWarning() {
