@@ -8,10 +8,13 @@
 
 @testable import band_up_ios
 import XCTest
+import CoreLocation
 
 class UserInitTests: XCTestCase {
+
 	var userDictionary: Dictionary<String, Any> = [:]
 	var user = User()
+
 	override func setUp() {
 		super.setUp()
 		userDictionary["username"] = "TestName"
@@ -84,6 +87,20 @@ class UserInitTests: XCTestCase {
 		XCTAssert(user.soundCloudSongName == "")
 		XCTAssert(user.soundCloudURL == "")
 		XCTAssert(user.status == "")
+	}
+
+	func testDistanceStringNoLocation() {
+		user = User(userDictionary as NSDictionary)
+		let combinedString = "14 " + NSLocalizedString("km_distance", comment: "")
+		XCTAssertEqual(user.getDistanceString(), combinedString)
+	}
+
+	func testDistanceStringNoLocation2() {
+		user = User(userDictionary as NSDictionary)
+
+		let combinedString = "0 " + NSLocalizedString("km_distance", comment: "")
+
+		XCTAssertEqual(user.getDistanceString(between: CLLocation()), combinedString)
 	}
 
 	func testUserParsing() {

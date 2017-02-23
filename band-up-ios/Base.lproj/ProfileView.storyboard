@@ -614,6 +614,7 @@
                         <outlet property="imgProfileImage" destination="kWL-wt-0Cy" id="WbU-cw-KdS"/>
                         <outlet property="lblAge" destination="5GD-cz-tuz" id="A0E-QA-eQQ"/>
                         <outlet property="lblFavInstrument" destination="ZbJ-3H-hsf" id="DxI-VH-a3B"/>
+                        <outlet property="tableView" destination="QUL-xY-4oO" id="o8j-O3-5Wl"/>
                         <outlet property="tagGenres" destination="9aC-wB-RVI" id="KMT-fX-TJQ"/>
                         <outlet property="tagInstruments" destination="6M9-Qn-NiX" id="sXv-th-uXs"/>
                         <outlet property="tbcInstruments" destination="WCE-b3-bRZ" id="nRg-dY-Um8"/>

@@ -8,7 +8,7 @@
 
 import XCTest
 
-class band_up_iosUITests: XCTestCase {
+class BandUpUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

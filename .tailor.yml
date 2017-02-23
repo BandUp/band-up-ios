@@ -1,0 +1,2 @@
+exclude:
+    - Pods       # Ignore Swift files under "Source/Pods/"

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		//var shouldPerformAdditionalDelegateHandling = true
+		// var shouldPerformAdditionalDelegateHandling = true
 
 		// If a shortcut was launched, display its information and take the appropriate action
 		if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			launchedShortcutItem = shortcutItem
 
 			// This will block "performActionForShortcutItem:completionHandler" from being called.
-			//shouldPerformAdditionalDelegateHandling = false
+			// shouldPerformAdditionalDelegateHandling = false
 		}
 		manager.delegate = self
 		manager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -45,10 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// use UITableViewCell.appearance() to configure
 		// the default appearance of all UITableViewCells in your app
-		//UITableViewCell.
+		// UITableViewCell.
 
 		return true
 	}
+
 	func startLocationTimer() {
 		locationTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.myTimerFunc), userInfo: nil, repeats: true)
 	}
@@ -95,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	var launchedShortcutItem: UIApplicationShortcutItem?
+
 	func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
 		var handled = false
 

@@ -157,17 +157,20 @@ class User: CustomStringConvertible {
 		}
 	}
 
+
 	func getDistanceString(between location:CLLocation) -> String {
 		// Temporary
 		if self.distance == 0.0 {
 			return NSLocalizedString("no_distance_available", comment: "")
 		} else {
+			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.settings.usesImperial)
 			let distanceType = NSLocalizedString("km_distance", comment: "")
 			let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
 			let distance = location.distance(from: userLocation)
 			return "\(Int(round(distance / 1000.0))) \(distanceType)"
 		}
 	}
+	
 
 	var description: String {
 		

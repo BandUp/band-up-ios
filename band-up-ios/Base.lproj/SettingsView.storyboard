@@ -213,6 +213,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-Ad-efg">
                                                     <rect key="frame" x="306" y="6" width="51" height="31"/>
                                                     <color key="onTintColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="imperialChanged:" destination="8RF-Vx-pB5" eventType="valueChanged" id="pYK-VB-vKz"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Imperial Units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3Q-Q5-Cij">
                                                     <rect key="frame" x="20" y="11" width="140" height="21"/>
@@ -335,6 +338,9 @@
                             <outlet property="delegate" destination="8RF-Vx-pB5" id="BB3-wF-ZBD"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="schImperial" destination="g9A-Ad-efg" id="epM-sa-Bbo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skc-PI-vp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

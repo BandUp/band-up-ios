@@ -85,7 +85,7 @@
 		200B434E1E4639CD004C06F1 /* ChatSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocket.swift; sourceTree = "<group>"; };
 		237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.release.xcconfig"; sourceTree = "<group>"; };
 		8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_band_up_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		B8A806467F8B4A1259EDAE47 /* Pods-band-up-ios.analyze.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.analyze.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.analyze.xcconfig"; sourceTree = "<group>"; };
 		F207F63F1E02DBB000F57892 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		F217C0431DDFC47100EE16DF /* band-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "band-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217C0461DDFC47100EE16DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +154,8 @@
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F2F0E15B1E5F2F65005BD86F /* band-up-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "band-up-ios.entitlements"; sourceTree = "<group>"; };
+		F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +187,9 @@
 		05BEBC4A550603964996EAAD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */,
 				237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */,
+				F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */,
+				B8A806467F8B4A1259EDAE47 /* Pods-band-up-ios.analyze.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 		F217C0451DDFC47100EE16DF /* band-up-ios */ = {
 			isa = PBXGroup;
 			children = (
+				F2F0E15B1E5F2F65005BD86F /* band-up-ios.entitlements */,
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
 				F29B9E841E47688E00BDB645 /* Constants.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,
@@ -367,6 +371,7 @@
 				F217C0411DDFC47100EE16DF /* Resources */,
 				EAE1152327BE34EB014C5325 /* [CP] Embed Pods Frameworks */,
 				F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */,
+				F2F0E1611E5F3407005BD86F /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -428,6 +433,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = NJU97Y2JX6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					F277C2731E560D8C008AF036 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -538,6 +548,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F2F0E1611E5F3407005BD86F /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.tailor.yml",
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Analyze\" ]; then\nif hash tailor 2>/dev/null; then\ntailor --config .tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi\nfi";
 		};
 		F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -836,7 +861,7 @@
 		};
 		F217C06F1DDFC47100EE16DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */;
+			baseConfigurationReference = F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -868,7 +893,6 @@
 		};
 		F277C27C1E560D8C008AF036 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAFB566F8D41FFC68E2A138A /* Pods-band-up-ios.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
@@ -921,6 +945,101 @@
 			};
 			name = Release;
 		};
+		F2F0E15C1E5F2F83005BD86F /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Analyze;
+		};
+		F2F0E15D1E5F2F83005BD86F /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8A806467F8B4A1259EDAE47 /* Pods-band-up-ios.analyze.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = "band-up-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Analyze;
+		};
+		F2F0E15E1E5F2F83005BD86F /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = "band-up-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bergtor05.band-up-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/band-up-ios.app/band-up-ios";
+			};
+			name = Analyze;
+		};
+		F2F0E15F1E5F2F83005BD86F /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = "band-up-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bergtor05.band-up-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "band-up-ios";
+			};
+			name = Analyze;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -928,6 +1047,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F217C06C1DDFC47100EE16DF /* Debug */,
+				F2F0E15C1E5F2F83005BD86F /* Analyze */,
 				F217C06D1DDFC47100EE16DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -937,6 +1057,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F217C06F1DDFC47100EE16DF /* Debug */,
+				F2F0E15D1E5F2F83005BD86F /* Analyze */,
 				F217C0701DDFC47100EE16DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -946,6 +1067,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F277C27C1E560D8C008AF036 /* Debug */,
+				F2F0E15E1E5F2F83005BD86F /* Analyze */,
 				F277C27D1E560D8C008AF036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -955,6 +1077,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F277C28D1E561F41008AF036 /* Debug */,
+				F2F0E15F1E5F2F83005BD86F /* Analyze */,
 				F277C28E1E561F41008AF036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

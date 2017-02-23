@@ -9,6 +9,22 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+
+	@IBOutlet weak var schImperial: UISwitch!
+
+	@IBAction func imperialChanged(_ sender: UISwitch) {
+		UserDefaults.standard.set(sender.isOn, forKey: DefaultsKeys.settings.usesImperial)
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		if UserDefaults.standard.object(forKey: DefaultsKeys.settings.usesImperial) == nil {
+			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.settings.usesImperial)
+		}
+
+		let usesImperial = UserDefaults.standard.bool(forKey: DefaultsKeys.settings.usesImperial)
+		schImperial.isOn = usesImperial
+	}
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == 5 {
@@ -25,5 +41,13 @@ class SettingsTableViewController: UITableViewController {
 			return "\(bundleName) \(bundleVersion) (\(bundleBuild))"
 		}
 		return nil
+	}
+
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = super.tableView(tableView, cellForRowAt: indexPath)
+		let colorView = UIView()
+		colorView.backgroundColor = UIColor.darkGray
+		cell.selectedBackgroundView = colorView
+		return cell
 	}
 }

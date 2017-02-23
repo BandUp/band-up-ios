@@ -32,6 +32,14 @@ class EditProfileTableViewController: UITableViewController {
 		}
 	}
 
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = super.tableView(tableView, cellForRowAt: indexPath)
+		let colorView = UIView()
+		colorView.backgroundColor = UIColor.darkGray
+		cell.selectedBackgroundView = colorView
+		return cell
+	}
+
 	func openLibrary() -> Bool {
 
 		if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -193,7 +201,7 @@ class EditProfileTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		txtName.delegate = self
 		txtAboutMe.delegate = self
 		let nameString = NSLocalizedString("register_username", comment: "Placeholder for the Name Text Field")
@@ -324,8 +332,10 @@ class EditProfileTableViewController: UITableViewController {
 			doneBlock: { picker, value, index in
 				self.newUser.dateOfBirth = value as? Date
 				self.lblAge.text = self.newUser.getBirthString()
+				self.tableView.deselectRow(at: indexPath, animated: true)
 				return
 			}, cancel: { ActionStringCancelBlock in
+				self.tableView.deselectRow(at: indexPath, animated: true)
 				return
 			}, origin: tableView.cellForRow(at: indexPath)?.superview!.superview
 		)
@@ -347,6 +357,7 @@ class EditProfileTableViewController: UITableViewController {
 			doneBlock: { picker, indexes, values in
 				self.lblFavInstrument.text = String(describing: (values as! NSArray)[0])
 				self.newUser.favouriteInstrument = String(describing: (values as! NSArray)[0])
+				self.tableView.deselectRow(at: indexPath, animated: true)
 				return
 			}, cancel: { ActionMultipleStringCancelBlock in
 				self.tableView.deselectRow(at: indexPath, animated: true)

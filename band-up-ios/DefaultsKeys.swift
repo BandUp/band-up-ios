@@ -9,6 +9,16 @@
 import Foundation
 
 struct DefaultsKeys {
-	static let headers = "headers"
-	static let finishedSetup = "hasFinishedSetup"
+	static let headers = "headers"                // [String:String]
+	static let finishedSetup = "hasFinishedSetup" // Bool
+
+	struct settings {
+		static let usesImperial = "settingsImperial"             // Bool
+		static let shouldNotifyMatches = "settingsNewMatches"    // Bool
+		static let shouldNotifyInactivity = "settingsInactivity" // Bool
+		static let shouldNotifyMessage = "settingsMessage"       // Bool
+		static let radius = "settingsRadius"                     // Double
+		static let maxAge = "settingsMaxAge"                     // Int
+		static let minAge = "settingsMinAge"                     // Int
+	}
 }
