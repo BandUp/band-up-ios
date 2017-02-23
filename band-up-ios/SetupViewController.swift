@@ -32,13 +32,14 @@ class SetupViewController: UIViewController {
 	var setupViewObject: [SetupViewObject]? = nil
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
+	var selectedBorderWidth: CGFloat = 5
 	
 	// MARK: - Overridden Functions
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
-		self.setupViewObject?.first?.apiResource.load().onSuccess({ (response) in
+		self.setupViewObject?.first?.apiResource.load().onSuccess { (response) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			// Go through all of the setup items in the response
@@ -76,12 +77,12 @@ class SetupViewController: UIViewController {
 			if self.setupItemArray.count == 0 {
 				self.displayErrorMessage(message: "Could not fetch information")
 			}
-		}).onFailure({ (error) in
+		}.onFailure { (error) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			self.displayErrorMessage(message: "Could not fetch information")
 			print(error)
-		})
+		}
 		
 		super.viewWillAppear(animated)
 	}
@@ -125,18 +126,20 @@ class SetupViewController: UIViewController {
 			NSLog("You need to select at least one!")
 		} else {
 			
+			let request = self.setupViewObject?.first?.apiResource.request(.post, json: idArr)
+
 			UIApplication.shared.isNetworkActivityIndicatorVisible = true
-			self.setupViewObject?.first?.apiResource.request(.post, json: idArr).onSuccess({ (response) in
+			request?.onSuccess { (response) in
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			}).onFailure({ (error) in
+			}.onFailure { (error) in
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			})
+			}
 			
 			
 			if setupViewObject?.first?.setupViewCount != setupViewObject?.first?.setupViewIndex {
 				// Setup has not been finished. Continue
 
-				let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
+				guard let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as? SetupViewController else { return }
 				
 				myVC.setupViewObject = Array((setupViewObject?.dropFirst())!)
 				
@@ -156,11 +159,14 @@ class SetupViewController: UIViewController {
 					})
 				} else {
 					let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
-					let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
-					present(vc, animated: true, completion: nil)
-					if (self.setupViewObject?.first?.shouldFinishSetup)! {
-						UserDefaults.standard.set(true, forKey: DefaultsKeys.finishedSetup)
+
+					if let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as? KYDrawerController {
+						present(vc, animated: true, completion: nil)
+						if (self.setupViewObject?.first?.shouldFinishSetup)! {
+							UserDefaults.standard.set(true, forKey: DefaultsKeys.finishedSetup)
+						}
 					}
+
 				}
 			}
 		}
@@ -186,14 +192,17 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
 		
-		let lblItemName = cell.viewWithTag(itemNameTag) as! UILabel
+		if let lblItemName = cell.viewWithTag(itemNameTag) as? UILabel {
+			lblItemName.text = setupItem.name
+		} else {
+			print("Could not find lblItemName")
+		}
 		
-		lblItemName.text = setupItem.name
-		
+
 		cell.layer.borderColor = UIColor.bandUpYellow.cgColor
 		
 		if setupItem.isSelected {
-			cell.layer.borderWidth = 5
+			cell.layer.borderWidth = selectedBorderWidth
 		} else {
 			cell.layer.borderWidth = 0
 		}
@@ -218,7 +227,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		
 		if setupItemArray[indexPath.row].isSelected {
 			let anim = CABasicAnimation(keyPath: "borderWidth")
-			anim.fromValue = 5
+			anim.fromValue = selectedBorderWidth
 			anim.toValue = 0
 			anim.duration = 0.1
 			anim.repeatCount = 0
@@ -228,10 +237,10 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		} else {
 			let anim = CABasicAnimation(keyPath: "borderWidth")
 			anim.fromValue = 0
-			anim.toValue = 5
+			anim.toValue = selectedBorderWidth
 			anim.duration = 0.1
 			anim.repeatCount = 0
-			collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 5
+			collectionView.cellForItem(at: indexPath)?.layer.borderWidth = selectedBorderWidth
 			collectionView.cellForItem(at: indexPath)?.layer.add(anim, forKey: "borderWidth")
 			setupItemArray[indexPath.row].isSelected = true
 		}

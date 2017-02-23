@@ -27,7 +27,9 @@ class BandUpAPI: Service {
 			}
 
 			if $0.headers[BandUpAPI.cookieKey] == nil {
-				$0.headers[BandUpAPI.cookieKey] = (storedHeaders as! [String: String])[BandUpAPI.cookieKey]
+				if let storedHeaders = storedHeaders as? [String:String] {
+					$0.headers[BandUpAPI.cookieKey] = storedHeaders[BandUpAPI.cookieKey]
+				}
 			}
 		}
 		
@@ -35,16 +37,16 @@ class BandUpAPI: Service {
 		// Also save the hasFinishedSetup variable if it is in the payload.
 		configure {
 			$0.decorateRequests { _, req in
-				req.onSuccess({ (response) in
+				req.onSuccess { (response) in
 					if response.headers[BandUpAPI.setCookieKey] != nil {
 						self.headers = response.headers
 						UserDefaults.standard.set(self.getCookie(), forKey: DefaultsKeys.headers)
 					}
 					
-					if let finishedSetup = response.jsonDict[BandUpAPI.hasFinishedSetup] as! Bool? {
+					if let finishedSetup = response.jsonDict[BandUpAPI.hasFinishedSetup] as? Bool {
 						UserDefaults.standard.set(finishedSetup, forKey: DefaultsKeys.finishedSetup)
 					}
-				})
+				}
 			}
 		}
 		
@@ -53,8 +55,12 @@ class BandUpAPI: Service {
 			$0.decorateRequests { _, req in
 				req.onFailure { error in
 					if error.httpStatusCode == 401 {
-						(UIApplication.shared.delegate as! AppDelegate).showLoginScreen()
-						self.invalidateConfiguration()
+						if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+							appDelegate.showLoginScreen()
+							self.invalidateConfiguration()
+						} else {
+							print("Couldn't find AppDelegate")
+						}
 					}
 				}
 			}

@@ -59,8 +59,10 @@ class LoginViewController: UIViewController {
 	- returns: No return value
 	*/
 	func displaySetupView() {
-		let myVC = self.storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
-		
+		guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as? SetupViewController else {
+			return
+		}
+
 		myVC.setupViewObject = Constants.completeSetup
 		self.navigationController?.pushViewController(myVC, animated: true)
 	}
@@ -72,7 +74,9 @@ class LoginViewController: UIViewController {
 	*/
 	func displayMainScreenView() {
 		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
-		let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as! KYDrawerController
+		guard let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as? KYDrawerController else {
+			return
+		}
 		self.present(mainViewController, animated: true, completion: nil)
 	}
 	

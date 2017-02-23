@@ -118,42 +118,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		guard let shortCutType = shortcutItem.type as String? else { return false }
 
-		switch shortCutType {
-		case "com.melodies.bandup.profile":
-			// Handle shortcut 1 (static).
-			if window?.rootViewController is KYDrawerController {
-				let drawcont = window?.rootViewController as! KYDrawerController
-				let nav = drawcont.mainViewController as! UINavigationController
-				let cont = nav.viewControllers.first as! MainScreenViewController
-
-				cont.updateView(row: "main_nav_my_profile")
-				drawcont.setDrawerState(.closed, animated: false)
+		if window?.rootViewController is KYDrawerController {
+			guard let drawerController = window?.rootViewController as? KYDrawerController else {
+				print("Could not find KYDrawerController")
+				return false
 			}
-			handled = true
-			break
-		case "com.melodies.bandup.matches":
-			// Handle shortcut 1 (static).
-			if window?.rootViewController is KYDrawerController {
-				let drawcont = window?.rootViewController as! KYDrawerController
-				let nav = drawcont.mainViewController as! UINavigationController
-				let cont = nav.topViewController as! MainScreenViewController
 
-				cont.updateView(row: "main_nav_matches")
-				drawcont.setDrawerState(.closed, animated: false)
+			guard let navigationController = drawerController.mainViewController as? UINavigationController else {
+				print("Could not find NavigationController")
+				return false
 			}
-			handled = true
-			break
-		default:
-			break
+
+			guard let mainController = navigationController.viewControllers.first as? MainScreenViewController else {
+				print("Could not find MainScreenViewController")
+				return false
+			}
+
+			switch shortCutType {
+			case "com.melodies.bandup.profile":
+				// Handle shortcut 1 (static).
+				mainController.updateView(row: "main_nav_my_profile")
+				drawerController.setDrawerState(.closed, animated: false)
+				handled = true
+				break
+			case "com.melodies.bandup.matches":
+				// Handle shortcut 1 (static).
+				mainController.updateView(row: "main_nav_matches")
+				drawerController.setDrawerState(.closed, animated: false)
+				handled = true
+				break
+			default:
+				break
+			}
+
+		} else {
+			return false
 		}
+
 		return handled
 	}
 
 	func showLoginScreen() {
 		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
-		(UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = vc
 
+		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+			appDelegate.window?.rootViewController = vc
+		} else {
+			print("Could not find AppDelegate")
+		}
 	}
 	
 }

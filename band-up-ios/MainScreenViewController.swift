@@ -21,17 +21,29 @@ class MainScreenViewController: UIViewController {
 		super.viewDidLoad()
 
 		let status = CLLocationManager.authorizationStatus()
-		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-		if status == .authorizedWhenInUse || status == .authorizedAlways {
-			if let drawerController = navigationController?.parent as? KYDrawerController {
-				(drawerController.drawerViewController as! DrawerViewController).selectControllerWith(id:"main_nav_near_me")
+		auth: if status == .authorizedWhenInUse || status == .authorizedAlways {
+			guard let navigationController = navigationController else {
+				break auth
 			}
-			currentViewController = userItemViewController
-			add(asChildViewController: currentViewController)
+
+			guard let drawerController = navigationController.parent as? KYDrawerController else {
+				break auth;
+			}
+
+			if let drawerViewController = drawerController.drawerViewController as? DrawerViewController {
+				guard let userItemViewController = userItemViewController else {
+					return
+				}
+				drawerViewController.selectControllerWith(id:"main_nav_near_me")
+				currentViewController = userItemViewController
+				add(asChildViewController: currentViewController)
+			}
 
 		} else if status == .notDetermined {
-			appDelegate.manager.requestWhenInUseAuthorization()
+			if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+				appDelegate.manager.requestWhenInUseAuthorization()
+			}
 		} else if status == .denied {
 			// Display some screen that says that we need location
 		} else if status == .restricted {
@@ -55,52 +67,58 @@ class MainScreenViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	public lazy var profileViewController: ProfileViewController = {
+	public lazy var profileViewController: ProfileViewController? = {
 		let storyboard = UIStoryboard(name: "ProfileView", bundle: Bundle.main)
-		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-		
-		if let drawerController = self.navigationController?.parent as? KYDrawerController {
+
+		if let viewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+			return viewController
 		}
-		
-		
-		return viewController
+
+		return nil
 	}()
 	
-	public lazy var userItemViewController: UserListViewController = {
+	public lazy var userItemViewController: UserListViewController? = {
 		
 		let storyboard = UIStoryboard(name: "UserListView", bundle: Bundle.main)
-		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserListViewController") as! UserListViewController
-		
-		return viewController
+
+		if let viewController = storyboard.instantiateViewController(withIdentifier: "UserListViewController") as? UserListViewController {
+			return viewController
+		}
+
+		return nil
 	}()
 	
-	public lazy var matchesViewController: MatchesViewController = {
+	public lazy var matchesViewController: MatchesViewController? = {
 		
 		let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
-		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "MatchesViewController") as! MatchesViewController
-		
-		return viewController
+
+		if let viewController = storyboard.instantiateViewController(withIdentifier: "MatchesViewController") as? MatchesViewController {
+			return viewController
+		}
+
+		return nil
 	}()
 	
-	public lazy var settingsViewController: SettingsViewController = {
+	public lazy var settingsViewController: SettingsViewController? = {
 		
 		let storyboard = UIStoryboard(name: "SettingsView", bundle: Bundle.main)
 		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-		
-		return viewController
+		if let viewController = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController {
+			return viewController
+		}
+
+		return nil
 	}()
 	
-	public lazy var upcomingViewController: UpcomingViewController = {
+	public lazy var upcomingViewController: UpcomingViewController? = {
 		
 		let storyboard = UIStoryboard(name: "UpcomingView", bundle: Bundle.main)
-		
-		var viewController =  storyboard.instantiateViewController(withIdentifier: "UpcomingViewController") as! UpcomingViewController
-		
-		return viewController
+
+		if let viewController = storyboard.instantiateViewController(withIdentifier: "UpcomingViewController") as? UpcomingViewController {
+			return viewController
+		}
+
+		return nil
 	}()
 
 	private func add(asChildViewController viewController: UIViewController) {
@@ -135,6 +153,9 @@ class MainScreenViewController: UIViewController {
 		
 		switch row {
 		case "main_nav_near_me":
+			guard let userItemViewController = userItemViewController else {
+				return
+			}
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: userItemViewController)
 			currentViewController = userItemViewController
@@ -142,12 +163,18 @@ class MainScreenViewController: UIViewController {
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_my_profile":
+			guard let profileViewController = profileViewController else {
+				return
+			}
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: profileViewController)
 			currentViewController = profileViewController
 			self.title = NSLocalizedString("main_title_my_profile", comment: "Title of view in Navigation Bar")
 			break
 		case "main_nav_matches":
+			guard let matchesViewController = matchesViewController else {
+				return
+			}
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: matchesViewController)
 			currentViewController = matchesViewController
@@ -155,6 +182,9 @@ class MainScreenViewController: UIViewController {
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_settings":
+			guard let settingsViewController = settingsViewController else {
+				return
+			}
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: settingsViewController)
 			currentViewController = settingsViewController
@@ -162,6 +192,9 @@ class MainScreenViewController: UIViewController {
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_upcoming":
+			guard let upcomingViewController = upcomingViewController else {
+				return
+			}
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: upcomingViewController)
 			currentViewController = upcomingViewController

@@ -151,7 +151,11 @@ class RegisterViewController: UIViewController {
 			self.btnRegister.isEnabled = false
 			let dateFormatter = DateFormatter()
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-			let datePicker = self.txtDateOfBirth.inputView as! UIDatePicker
+
+			guard let datePicker = self.txtDateOfBirth.inputView as? UIDatePicker else {
+				return
+			}
+
 			let dateString:String? = dateFormatter.string(from: datePicker.date)
 			// Make the actual request using the Siesta Resource.
 			BandUpAPI.sharedInstance.register.request(.post, json: [
@@ -231,8 +235,8 @@ class RegisterViewController: UIViewController {
 	
 	func adjustForKeyboard(notification: Notification) {
 		let userInfo = notification.userInfo!
-		
-		let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+		guard let frameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+		let keyboardScreenEndFrame = frameEnd.cgRectValue
 		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
 		
 		if notification.name == Notification.Name.UIKeyboardWillHide {
