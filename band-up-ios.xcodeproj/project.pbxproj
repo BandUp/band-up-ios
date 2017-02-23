@@ -154,7 +154,6 @@
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F2F0E15B1E5F2F65005BD86F /* band-up-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "band-up-ios.entitlements"; sourceTree = "<group>"; };
 		F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,7 +219,6 @@
 		F217C0451DDFC47100EE16DF /* band-up-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F2F0E15B1E5F2F65005BD86F /* band-up-ios.entitlements */,
 				F217C0461DDFC47100EE16DF /* AppDelegate.swift */,
 				F29B9E841E47688E00BDB645 /* Constants.swift */,
 				F255557F1DDFD52900530C92 /* BandUpAPI.swift */,

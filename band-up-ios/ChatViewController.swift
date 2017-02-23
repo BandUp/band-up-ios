@@ -26,10 +26,10 @@ class ChatViewController: UIViewController {
 		}
 
 		btnSend.isEnabled = false
-		//txtMessage.isEnabled = false
+
 		ChatSocket.sharedInstance.send(message: txtMessage.text!, to: user.id).timingOut(after: 0) { (data) in
 			if data.count > 0 {
-				if (data[0] as! Bool) {
+				if data[0] as! Bool {
 					print("Message sent.")
 				} else {
 					print("Sending message failed on server.")
@@ -74,7 +74,7 @@ class ChatViewController: UIViewController {
 			
 			self.chatHistory.append(msg)
 			self.tableView.reloadData()
-			//self.tableView.insertRows(at: [IndexPath(row:self.chatHistory.count-1, section: 0)], with: .bottom)
+			// self.tableView.insertRows(at: [IndexPath(row:self.chatHistory.count-1, section: 0)], with: .bottom)
 			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
 			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
 
@@ -83,7 +83,7 @@ class ChatViewController: UIViewController {
 			print("Connected. Registering...")
 			ChatSocket.sharedInstance.registerUser().timingOut(after: 0, callback: { (data) in
 				if data.count > 0 {
-					if (data[0] as! Bool) {
+					if data[0] as! Bool {
 						print("Registration Successful")
 					} else {
 						print("Could not register. Username already taken")
@@ -167,6 +167,7 @@ class ChatViewController: UIViewController {
 	func dismissDetails() {
 		dismiss(animated:true, completion:nil)
 	}
+
 }
 
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
@@ -184,12 +185,13 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
 			cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell_me", for: indexPath)
 		}
 
-        let messageCell = (cell.viewWithTag(1) as! UILabel)
+        let messageCell = cell.viewWithTag(1) as! UILabel
 		let messageViewCell = cell.viewWithTag(2)
         messageCell.text = chatHistory[indexPath.row].message
 		messageCell.sizeToFit()
-		//messageCell.clipsToBounds = true
+		// messageCell.clipsToBounds = true
 		messageViewCell?.layer.cornerRadius = 12
         return cell
     }
+	
 }

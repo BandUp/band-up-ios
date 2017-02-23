@@ -12,7 +12,7 @@ struct DefaultsKeys {
 	static let headers = "headers"                // [String:String]
 	static let finishedSetup = "hasFinishedSetup" // Bool
 
-	struct settings {
+	struct Settings {
 		static let usesImperial = "settingsImperial"             // Bool
 		static let shouldNotifyMatches = "settingsNewMatches"    // Bool
 		static let shouldNotifyInactivity = "settingsInactivity" // Bool

@@ -32,12 +32,12 @@ class LoginViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		btnLogin.layer.cornerRadius = 15;
-		btnLoginFacebook.layer.cornerRadius = 2;
-		btnLoginSoundCloud.layer.cornerRadius = 2;
-		btnLoginGoogle.layer.cornerRadius = 2;
+		btnLogin.layer.cornerRadius = 15
+		btnLoginFacebook.layer.cornerRadius = 2
+		btnLoginSoundCloud.layer.cornerRadius = 2
+		btnLoginGoogle.layer.cornerRadius = 2
 		
-		let color = UIColor (colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5);
+		let color = UIColor (colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
 		
 		let attributesDictionary = [NSForegroundColorAttributeName: color]
 
@@ -86,19 +86,19 @@ class LoginViewController: UIViewController {
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		// Disable the button while making the request
 		// so that no more than one request can be made
-		btnLogin.isEnabled = false;
+		btnLogin.isEnabled = false
 		
 		// Make the actual request using the Siesta Resource.
 		BandUpAPI.sharedInstance.login.request(.post, json: ["username":txtEmail.text, "password":txtPassword.text])
 			.onSuccess { (data) in
 				// Hide the network activity indicator in the status bar.
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				self.btnLogin.isEnabled = true;
+				self.btnLogin.isEnabled = true
 				
 				let hasFinishedSetup = data.jsonDict["hasFinishedSetup"] as? Bool
 				
 				// Check if the boolean actually was in the response.
-				if (hasFinishedSetup != nil) {
+				if hasFinishedSetup != nil {
 					// If it is in the response,
 					// unwrap it and check.
 					if (hasFinishedSetup ?? false)! {
@@ -113,17 +113,19 @@ class LoginViewController: UIViewController {
 			}.onFailure { (error) in
 				// Hide the network activity indicator in the status bar.
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				self.btnLogin.isEnabled = true;
-				if (error.httpStatusCode == 401) {
+				self.btnLogin.isEnabled = true
+				if error.httpStatusCode == 401 {
 					print("Wrong email or password")
 				} else {
 					print(error.httpStatusCode ?? 0)
 				}
 		}
 	}
+
 }
 
 extension LoginViewController: UITextFieldDelegate {
+
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if textField == txtPassword {
 			textField.resignFirstResponder()
@@ -132,5 +134,5 @@ extension LoginViewController: UITextFieldDelegate {
 		}
 		return true
 	}
-}
 
+}

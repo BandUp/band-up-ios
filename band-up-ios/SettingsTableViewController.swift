@@ -13,16 +13,16 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var schImperial: UISwitch!
 
 	@IBAction func imperialChanged(_ sender: UISwitch) {
-		UserDefaults.standard.set(sender.isOn, forKey: DefaultsKeys.settings.usesImperial)
+		UserDefaults.standard.set(sender.isOn, forKey: DefaultsKeys.Settings.usesImperial)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		if UserDefaults.standard.object(forKey: DefaultsKeys.settings.usesImperial) == nil {
-			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.settings.usesImperial)
+		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.usesImperial) == nil {
+			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.Settings.usesImperial)
 		}
 
-		let usesImperial = UserDefaults.standard.bool(forKey: DefaultsKeys.settings.usesImperial)
+		let usesImperial = UserDefaults.standard.bool(forKey: DefaultsKeys.Settings.usesImperial)
 		schImperial.isOn = usesImperial
 	}
 	
@@ -50,4 +50,5 @@ class SettingsTableViewController: UITableViewController {
 		cell.selectedBackgroundView = colorView
 		return cell
 	}
+	
 }

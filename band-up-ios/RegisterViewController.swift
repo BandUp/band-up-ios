@@ -50,14 +50,17 @@ class RegisterViewController: UIViewController {
 		lblEmail.isHidden = sender.text == ""
 		lblEmailError.isHidden = true
 	}
+
 	@IBAction func nameChanged(_ sender: UITextField) {
 		lblName.isHidden = sender.text == ""
 		lblNameError.isHidden = true
 	}
+
 	@IBAction func password1Changed(_ sender: UITextField) {
 		lblPassword1.isHidden = sender.text == ""
 		lblPassword1Error.isHidden = true
 	}
+
 	@IBAction func password2Changed(_ sender: UITextField) {
 		lblPassword2.isHidden = sender.text == ""
 		lblPassword2Error.isHidden = true
@@ -65,44 +68,47 @@ class RegisterViewController: UIViewController {
 	
 	// MARK: Editing Ended
 	@IBAction func emailEditEnded(_ sender: UITextField) {
-		if (sender.text == "") {
+		if sender.text == "" {
 			lblEmailError.text = "You must fill in your email address"
 			lblEmailError.isHidden = false
 			return
 		}
 		
-		if (validateEmail(candidate: sender.text!)) {
+		if validateEmail(candidate: sender.text!) {
 			lblEmailError.isHidden = true
 		} else {
 			lblEmailError.text = "This email address is not in the correct format"
 			lblEmailError.isHidden = false
 		}
 	}
+
 	@IBAction func nameEditEnded(_ sender: UITextField) {
-		if (sender.text == "") {
+		if sender.text == "" {
 			lblNameError.text = "You must fill in your name"
 			lblNameError.isHidden = false
 		}
 	}
+
 	@IBAction func password1EditEnded(_ sender: UITextField) {
-		if (sender.text == "") {
+		if sender.text == "" {
 			lblPassword1Error.text = "You must fill in a password"
 			lblPassword1Error.isHidden = false
-		} else if ((sender.text?.characters.count)! < 6) {
+		} else if (sender.text?.characters.count)! < 6 {
 			lblPassword1Error.text = "Your password must be at least 6 characters long"
 			lblPassword1Error.isHidden = false
 		}
 		
 		
 	}
+
 	@IBAction func password2EditEnded(_ sender: UITextField) {
-		if (sender.text == "") {
+		if sender.text == "" {
 			lblPassword2Error.text = "You must fill in your password again"
 			lblPassword2Error.isHidden = false
 			return
 		}
 		
-		if (txtPassword1.text != txtPassword2.text) {
+		if txtPassword1.text != txtPassword2.text {
 			lblPassword2Error.text = "Passwords do not match"
 			lblPassword2Error.isHidden = false
 		} else {
@@ -111,36 +117,35 @@ class RegisterViewController: UIViewController {
 	}
 		
 	@IBAction func didTapRegister(_ sender: UIButton) {
-		
-		if (txtEmail.text == "") {
+		if txtEmail.text == "" {
 			lblEmailError.text = "You must fill in your email address"
 			lblEmailError.isHidden = false
 			txtEmail.becomeFirstResponder()
-		} else if (txtName.text == "") {
+		} else if txtName.text == "" {
 			lblNameError.text = "You must fill in your name"
 			lblNameError.isHidden = false
 			txtName.becomeFirstResponder()
-		} else if (txtPassword1.text == "") {
+		} else if txtPassword1.text == "" {
 			lblPassword1Error.text = "You must fill in a password"
 			lblPassword1Error.isHidden = false
 			txtPassword1.becomeFirstResponder()
-		} else if (txtPassword2.text == "") {
+		} else if txtPassword2.text == "" {
 			lblPassword2Error.text = "You must fill in your password again"
 			lblPassword2Error.isHidden = false
 			txtPassword2.becomeFirstResponder()
-		} else if (txtPassword1.text == "" && txtPassword2.text == "") {
+		} else if txtPassword1.text == "" && txtPassword2.text == "" {
 			lblPassword2Error.text = "Please fill in your password again"
 			lblPassword2Error.isHidden = false
 			txtPassword2.becomeFirstResponder()
-		} else if (txtPassword1.text != txtPassword2.text) {
+		} else if txtPassword1.text != txtPassword2.text {
 			lblPassword1Error.text = "Passwords don't match!"
 			lblPassword1Error.isHidden = false
 			txtPassword1.becomeFirstResponder()
-		} else if (txtDateOfBirth.text == "") {
+		} else if txtDateOfBirth.text == "" {
 			lblDateOfBirthError.text = "You must fill in your date of birth"
 			lblDateOfBirthError.isHidden = false
 			txtDateOfBirth.becomeFirstResponder()
-		} else if (!formIsClean()) {
+		} else if !formIsClean() {
 			print("Please fix the remaining errors")
 		} else {
 			self.btnRegister.isEnabled = false
@@ -164,7 +169,7 @@ class RegisterViewController: UIViewController {
 				}.onFailure { (error) in
 					// Hide the network activity indicator in the status bar.
 					UIApplication.shared.isNetworkActivityIndicatorVisible = false
-					self.btnRegister.isEnabled = true;
+					self.btnRegister.isEnabled = true
 			}
 		}
 	}
@@ -182,13 +187,13 @@ class RegisterViewController: UIViewController {
 		datePicker.datePickerMode = .date
 		self.txtDateOfBirth.inputView = datePicker
 		
-		datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MIN_AGE), to: Date())
-		datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MAX_AGE), to: Date())
+		datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.minAge), to: Date())
+		datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.maxAge), to: Date())
 		datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: datePicker.minimumDate!)
 		
 		datePicker.addTarget(self, action: #selector(dateChanged), for: UIControlEvents.valueChanged)
 		
-		let color = UIColor (colorLiteralRed: 1.0, green: 211/255.0, blue: 2/255.0, alpha: 0.5);
+		let color = UIColor (colorLiteralRed: 1.0, green: 211/255.0, blue: 2/255.0, alpha: 0.5)
 		
 		let attributesDictionary = [NSForegroundColorAttributeName: color]
 		

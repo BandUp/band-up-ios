@@ -15,9 +15,9 @@ class Constants {
 	// http://192.168.1.5:3000
 	// http://192.168.1.14:3000
 	
-	static var BAND_UP_ADDRESS = URL(string: "https://band-up-server.herokuapp.com")
-	static var MAX_AGE = 99
-	static var MIN_AGE = 13
+	static var bandUpAddress = URL(string: "https://band-up-server.herokuapp.com")
+	static var maxAge = 99
+	static var minAge = 13
 	
 	static var setupInstruments : SetupViewObject = {
 		let setupObjectInstruments = SetupViewObject(setupResource: BandUpAPI.sharedInstance.instruments)

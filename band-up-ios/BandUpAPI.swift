@@ -17,23 +17,23 @@ class BandUpAPI: Service {
 	static let hasFinishedSetup = "hasFinishedSetup"
 	
 	init() {
-		super.init(baseURL: Constants.BAND_UP_ADDRESS)
+		super.init(baseURL: Constants.bandUpAddress)
 		
 		// Put the header onto every request.
-		configure() {
+		configure {
 			let uDef = UserDefaults.standard
 			guard let storedHeaders = uDef.dictionary(forKey: DefaultsKeys.headers) else {
 				return
 			}
 
 			if $0.headers[BandUpAPI.cookieKey] == nil {
-				$0.headers[BandUpAPI.cookieKey] = (storedHeaders as! [String:String])[BandUpAPI.cookieKey]
+				$0.headers[BandUpAPI.cookieKey] = (storedHeaders as! [String: String])[BandUpAPI.cookieKey]
 			}
 		}
 		
 		// Get the header of a response and save it.
 		// Also save the hasFinishedSetup variable if it is in the payload.
-		configure() {
+		configure {
 			$0.decorateRequests { _, req in
 				req.onSuccess({ (response) in
 					if response.headers[BandUpAPI.setCookieKey] != nil {
@@ -74,11 +74,12 @@ class BandUpAPI: Service {
     var chatHistory: Resource { return resource("/chat_history") }
 	var editProfile: Resource { return resource("/edit-user") }
 	
-	private func getCookie () -> [String:String] {
+	private func getCookie() -> [String:String] {
 		if let setCookie = self.headers[BandUpAPI.setCookieKey] {
 			return [BandUpAPI.cookieKey : setCookie]
 		} else {
 			return [:]
 		}
 	}
+	
 }

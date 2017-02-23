@@ -9,6 +9,7 @@
 import UIKit
 
 class UIBigButton: UIButton {
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
@@ -20,4 +21,5 @@ class UIBigButton: UIButton {
 		self.titleLabel?.textAlignment = .center
 		self.layer.cornerRadius = 15
 	}
+
 }

@@ -27,7 +27,7 @@ class EditProfileViewController: UIViewController {
 		tableViewController.lblFavInstrument.text = user.favouriteInstrument
 		tableViewController.txtName.textColor = UIColor.lightGray
 		
-		if (user.aboutme == "") {
+		if user.aboutme == "" {
 			tableViewController.txtAboutMe.text = NSLocalizedString("edit_profile_influences", comment: "About Me Placeholder")
 			tableViewController.txtAboutMe.textColor = UIColor.lightGray
 		} else {
@@ -48,7 +48,6 @@ class EditProfileViewController: UIViewController {
 					instruString += ", "
 				}
 			}
-			//tableViewController.lblInstruments.text = instruString
 		}
 		
 		
@@ -97,7 +96,7 @@ class EditProfileViewController: UIViewController {
 		user.aboutme = tableViewController.txtAboutMe.text
 		
 
-		BandUpAPI.sharedInstance.editProfile.request(.post,  json: updatedUser).onSuccess { (response) in
+		BandUpAPI.sharedInstance.editProfile.request(.post, json: updatedUser).onSuccess { (response) in
 			self.tableViewController.txtName.resignFirstResponder()
 			self.tableViewController.txtAboutMe.resignFirstResponder()
 			if let del = self.delegate {
@@ -120,4 +119,5 @@ class EditProfileViewController: UIViewController {
 		}
 		self.dismiss(animated: true, completion: nil)
 	}
+	
 }

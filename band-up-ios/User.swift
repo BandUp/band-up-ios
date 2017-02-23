@@ -163,7 +163,7 @@ class User: CustomStringConvertible {
 		if self.distance == 0.0 {
 			return NSLocalizedString("no_distance_available", comment: "")
 		} else {
-			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.settings.usesImperial)
+			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.Settings.usesImperial)
 			let distanceType = NSLocalizedString("km_distance", comment: "")
 			let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
 			let distance = location.distance(from: userLocation)
@@ -176,10 +176,10 @@ class User: CustomStringConvertible {
 		
 		var bla = [String:String]()
 		
-		bla["ID"] = id;
-		bla["Name"] = username;
-		bla["About Me"] = aboutme;
-		bla["Image"] = image.description;
+		bla["ID"] = id
+		bla["Name"] = username
+		bla["About Me"] = aboutme
+		bla["Image"] = image.description
 		
 		var desc = "\(User.self)\n"
 		
@@ -187,10 +187,6 @@ class User: CustomStringConvertible {
 			desc += String(format: "%25s: %s\n", (key as NSString).utf8String!, (value as NSString).utf8String!)
 		}
 		
-		return desc;
+		return desc
 	}
 }
-
-
-
-

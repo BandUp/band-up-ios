@@ -340,8 +340,8 @@ class EditProfileTableViewController: UITableViewController {
 			}, origin: tableView.cellForRow(at: indexPath)?.superview!.superview
 		)
 		
-		datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MIN_AGE), to: Date())
-		datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.MAX_AGE), to: Date())
+		datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: -(Constants.minAge), to: Date())
+		datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value: -(Constants.maxAge), to: Date())
 		datePicker?.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: (datePicker?.minimumDate!)!)
 		datePicker?.show()
 	}

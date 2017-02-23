@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var locationTimer = Timer()
 
+	var launchedShortcutItem: UIApplicationShortcutItem?
+
+	var lastKnownLocation: CLLocation?
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		// var shouldPerformAdditionalDelegateHandling = true
@@ -42,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// set up your background color view
 		let colorView = UIView()
 		colorView.backgroundColor = UIColor.darkGray
-		
+
 		// use UITableViewCell.appearance() to configure
 		// the default appearance of all UITableViewCells in your app
 		// UITableViewCell.
@@ -95,7 +99,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		ChatSocket.sharedInstance.closeConnection()
 	}
 
-	var launchedShortcutItem: UIApplicationShortcutItem?
+	/*
+	Called when the user activates your application by selecting a shortcut on the home screen, except when
+	application(_:,willFinishLaunchingWithOptions:) or application(_:didFinishLaunchingWithOptions) returns `false`.
+	You should handle the shortcut in those callbacks and return `false` if possible. In that case, this
+	callback is used if your application is already launched in the background.
+	*/
+	func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+		let handledShortCutItem = handleShortCutItem(shortcutItem: shortcutItem)
+
+		completionHandler(handledShortCutItem)
+	}
 
 	func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
 		var handled = false
@@ -104,11 +118,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		guard let shortCutType = shortcutItem.type as String? else { return false }
 
-		switch (shortCutType) {
+		switch shortCutType {
 		case "com.melodies.bandup.profile":
 			// Handle shortcut 1 (static).
 			if window?.rootViewController is KYDrawerController {
-				let drawcont = (window?.rootViewController as! KYDrawerController)
+				let drawcont = window?.rootViewController as! KYDrawerController
 				let nav = drawcont.mainViewController as! UINavigationController
 				let cont = nav.viewControllers.first as! MainScreenViewController
 
@@ -120,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		case "com.melodies.bandup.matches":
 			// Handle shortcut 1 (static).
 			if window?.rootViewController is KYDrawerController {
-				let drawcont = (window?.rootViewController as! KYDrawerController)
+				let drawcont = window?.rootViewController as! KYDrawerController
 				let nav = drawcont.mainViewController as! UINavigationController
 				let cont = nav.topViewController as! MainScreenViewController
 
@@ -135,47 +149,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return handled
 	}
 
-	/*
-	Called when the user activates your application by selecting a shortcut on the home screen, except when
-	application(_:,willFinishLaunchingWithOptions:) or application(_:didFinishLaunchingWithOptions) returns `false`.
-	You should handle the shortcut in those callbacks and return `false` if possible. In that case, this
-	callback is used if your application is already launched in the background.
-	*/
-	func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-		let handledShortCutItem = handleShortCutItem(shortcutItem: shortcutItem)
-
-		completionHandler(handledShortCutItem)
-	}
-
 	func showLoginScreen() {
 		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
 		(UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = vc
 
 	}
-	var lastKnownLocation : CLLocation?
+	
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
+
 	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		if status == .authorizedWhenInUse {
 			manager.delegate = self
 		}
 	}
+
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if locations.count > 0 {
 			if locations[0].horizontalAccuracy < .abs(1000) {
 				// TODO: Check if the coordinates have a newer timestamp.
 				lastKnownLocation = locations[0]
-				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil,  userInfo: ["locations": locations])
+				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
 
 			}
 		}
-		
 	}
 
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		//print(error)
-	}
-}
 
+	}
+
+}

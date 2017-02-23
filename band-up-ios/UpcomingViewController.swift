@@ -10,6 +10,7 @@ import UIKit
 
 class UpcomingViewController: UIViewController {
 	var upcomingFeatures = [String]()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		upcomingFeatures.append(NSLocalizedString("upcoming_share_users", comment: "List item in the Upcoming Features List"))
@@ -33,9 +34,12 @@ extension UpcomingViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "upcoming_feature_cell", for: indexPath)
-		let label = cell.viewWithTag(1) as! UILabel
-		label.text = upcomingFeatures[indexPath.row]
-		
+		if let label = cell.viewWithTag(1) as? UILabel {
+			label.text = upcomingFeatures[indexPath.row]
+		} else {
+			print("Could not load label.")
+		}
+
 		return cell
 	}
 	
@@ -46,4 +50,5 @@ extension UpcomingViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
 	}
+	
 }

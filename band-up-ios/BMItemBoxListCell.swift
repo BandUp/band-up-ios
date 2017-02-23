@@ -9,42 +9,42 @@
 import UIKit
 
 class BMItemBoxListCell: UICollectionViewCell {
-	
+
 	var fontSize: CGFloat = 11.0
 	var textColor: UIColor?
 	var fontType = "System"
 	var cornerRadius: CGFloat = 3.0
-	
+
 	var title = "" {
 		didSet {
 			update(label: boxText!, with: title)
 		}
 	}
-	
+
 	weak var boxText: UILabel?
-	
+
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		title = ""
 	}
-	
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		setup()
 	}
-	
+
 	func setup() {
 		let titleLabel = UILabel(frame: bounds)
 		boxText = titleLabel
 		update(label: titleLabel, with: "")
 		contentView.addSubview(titleLabel)
 	}
-	
+
 	func update(label: UILabel, with text: String) {
 		label.text = text
 		label.font = UIFont(name: fontType, size: fontSize)
@@ -53,10 +53,11 @@ class BMItemBoxListCell: UICollectionViewCell {
 
 		label.textAlignment = .center
 	}
-	
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		boxText?.frame = bounds
 		contentView.layer.cornerRadius = cornerRadius
 	}
+
 }

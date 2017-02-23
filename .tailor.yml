@@ -1,2 +1,5 @@
 exclude:
     - Pods       # Ignore Swift files under "Source/Pods/"
+except:
+    - trailing-whitespace
+    - colon-whitespace

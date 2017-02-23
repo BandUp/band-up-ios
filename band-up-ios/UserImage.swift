@@ -29,8 +29,8 @@ class UserImage: CustomStringConvertible {
 	var description: String {
 		var bla = [String:String]()
 		
-		bla["URL"] = url;
-		bla["Public ID"] = publicId;
+		bla["URL"] = url
+		bla["Public ID"] = publicId
 		
 		var desc = "\(UserImage.self)\n"
 		
@@ -38,7 +38,7 @@ class UserImage: CustomStringConvertible {
 			desc += String(format: "%25s: %s\n", (key as NSString).utf8String!, (value as NSString).utf8String!)
 		}
 		
-		return desc;
+		return desc
 	}
 	
 }

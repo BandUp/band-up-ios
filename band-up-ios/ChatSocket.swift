@@ -15,7 +15,7 @@ class ChatSocket: NSObject {
         super.init()
     }
 	
-    var socket: SocketIOClient = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!)
+    var socket: SocketIOClient = SocketIOClient(socketURL: Constants.bandUpAddress!)
 
     func establishConnection() {
 		print("Connecting...")
@@ -28,7 +28,18 @@ class ChatSocket: NSObject {
     }
 	
 	func startSocket() {
-		socket = SocketIOClient(socketURL: Constants.BAND_UP_ADDRESS!, config: [.log(false), .forcePolling(true), .extraHeaders(UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as! [String:String])])
+		let configuration: SocketIOClientConfiguration
+
+		if let headers = UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as? [String:String] {
+			configuration = [.log(false),
+			                 .forcePolling(true),
+			                 .extraHeaders(headers)]
+		} else {
+			configuration = [.log(false),
+			                 .forcePolling(true)]
+		}
+
+		socket = SocketIOClient(socketURL: Constants.bandUpAddress!, config: configuration)
 	}
 	
 	func registerUser() -> OnAckCallback {
@@ -42,4 +53,5 @@ class ChatSocket: NSObject {
 		dict["nick"] = userId
 		return socket.emitWithAck("privatemsg", dict as SocketData)
 	}
+	
 }

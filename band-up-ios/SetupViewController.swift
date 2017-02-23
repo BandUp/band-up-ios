@@ -28,7 +28,7 @@ class SetupViewController: UIViewController {
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	// MARK: - Objects and Constants
-	var ITEM_NAME_TAG = 1;
+	var itemNameTag = 1
 	var setupViewObject: [SetupViewObject]? = nil
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
@@ -47,24 +47,24 @@ class SetupViewController: UIViewController {
 				
 				// If it isn't a dictionary, then skip it.
 				// Something is broken.
-				if (itemDict == nil) {
+				if itemDict == nil {
 					continue
 				}
 				
 				// Now we are sure we have a dictionary
 				// Unwrap it and get the strings.
-				let _id   = itemDict!["_id"] as? String
-				let _name = itemDict!["name"] as? String
+				let id   = itemDict!["_id"] as? String
+				let name = itemDict!["name"] as? String
 				
 				// If we don't find data, don't add it.
-				if (_id == nil || _name == nil) {
+				if id == nil || name == nil {
 					continue
 				}
 				// All is well.
 				// Create a new object and unwrap the data into it.
-				let setupItem = SetupItem(id: _id!, name: _name!)
+				let setupItem = SetupItem(id: id!, name: name!)
 				
-				if (self.setupViewObject?.first?.selected.contains(_name!))! {
+				if (self.setupViewObject?.first?.selected.contains(name!))! {
 					setupItem.isSelected = true
 				}
 				
@@ -73,7 +73,7 @@ class SetupViewController: UIViewController {
 			// And finally display the data
 			// in the collection view
 			self.collectionView.reloadData()
-			if (self.setupItemArray.count == 0) {
+			if self.setupItemArray.count == 0 {
 				self.displayErrorMessage(message: "Could not fetch information")
 			}
 		}).onFailure({ (error) in
@@ -116,12 +116,12 @@ class SetupViewController: UIViewController {
 	@IBAction func onClickDone(_ sender: Any) {
 		var idArr = [String]()
 		for item in setupItemArray {
-			if (item.isSelected) {
+			if item.isSelected {
 				idArr.append(item.id)
 			}
 		}
 		
-		if (idArr.count == 0) {
+		if idArr.count == 0 {
 			NSLog("You need to select at least one!")
 		} else {
 			
@@ -133,7 +133,7 @@ class SetupViewController: UIViewController {
 			})
 			
 			
-			if (setupViewObject?.first?.setupViewCount != setupViewObject?.first?.setupViewIndex) {
+			if setupViewObject?.first?.setupViewCount != setupViewObject?.first?.setupViewIndex {
 				// Setup has not been finished. Continue
 
 				let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as! SetupViewController
@@ -147,7 +147,7 @@ class SetupViewController: UIViewController {
 						if let del = self.delegate {
 							var nameArr = [String]()
 							for item in self.setupItemArray {
-								if (item.isSelected) {
+								if item.isSelected {
 									nameArr.append(item.name)
 								}
 							}
@@ -171,10 +171,12 @@ class SetupViewController: UIViewController {
 		self.lblErrorLabel.text = message
 		self.lblErrorLabel.isHidden = false
 	}
+
 }
 
 // MARK: - Extensions
 extension SetupViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return setupItemArray.count
 	}
@@ -184,13 +186,13 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
 		
-		let lblItemName = cell.viewWithTag(ITEM_NAME_TAG) as! UILabel;
+		let lblItemName = cell.viewWithTag(itemNameTag) as! UILabel
 		
 		lblItemName.text = setupItem.name
 		
 		cell.layer.borderColor = UIColor.bandUpYellow.cgColor
 		
-		if (setupItem.isSelected) {
+		if setupItem.isSelected {
 			cell.layer.borderWidth = 5
 		} else {
 			cell.layer.borderWidth = 0
@@ -214,7 +216,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		
 		collectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.bandUpYellow.cgColor
 		
-		if (setupItemArray[indexPath.row].isSelected) {
+		if setupItemArray[indexPath.row].isSelected {
 			let anim = CABasicAnimation(keyPath: "borderWidth")
 			anim.fromValue = 5
 			anim.toValue = 0
@@ -235,6 +237,7 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		}
 		
 	}
+
 }
 
 // MARK: - Helper Classes
