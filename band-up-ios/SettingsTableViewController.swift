@@ -116,7 +116,29 @@ class SettingsTableViewController: UITableViewController {
 		cell.selectedBackgroundView = colorView
 		return cell
 	}
-	
+
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let storyboard = UIStoryboard(name: "SettingsView", bundle: Bundle.main)
+
+		switch indexPath.section {
+			case 4:
+				switch indexPath.row {
+					case 0:
+						let privacyVC = storyboard.instantiateViewController(withIdentifier: "PrivacyViewController")
+						navigationController?.pushViewController(privacyVC, animated: true)
+						break
+					case 1:
+						let openSourceVC = storyboard.instantiateViewController(withIdentifier: "OpenSourceTableViewController")
+						navigationController?.pushViewController(openSourceVC, animated: true)
+						break
+					default:
+						break
+				}
+			default:
+				break
+		}
+	}
+
 }
 
 extension UIImage {

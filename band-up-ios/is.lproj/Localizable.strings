@@ -185,5 +185,5 @@
 "settings_radius" = "Radíus: %@";
 "settings_distance_mi" = "mílur";
 "settings_distance_km" = "km";
-
+"settings_open_source" = "Opinn hugbúnaður"; 
 "main_title_user_details" = "Nánari upplýsingar";

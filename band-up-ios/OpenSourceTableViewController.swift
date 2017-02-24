@@ -10,7 +10,10 @@ import UIKit
 
 class OpenSourceTableViewController: UITableViewController {
 
-
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		title = NSLocalizedString("settings_open_source", comment: "")
+	}
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
 	}
@@ -34,5 +37,9 @@ class OpenSourceTableViewController: UITableViewController {
 			UIApplication.shared.openURL(NSURL(string: "https://github.com/vadymmarkov/MARKRangeSlider")! as URL)
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
+	}
+
+	override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+		(view as! UITableViewHeaderFooterView).tintColor = UIColor.bandUpYellow
 	}
 }

@@ -61,6 +61,7 @@
 		F2DCB2E61E4E9C1E006832F6 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
 		F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */; };
+		F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1661E608792005BD86F /* PrivacyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,7 @@
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewController.swift; sourceTree = "<group>"; };
+		F2F0E1661E608792005BD86F /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -330,8 +332,9 @@
 				F2AB06101E0616B30039C761 /* MatchesViewController.swift */,
 				2006897B1E44F3C200EAD907 /* ChatViewController.swift */,
 				F2AB06121E0616C10039C761 /* SettingsViewController.swift */,
-				F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */,
 				F24E08171E4D1B1F00C45A76 /* SettingsTableViewController.swift */,
+				F2F0E1661E608792005BD86F /* PrivacyViewController.swift */,
+				F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
 			);
 			name = Controllers;
@@ -594,6 +597,7 @@
 				F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
+				F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */,
 				F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */,
