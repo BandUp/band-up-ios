@@ -29,7 +29,6 @@
 		F24E07F21E4CE99C00C45A76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */; };
 		F24E08181E4D1B1F00C45A76 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E08171E4D1B1F00C45A76 /* SettingsTableViewController.swift */; };
 		F24E081D1E4D231C00C45A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F24E081F1E4D231C00C45A76 /* InfoPlist.strings */; };
-		F2508B0D1E53EDFA009EF48B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */; };
 		F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */; };
 		F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255557F1DDFD52900530C92 /* BandUpAPI.swift */; };
 		F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270511A1E4C01DE00E2974C /* UserImage.swift */; };
@@ -61,6 +60,7 @@
 		F2DCB2E41E4E99FE006832F6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */; };
 		F2DCB2E61E4E9C1E006832F6 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
+		F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +116,6 @@
 		F24E081A1E4D1E0A00C45A76 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/UpcomingView.strings; sourceTree = "<group>"; };
 		F24E081E1E4D231C00C45A76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F24E08221E4D245300C45A76 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Setup.strings; sourceTree = "<group>"; };
-		F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F252C9591E44FE9A002B2E2B /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		F255557F1DDFD52900530C92 /* BandUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandUpAPI.swift; sourceTree = "<group>"; };
 		F270511A1E4C01DE00E2974C /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewController.swift; sourceTree = "<group>"; };
 		F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,7 +196,6 @@
 		F217C03A1DDFC47100EE16DF = {
 			isa = PBXGroup;
 			children = (
-				F2508B0C1E53EDFA009EF48B /* Default-568h@2x.png */,
 				F217C0451DDFC47100EE16DF /* band-up-ios */,
 				F277C2751E560D8C008AF036 /* band-up-iosTests */,
 				F277C2861E561F41008AF036 /* band-up-iosUITests */,
@@ -331,6 +330,7 @@
 				F2AB06101E0616B30039C761 /* MatchesViewController.swift */,
 				2006897B1E44F3C200EAD907 /* ChatViewController.swift */,
 				F2AB06121E0616C10039C761 /* SettingsViewController.swift */,
+				F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */,
 				F24E08171E4D1B1F00C45A76 /* SettingsTableViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
 			);
@@ -490,7 +490,6 @@
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
-				F2508B0D1E53EDFA009EF48B /* Default-568h@2x.png in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
@@ -592,6 +591,7 @@
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
+				F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,

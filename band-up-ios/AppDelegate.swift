@@ -182,9 +182,21 @@ extension AppDelegate: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if locations.count > 0 {
 			if locations[0].horizontalAccuracy < .abs(1000) {
-				// TODO: Check if the coordinates have a newer timestamp.
-				lastKnownLocation = locations[0]
-				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
+				if let lastKnownLocation = lastKnownLocation {
+					for location in locations {
+						if lastKnownLocation.timestamp < location.timestamp {
+							self.lastKnownLocation = location
+							NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": [lastKnownLocation]])
+
+						}
+					}
+				} else {
+					lastKnownLocation = locations[0]
+					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
+
+				}
+
+
 
 			}
 		}

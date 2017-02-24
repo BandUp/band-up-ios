@@ -149,25 +149,46 @@ class User: CustomStringConvertible {
 
 	func getDistanceString() -> String {
 		// Temporary
-		if self.distance == 0.0 {
+		if !self.location.valid {
 			return NSLocalizedString("no_distance_available", comment: "")
 		} else {
-			let distanceType = NSLocalizedString("km_distance", comment: "")
-			return "\(Int(round(self.distance))) \(distanceType)"
+			return getDistanceString(distance: self.distance)
 		}
 	}
 
 
 	func getDistanceString(between location:CLLocation) -> String {
 		// Temporary
-		if self.distance == 0.0 {
+
+		if self.location.valid {
 			return NSLocalizedString("no_distance_available", comment: "")
 		} else {
-			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.Settings.usesImperial)
-			let distanceType = NSLocalizedString("km_distance", comment: "")
 			let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
 			let distance = location.distance(from: userLocation)
-			return "\(Int(round(distance / 1000.0))) \(distanceType)"
+			return getDistanceString(distance: distance)
+		}
+	}
+
+
+	private func getDistanceString(distance:Double) -> String {
+		var shouldUseMetric = true
+		let defObj = UserDefaults.standard.object(forKey: DefaultsKeys.Settings.usesImperial)
+		if defObj == nil {
+			shouldUseMetric = Locale.current.usesMetricSystem
+		} else {
+			if let defObj = defObj as? Bool {
+				shouldUseMetric = !defObj
+			}
+		}
+
+		if shouldUseMetric {
+			let localizedString = NSLocalizedString("km_distance", comment: "")
+			let distanceString = "\(Int(round(distance))) \(localizedString)"
+			return distanceString
+		} else {
+			let localizedString = NSLocalizedString("mi_distance", comment: "")
+			let distanceString = "\(Int(round(distance*0.621371192))) \(localizedString)"
+			return distanceString
 		}
 	}
 	

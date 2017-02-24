@@ -180,5 +180,9 @@
 "profile_choose_photo" = "Choose a photo";
 "main_title_user_details" = "Details";
 
+"settings_radius" = "Radius: %@";
+"settings_distance_mi" = "miles";
+"settings_distance_km" = "km";
+
 "navigation_drawer_open" = "Open navigation drawer";
 "navigation_drawer_close" = "Close navigation drawer";

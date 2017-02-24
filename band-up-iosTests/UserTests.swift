@@ -30,6 +30,7 @@ class UserInitTests: XCTestCase {
 		userDictionary["soundCloudSongName"] = "SCSongName"
 		userDictionary["soundcloudurl"] = "SCURL"
 		userDictionary["status"] = "MyStatus"
+
 	}
 
 	override func tearDown() {
@@ -89,25 +90,47 @@ class UserInitTests: XCTestCase {
 		XCTAssert(user.status == "")
 	}
 
-	func testDistanceStringNoLocation() {
-		user = User(userDictionary as NSDictionary)
-		let combinedString = "14 " + NSLocalizedString("km_distance", comment: "")
-		XCTAssertEqual(user.getDistanceString(), combinedString)
-	}
-
-	func testDistanceStringNoLocation2() {
-		user = User(userDictionary as NSDictionary)
-
-		let combinedString = "0 " + NSLocalizedString("km_distance", comment: "")
-
-		XCTAssertEqual(user.getDistanceString(between: CLLocation()), combinedString)
-	}
-
 	func testUserParsing() {
 		// This is an example of a performance test case.
 		self.measure {
 			self.user = User(self.userDictionary as NSDictionary)
 		}
+	}
+
+	func testDistanceStringInvalidLocation() {
+		// Arrange
+		var userLocationDictionary: Dictionary<String, Any> = [:]
+		userLocationDictionary["lat"] = 64.0
+		userLocationDictionary["lon"] = -21.0
+		userLocationDictionary["valid"] = false
+
+		userDictionary["location"] = userLocationDictionary
+
+		user = User(userDictionary as NSDictionary)
+
+		// Act
+		let expectedString = NSLocalizedString("no_distance_available", comment: "")
+
+		// Assert
+		XCTAssertEqual(user.getDistanceString(), expectedString)
+	}
+
+	func testDistanceStringValidLocation() {
+		// Arrange
+		var userLocationDictionary: Dictionary<String, Any> = [:]
+		userLocationDictionary["lat"] = 64.0
+		userLocationDictionary["lon"] = -21.0
+		userLocationDictionary["valid"] = true
+
+		userDictionary["location"] = userLocationDictionary
+
+		user = User(userDictionary as NSDictionary)
+
+		// Act
+		let expectedString = NSLocalizedString("km_distance", comment: "")
+
+		// Assert
+		XCTAssertEqual(user.getDistanceString(), expectedString)
 	}
 
 }

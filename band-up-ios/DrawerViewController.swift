@@ -35,6 +35,7 @@ class DrawerViewController: UIViewController {
 
 		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
 		mainController.updateView(row: "main_nav_my_profile")
+		drawer.setDrawerState(.closed, animated: true)
 	}
 
 	override func viewDidLoad() {

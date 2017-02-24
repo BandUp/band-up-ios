@@ -182,4 +182,8 @@
 "chat_view_profile" = "Skoða prófíl";
 "edit_profile_fav_instrument" = "Veldu hljóðfæri";
 
+"settings_radius" = "Radíus: %@";
+"settings_distance_mi" = "mílur";
+"settings_distance_km" = "km";
+
 "main_title_user_details" = "Nánari upplýsingar";
