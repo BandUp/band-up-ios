@@ -9,4 +9,6 @@ target 'band-up-ios' do
     pod 'ActionSheetPicker-3.0', '~> 2.2.0'
     pod 'UICollectionViewLeftAlignedLayout'
     pod 'MARKRangeSlider'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
 end

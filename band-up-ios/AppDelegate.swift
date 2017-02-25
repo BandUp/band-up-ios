@@ -9,6 +9,8 @@
 import UIKit
 import KYDrawerController
 import CoreLocation
+import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		// var shouldPerformAdditionalDelegateHandling = true
+		FIRApp.configure()
+
+		if #available(iOS 10.0, *) {
+			UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+				// Enable or disable features based on authorization.
+			}
+		} else {
+			// Fallback on earlier versions
+		}
+
+		application.registerForRemoteNotifications()
 
 		// If a shortcut was launched, display its information and take the appropriate action
 		if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
@@ -109,6 +122,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let handledShortCutItem = handleShortCutItem(shortcutItem: shortcutItem)
 
 		completionHandler(handledShortCutItem)
+	}
+
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> ()) {
+
+		print("Message ID \(userInfo["gcm.message_id"]!)")
+		print(userInfo)
 	}
 
 	func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {

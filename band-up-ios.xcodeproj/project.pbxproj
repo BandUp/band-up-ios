@@ -19,6 +19,7 @@
 		F241B08C1E6143B600C685F4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B08B1E6143B600C685F4 /* Media.xcassets */; };
 		F241B0921E614C4B00C685F4 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B0911E614C4B00C685F4 /* Stickers.xcassets */; };
 		F241B0961E614C4B00C685F4 /* BandUpStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F241B09C1E61D17300C685F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F241B09B1E61D17300C685F4 /* GoogleService-Info.plist */; };
 		F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */; };
 		F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F24E07E41E4CBEAD00C45A76 /* Localizable.strings */; };
 		F24E07E91E4CE4C100C45A76 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27853911E4C21A600DB9810 /* Setup.storyboard */; };
@@ -137,6 +138,7 @@
 		F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BandUpStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F241B0911E614C4B00C685F4 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		F241B0931E614C4B00C685F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F241B09B1E61D17300C685F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxListCell.swift; sourceTree = "<group>"; };
 		F24E07E51E4CBEB600C45A76 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F24E07E61E4CDD5800C45A76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -211,6 +213,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		212FC8576C6AF554037B73E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F217C0401DDFC47100EE16DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +371,7 @@
 		F2B0231D1E04E49400088622 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F241B09B1E61D17300C685F4 /* GoogleService-Info.plist */,
 				F2B82FE61E53EFAD000F71D1 /* Info.plist */,
 				F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */,
 				F217C0521DDFC47100EE16DF /* LaunchScreen.storyboard */,
@@ -477,6 +487,7 @@
 			buildConfigurationList = F241B0971E614C4B00C685F4 /* Build configuration list for PBXNativeTarget "BandUpStickers" */;
 			buildPhases = (
 				F241B08D1E614C4B00C685F4 /* Resources */,
+				212FC8576C6AF554037B73E2 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -630,6 +641,7 @@
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */,
+				F241B09C1E61D17300C685F4 /* GoogleService-Info.plist in Resources */,
 				F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */,
 				F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */,
 			);
@@ -1344,6 +1356,7 @@
 				F241B09A1E614C4B00C685F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F277C27B1E560D8C008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosTests" */ = {
 			isa = XCConfigurationList;
