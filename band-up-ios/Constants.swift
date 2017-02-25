@@ -59,3 +59,9 @@ extension UIColor {
 	// 0x0D0D0D
 	static let bandUpGrey = UIColor(red: 13/255.0, green: 13/255.0, blue: 13/255.0, alpha: 1)
 }
+
+extension String {
+	var localized: String {
+		return NSLocalizedString(self, comment: "")
+	}
+}

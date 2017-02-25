@@ -176,6 +176,41 @@ class SettingsTableViewController: UITableViewController {
 					default:
 						break
 				}
+			case 5:
+				let alertController = UIAlertController (title: "settings_alert_delete_title".localized, message: "settings_alert_delete_message".localized, preferredStyle: .actionSheet)
+
+				let settingsAction = UIAlertAction(title: "settings_delete_account".localized, style: .destructive) { (_) -> Void in
+					BandUpAPI.sharedInstance.deleteAccount.request(.delete).onSuccess { (response) in
+						let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
+						if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+							appDelegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+							BandUpAPI.sharedInstance.invalidateConfiguration()
+							BandUpAPI.sharedInstance.headers = [:]
+							UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
+						} else {
+							print("Could not find AppDelegate")
+						}
+					}.onFailure { (error) in
+						let failAlertController = UIAlertController(title: "settings_alert_delete_error_title".localized, message: "settings_alert_delete_error_message".localized, preferredStyle: .alert)
+
+						let okAction = UIAlertAction(title: "search_ok".localized, style: .default, handler: nil)
+
+						failAlertController.addAction(okAction)
+						failAlertController.preferredAction = okAction
+
+						self.present(failAlertController, animated: true, completion: nil)
+					}
+				}
+
+				let cancelAction = UIAlertAction(title: "search_cancel".localized, style: .cancel, handler: nil)
+
+				alertController.addAction(cancelAction)
+				alertController.addAction(settingsAction)
+				alertController.preferredAction = settingsAction
+
+				present(alertController, animated: true, completion: nil)
+
+				break
 			default:
 				break
 		}

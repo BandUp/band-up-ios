@@ -58,6 +58,9 @@ class BandUpAPI: Service {
 						if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
 							appDelegate.showLoginScreen()
 							self.invalidateConfiguration()
+							self.headers = [:]
+							UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
+							UserDefaults.standard.removeObject(forKey: DefaultsKeys.finishedSetup)
 						} else {
 							print("Couldn't find AppDelegate")
 						}
@@ -65,20 +68,27 @@ class BandUpAPI: Service {
 				}
 			}
 		}
+		configure(whenURLMatches: { $0 == self.deleteAccount.url || $0 == self.logout.url }) {_ in
+			self.headers = [:]
+			UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
+			UserDefaults.standard.removeObject(forKey: DefaultsKeys.finishedSetup)
+		}
 	}
 	
-	var headers =    [String:String]()
-	var register:    Resource { return resource("/signup-local") }
-	var login:       Resource { return resource("/login-local") }
-	var instruments: Resource { return resource("/instruments") }
-	var genres:      Resource { return resource("/genres") }
-	var isLoggedIn:  Resource { return resource("/isLoggedIn") }
-	var matches:     Resource { return resource("/matches") }
-	var nearby:      Resource { return resource("/nearby-users") }
-	var like:        Resource { return resource("/like") }
-    var profile:     Resource { return resource("/user") }
-    var chatHistory: Resource { return resource("/chat_history") }
-	var editProfile: Resource { return resource("/edit-user") }
+	var headers =      [String:String]()
+	var register:      Resource { return resource("/signup-local") }
+	var login:         Resource { return resource("/login-local") }
+	var instruments:   Resource { return resource("/instruments") }
+	var genres:        Resource { return resource("/genres") }
+	var isLoggedIn:    Resource { return resource("/isLoggedIn") }
+	var matches:       Resource { return resource("/matches") }
+	var nearby:        Resource { return resource("/nearby-users") }
+	var like:          Resource { return resource("/like") }
+    var profile:       Resource { return resource("/user") }
+    var chatHistory:   Resource { return resource("/chat_history") }
+	var editProfile:   Resource { return resource("/edit-user") }
+	var deleteAccount: Resource { return resource("/user-delete") }
+	var logout:        Resource { return resource("/logout")}
 	
 	private func getCookie() -> [String:String] {
 		if let setCookie = self.headers[BandUpAPI.setCookieKey] {

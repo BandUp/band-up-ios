@@ -134,7 +134,7 @@
 "search_cancel" = "Hætta við";
 "search_no_results" = "Gat ekki fundið neinn sem passar við leitarskilyrðin";
 "search_none_selected" = "Ekkert valið";
-"search_ok" = "OK";
+"search_ok" = "Í lagi";
 "search_select" = "Velja";
 "search_select_instruments" = "Velja hljóðfæri";
 "search_select_genres" = "Velja tónlistarstefnur";
@@ -173,7 +173,7 @@
 "settings_email_support" = "Senda tölvupóst til okkar";
 "chat_title1" = "Spjall";
 "settings_delete_account" = "Eyða reikningi";
-"settings_alert_delete_message" = "Ertu viss um að þú viljir eyða reikningnum þínum?\n\nÞessi aðgerð er ekki afturkræf.";
+"settings_alert_delete_message" = "Ertu viss um að þú viljir eyða reikningnum þínum?\nÞessi aðgerð er ekki afturkræf.";
 "settings_alert_delete_positive" = "Eyða";
 "settings_alert_delete_title" = "Eyða reikningi";
 "settings_title_manage_account" = "Band Up reikningurinn þinn";
@@ -187,5 +187,8 @@
 "settings_distance_km" = "km";
 "settings_age_between" = "Aldur: %@ til %@ ára";
 "settings_age_single" = "Aldur: %@ ára";
+
+"settings_alert_delete_error_title" = "Villa";
+"settings_alert_delete_error_message" = "Gat ekki eytt reikningi.\nVinsamlega reyndu aftur síðar.";
 "settings_open_source" = "Opinn hugbúnaður"; 
 "main_title_user_details" = "Nánari upplýsingar";

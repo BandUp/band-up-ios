@@ -82,7 +82,7 @@
 "settings_title_manage_account" = "Your Band Up Account";
 "settings_delete_account" = "Delete Account";
 "settings_alert_delete_title" = "Delete Account";
-"settings_alert_delete_message" = "Are you sure you want to delete your account?\n\nThis can not be undone.";
+"settings_alert_delete_message" = "Are you sure you want to delete your account?\nThis can not be undone.";
 "settings_alert_delete_positive" = "Delete";
 "settings_progress_delete_title" = "Deleting Your Account";
 "settings_progress_delete_message" = "Please wait...";
@@ -179,6 +179,9 @@
 "profile_take_photo" = "Take a photo";
 "profile_choose_photo" = "Choose a photo";
 "main_title_user_details" = "Details";
+
+"settings_alert_delete_error_title" = "Error";
+"settings_alert_delete_error_message" = "Could not delete account.\nPlease try again later.";
 
 "settings_radius" = "Radius: %@";
 "settings_distance_mi" = "miles";
