@@ -9,43 +9,33 @@
 import UIKit
 
 class MatchesViewController: UIViewController {
-	
+
+	// MARK: - IBOutlets
 	@IBOutlet weak var tableView: UITableView!
-	
-	var matchedUsers = [User]()
-	
 	@IBOutlet weak var lblError: UILabel!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+	// MARK: - Variables
+	var matchedUsers = [User]()
+	var refreshControl = UIRefreshControl()
+
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
+		// Register the tableView for 3D Touch
 		registerForPreviewing(with: self, sourceView: tableView)
-		
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		BandUpAPI.sharedInstance.matches.loadIfNeeded()?.onSuccess({ (response) in
-			self.activityIndicator.stopAnimating()
-			self.tableView.isHidden = false;
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			if (response.jsonArray.count == 0) {
-				self.activityIndicator.stopAnimating()
-				self.lblError.text = NSLocalizedString("matches_no_users", comment: "Displayed on the matches screen.")
-				self.tableView.isHidden = true
-				self.lblError.isHidden = false
-				return
-			}
-			for user in response.jsonArray {
-				if let jsonUser = user as? NSDictionary {
-					self.matchedUsers.append(User(jsonUser))
-				}
-			}
-			self.tableView.reloadData()
-		}).onFailure({ (error) in
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			self.activityIndicator.stopAnimating()
-			self.tableView.isHidden = true
-			self.lblError.text = NSLocalizedString("matches_failed_to_fetch", comment: "Error displayed on the matches screen.")
-			self.lblError.isHidden = false
-		})
+
+		refreshControl.tintColor = UIColor.bandUpYellow
+		refreshControl.addTarget(self, action: #selector(loadMatches), for: .valueChanged)
+
+		if #available(iOS 10.0, *) {
+			tableView.refreshControl = refreshControl
+		} else {
+			tableView.backgroundView = refreshControl
+		}
+
+		loadMatches()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +49,45 @@ class MatchesViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+
+	func loadMatches() {
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		BandUpAPI.sharedInstance.matches.load().onSuccess { (response) in
+			self.stopActivityIndicators()
+			self.tableView.isHidden = false;
+
+			if (response.jsonArray.count == 0) {
+				self.displayError("matches_no_users".localized)
+				return
+			}
+
+			self.matchedUsers = []
+			for user in response.jsonArray {
+				if let jsonUser = user as? NSDictionary {
+					self.matchedUsers.append(User(jsonUser))
+				}
+			}
+			self.tableView.reloadData()
+
+		}.onFailure { (error) in
+			self.stopActivityIndicators()
+			self.displayError("matches_failed_to_fetch".localized)
+
+		}
+	}
+
+	func displayError(_ text:String) {
+		self.lblError.text = text
+		self.tableView.isHidden = true
+		self.lblError.isHidden = false
+	}
+
+	func stopActivityIndicators() {
+		UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		self.activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
+	}
+
 }
 
 
@@ -69,21 +98,8 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "match_user_cell", for: indexPath)
-		let imgUserImage = cell.viewWithTag(1) as! UIImageView
-		let label = cell.viewWithTag(2) as! UILabel
-		label.text = matchedUsers[indexPath.row].username
-		imgUserImage.image = nil
-		
-		if let checkedUrl = URL(string: matchedUsers[indexPath.row].image.url) {
-			self.downloadImage(url: checkedUrl, imageView: imgUserImage)
-		} else {
-			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
-			
-		}
-		let colorView = UIView()
-		colorView.backgroundColor = UIColor.darkGray
-		cell.selectedBackgroundView = colorView
+		let cell = tableView.dequeueReusableCell(withIdentifier: "match_user_cell", for: indexPath) as! MatchesTableViewCell
+		cell.user = matchedUsers[indexPath.row]
 		return cell
 	}
     
@@ -96,36 +112,12 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 		
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-	
-	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-		URLSession.shared.dataTask(with: url) {
-			(data, response, error) in
-			completion(data, response, error)
-			}.resume()
-	}
-	
-	func downloadImage(url: URL, imageView: UIImageView) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		getDataFromUrl(url: url) { (data, response, error)  in
-			guard let data = data, error == nil else { return }
-			DispatchQueue.main.async() { () -> Void in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				imageView.image = UIImage(data: data)
-			}
-		}
-	}
-	func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-		let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
-		selectedCell.contentView.backgroundColor = UIColor.darkGray
 
-	}
-	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		let cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath)!
-		cellToDeSelect.contentView.backgroundColor = UIColor.clear
-	}
 }
 
+// MARK: - 3D touch Implementation
 extension MatchesViewController: UIViewControllerPreviewingDelegate {
+
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
 		guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
 		
@@ -145,4 +137,5 @@ extension MatchesViewController: UIViewControllerPreviewingDelegate {
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
 		show(viewControllerToCommit, sender: self)
 	}
+
 }

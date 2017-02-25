@@ -41,8 +41,8 @@ class LoginViewController: UIViewController {
 		
 		let attributesDictionary = [NSForegroundColorAttributeName: color]
 
-		txtEmail.attributedPlaceholder = NSAttributedString(string:"Email", attributes: attributesDictionary)
-		txtPassword.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributesDictionary)
+		txtEmail.attributedPlaceholder = NSAttributedString(string:"login_username".localized, attributes: attributesDictionary)
+		txtPassword.attributedPlaceholder = NSAttributedString(string: "login_password".localized, attributes: attributesDictionary)
 		txtPassword.delegate = self
 	}
 	

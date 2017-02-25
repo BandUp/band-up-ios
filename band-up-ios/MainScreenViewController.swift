@@ -159,7 +159,7 @@ class MainScreenViewController: UIViewController {
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: userItemViewController)
 			currentViewController = userItemViewController
-			self.title = NSLocalizedString("main_title_user_list", comment: "Title of view in Navigation Bar")
+			self.title = "main_title_user_list".localized
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_my_profile":
@@ -169,7 +169,7 @@ class MainScreenViewController: UIViewController {
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: profileViewController)
 			currentViewController = profileViewController
-			self.title = NSLocalizedString("main_title_my_profile", comment: "Title of view in Navigation Bar")
+			self.title = "main_title_my_profile".localized
 			break
 		case "main_nav_matches":
 			guard let matchesViewController = matchesViewController else {
@@ -178,7 +178,7 @@ class MainScreenViewController: UIViewController {
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: matchesViewController)
 			currentViewController = matchesViewController
-			self.title = NSLocalizedString("main_title_matches", comment: "Title of view in Navigation Bar")
+			self.title = "main_title_matches".localized
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_settings":
@@ -188,7 +188,7 @@ class MainScreenViewController: UIViewController {
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: settingsViewController)
 			currentViewController = settingsViewController
-			self.title = NSLocalizedString("main_title_settings", comment: "Title of view in Navigation Bar")
+			self.title = "main_title_settings".localized
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_upcoming":
@@ -198,7 +198,7 @@ class MainScreenViewController: UIViewController {
 			self.remove(asChildViewController: currentViewController)
 			self.add(asChildViewController: upcomingViewController)
 			currentViewController = upcomingViewController
-			self.title = NSLocalizedString("main_title_upcoming_features", comment: "Title of view in Navigation Bar")
+			self.title = "main_title_upcoming_features".localized
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_log_out":

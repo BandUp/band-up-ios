@@ -12,49 +12,24 @@ import Siesta
 
 class UserListViewController: UIViewController {
 
+	// MARK: - IBOutlets
 	@IBOutlet weak var userCollectionView: UICollectionView!
 	@IBOutlet weak var lblError: UILabel!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-	
+
+	// MARK - Variables
+	var userArray: [User] = []
+	var currentIndex : CGFloat = 0
+
 	public lazy var userDetailsViewController: UserDetailsViewController = {
 		let storyboard = UIStoryboard(name: "UserDetailsView", bundle: Bundle.main)
-		
+
 		var viewController =  storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
-		
+
 		return viewController
 	}()
-	
-	@IBAction func didClickDetails(_ sender: UIButton) {
-		userDetailsViewController.currentUser = userArray[Int(currentIndex)]
-		self.navigationController?.pushViewController(userDetailsViewController, animated: true)
-	}
-	
-	@IBAction func didClickLike(_ sender: UIButton) {
-		let likedUser = userArray[Int(currentIndex)]
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		
-		BandUpAPI.sharedInstance.like.request(.post, json: ["userID": likedUser.id]).onSuccess { (response) in
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			
-			if let isMatch = response.jsonDict["isMatch"] as? Bool {
-				likedUser.isLiked = true
-				sender.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
-				sender.isEnabled = false
-				
-				if isMatch {
-					sender.setTitle("Matched", for: .normal)
-					sender.isEnabled = false
-				}
-			}
-		}.onFailure { (error) in
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-		}
-	}
-	
-	var userArray: [User] = []
-	
-	var currentIndex : CGFloat = 0
-	
+
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		registerForPreviewing(with: self, sourceView: userCollectionView)
@@ -69,106 +44,93 @@ class UserListViewController: UIViewController {
 					self.userArray.append(User(jsonUser))
 				}
 			}
+			
 			self.userArray.shuffle()
 			self.userCollectionView.reloadData()
 		}).onFailure({ (error) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			self.lblError.isHidden = false
-			self.lblError.text = NSLocalizedString("user_list_error_fetch_list", comment: "Musician List error message")
+			self.lblError.text = "user_list_error_fetch_list".localized
 			print(error.userMessage)
 		})
 		
 		NotificationCenter.default.addObserver(
 			self,
-			selector: #selector(self.locationChanged),
+			selector: #selector(self.locationChanged(notification:)),
 			name: NSNotification.Name(rawValue: "NewLocation"),
 			object: nil)
 
 		NotificationCenter.default.addObserver(
 			self,
-			selector: #selector(self.locationChanged),
+			selector: #selector(self.unitsChanged(notification:)),
 			name: NSNotification.Name(rawValue: "UnitsChanged"),
 			object: nil)
-	}
-
-	func locationChanged(notification: NSNotification) {
-		//guard let locations = notification.userInfo?["locations"] else { return }
-		UIView.setAnimationsEnabled(false)
-		userCollectionView.reloadSections(IndexSet(integer: 0))
-		UIView.setAnimationsEnabled(true)
-	}
-
-	func unitsChanged(notification: NSNotification) {
-		//guard let locations = notification.userInfo?["locations"] else { return }
-		UIView.setAnimationsEnabled(false)
-		userCollectionView.reloadSections(IndexSet(integer: 0))
-		UIView.setAnimationsEnabled(true)
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-		UIView.setAnimationsEnabled(false)
-		userCollectionView.reloadSections(IndexSet(integer: 0))
-		UIView.setAnimationsEnabled(true)
+		reload(section: 0, animated: false)
+	}
+
+	// MARK: - Notification Handlers
+	func locationChanged(notification: NSNotification) {
+		reload(section: 0, animated: false)
+	}
+
+	func unitsChanged(notification: NSNotification) {
+		reload(section: 0, animated: false)
+	}
+
+	func reload(section: Int, animated: Bool) {
+		if !animated {
+			UIView.setAnimationsEnabled(false)
+			userCollectionView.reloadSections(IndexSet(integer: section))
+			UIView.setAnimationsEnabled(true)
+		} else {
+			userCollectionView.reloadSections(IndexSet(integer: section))
+		}
+	}
+
+	// MARK: - IBActions
+	@IBAction func didClickDetails(_ sender: UIButton) {
+		userDetailsViewController.currentUser = userArray[Int(currentIndex)]
+		self.navigationController?.pushViewController(userDetailsViewController, animated: true)
+	}
+
+	@IBAction func didClickLike(_ sender: UIButton) {
+		let likedUser = userArray[Int(currentIndex)]
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+		BandUpAPI.sharedInstance.like.request(.post, json: ["userID": likedUser.id]).onSuccess { (response) in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+			if let isMatch = response.jsonDict["isMatch"] as? Bool {
+				likedUser.isLiked = true
+				sender.setTitle("user_list_liked".localized, for: .normal)
+				sender.isEnabled = false
+
+				if isMatch {
+					sender.setTitle("user_list_matched".localized, for: .normal)
+					sender.isEnabled = false
+				}
+			}
+			}.onFailure { (error) in
+				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		}
 	}
 }
 
+// MARK: - Collection View Implementation
 extension UserListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return userArray.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user_item_cell", for: indexPath) as! UserListItemViewCell
-		
 		cell.user = userArray[indexPath.row]
-		let currentUser = cell.user
-		cell.imgUserImage.delegate = cell
-		cell.imgUserImage.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
-		cell.imgUserImage.imageURL = URL(string: currentUser.image.url)
-
-		
-		cell.lblUsername.text = currentUser.username
-		cell.lblPercentage.text = String(format:"\(currentUser.percentage)%%")
-
-		let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-
-		if let userLocation = appDelegate.lastKnownLocation {
-			cell.lblDistance.text = currentUser.getDistanceString(between: userLocation)
-		} else {
-			cell.lblDistance.text = currentUser.getDistanceString()
-		}
-
-		if (currentUser.favouriteInstrument == "") {
-			if (currentUser.instruments.count > 0) {
-				cell.lblFavInstrument.text = currentUser.instruments[0]
-			} else {
-				cell.lblFavInstrument.text = "No Instrument"
-			}
-		} else {
-			cell.lblFavInstrument.text = currentUser.favouriteInstrument
-		}
-		
-		if (currentUser.genres.count > 0) {
-			cell.lblGenre.text = currentUser.genres[0]
-		} else {
-			cell.lblGenre.text = "No Genre"
-		}
-		
-		if currentUser.isLiked {
-			cell.btnLike.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
-			cell.btnLike.isEnabled = false;
-		} else {
-			cell.btnLike.setTitle(NSLocalizedString("user_list_like", comment: "Text on the green like button"), for: .normal)
-			cell.btnLike.isEnabled = true;
-		}
-
-		cell.lblAge.text = currentUser.getAgeString()
-
 		return cell
 	}
 	
@@ -195,6 +157,7 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 
 }
 
+// MARK: - 3D touch Implementation
 extension UserListViewController: UIViewControllerPreviewingDelegate {
 	
 	// If you return nil, a preview presentation will not be performed
@@ -208,7 +171,7 @@ extension UserListViewController: UIViewControllerPreviewingDelegate {
 		
 		let imageViewRect = itemCell.imgUserImage.frame
 		let newX = location.x - itemCell.imgUserImage.frame.width * currentIndex
-		
+
 		let newLocation = CGPoint(x: newX, y: location.y)
 		
 		if (!imageViewRect.contains(newLocation)) {
@@ -229,6 +192,7 @@ extension UserListViewController: UIViewControllerPreviewingDelegate {
 	}
 }
 
+// MARK: - Shuffle Implementation
 extension MutableCollection where Index == Int {
 	/// Shuffle the elements of `self` in-place.
 	mutating func shuffle() {

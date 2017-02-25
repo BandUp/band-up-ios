@@ -41,9 +41,9 @@ class DrawerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		for i in listItems {
-			i.name = NSLocalizedString(i.id, comment: "List item in the drawer")
+			i.name = i.id.localized
 		}
-		BandUpAPI.sharedInstance.profile.loadIfNeeded()?.onSuccess({ (response) in
+		BandUpAPI.sharedInstance.profile.load().onSuccess({ (response) in
 			self.currentUser = User(response.jsonDict as NSDictionary)
 			self.populateUser()
 		}).onFailure({ (error) in

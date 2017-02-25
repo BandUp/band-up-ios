@@ -46,6 +46,9 @@
 "user_list_details" = "Nánar";
 "user_list_like" = "Líka";
 "user_list_liked" = "Líkad";
+"user_list_matched" = "Tengst";
+"user_list_no_genre" = "Engin tónlistarstefna";
+"user_list_no_instrument" = "Ekkert hljóðf.";
 "login_progress_description" = "Vinsamlegast bíðið...";
 "login_progress_title" = "Skrái þig inn";
 "register_enter_dateofbirth" = "Vinsamlega skráðu fæðingardag";

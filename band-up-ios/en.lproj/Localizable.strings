@@ -61,8 +61,11 @@
 "main_title_user_list" = "Musicians near you";
 "user_list_like" = "Like";
 "user_list_liked" = "Liked";
+"user_list_matched" = "Matched";
 "user_list_details" = "Details";
 "user_list_no_users" = "No Musicians Nearby";
+"user_list_no_genre" = "No Genre";
+"user_list_no_instrument" = "No Instrument";
 "chat_title1" = "Chat";
 "chat_title2" = "Chat with";
 "chat_message_hint" = "Type a message&#8230;";

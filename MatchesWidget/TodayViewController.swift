@@ -11,9 +11,11 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
+		activityIndicator.startAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,8 +29,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        
-        completionHandler(NCUpdateResult.newData)
+		activityIndicator.stopAnimating()
+        print("Widget Update")
+        completionHandler(NCUpdateResult.noData)
     }
     
 }

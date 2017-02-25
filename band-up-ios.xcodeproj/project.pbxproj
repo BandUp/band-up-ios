@@ -16,10 +16,11 @@
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
-		F241B08C1E6143B600C685F4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B08B1E6143B600C685F4 /* Media.xcassets */; };
 		F241B0921E614C4B00C685F4 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B0911E614C4B00C685F4 /* Stickers.xcassets */; };
 		F241B0961E614C4B00C685F4 /* BandUpStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F241B09C1E61D17300C685F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F241B09B1E61D17300C685F4 /* GoogleService-Info.plist */; };
+		F241B09D1E61FEF200C685F4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06181E061AD80039C761 /* Media.xcassets */; };
+		F241B0A11E62074400C685F4 /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241B0A01E62074400C685F4 /* MatchesTableViewCell.swift */; };
 		F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */; };
 		F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F24E07E41E4CBEAD00C45A76 /* Localizable.strings */; };
 		F24E07E91E4CE4C100C45A76 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27853911E4C21A600DB9810 /* Setup.storyboard */; };
@@ -134,11 +135,11 @@
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
 		F22935F41E53F1B5007F182B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
-		F241B08B1E6143B600C685F4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BandUpStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F241B0911E614C4B00C685F4 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		F241B0931E614C4B00C685F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F241B09B1E61D17300C685F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F241B0A01E62074400C685F4 /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
 		F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxListCell.swift; sourceTree = "<group>"; };
 		F24E07E51E4CBEB600C45A76 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F24E07E61E4CDD5800C45A76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -430,6 +431,7 @@
 				F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */,
 				F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */,
 				F2F0E17E1E60E9F0005BD86F /* RemoteImageView.swift */,
+				F241B0A01E62074400C685F4 /* MatchesTableViewCell.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -441,7 +443,6 @@
 				F2F0E1721E6094C7005BD86F /* MainInterface.storyboard */,
 				F2EF61811E61348900756657 /* Info.plist */,
 				F2EF61871E6134DE00756657 /* InfoPlist.strings */,
-				F241B08B1E6143B600C685F4 /* Media.xcassets */,
 			);
 			path = MatchesWidget;
 			sourceTree = "<group>";
@@ -673,8 +674,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F241B09D1E61FEF200C685F4 /* Media.xcassets in Resources */,
 				F2F0E1741E6094C7005BD86F /* MainInterface.storyboard in Resources */,
-				F241B08C1E6143B600C685F4 /* Media.xcassets in Resources */,
 				F2EF61851E6134DE00756657 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,6 +762,7 @@
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
 				F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */,
+				F241B0A11E62074400C685F4 /* MatchesTableViewCell.swift in Sources */,
 				F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */,
 				F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */,
 				F270511B1E4C01DE00E2974C /* UserImage.swift in Sources */,
