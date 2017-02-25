@@ -19,7 +19,7 @@ class UserDetailsViewController: UIViewController {
 	@IBOutlet weak var lblFavInstrument: UILabel!
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblUsername: UILabel!
-	@IBOutlet weak var imgUserImage: UIImageView!
+	@IBOutlet weak var imgUserImage: RemoteImageView!
 	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var btnLike: UIBigButton!
 	@IBOutlet weak var likeButtonHeight: NSLayoutConstraint!
@@ -28,7 +28,7 @@ class UserDetailsViewController: UIViewController {
 	var currentUser = User()
 	var shouldDisplayLike = true
 	
-	// MARK: - Overridden Functions
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
@@ -39,10 +39,6 @@ class UserDetailsViewController: UIViewController {
 			name: NSNotification.Name(rawValue: "NewLocation"),
 			object: nil)
 	}
-	func locationChanged(notification: NSNotification) {
-		guard let locations = notification.userInfo?["locations"] else { return }
-		lblDistance.text = currentUser.getDistanceString(between: (locations as! [CLLocation])[0])
-	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
@@ -52,7 +48,7 @@ class UserDetailsViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.title = NSLocalizedString("main_title_user_details", comment: "Title of the User Details screen.")
+		self.title = "main_title_user_details".localized
 		populateUser()
 		if shouldDisplayLike {
 			likeButtonHeight.constant = 85
@@ -67,6 +63,12 @@ class UserDetailsViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+
+	// MARK: - Notification Handlers
+	func locationChanged(notification: NSNotification) {
+		guard let locations = notification.userInfo?["locations"] else { return }
+		lblDistance.text = currentUser.getDistanceString(between: (locations as! [CLLocation])[0])
+	}
 	
 	// MARK: - IBActions
 	@IBAction func didClickLike(_ sender: UIBigButton) {
@@ -78,11 +80,11 @@ class UserDetailsViewController: UIViewController {
 			
 			if let isMatch = response.jsonDict["isMatch"] as? Bool {
 				self.currentUser.isLiked = true
-				sender.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
+				sender.setTitle("user_list_liked".localized, for: .normal)
 				sender.isEnabled = false
 				
 				if isMatch {
-					sender.setTitle("Matched", for: .normal)
+					sender.setTitle("user_list_matched".localized, for: .normal)
 				}
 			}
 			}.onFailure { (error) in
@@ -94,16 +96,12 @@ class UserDetailsViewController: UIViewController {
 	func populateUser() {
 		imgUserImage.image = nil
 		
-		if let checkedUrl = URL(string: currentUser.image.url) {
-			self.downloadImage(url: checkedUrl, imageView: imgUserImage, activityIndicator: actIndicator)
-		} else {
-			actIndicator.stopAnimating()
-			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
-			
-		}
-		
+		self.imgUserImage.delegate = self
+		self.imgUserImage.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
+		self.imgUserImage.imageURL = URL(string: currentUser.image.url)
+
 		if (currentUser.isLiked) {
-			btnLike.setTitle(NSLocalizedString("user_list_liked", comment: "Text on the green like button"), for: .normal)
+			btnLike.setTitle("user_list_liked".localized, for: .normal)
 			btnLike.isEnabled = false
 		}
 		
@@ -113,7 +111,7 @@ class UserDetailsViewController: UIViewController {
 		if (currentUser.aboutme != "") {
 			lblAboutMe.text = currentUser.aboutme
 		} else {
-			lblAboutMe.text = NSLocalizedString("about_me", comment: "About Me string displayed on the profiles")
+			lblAboutMe.text = "about_me".localized
 		}
 
 		let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
@@ -150,24 +148,15 @@ class UserDetailsViewController: UIViewController {
 		lblGenresList.numberOfLines = currentUser.genres.count
 		lblGenresList.text = genreString
 	}
-	
-	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-		URLSession.shared.dataTask(with: url) {
-			(data, response, error) in
-			completion(data, response, error)
-			}.resume()
+
+}
+
+extension UserDetailsViewController: RemoteImageViewDelegate {
+	func didFinishLoading() {
+		self.actIndicator.stopAnimating()
 	}
-	
-	func downloadImage(url: URL, imageView: UIImageView, activityIndicator: UIActivityIndicatorView) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		activityIndicator.startAnimating()
-		getDataFromUrl(url: url) { (data, response, error)  in
-			guard let data = data, error == nil else { return }
-			DispatchQueue.main.async() { () -> Void in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				activityIndicator.stopAnimating()
-				imageView.image = UIImage(data: data)
-			}
-		}
+
+	func imageWillLoad() {
+		self.actIndicator.startAnimating()
 	}
 }
