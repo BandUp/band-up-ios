@@ -185,5 +185,7 @@
 "settings_radius" = "Radíus: %@";
 "settings_distance_mi" = "mílur";
 "settings_distance_km" = "km";
+"settings_age_between" = "Aldur: %@ til %@ ára";
+"settings_age_single" = "Aldur: %@ ára";
 "settings_open_source" = "Opinn hugbúnaður"; 
 "main_title_user_details" = "Nánari upplýsingar";

@@ -184,5 +184,7 @@
 "settings_distance_mi" = "miles";
 "settings_distance_km" = "km";
 "settings_open_source" = "Open Source Software";
+"settings_age_between" = "Ages: %@ to %@ years old";
+"settings_age_single"  = "Ages: %@ years old";
 "navigation_drawer_open" = "Open navigation drawer";
 "navigation_drawer_close" = "Close navigation drawer";

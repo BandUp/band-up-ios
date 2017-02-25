@@ -8,6 +8,7 @@
 
 import UIKit
 import MARKRangeSlider
+import MessageUI
 
 class SettingsTableViewController: UITableViewController {
 
@@ -24,9 +25,11 @@ class SettingsTableViewController: UITableViewController {
 		let maxAge = Int(round(sender.rightValue))
 		let minAge = Int(round(sender.leftValue))
 		if minAge != maxAge {
-			lblAges.text = "\(minAge) til \(maxAge)"
+			let locString = NSLocalizedString("settings_age_between", comment: "")
+			lblAges.text = String(format: locString, String(minAge), String(maxAge))
 		} else {
-			lblAges.text = "\(minAge)"
+			let locString = NSLocalizedString("settings_age_single", comment: "")
+			lblAges.text = String(format: locString, String(minAge))
 		}
 
 
@@ -100,8 +103,13 @@ class SettingsTableViewController: UITableViewController {
 
 		let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
 
+		let leftAge = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.minAge)
+		let rightAge = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.maxAge)
+
 		sldRadius.setValue(radius, animated: false)
 		radiusChanged(sldRadius)
+		rangeSlider.setLeftValue(CGFloat(leftAge), rightValue: CGFloat(rightAge))
+		agesChanged(rangeSlider)
 	}
 
 	func initializeNotificationSettings(forKey key: String, value: Bool) {
@@ -139,6 +147,22 @@ class SettingsTableViewController: UITableViewController {
 		let storyboard = UIStoryboard(name: "SettingsView", bundle: Bundle.main)
 
 		switch indexPath.section {
+			case 3:
+				let mailVC = MFMailComposeViewController()
+				mailVC.mailComposeDelegate = self
+				mailVC.setToRecipients(["support@badmelody.com"])
+				guard let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
+					return
+				}
+				guard let bundleBuild = Bundle.main.infoDictionary?[kCFBundleVersionKey as String] else {
+					return
+				}
+
+				let subject = String(format: "Help with Band Up for iOS %@ (%@)", String(describing: bundleVersion), String(describing: bundleBuild))
+				mailVC.setSubject(subject)
+
+				present(mailVC, animated: true, completion: nil)
+				break
 			case 4:
 				switch indexPath.row {
 					case 0:
@@ -157,6 +181,12 @@ class SettingsTableViewController: UITableViewController {
 		}
 	}
 
+}
+
+extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
+	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+		controller.dismiss(animated: true, completion: nil)
+	}
 }
 
 extension UIImage {
