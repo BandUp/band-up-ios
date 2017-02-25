@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,18 +20,90 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dsi-bv-xZE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FCT-Na-rDF">
+                                    <size key="itemSize" width="100" height="95"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="2V7-0E-RYu">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="i9o-5V-4MJ">
+                                                    <rect key="frame" x="12.5" y="8" width="55" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="Fwg-Yo-yBE"/>
+                                                        <constraint firstAttribute="width" secondItem="i9o-5V-4MJ" secondAttribute="height" multiplier="1:1" id="OeP-xl-7cw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBX-ry-KUH">
+                                                    <rect key="frame" x="11" y="71" width="58" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.0" alpha="0.75222839765100669" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nr-Hx-gGP">
+                                                    <rect key="frame" x="6.5" y="88.5" width="67.5" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="1Nr-Hx-gGP" firstAttribute="top" secondItem="PBX-ry-KUH" secondAttribute="bottom" constant="3" id="5vq-So-cRH"/>
+                                            <constraint firstItem="i9o-5V-4MJ" firstAttribute="centerX" secondItem="2V7-0E-RYu" secondAttribute="centerX" id="8jw-vM-Mm9"/>
+                                            <constraint firstItem="PBX-ry-KUH" firstAttribute="top" secondItem="i9o-5V-4MJ" secondAttribute="bottom" constant="8" id="ANj-Ce-LHZ"/>
+                                            <constraint firstItem="i9o-5V-4MJ" firstAttribute="top" secondItem="2V7-0E-RYu" secondAttribute="topMargin" id="F12-JK-TLz"/>
+                                            <constraint firstItem="PBX-ry-KUH" firstAttribute="centerX" secondItem="2V7-0E-RYu" secondAttribute="centerX" id="M6h-f7-mt6"/>
+                                            <constraint firstItem="1Nr-Hx-gGP" firstAttribute="centerX" secondItem="2V7-0E-RYu" secondAttribute="centerX" id="zRU-94-WtI"/>
+                                        </constraints>
+                                        <size key="customSize" width="80" height="110"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="O2z-BF-cfE"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="6Z1-KP-vzU"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ecW-q2-dRF">
+                                <rect key="frame" x="150" y="90" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="dsi-bv-xZE" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="MKa-op-PZe"/>
+                            <constraint firstAttribute="trailing" secondItem="dsi-bv-xZE" secondAttribute="trailing" id="day-EO-AX0"/>
+                            <constraint firstItem="ecW-q2-dRF" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="fdZ-q3-a8R"/>
+                            <constraint firstItem="dsi-bv-xZE" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="iP1-pH-5Sb"/>
+                            <constraint firstItem="ecW-q2-dRF" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="n4A-Uy-lK4"/>
+                            <constraint firstAttribute="bottom" secondItem="dsi-bv-xZE" secondAttribute="bottom" id="zKI-ob-FNs"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="37"/>
+                    <size key="freeformSize" width="320" height="200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.59999999999999" y="138.53073463268368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ProfilePlaceholder" width="2400" height="2400"/>
+    </resources>
 </document>

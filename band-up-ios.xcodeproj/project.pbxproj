@@ -16,6 +16,9 @@
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
+		F241B08C1E6143B600C685F4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B08B1E6143B600C685F4 /* Media.xcassets */; };
+		F241B0921E614C4B00C685F4 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B0911E614C4B00C685F4 /* Stickers.xcassets */; };
+		F241B0961E614C4B00C685F4 /* BandUpStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */; };
 		F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F24E07E41E4CBEAD00C45A76 /* Localizable.strings */; };
 		F24E07E91E4CE4C100C45A76 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27853911E4C21A600DB9810 /* Setup.storyboard */; };
@@ -60,6 +63,7 @@
 		F2DCB2E41E4E99FE006832F6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */; };
 		F2DCB2E61E4E9C1E006832F6 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
+		F2EF61851E6134DE00756657 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2EF61871E6134DE00756657 /* InfoPlist.strings */; };
 		F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */; };
 		F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1661E608792005BD86F /* PrivacyViewController.swift */; };
 		F2F0E16E1E6094C7005BD86F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F0E16D1E6094C7005BD86F /* NotificationCenter.framework */; };
@@ -70,6 +74,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F241B0941E614C4B00C685F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F241B08E1E614C4B00C685F4;
+			remoteInfo = BandUpStickers;
+		};
 		F277C2791E560D8C008AF036 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
@@ -100,6 +111,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F241B0961E614C4B00C685F4 /* BandUpStickers.appex in Embed App Extensions */,
 				F2F0E1791E6094C7005BD86F /* MatchesWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -121,6 +133,10 @@
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
 		F22935F41E53F1B5007F182B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		F241B08B1E6143B600C685F4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BandUpStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F241B0911E614C4B00C685F4 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		F241B0931E614C4B00C685F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxListCell.swift; sourceTree = "<group>"; };
 		F24E07E51E4CBEB600C45A76 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F24E07E61E4CDD5800C45A76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -180,13 +196,16 @@
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F2EF61801E61348900756657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		F2EF61861E6134DE00756657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2EF61881E6134DF00756657 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2EF61891E6134DF00756657 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewController.swift; sourceTree = "<group>"; };
 		F2F0E1661E608792005BD86F /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		F2F0E16C1E6094C7005BD86F /* MatchesWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MatchesWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F0E16D1E6094C7005BD86F /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F2F0E1701E6094C7005BD86F /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		F2F0E1731E6094C7005BD86F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		F2F0E1751E6094C7005BD86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2F0E17E1E60E9F0005BD86F /* RemoteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,6 +261,7 @@
 				F277C2751E560D8C008AF036 /* band-up-iosTests */,
 				F277C2861E561F41008AF036 /* band-up-iosUITests */,
 				F2F0E16F1E6094C7005BD86F /* MatchesWidget */,
+				F241B0901E614C4B00C685F4 /* BandUpStickers */,
 				F217C0441DDFC47100EE16DF /* Products */,
 				05BEBC4A550603964996EAAD /* Pods */,
 				F6AB3D0A6932E4ADEE2F518F /* Frameworks */,
@@ -255,6 +275,7 @@
 				F277C2741E560D8C008AF036 /* band-up-iosTests.xctest */,
 				F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */,
 				F2F0E16C1E6094C7005BD86F /* MatchesWidget.appex */,
+				F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,6 +296,15 @@
 				F24E081F1E4D231C00C45A76 /* InfoPlist.strings */,
 			);
 			path = "band-up-ios";
+			sourceTree = "<group>";
+		};
+		F241B0901E614C4B00C685F4 /* BandUpStickers */ = {
+			isa = PBXGroup;
+			children = (
+				F241B0911E614C4B00C685F4 /* Stickers.xcassets */,
+				F241B0931E614C4B00C685F4 /* Info.plist */,
+			);
+			path = BandUpStickers;
 			sourceTree = "<group>";
 		};
 		F27051191E4C01C600E2974C /* Models */ = {
@@ -399,7 +429,9 @@
 			children = (
 				F2F0E1701E6094C7005BD86F /* TodayViewController.swift */,
 				F2F0E1721E6094C7005BD86F /* MainInterface.storyboard */,
-				F2F0E1751E6094C7005BD86F /* Info.plist */,
+				F2EF61811E61348900756657 /* Info.plist */,
+				F2EF61871E6134DE00756657 /* InfoPlist.strings */,
+				F241B08B1E6143B600C685F4 /* Media.xcassets */,
 			);
 			path = MatchesWidget;
 			sourceTree = "<group>";
@@ -433,11 +465,27 @@
 			);
 			dependencies = (
 				F2F0E1771E6094C7005BD86F /* PBXTargetDependency */,
+				F241B0951E614C4B00C685F4 /* PBXTargetDependency */,
 			);
 			name = "band-up-ios";
 			productName = "band-up-ios";
 			productReference = F217C0431DDFC47100EE16DF /* band-up-ios.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F241B08E1E614C4B00C685F4 /* BandUpStickers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F241B0971E614C4B00C685F4 /* Build configuration list for PBXNativeTarget "BandUpStickers" */;
+			buildPhases = (
+				F241B08D1E614C4B00C685F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BandUpStickers;
+			productName = BandUpStickers;
+			productReference = F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 		F277C2731E560D8C008AF036 /* band-up-iosTests */ = {
 			isa = PBXNativeTarget;
@@ -513,6 +561,11 @@
 							};
 						};
 					};
+					F241B08E1E614C4B00C685F4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NJU97Y2JX6;
+						ProvisioningStyle = Automatic;
+					};
 					F277C2731E560D8C008AF036 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = NJU97Y2JX6;
@@ -550,6 +603,7 @@
 				F277C2731E560D8C008AF036 /* band-up-iosTests */,
 				F277C2841E561F41008AF036 /* band-up-iosUITests */,
 				F2F0E16B1E6094C7005BD86F /* MatchesWidget */,
+				F241B08E1E614C4B00C685F4 /* BandUpStickers */,
 			);
 		};
 /* End PBXProject section */
@@ -581,6 +635,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F241B08D1E614C4B00C685F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F241B0921E614C4B00C685F4 /* Stickers.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F277C2721E560D8C008AF036 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,6 +662,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F0E1741E6094C7005BD86F /* MainInterface.storyboard in Resources */,
+				F241B08C1E6143B600C685F4 /* Media.xcassets in Resources */,
+				F2EF61851E6134DE00756657 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +801,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F241B0951E614C4B00C685F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F241B08E1E614C4B00C685F4 /* BandUpStickers */;
+			targetProxy = F241B0941E614C4B00C685F4 /* PBXContainerItemProxy */;
+		};
 		F277C27A1E560D8C008AF036 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F217C0421DDFC47100EE16DF /* band-up-ios */;
@@ -858,6 +927,24 @@
 				F2B82FED1E53F03A000F71D1 /* en */,
 				F2B82FEE1E53F03B000F71D1 /* is */,
 				F22935F41E53F1B5007F182B /* Base */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F2EF61811E61348900756657 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2EF61801E61348900756657 /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		F2EF61871E6134DE00756657 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2EF61861E6134DE00756657 /* Base */,
+				F2EF61881E6134DF00756657 /* en */,
+				F2EF61891E6134DF00756657 /* is */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -999,6 +1086,42 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F241B0981E614C4B00C685F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = BandUpStickers/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios.BandUpStickers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F241B0991E614C4B00C685F4 /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = BandUpStickers/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios.BandUpStickers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Analyze;
+		};
+		F241B09A1E614C4B00C685F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = BandUpStickers/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios.BandUpStickers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1213,6 +1336,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F241B0971E614C4B00C685F4 /* Build configuration list for PBXNativeTarget "BandUpStickers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F241B0981E614C4B00C685F4 /* Debug */,
+				F241B0991E614C4B00C685F4 /* Analyze */,
+				F241B09A1E614C4B00C685F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F277C27B1E560D8C008AF036 /* Build configuration list for PBXNativeTarget "band-up-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1241,6 +1373,7 @@
 				F2F0E17D1E6094C7005BD86F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
