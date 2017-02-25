@@ -68,10 +68,16 @@ class BandUpAPI: Service {
 				}
 			}
 		}
-		configure(whenURLMatches: { $0 == self.deleteAccount.url || $0 == self.logout.url }) {_ in
-			self.headers = [:]
-			UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
-			UserDefaults.standard.removeObject(forKey: DefaultsKeys.finishedSetup)
+		configure(whenURLMatches: { $0 == self.deleteAccount.url || $0 == self.logout.url }) {
+			$0.decorateRequests { _, req in
+				req.onSuccess { (response) in
+					self.invalidateConfiguration()
+					self.headers = [:]
+					UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
+					UserDefaults.standard.removeObject(forKey: DefaultsKeys.finishedSetup)
+
+				}
+			}
 		}
 	}
 	

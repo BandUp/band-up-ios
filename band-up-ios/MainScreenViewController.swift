@@ -202,7 +202,23 @@ class MainScreenViewController: UIViewController {
 			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_log_out":
-			dismiss(animated: true, completion: nil)
+			BandUpAPI.sharedInstance.logout.request(.get).onSuccess { (response) in
+
+				if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+					appDelegate.showLoginScreen()
+				} else {
+					print("Could not find AppDelegate")
+				}
+			}.onFailure { (error) in
+				let failAlertController = UIAlertController(title: "drawer_alert_logout_error_title".localized, message: "drawer_alert_logout_error_message".localized, preferredStyle: .alert)
+
+				let okAction = UIAlertAction(title: "search_ok".localized, style: .default, handler: nil)
+
+				failAlertController.addAction(okAction)
+				failAlertController.preferredAction = okAction
+
+				self.present(failAlertController, animated: true, completion: nil)
+			}
 			break
 		default:
 			break

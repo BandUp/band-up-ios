@@ -181,7 +181,10 @@
 "main_title_user_details" = "Details";
 
 "settings_alert_delete_error_title" = "Error";
-"settings_alert_delete_error_message" = "Could not delete account.\nPlease try again later.";
+"settings_alert_delete_error_message" = "Could not delete your account.\nPlease try again later.";
+
+"drawer_alert_logout_error_title" = "Error";
+"drawer_alert_logout_error_message" = "Could not log you out.\nPlease try again later.";
 
 "settings_radius" = "Radius: %@";
 "settings_distance_mi" = "miles";

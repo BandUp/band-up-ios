@@ -189,6 +189,9 @@
 "settings_age_single" = "Aldur: %@ ára";
 
 "settings_alert_delete_error_title" = "Villa";
-"settings_alert_delete_error_message" = "Gat ekki eytt reikningi.\nVinsamlega reyndu aftur síðar.";
+"settings_alert_delete_error_message" = "Gat ekki eytt reikningnum þínum.\nVinsamlega reyndu aftur síðar.";
+
+"drawer_alert_logout_error_title" = "Villa";
+"drawer_alert_logout_error_message" = "Gat ekki skráð þig út.\nVinsamlega reyndu aftur síðar.";
 "settings_open_source" = "Opinn hugbúnaður"; 
 "main_title_user_details" = "Nánari upplýsingar";

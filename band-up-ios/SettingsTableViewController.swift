@@ -209,7 +209,7 @@ class SettingsTableViewController: UITableViewController {
 				alertController.preferredAction = settingsAction
 
 				present(alertController, animated: true, completion: nil)
-
+				tableView.deselectRow(at: indexPath, animated: true)
 				break
 			default:
 				break
