@@ -10,7 +10,7 @@ import UIKit
 
 class UserListItemViewCell: UICollectionViewCell {
 	@IBOutlet weak var lblUsername: UILabel!
-	@IBOutlet weak var imgUserImage: UIImageView!
+	@IBOutlet var imgUserImage: RemoteImageView!
 	
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
@@ -22,4 +22,14 @@ class UserListItemViewCell: UICollectionViewCell {
 	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
 	
 	var user = User()
+}
+
+extension UserListItemViewCell: RemoteImageViewDelegate {
+	func didFinishLoading() {
+		self.actIndicator.stopAnimating()
+	}
+
+	func imageWillLoad() {
+		self.actIndicator.startAnimating()
+	}
 }

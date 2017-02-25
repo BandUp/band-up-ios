@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>We need access to the camera to take a photo.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We will use your location to measure distance between you and other musicians.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to the photo library to choose a photo.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -28,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to the camera to take a photo.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We will use your location to measure distance between you and other musicians.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to the photo library to choose a photo.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>caviar_dreams.ttf</string>
@@ -62,6 +62,8 @@
 			</dict>
 		</dict>
 	</array>
+	<key>UIApplicationShortcutWidget</key>
+	<string>com.melodies.band-up-ios.MatchesWidget</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

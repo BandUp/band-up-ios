@@ -55,7 +55,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsE-rf-cLJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="348" height="459"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="9" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1M-Xd-4pZ">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="9" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1M-Xd-4pZ" customClass="RemoteImageView" customModule="band_up_ios" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="348" height="459"/>
                                                                 </imageView>
                                                                 <activityIndicatorView opaque="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Hgt-gQ-cJe">

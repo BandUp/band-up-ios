@@ -62,6 +62,11 @@
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
 		F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */; };
 		F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1661E608792005BD86F /* PrivacyViewController.swift */; };
+		F2F0E16E1E6094C7005BD86F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F0E16D1E6094C7005BD86F /* NotificationCenter.framework */; };
+		F2F0E1711E6094C7005BD86F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1701E6094C7005BD86F /* TodayViewController.swift */; };
+		F2F0E1741E6094C7005BD86F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2F0E1721E6094C7005BD86F /* MainInterface.storyboard */; };
+		F2F0E1791E6094C7005BD86F /* MatchesWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2F0E16C1E6094C7005BD86F /* MatchesWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2F0E17F1E60E9F0005BD86F /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E17E1E60E9F0005BD86F /* RemoteImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +84,28 @@
 			remoteGlobalIDString = F217C0421DDFC47100EE16DF;
 			remoteInfo = "band-up-ios";
 		};
+		F2F0E1761E6094C7005BD86F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F217C03B1DDFC47100EE16DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2F0E16B1E6094C7005BD86F;
+			remoteInfo = MatchesWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F2F0E1781E6094C7005BD86F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F2F0E1791E6094C7005BD86F /* MatchesWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2006897B1E44F3C200EAD907 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +182,12 @@
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSourceTableViewController.swift; sourceTree = "<group>"; };
 		F2F0E1661E608792005BD86F /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		F2F0E16C1E6094C7005BD86F /* MatchesWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MatchesWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2F0E16D1E6094C7005BD86F /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F2F0E1701E6094C7005BD86F /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F2F0E1731E6094C7005BD86F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F2F0E1751E6094C7005BD86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2F0E17E1E60E9F0005BD86F /* RemoteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-band-up-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +214,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2F0E1691E6094C7005BD86F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2F0E16E1E6094C7005BD86F /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -201,6 +241,7 @@
 				F217C0451DDFC47100EE16DF /* band-up-ios */,
 				F277C2751E560D8C008AF036 /* band-up-iosTests */,
 				F277C2861E561F41008AF036 /* band-up-iosUITests */,
+				F2F0E16F1E6094C7005BD86F /* MatchesWidget */,
 				F217C0441DDFC47100EE16DF /* Products */,
 				05BEBC4A550603964996EAAD /* Pods */,
 				F6AB3D0A6932E4ADEE2F518F /* Frameworks */,
@@ -213,6 +254,7 @@
 				F217C0431DDFC47100EE16DF /* band-up-ios.app */,
 				F277C2741E560D8C008AF036 /* band-up-iosTests.xctest */,
 				F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */,
+				F2F0E16C1E6094C7005BD86F /* MatchesWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,14 +389,26 @@
 				F21A89E81E160AB80061F559 /* UIBigButton.swift */,
 				F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */,
 				F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */,
+				F2F0E17E1E60E9F0005BD86F /* RemoteImageView.swift */,
 			);
 			name = Elements;
+			sourceTree = "<group>";
+		};
+		F2F0E16F1E6094C7005BD86F /* MatchesWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F2F0E1701E6094C7005BD86F /* TodayViewController.swift */,
+				F2F0E1721E6094C7005BD86F /* MainInterface.storyboard */,
+				F2F0E1751E6094C7005BD86F /* Info.plist */,
+			);
+			path = MatchesWidget;
 			sourceTree = "<group>";
 		};
 		F6AB3D0A6932E4ADEE2F518F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				8A46C69D84F205498C26CE11 /* Pods_band_up_ios.framework */,
+				F2F0E16D1E6094C7005BD86F /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -373,10 +427,12 @@
 				EAE1152327BE34EB014C5325 /* [CP] Embed Pods Frameworks */,
 				F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */,
 				F2F0E1611E5F3407005BD86F /* Tailor */,
+				F2F0E1781E6094C7005BD86F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F2F0E1771E6094C7005BD86F /* PBXTargetDependency */,
 			);
 			name = "band-up-ios";
 			productName = "band-up-ios";
@@ -419,6 +475,23 @@
 			productReference = F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F2F0E16B1E6094C7005BD86F /* MatchesWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2F0E17A1E6094C7005BD86F /* Build configuration list for PBXNativeTarget "MatchesWidget" */;
+			buildPhases = (
+				F2F0E1681E6094C7005BD86F /* Sources */,
+				F2F0E1691E6094C7005BD86F /* Frameworks */,
+				F2F0E16A1E6094C7005BD86F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatchesWidget;
+			productName = MatchesWidget;
+			productReference = F2F0E16C1E6094C7005BD86F /* MatchesWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -452,6 +525,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = F217C0421DDFC47100EE16DF;
 					};
+					F2F0E16B1E6094C7005BD86F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NJU97Y2JX6;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = F217C03E1DDFC47100EE16DF /* Build configuration list for PBXProject "band-up-ios" */;
@@ -471,6 +549,7 @@
 				F217C0421DDFC47100EE16DF /* band-up-ios */,
 				F277C2731E560D8C008AF036 /* band-up-iosTests */,
 				F277C2841E561F41008AF036 /* band-up-iosUITests */,
+				F2F0E16B1E6094C7005BD86F /* MatchesWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -513,6 +592,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2F0E16A1E6094C7005BD86F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2F0E1741E6094C7005BD86F /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +691,7 @@
 				F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */,
 				F2AB06111E0616B30039C761 /* MatchesViewController.swift in Sources */,
 				F2AB060F1E0616A20039C761 /* ProfileViewController.swift in Sources */,
+				F2F0E17F1E60E9F0005BD86F /* RemoteImageView.swift in Sources */,
 				F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */,
 				F25555801DDFD52900530C92 /* BandUpAPI.swift in Sources */,
 				F2DCB2E41E4E99FE006832F6 /* LaunchViewController.swift in Sources */,
@@ -638,6 +726,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2F0E1681E6094C7005BD86F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2F0E1711E6094C7005BD86F /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -650,6 +746,11 @@
 			isa = PBXTargetDependency;
 			target = F217C0421DDFC47100EE16DF /* band-up-ios */;
 			targetProxy = F277C28A1E561F41008AF036 /* PBXContainerItemProxy */;
+		};
+		F2F0E1771E6094C7005BD86F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2F0E16B1E6094C7005BD86F /* MatchesWidget */;
+			targetProxy = F2F0E1761E6094C7005BD86F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -761,6 +862,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		F2F0E1721E6094C7005BD86F /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2F0E1731E6094C7005BD86F /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -865,7 +974,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9A62D4DAE010E6539F3DABC /* Pods-band-up-ios.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
@@ -881,7 +990,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 237F956E82CDDB9C1FCF3433 /* Pods-band-up-ios.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
@@ -1003,7 +1112,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8A806467F8B4A1259EDAE47 /* Pods-band-up-ios.analyze.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
@@ -1041,6 +1150,45 @@
 				TEST_TARGET_NAME = "band-up-ios";
 			};
 			name = Analyze;
+		};
+		F2F0E17B1E6094C7005BD86F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = MatchesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios.MatchesWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F2F0E17C1E6094C7005BD86F /* Analyze */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = MatchesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios.MatchesWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Analyze;
+		};
+		F2F0E17D1E6094C7005BD86F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NJU97Y2JX6;
+				INFOPLIST_FILE = MatchesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios.MatchesWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1084,6 +1232,15 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F2F0E17A1E6094C7005BD86F /* Build configuration list for PBXNativeTarget "MatchesWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2F0E17B1E6094C7005BD86F /* Debug */,
+				F2F0E17C1E6094C7005BD86F /* Analyze */,
+				F2F0E17D1E6094C7005BD86F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

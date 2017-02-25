@@ -18,6 +18,8 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var lblRadius: UILabel!
 	@IBOutlet weak var rangeSlider: MARKRangeSlider!
 	@IBOutlet weak var lblAges: UILabel!
+	@IBOutlet weak var sldRadius: UISlider!
+
 	@IBAction func agesChanged(_ sender: MARKRangeSlider) {
 		let maxAge = Int(round(sender.rightValue))
 		let minAge = Int(round(sender.leftValue))
@@ -46,6 +48,9 @@ class SettingsTableViewController: UITableViewController {
 
 	@IBAction func imperialChanged(_ sender: UISwitch) {
 		UserDefaults.standard.set(sender.isOn, forKey: DefaultsKeys.Settings.usesImperial)
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UnitsChanged"), object: nil, userInfo: ["usesImperial": sender.isOn])
+		radiusChanged(sldRadius)
+
 	}
 
 	@IBAction func radiusChanged(_ sender: UISlider) {
@@ -78,10 +83,12 @@ class SettingsTableViewController: UITableViewController {
 		rangeSlider.setMinValue(CGFloat(Constants.minAge), maxValue: CGFloat(Constants.maxAge))
 		rangeSlider.setLeftValue(CGFloat(Constants.minAge), rightValue: CGFloat(Constants.maxAge))
 
+		initializeNotificationSettings(forKey: DefaultsKeys.Settings.shouldNotifyMatches, value: true)
+		initializeNotificationSettings(forKey: DefaultsKeys.Settings.shouldNotifyInactivity, value: true)
+		initializeNotificationSettings(forKey: DefaultsKeys.Settings.shouldNotifyMessage, value: true)
+
 		let shouldNotifyMatches = UserDefaults.standard.bool(forKey: DefaultsKeys.Settings.shouldNotifyMatches)
-
 		let shouldNotifyInactivity = UserDefaults.standard.bool(forKey: DefaultsKeys.Settings.shouldNotifyInactivity)
-
 		let shouldNotifyMessage = UserDefaults.standard.bool(forKey: DefaultsKeys.Settings.shouldNotifyMessage)
 
 		let usesImperial = UserDefaults.standard.bool(forKey: DefaultsKeys.Settings.usesImperial)
@@ -90,6 +97,17 @@ class SettingsTableViewController: UITableViewController {
 		schInactive.isOn = shouldNotifyInactivity
 		schMessages.isOn = shouldNotifyMessage
 		schImperial.isOn = usesImperial
+
+		let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
+
+		sldRadius.setValue(radius, animated: false)
+		radiusChanged(sldRadius)
+	}
+
+	func initializeNotificationSettings(forKey key: String, value: Bool) {
+		if UserDefaults.standard.object(forKey: key) == nil {
+			UserDefaults.standard.set(value, forKey: key)
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Siesta
 
 class UserListViewController: UIViewController {
 
@@ -70,7 +71,6 @@ class UserListViewController: UIViewController {
 			}
 			self.userArray.shuffle()
 			self.userCollectionView.reloadData()
-			
 		}).onFailure({ (error) in
 			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
@@ -84,15 +84,34 @@ class UserListViewController: UIViewController {
 			selector: #selector(self.locationChanged),
 			name: NSNotification.Name(rawValue: "NewLocation"),
 			object: nil)
+
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(self.locationChanged),
+			name: NSNotification.Name(rawValue: "UnitsChanged"),
+			object: nil)
 	}
 
 	func locationChanged(notification: NSNotification) {
 		//guard let locations = notification.userInfo?["locations"] else { return }
+		UIView.setAnimationsEnabled(false)
+		userCollectionView.reloadSections(IndexSet(integer: 0))
+		UIView.setAnimationsEnabled(true)
+	}
+
+	func unitsChanged(notification: NSNotification) {
+		//guard let locations = notification.userInfo?["locations"] else { return }
+		UIView.setAnimationsEnabled(false)
+		userCollectionView.reloadSections(IndexSet(integer: 0))
+		UIView.setAnimationsEnabled(true)
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+		UIView.setAnimationsEnabled(false)
+		userCollectionView.reloadSections(IndexSet(integer: 0))
+		UIView.setAnimationsEnabled(true)
 	}
 }
 
@@ -100,8 +119,6 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return userArray.count
 	}
-
-	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
@@ -110,14 +127,10 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		
 		cell.user = userArray[indexPath.row]
 		let currentUser = cell.user
-		
-		cell.imgUserImage.image = nil
-		if let checkedUrl = URL(string: currentUser.image.url) {
-			self.downloadImage(url: checkedUrl, imageView: cell.imgUserImage, activityIndicator: cell.actIndicator)
-		} else {
-			cell.actIndicator.stopAnimating()
-			cell.imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
-		}
+		cell.imgUserImage.delegate = cell
+		cell.imgUserImage.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
+		cell.imgUserImage.imageURL = URL(string: currentUser.image.url)
+
 		
 		cell.lblUsername.text = currentUser.username
 		cell.lblPercentage.text = String(format:"\(currentUser.percentage)%%")
@@ -179,26 +192,7 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		currentIndex = self.userCollectionView.contentOffset.x / self.userCollectionView.frame.size.width
 	}
-	
-	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-		URLSession.shared.dataTask(with: url) {
-			(data, response, error) in
-			completion(data, response, error)
-			}.resume()
-	}
-	
-	func downloadImage(url: URL, imageView: UIImageView, activityIndicator: UIActivityIndicatorView) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		activityIndicator.startAnimating()
-		getDataFromUrl(url: url) { (data, response, error)  in
-			guard let data = data, error == nil else { return }
-			DispatchQueue.main.async() { () -> Void in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				activityIndicator.stopAnimating()
-				imageView.image = UIImage(data: data)
-			}
-		}
-	}
+
 }
 
 extension UserListViewController: UIViewControllerPreviewingDelegate {

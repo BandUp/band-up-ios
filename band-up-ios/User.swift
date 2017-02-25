@@ -147,28 +147,21 @@ class User: CustomStringConvertible {
 		}
 	}
 
-	func getDistanceString() -> String {
-		// Temporary
+	func getDistanceString(between location:CLLocation? = nil) -> String {
+		let localizedNoDistance = NSLocalizedString("no_distance_available", comment: "")
 		if !self.location.valid {
-			return NSLocalizedString("no_distance_available", comment: "")
+			return localizedNoDistance
 		} else {
-			return getDistanceString(distance: self.distance)
+			if location == nil {
+				return getDistanceString(distance: self.distance)
+			} else {
+				guard let location = location else { return localizedNoDistance }
+				let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
+				let distance = location.distance(from: userLocation)/1000
+				return getDistanceString(distance: distance)
+			}
 		}
 	}
-
-
-	func getDistanceString(between location:CLLocation) -> String {
-		// Temporary
-
-		if self.location.valid {
-			return NSLocalizedString("no_distance_available", comment: "")
-		} else {
-			let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
-			let distance = location.distance(from: userLocation)
-			return getDistanceString(distance: distance)
-		}
-	}
-
 
 	private func getDistanceString(distance:Double) -> String {
 		var shouldUseMetric = true

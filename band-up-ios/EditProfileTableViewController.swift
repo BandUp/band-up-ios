@@ -209,6 +209,9 @@ class EditProfileTableViewController: UITableViewController {
 		
 		txtName.attributedPlaceholder = nameStr
 		tableView.keyboardDismissMode = .interactive
+
+		txtName.keyboardAppearance = .dark
+		txtAboutMe.keyboardAppearance = .dark
 	}
 
 	override func didReceiveMemoryWarning() {
