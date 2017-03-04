@@ -12,6 +12,9 @@ class ChatViewController: UIViewController {
     
     var user = User()
     var chatHistory = [ChatMessage]()
+
+	let chatCellOther = "chat_message_cell_other"
+	let chatCellMe    = "chat_message_cell_me"
     
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var lblError: UILabel!
@@ -61,14 +64,12 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
 		self.tableView.estimatedRowHeight = 44
 		self.tableView.rowHeight = UITableViewAutomaticDimension
-		ChatSocket.sharedInstance.startSocket()
 		ChatSocket.sharedInstance.establishConnection()
 
 		ChatSocket.sharedInstance.socket.on("recv_privatemsg") { (dataList, callback) in
 			if dataList.count < 2 {
 				return
 			}
-
 
 			let msg = ChatMessage()
 			if let recvMessage = dataList[1] as? String {
@@ -149,7 +150,6 @@ class ChatViewController: UIViewController {
 			return
 		}
 
-
 		let keyboardSize = frameEnd.cgRectValue.height
 		bottomConstraint.constant = keyboardSize - bottomLayoutGuide.length
 
@@ -159,9 +159,6 @@ class ChatViewController: UIViewController {
 		if chatHistory.count > 0 {
 			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
 		}
-
-
-
 	}
 	
 	func keyboardWillHide(sender: NSNotification) {
@@ -177,9 +174,9 @@ class ChatViewController: UIViewController {
 	}
 	
 	public func someAction() {
-		let storyboard = UIStoryboard(name: "UserDetailsView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.userDetails, bundle: Bundle.main)
 		
-		if let viewController = storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as? UserDetailsViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.userDetails) as? UserDetailsViewController {
 			viewController.shouldDisplayLike = false
 			viewController.currentUser = user
 
@@ -201,7 +198,7 @@ class ChatViewController: UIViewController {
 }
 
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatHistory.count
     }
@@ -210,9 +207,9 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
 		var cell: UITableViewCell
 
 		if chatHistory[indexPath.row].sender == user.id {
-			cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell_other", for: indexPath)
+			cell = tableView.dequeueReusableCell(withIdentifier: chatCellOther, for: indexPath)
 		} else {
-			cell = tableView.dequeueReusableCell(withIdentifier: "chat_message_cell_me", for: indexPath)
+			cell = tableView.dequeueReusableCell(withIdentifier: chatCellMe, for: indexPath)
 		}
 
 		if let messageCell = cell.viewWithTag(1) as? UILabel {

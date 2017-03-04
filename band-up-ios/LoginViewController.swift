@@ -46,8 +46,6 @@ class LoginViewController: UIViewController {
 		txtPassword.delegate = self
 	}
 	
-
-
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
@@ -59,7 +57,7 @@ class LoginViewController: UIViewController {
 	- returns: No return value
 	*/
 	func displaySetupView() {
-		guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as? SetupViewController else {
+		guard let myVC = self.storyboard?.instantiateViewController(withIdentifier: ControllerID.setup) as? SetupViewController else {
 			return
 		}
 
@@ -73,8 +71,8 @@ class LoginViewController: UIViewController {
 	- returns: No return value
 	*/
 	func displayMainScreenView() {
-		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
-		guard let mainViewController = storyboard.instantiateViewController(withIdentifier: "DrawerController") as? KYDrawerController else {
+		let storyboard = UIStoryboard(name: Storyboard.drawer, bundle: Bundle.main)
+		guard let mainViewController = storyboard.instantiateViewController(withIdentifier: ControllerID.drawer) as? KYDrawerController else {
 			return
 		}
 		self.present(mainViewController, animated: true, completion: nil)
@@ -86,8 +84,6 @@ class LoginViewController: UIViewController {
 	}
 	
 	func login() {
-		// Display the network activity indicator in the status bar.
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		// Disable the button while making the request
 		// so that no more than one request can be made
 		btnLogin.isEnabled = false
@@ -96,7 +92,6 @@ class LoginViewController: UIViewController {
 		BandUpAPI.sharedInstance.login.request(.post, json: ["username":txtEmail.text, "password":txtPassword.text])
 			.onSuccess { (data) in
 				// Hide the network activity indicator in the status bar.
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 				self.btnLogin.isEnabled = true
 				
 				let hasFinishedSetup = data.jsonDict["hasFinishedSetup"] as? Bool
@@ -116,7 +111,6 @@ class LoginViewController: UIViewController {
 				
 			}.onFailure { (error) in
 				// Hide the network activity indicator in the status bar.
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 				self.btnLogin.isEnabled = true
 				if error.httpStatusCode == 401 {
 					print("Wrong email or password")

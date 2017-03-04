@@ -147,8 +147,13 @@ class User: CustomStringConvertible {
 		}
 	}
 
+	func getDistance(myLocation:CLLocation) -> Int {
+		let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
+		return Int(userLocation.distance(from: myLocation)/1000)
+	}
+
 	func getDistanceString(between location:CLLocation? = nil) -> String {
-		let localizedNoDistance = NSLocalizedString("no_distance_available", comment: "")
+		let localizedNoDistance = "no_distance_available".localized
 		if !self.location.valid {
 			return localizedNoDistance
 		} else {
@@ -184,7 +189,6 @@ class User: CustomStringConvertible {
 			return distanceString
 		}
 	}
-	
 
 	var description: String {
 		
@@ -203,4 +207,12 @@ class User: CustomStringConvertible {
 		
 		return desc
 	}
+}
+
+extension User: Equatable {
+
+	public static func == (lhs: User, rhs: User) -> Bool {
+		return lhs.id == rhs.id
+	}
+
 }

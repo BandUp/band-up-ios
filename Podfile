@@ -11,4 +11,5 @@ target 'band-up-ios' do
     pod 'MARKRangeSlider'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'SwiftLint'
 end

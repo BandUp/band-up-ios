@@ -15,7 +15,9 @@ class MatchesTableViewCell: UITableViewCell {
 
 	var user = User() {
 		didSet {
+
 			imgProfile.imageURL = URL(string: user.image.url)
+
 			imgProfile.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
 			lblUsername.text = user.username
 		}
@@ -26,7 +28,6 @@ class MatchesTableViewCell: UITableViewCell {
 		let colorView = UIView()
 		colorView.backgroundColor = UIColor.darkGray
 		self.selectedBackgroundView = colorView
-
 	}
 
 	override func prepareForReuse() {

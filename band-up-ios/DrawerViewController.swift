@@ -28,14 +28,10 @@ class DrawerViewController: UIViewController {
 	let ITEM_IMAGE_TAG = 1
 	let ITEM_NAME_TAG = 2
 	
-	var currentUser = User();
+	var currentUser = User()
 	
 	@IBAction func tappedProfile(_ sender: UIButton) {
-		let drawer = self.parent as! KYDrawerController
-
-		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
-		mainController.updateView(row: "main_nav_my_profile")
-		drawer.setDrawerState(.closed, animated: true)
+		self.displayView("main_nav_my_profile", drawerAnimated: true)
 	}
 
 	override func viewDidLoad() {
@@ -55,34 +51,32 @@ class DrawerViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+
 	func populateUser() {
 		self.lblUsername.text = currentUser.username
 		self.lblFavInstrument.text = currentUser.favouriteInstrument
-		
+
 		imgUserImage.image = nil
-		
+
 		if let checkedUrl = URL(string: currentUser.image.url) {
 			self.downloadImage(url: checkedUrl, imageView: imgUserImage)
 		} else {
 			imgUserImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
-			
+
 		}
+
 	}
-	
+
 	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-		URLSession.shared.dataTask(with: url) {
-			(data, response, error) in
+		URLSession.shared.dataTask(with: url) { (data, response, error) in
 			completion(data, response, error)
 			}.resume()
 	}
 	
 	func downloadImage(url: URL, imageView: UIImageView) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		getDataFromUrl(url: url) { (data, response, error)  in
 			guard let data = data, error == nil else { return }
-			DispatchQueue.main.async() { () -> Void in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			DispatchQueue.main.async { () -> Void in
 				imageView.image = UIImage(data: data)
 			}
 		}
@@ -102,8 +96,23 @@ class DrawerViewController: UIViewController {
 			tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.top)
 		}
 	}
+
+	func displayView(_ id: String, drawerAnimated: Bool) {
+		guard let drawer = self.parent as? KYDrawerController else {
+			return
+		}
+
+		guard let mainController = drawer.mainViewController.childViewControllers[0] as? MainScreenViewController else {
+			return
+		}
+
+		mainController.updateView(row: id)
+		drawer.setDrawerState(.closed, animated: drawerAnimated)
+	}
 }
 
+// MARK: - Extensions
+// MARK: ProfileViewDelegate Implementation
 extension DrawerViewController: ProfileViewDelegate {
 	func update(user: User) {
 		currentUser = user
@@ -111,8 +120,8 @@ extension DrawerViewController: ProfileViewDelegate {
 	}
 }
 
+// MARK: UITableView Implementation
 extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
-	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return listItems.count
@@ -120,9 +129,11 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "drawerCell", for: indexPath)
-		let itemName = cell.viewWithTag(ITEM_NAME_TAG) as! UILabel
+
+		if let itemName = cell.viewWithTag(ITEM_NAME_TAG) as? UILabel {
+			itemName.text = listItems[indexPath.row].name
+		}
 		
-		itemName.text = listItems[indexPath.row].name
 		let colorView = UIView()
 		colorView.backgroundColor = UIColor.bandUpDarkYellow
 		cell.selectedBackgroundView = colorView
@@ -130,10 +141,6 @@ extension DrawerViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let drawer = self.parent as! KYDrawerController
-		
-		let mainController = drawer.mainViewController.childViewControllers[0] as! MainScreenViewController
-		mainController.updateView(row: listItems[indexPath.row].id)
-		drawer.setDrawerState(.closed, animated: true)
+		self.displayView(listItems[indexPath.row].id, drawerAnimated: true)
 	}
 }

@@ -12,22 +12,6 @@ class ChatSocket: NSObject {
     static let sharedInstance = ChatSocket()
     
     override init() {
-        super.init()
-    }
-	
-    var socket: SocketIOClient = SocketIOClient(socketURL: Constants.bandUpAddress!)
-
-    func establishConnection() {
-		print("Connecting...")
-        socket.connect()
-    }
-    
-    func closeConnection() {
-		print("Disonnecting")
-        socket.disconnect()
-    }
-	
-	func startSocket() {
 		let configuration: SocketIOClientConfiguration
 
 		if let headers = UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as? [String:String] {
@@ -40,7 +24,20 @@ class ChatSocket: NSObject {
 		}
 
 		socket = SocketIOClient(socketURL: Constants.bandUpAddress!, config: configuration)
-	}
+		super.init()
+    }
+	
+    var socket: SocketIOClient
+
+    func establishConnection() {
+		print("Connecting...")
+        socket.connect()
+    }
+    
+    func closeConnection() {
+		print("Disonnecting")
+        socket.disconnect()
+    }
 	
 	func registerUser() -> OnAckCallback {
 		return socket.emitWithAck("adduser", "")

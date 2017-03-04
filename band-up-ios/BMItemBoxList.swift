@@ -6,7 +6,6 @@
 //  Copyright © 2017 Bad Melody. All rights reserved.
 //
 
-
 import UIKit
 import UICollectionViewLeftAlignedLayout
 
@@ -23,7 +22,6 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	@IBInspectable open var textColor: UIColor?
 
 	@IBInspectable open var fontSize: CGFloat = 14.0
-	@IBInspectable open var fontType = "System"
 
 	@IBInspectable open var horizontalMargin: CGFloat = 0.0
 	@IBInspectable open var verticalMargin: CGFloat = 0.0
@@ -37,6 +35,7 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	var strings: [String] = []
 	var collectionView: UICollectionView?
 	var layout: UICollectionViewLayout = UICollectionViewLeftAlignedLayout()
+	var fontType = "System"
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -92,8 +91,8 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-		guard let currCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellViewTag, for: indexPath) as? BMItemBoxListCell else { return BMItemBoxListCell() }
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellViewTag, for: indexPath)
+		guard let currCell = cell as? BMItemBoxListCell else { return BMItemBoxListCell() }
 
 		// Font Style
 		currCell.fontType = self.fontType
@@ -113,7 +112,9 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		return currCell
 	}
 
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+	func collectionView(_ collectionView: UICollectionView,
+	                    layout collectionViewLayout: UICollectionViewLayout,
+	                    sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let measuringLabel = UILabel()
 		measuringLabel.text = self.strings[indexPath.row]
 		measuringLabel.font = UIFont(name: fontType, size: fontSize)
@@ -126,7 +127,9 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		return size
 	}
 
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+	func collectionView(_ collectionView: UICollectionView,
+	                    layout collectionViewLayout: UICollectionViewLayout,
+	                    minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return CGFloat(horizontalMargin)
 	}
 

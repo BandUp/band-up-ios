@@ -12,7 +12,7 @@ import CoreLocation
 
 class UserInitTests: XCTestCase {
 
-	var userDictionary: Dictionary<String, Any> = [:]
+	var userDictionary: [String:Any] = [:]
 	var user = User()
 
 	override func setUp() {
@@ -99,7 +99,7 @@ class UserInitTests: XCTestCase {
 
 	func testDistanceStringInvalidLocation() {
 		// Arrange
-		var userLocationDictionary: Dictionary<String, Any> = [:]
+		var userLocationDictionary: [String:Any] = [:]
 		userLocationDictionary["lat"] = 64.0
 		userLocationDictionary["lon"] = -21.0
 		userLocationDictionary["valid"] = false
@@ -117,7 +117,7 @@ class UserInitTests: XCTestCase {
 
 	func testDistanceStringValidLocation() {
 		// Arrange
-		var userLocationDictionary: Dictionary<String, Any> = [:]
+		var userLocationDictionary: [String:Any] = [:]
 		userLocationDictionary["lat"] = 64.0
 		userLocationDictionary["lon"] = -21.0
 		userLocationDictionary["valid"] = true

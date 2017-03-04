@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EditProfileViewControllerDelegate {
+protocol EditProfileViewControllerDelegate: class {
 	func userUpdated(_ newUser: User)
 }
 
@@ -19,7 +19,7 @@ class EditProfileViewController: UIViewController {
 	var tableViewController: EditProfileTableViewController = EditProfileTableViewController()
 	
 	var user = User()
-	var delegate : EditProfileViewControllerDelegate?
+	weak var delegate : EditProfileViewControllerDelegate?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -37,7 +37,6 @@ class EditProfileViewController: UIViewController {
 		
 		tableViewController.lblAge.text = String(user.getBirthString())
 
-		
 		var count = user.instruments.count
 		if count > 0 {
 			let last = user.instruments[count-1]
@@ -49,8 +48,7 @@ class EditProfileViewController: UIViewController {
 				}
 			}
 		}
-		
-		
+
 		count = user.genres.count
 		if count > 0 {
 			let last = user.genres[count-1]
@@ -95,7 +93,6 @@ class EditProfileViewController: UIViewController {
 		user.username = tableViewController.txtName.text!
 		user.aboutme = tableViewController.txtAboutMe.text
 		
-
 		BandUpAPI.sharedInstance.editProfile.request(.post, json: updatedUser).onSuccess { (response) in
 			self.tableViewController.txtName.resignFirstResponder()
 			self.tableViewController.txtAboutMe.resignFirstResponder()
@@ -107,7 +104,6 @@ class EditProfileViewController: UIViewController {
 		}.onFailure { (error) in
 			self.navigationItem.rightBarButtonItem?.isEnabled = true
 		}
-		
 
 	}
 	

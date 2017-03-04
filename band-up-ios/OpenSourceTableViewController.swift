@@ -14,6 +14,7 @@ class OpenSourceTableViewController: UITableViewController {
 		super.viewDidLoad()
 		title = NSLocalizedString("settings_open_source", comment: "")
 	}
+
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
 	}
@@ -40,6 +41,11 @@ class OpenSourceTableViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-		(view as! UITableViewHeaderFooterView).tintColor = UIColor.bandUpYellow
+		guard let headerView = view as? UITableViewHeaderFooterView else {
+			return
+		}
+		
+		headerView.tintColor = UIColor.bandUpYellow
 	}
+	
 }

@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		// var shouldPerformAdditionalDelegateHandling = true
-		FIRApp.configure()
+		// FIRApp.configure()
 
 		if #available(iOS 10.0, *) {
 			UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		manager.delegate = self
 		manager.desiredAccuracy = kCLLocationAccuracyKilometer
 
-		// Run Request updates every 60 seconds.
+		// Run Request updates every x seconds.
 		startLocationTimer()
 
 		UIApplication.shared.statusBarStyle = .lightContent
@@ -68,23 +68,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func startLocationTimer() {
-		locationTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.myTimerFunc), userInfo: nil, repeats: true)
+		if !locationTimer.isValid {
+			manager.requestLocation()
+			locationTimer = Timer.scheduledTimer(timeInterval: Constants.locationUpdateRate,
+			                                     target: self,
+			                                     selector: #selector(self.myTimerFunc),
+			                                     userInfo: nil,
+			                                     repeats: true)
+		}
 	}
 
 	func myTimerFunc() {
+		print("requestLocation")
 		manager.requestLocation()
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
-		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+		// Sent when the application is about to move from active to inactive state.
+		// This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message)
+		// or when the user quits the application and it begins the transition to the background state.
+		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks.
+		// Games should use this method to pause the game.
 		ChatSocket.sharedInstance.closeConnection()
 		locationTimer.invalidate()
 	}
 
 	func applicationDidEnterBackground(_ application: UIApplication) {
-		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+		// Use this method to release shared resources, save user data, invalidate timers, and store enough
+		// application state information to restore your application to its current state
+		// in case it is terminated later.
+		// If your application supports background execution, this method is called instead of
+		// applicationWillTerminate: when the user quits.
         ChatSocket.sharedInstance.closeConnection()
 		locationTimer.invalidate()
 	}
@@ -124,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		completionHandler(handledShortCutItem)
 	}
 
-	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> ()) {
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
 		print("Message ID \(userInfo["gcm.message_id"]!)")
 		print(userInfo)
@@ -178,7 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func showLoginScreen() {
-		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
 
 		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
@@ -214,9 +228,6 @@ extension AppDelegate: CLLocationManagerDelegate {
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
 
 				}
-
-
-
 			}
 		}
 	}

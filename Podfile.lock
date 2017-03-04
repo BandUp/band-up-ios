@@ -39,6 +39,7 @@ PODS:
   - Siesta/UI (1.1.0):
     - Siesta/Core
   - Socket.IO-Client-Swift (8.2.0)
+  - SwiftLint (0.16.1)
   - UICollectionViewLeftAlignedLayout (1.0.2)
 
 DEPENDENCIES:
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - Siesta (= 1.1.0)
   - Siesta/UI (= 1.1.0)
   - Socket.IO-Client-Swift (~> 8.2.0)
+  - SwiftLint
   - UICollectionViewLeftAlignedLayout
 
 SPEC CHECKSUMS:
@@ -66,8 +68,9 @@ SPEC CHECKSUMS:
   MARKRangeSlider: ef7e1fe84d22996f47fd72dcb8de50b9410aac47
   Siesta: ada9f35255e4eb16fad45cc3080927f6c6cba9cc
   Socket.IO-Client-Swift: 900cf511777045c80d1ce1f11f71261e87765dd1
+  SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: 427cc82b6947c9f5baa4dd7a42d41ee7880a1cde
+PODFILE CHECKSUM: 6b615a57d518ebab514b500ef21c73e6c7265370
 
 COCOAPODS: 1.1.1

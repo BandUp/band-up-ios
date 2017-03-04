@@ -10,13 +10,13 @@ import UIKit
 import KYDrawerController
 import Siesta
 
-protocol SetupViewControllerDelegate {
+protocol SetupViewControllerDelegate: class {
 	func didSave(_ setup: Int, with data: [String])
 }
 
 class SetupViewController: UIViewController {
 	
-	var delegate: SetupViewControllerDelegate?
+	weak var delegate: SetupViewControllerDelegate?
 	
 	// MARK: - Interface Builder Outlets
 	@IBOutlet weak var lblTitleUpperLeft: UILabel!
@@ -29,7 +29,7 @@ class SetupViewController: UIViewController {
 	
 	// MARK: - Objects and Constants
 	var itemNameTag = 1
-	var setupViewObject: [SetupViewObject]? = nil
+	var setupViewObject: [SetupViewObject]?
 	var stringArray = [String]()
 	var setupItemArray = [SetupItem]()
 	var selectedBorderWidth: CGFloat = 5
@@ -37,10 +37,8 @@ class SetupViewController: UIViewController {
 	// MARK: - Overridden Functions
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		
+
 		self.setupViewObject?.first?.apiResource.load().onSuccess { (response) in
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			// Go through all of the setup items in the response
 			for item in response.jsonArray {
@@ -78,7 +76,6 @@ class SetupViewController: UIViewController {
 				self.displayErrorMessage(message: "Could not fetch information")
 			}
 		}.onFailure { (error) in
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			self.activityIndicator.stopAnimating()
 			self.displayErrorMessage(message: "Could not fetch information")
 			print(error)
@@ -128,18 +125,14 @@ class SetupViewController: UIViewController {
 			
 			let request = self.setupViewObject?.first?.apiResource.request(.post, json: idArr)
 
-			UIApplication.shared.isNetworkActivityIndicatorVisible = true
 			request?.onSuccess { (response) in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			}.onFailure { (error) in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			}
-			
 			
 			if setupViewObject?.first?.setupViewCount != setupViewObject?.first?.setupViewIndex {
 				// Setup has not been finished. Continue
 
-				guard let myVC = storyboard?.instantiateViewController(withIdentifier: "SetupViewController") as? SetupViewController else { return }
+				guard let myVC = storyboard?.instantiateViewController(withIdentifier: ControllerID.setup) as? SetupViewController else { return }
 				
 				myVC.setupViewObject = Array((setupViewObject?.dropFirst())!)
 				
@@ -158,9 +151,9 @@ class SetupViewController: UIViewController {
 						}
 					})
 				} else {
-					let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
+					let storyboard = UIStoryboard(name: Storyboard.drawer, bundle: Bundle.main)
 
-					if let vc = storyboard.instantiateViewController(withIdentifier: "DrawerController") as? KYDrawerController {
+					if let vc = storyboard.instantiateViewController(withIdentifier: ControllerID.drawer) as? KYDrawerController {
 						present(vc, animated: true, completion: nil)
 						if (self.setupViewObject?.first?.shouldFinishSetup)! {
 							UserDefaults.standard.set(true, forKey: DefaultsKeys.finishedSetup)
@@ -197,7 +190,6 @@ extension SetupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		} else {
 			print("Could not find lblItemName")
 		}
-		
 
 		cell.layer.borderColor = UIColor.bandUpYellow.cgColor
 		

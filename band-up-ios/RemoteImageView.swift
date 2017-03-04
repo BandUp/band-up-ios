@@ -9,7 +9,7 @@
 import UIKit
 import Siesta
 
-protocol RemoteImageViewDelegate {
+protocol RemoteImageViewDelegate: class {
 	func didFinishLoading()
 	func imageWillLoad()
 }
@@ -19,11 +19,15 @@ class RemoteImageView: UIImageView {
 
 	var placeholderImage: UIImage?
 
-	var delegate: RemoteImageViewDelegate?
+	weak var delegate: RemoteImageViewDelegate?
 
 	var imageURL: URL? {
-		get { return imageResource?.url }
-		set { imageResource = RemoteImageView.imageCache.resource(absoluteURL: newValue) }
+		get {
+			return imageResource?.url
+		}
+		set {
+			imageResource = RemoteImageView.imageCache.resource(absoluteURL: newValue)
+		}
 	}
 
 	var imageResource: Resource? {
@@ -45,13 +49,9 @@ class RemoteImageView: UIImageView {
 				_ = imageResource?.loadIfNeeded()
 			}
 
-
-
 			imageResource?.addObserver(owner: self) { [weak self] _ in
 
 				let imageResult: UIImage? = self?.imageResource?.typedContent()
-
-
 
 				if !(self?.imageResource?.isLoading)! {
 					if imageResult != nil {

@@ -32,7 +32,6 @@ class SettingsTableViewController: UITableViewController {
 			lblAges.text = String(format: locString, String(minAge))
 		}
 
-
 		UserDefaults.standard.set(sender.rightValue, forKey: DefaultsKeys.Settings.maxAge)
 		UserDefaults.standard.set(sender.leftValue, forKey: DefaultsKeys.Settings.minAge)
 	}
@@ -143,72 +142,29 @@ class SettingsTableViewController: UITableViewController {
 		return cell
 	}
 
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let storyboard = UIStoryboard(name: "SettingsView", bundle: Bundle.main)
+	override func tableView(_ tableView: UITableView,
+	                        didSelectRowAt indexPath: IndexPath) {
+		let storyboard = UIStoryboard(name: Storyboard.settings, bundle: Bundle.main)
 
 		switch indexPath.section {
 			case 3:
-				let mailVC = MFMailComposeViewController()
-				mailVC.mailComposeDelegate = self
-				mailVC.setToRecipients(["support@badmelody.com"])
-				guard let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
-					return
-				}
-				guard let bundleBuild = Bundle.main.infoDictionary?[kCFBundleVersionKey as String] else {
-					return
-				}
-
-				let subject = String(format: "Help with Band Up for iOS %@ (%@)", String(describing: bundleVersion), String(describing: bundleBuild))
-				mailVC.setSubject(subject)
-
-				present(mailVC, animated: true, completion: nil)
+				displayMailComposer()
 				break
 			case 4:
 				switch indexPath.row {
 					case 0:
-						let privacyVC = storyboard.instantiateViewController(withIdentifier: "PrivacyViewController")
+						let privacyVC = storyboard.instantiateViewController(withIdentifier: ControllerID.privacy)
 						navigationController?.pushViewController(privacyVC, animated: true)
 						break
 					case 1:
-						let openSourceVC = storyboard.instantiateViewController(withIdentifier: "OpenSourceTableViewController")
+						let openSourceVC = storyboard.instantiateViewController(withIdentifier: ControllerID.openSource)
 						navigationController?.pushViewController(openSourceVC, animated: true)
 						break
 					default:
 						break
 				}
 			case 5:
-				let alertController = UIAlertController (title: "settings_alert_delete_title".localized, message: "settings_alert_delete_message".localized, preferredStyle: .actionSheet)
-
-				let settingsAction = UIAlertAction(title: "settings_delete_account".localized, style: .destructive) { (_) -> Void in
-					BandUpAPI.sharedInstance.deleteAccount.request(.delete).onSuccess { (response) in
-						let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
-						if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-							appDelegate.window?.rootViewController = storyboard.instantiateInitialViewController()
-							BandUpAPI.sharedInstance.invalidateConfiguration()
-							BandUpAPI.sharedInstance.headers = [:]
-							UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
-						} else {
-							print("Could not find AppDelegate")
-						}
-					}.onFailure { (error) in
-						let failAlertController = UIAlertController(title: "settings_alert_delete_error_title".localized, message: "settings_alert_delete_error_message".localized, preferredStyle: .alert)
-
-						let okAction = UIAlertAction(title: "search_ok".localized, style: .default, handler: nil)
-
-						failAlertController.addAction(okAction)
-						failAlertController.preferredAction = okAction
-
-						self.present(failAlertController, animated: true, completion: nil)
-					}
-				}
-
-				let cancelAction = UIAlertAction(title: "search_cancel".localized, style: .cancel, handler: nil)
-
-				alertController.addAction(cancelAction)
-				alertController.addAction(settingsAction)
-				alertController.preferredAction = settingsAction
-
-				present(alertController, animated: true, completion: nil)
+				displayDeleteAccountAlert()
 				tableView.deselectRow(at: indexPath, animated: true)
 				break
 			default:
@@ -216,15 +172,70 @@ class SettingsTableViewController: UITableViewController {
 		}
 	}
 
+	func displayMailComposer() {
+		let mailVC = MFMailComposeViewController()
+		mailVC.mailComposeDelegate = self
+		mailVC.setToRecipients(["support@badmelody.com"])
+		guard let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
+			return
+		}
+		guard let bundleBuild = Bundle.main.infoDictionary?[kCFBundleVersionKey as String] else {
+			return
+		}
+
+		let subject = String(format: "Help with Band Up for iOS %@ (%@)", String(describing: bundleVersion), String(describing: bundleBuild))
+		mailVC.setSubject(subject)
+
+		present(mailVC, animated: true, completion: nil)
+	}
+
+	func displayDeleteAccountAlert() {
+		let alertController = UIAlertController (title: "settings_alert_delete_title".localized, message: "settings_alert_delete_message".localized, preferredStyle: .actionSheet)
+
+		let settingsAction = UIAlertAction(title: "settings_delete_account".localized, style: .destructive) { (_) -> Void in
+			BandUpAPI.sharedInstance.deleteAccount.request(.delete).onSuccess { (response) in
+				let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
+				if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+					appDelegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+					BandUpAPI.sharedInstance.invalidateConfiguration()
+					BandUpAPI.sharedInstance.headers = [:]
+					UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
+				} else {
+					print("Could not find AppDelegate")
+				}
+				}.onFailure { (error) in
+					let failAlertController = UIAlertController(title: "settings_alert_delete_error_title".localized, message: "settings_alert_delete_error_message".localized, preferredStyle: .alert)
+
+					let okAction = UIAlertAction(title: "search_ok".localized, style: .default, handler: nil)
+
+					failAlertController.addAction(okAction)
+					failAlertController.preferredAction = okAction
+
+					self.present(failAlertController, animated: true, completion: nil)
+			}
+		}
+
+		let cancelAction = UIAlertAction(title: "search_cancel".localized, style: .cancel, handler: nil)
+
+		alertController.addAction(cancelAction)
+		alertController.addAction(settingsAction)
+		alertController.preferredAction = settingsAction
+
+		present(alertController, animated: true, completion: nil)
+	}
+
 }
 
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
+
 	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
 		controller.dismiss(animated: true, completion: nil)
 	}
+
 }
 
 extension UIImage {
+
 	static func fromColor(color: UIColor) -> UIImage {
 		let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
 		UIGraphicsBeginImageContext(rect.size)
@@ -235,4 +246,5 @@ extension UIImage {
 		UIGraphicsEndImageContext()
 		return img!
 	}
+
 }

@@ -16,7 +16,6 @@ class MainScreenViewController: UIViewController {
 	
 	var currentViewController = UIViewController()
 
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -28,7 +27,7 @@ class MainScreenViewController: UIViewController {
 			}
 
 			guard let drawerController = navigationController.parent as? KYDrawerController else {
-				break auth;
+				break auth
 			}
 
 			if let drawerViewController = drawerController.drawerViewController as? DrawerViewController {
@@ -55,7 +54,6 @@ class MainScreenViewController: UIViewController {
 		self.navigationController?.navigationBar.tintColor = UIColor.bandUpYellow
 	}
 	
-	
 	@IBAction func didTapOpenDrawer(_ sender: Any) {
 		if let drawerController = navigationController?.parent as? KYDrawerController {
 			drawerController.setDrawerState(.opened, animated: true)
@@ -68,9 +66,9 @@ class MainScreenViewController: UIViewController {
 	}
 	
 	public lazy var profileViewController: ProfileViewController? = {
-		let storyboard = UIStoryboard(name: "ProfileView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.profile, bundle: Bundle.main)
 
-		if let viewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.profile) as? ProfileViewController {
 			return viewController
 		}
 
@@ -79,9 +77,9 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var userItemViewController: UserListViewController? = {
 		
-		let storyboard = UIStoryboard(name: "UserListView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.userList, bundle: Bundle.main)
 
-		if let viewController = storyboard.instantiateViewController(withIdentifier: "UserListViewController") as? UserListViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.userList) as? UserListViewController {
 			return viewController
 		}
 
@@ -90,9 +88,9 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var matchesViewController: MatchesViewController? = {
 		
-		let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.matches, bundle: Bundle.main)
 
-		if let viewController = storyboard.instantiateViewController(withIdentifier: "MatchesViewController") as? MatchesViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.matches) as? MatchesViewController {
 			return viewController
 		}
 
@@ -101,9 +99,9 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var settingsViewController: SettingsViewController? = {
 		
-		let storyboard = UIStoryboard(name: "SettingsView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.settings, bundle: Bundle.main)
 		
-		if let viewController = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.settings) as? SettingsViewController {
 			return viewController
 		}
 
@@ -112,9 +110,9 @@ class MainScreenViewController: UIViewController {
 	
 	public lazy var upcomingViewController: UpcomingViewController? = {
 		
-		let storyboard = UIStoryboard(name: "UpcomingView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.upcoming, bundle: Bundle.main)
 
-		if let viewController = storyboard.instantiateViewController(withIdentifier: "UpcomingViewController") as? UpcomingViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.settings) as? UpcomingViewController {
 			return viewController
 		}
 
@@ -150,7 +148,15 @@ class MainScreenViewController: UIViewController {
 	}
 	
 	public func updateView(row: String) {
-		
+		guard let drawerController = navigationController?.parent as? KYDrawerController else {
+			return
+
+		}
+
+		guard let drawerViewController = drawerController.drawerViewController as? DrawerViewController else {
+			return
+		}
+
 		switch row {
 		case "main_nav_near_me":
 			guard let userItemViewController = userItemViewController else {
@@ -223,10 +229,8 @@ class MainScreenViewController: UIViewController {
 		default:
 			break
 		}
-		if let drawerController = navigationController?.parent as? KYDrawerController {
-			(drawerController.drawerViewController as! DrawerViewController).selectControllerWith(id: row)
-		}
 
+		drawerViewController.selectControllerWith(id: row)
 	}
 	
 }

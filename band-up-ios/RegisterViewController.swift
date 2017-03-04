@@ -97,8 +97,6 @@ class RegisterViewController: UIViewController {
 			lblPassword1Error.text = "Your password must be at least 6 characters long"
 			lblPassword1Error.isHidden = false
 		}
-		
-		
 	}
 
 	@IBAction func password2EditEnded(_ sender: UITextField) {
@@ -165,14 +163,10 @@ class RegisterViewController: UIViewController {
 				"dateOfBirth": dateString
 				]
 				).onSuccess { (data) in
-					// Hide the network activity indicator in the status bar.
-					UIApplication.shared.isNetworkActivityIndicatorVisible = false
 					_ = self.navigationController?.popViewController(animated: true)
 					
 					self.btnRegister.isEnabled = true
 				}.onFailure { (error) in
-					// Hide the network activity indicator in the status bar.
-					UIApplication.shared.isNetworkActivityIndicatorVisible = false
 					self.btnRegister.isEnabled = true
 			}
 		}
@@ -210,8 +204,6 @@ class RegisterViewController: UIViewController {
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
 		notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-
-		
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -266,6 +258,5 @@ class RegisterViewController: UIViewController {
 		let ageComponents = calendar.dateComponents([.year], from: dateOfBirth, to: now)
 		return ageComponents.year!
 	}
-	
-	
+
 }

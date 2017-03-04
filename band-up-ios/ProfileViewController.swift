@@ -8,15 +8,16 @@
 
 import UIKit
 
-protocol ProfileViewDelegate {
+protocol ProfileViewDelegate: class {
 	func update(user: User)
 }
 
 class ProfileViewController: UIViewController {
+	// MARK: - IBOutlets
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var viewActivityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
-	@IBOutlet weak var imgProfileImage: UIImageView!
+	@IBOutlet weak var imgProfileImage: RemoteImageView!
 	@IBOutlet weak var lblUsername: UILabel!
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
@@ -24,9 +25,12 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var lblGenreList: UILabel!
 	@IBOutlet weak var lblAboutMe: UILabel!
 	@IBOutlet weak var lblError: UILabel!
-	
+
+	// MARK: - Variables
 	var currentUser : User?
-	var delegate : ProfileViewDelegate?
+	weak var delegate : ProfileViewDelegate?
+
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -44,11 +48,12 @@ class ProfileViewController: UIViewController {
 				self.currentUser = User(response.jsonDict as NSDictionary)
 				self.populateUser()
 				self.scrollView.isHidden = false
+				self.lblError.isHidden = true
 			}).onFailure({ (error) in
 				self.parent?.navigationItem.rightBarButtonItem?.isEnabled = true
 				self.viewActivityIndicator.stopAnimating()
 				self.scrollView.isHidden = true
-				self.lblError.text = "Could not get your profile"
+				self.lblError.text = "profile_fetch_error".localized
 				self.lblError.isHidden = false
 			})
 		}
@@ -59,32 +64,24 @@ class ProfileViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	
+
 	// MARK: - Helper Functions
 	func populateUser() {
 		guard let currentUser = currentUser else {
 			return
 		}
-		if imgProfileImage.image == #imageLiteral(resourceName: "ProfilePlaceholder") {
-			imgProfileImage.image = nil
-		}
 
-		if let checkedUrl = URL(string: currentUser.image.url) {
-			self.downloadImage(url: checkedUrl, imageView: imgProfileImage, activityIndicator: imageActivityIndicator)
-		} else {
-			imageActivityIndicator.stopAnimating()
-			imgProfileImage.image = #imageLiteral(resourceName: "ProfilePlaceholder")
-			
-		}
-		
+		self.imgProfileImage.delegate = self
+		self.imgProfileImage.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
+		self.imgProfileImage.imageURL = URL(string: currentUser.image.url)
+
 		lblUsername.text = currentUser.username
 		lblAge.text = currentUser.getAgeString()
 		lblFavInstrument.text = currentUser.favouriteInstrument
-		if (currentUser.aboutme != "") {
+		if currentUser.aboutme != "" {
 			lblAboutMe.text = currentUser.aboutme
 		} else {
-			lblAboutMe.text = NSLocalizedString("about_me", comment: "About Me string displayed on the profiles")
+			lblAboutMe.text = "about_me".localized
 		}
 		
 		var instrumentString = ""
@@ -110,48 +107,37 @@ class ProfileViewController: UIViewController {
 		lblGenreList.numberOfLines = currentUser.genres.count
 		lblGenreList.text = genreString
 	}
-	
-	func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-		URLSession.shared.dataTask(with: url) {
-			(data, response, error) in
-			completion(data, response, error)
-			}.resume()
-	}
-	
-	func downloadImage(url: URL, imageView: UIImageView, activityIndicator: UIActivityIndicatorView) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		activityIndicator.startAnimating()
-		getDataFromUrl(url: url) { (data, response, error)  in
-			guard let data = data, error == nil else { return }
-			DispatchQueue.main.async() { () -> Void in
-				guard let currentUser = self.currentUser else {
-					return
-				}
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				activityIndicator.stopAnimating()
-				let image = UIImage(data:data)
-				imageView.image = image
-				currentUser.image.image = image!
-			}
-		}
-	}
-	
+
 	public func someAction() {
-		guard let currentUser = currentUser else {
-			return
+		guard let currentUser = currentUser else { return }
+		if let profileImage = imgProfileImage.image {
+			currentUser.image.image = profileImage
 		}
-		let storyboard = UIStoryboard(name: "ProfileView", bundle: Bundle.main)
-		
-		let viewController =  storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
-		viewController.user = currentUser
-		viewController.delegate = self
-		self.present(viewController, animated: true, completion: nil)
+		let storyboard = UIStoryboard(name: Storyboard.profile, bundle: Bundle.main)
+
+		if let viewController =  storyboard.instantiateViewController(withIdentifier: ControllerID.editProfile) as? EditProfileViewController {
+			viewController.user = currentUser
+			viewController.delegate = self
+			self.present(viewController, animated: true, completion: nil)
+		}
+
 	}
 }
-
+// MARK: - Extensions
 extension ProfileViewController: EditProfileViewControllerDelegate {
 	func userUpdated(_ newUser: User) {
 		self.currentUser = newUser
 		populateUser()
+	}
+}
+
+// MARK: RemoteImageViewDelegate Implementation
+extension ProfileViewController: RemoteImageViewDelegate {
+	func didFinishLoading() {
+		self.imageActivityIndicator.stopAnimating()
+	}
+
+	func imageWillLoad() {
+		self.imageActivityIndicator.startAnimating()
 	}
 }

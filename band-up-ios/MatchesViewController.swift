@@ -51,12 +51,11 @@ class MatchesViewController: UIViewController {
 	}
 
 	func loadMatches() {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		BandUpAPI.sharedInstance.matches.load().onSuccess { (response) in
 			self.stopActivityIndicators()
-			self.tableView.isHidden = false;
+			self.tableView.isHidden = false
 
-			if (response.jsonArray.count == 0) {
+			if response.jsonArray.count == 0 {
 				self.displayError("matches_no_users".localized)
 				return
 			}
@@ -83,13 +82,11 @@ class MatchesViewController: UIViewController {
 	}
 
 	func stopActivityIndicators() {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = false
 		self.activityIndicator.stopAnimating()
 		refreshControl.endRefreshing()
 	}
 
 }
-
 
 extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 	
@@ -98,19 +95,20 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "match_user_cell", for: indexPath) as! MatchesTableViewCell
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "match_user_cell", for: indexPath) as? MatchesTableViewCell else {
+			return UITableViewCell()
+		}
 		cell.user = matchedUsers[indexPath.row]
 		return cell
 	}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let user = matchedUsers[indexPath.row]
-        let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
-        let viewController =  storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        
-        viewController.user = user
-		
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let storyboard = UIStoryboard(name: Storyboard.matches, bundle: Bundle.main)
+		if let viewController =  storyboard.instantiateViewController(withIdentifier: ControllerID.chat) as? ChatViewController {
+			viewController.user = user
+			self.navigationController?.pushViewController(viewController, animated: true)
+		}
     }
 
 }
@@ -121,8 +119,9 @@ extension MatchesViewController: UIViewControllerPreviewingDelegate {
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
 		guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
 		
-		let storyboard = UIStoryboard(name: "MatchesView", bundle: Bundle.main)
-		let viewController =  storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+		let storyboard = UIStoryboard(name: Storyboard.matches, bundle: Bundle.main)
+		let storyController = storyboard.instantiateViewController(withIdentifier: ControllerID.chat)
+		guard let viewController =  storyController as? ChatViewController else { return nil }
 		
 		viewController.user = matchedUsers[indexPath.row]
 		

@@ -18,7 +18,7 @@ class BandUpAPI: Service {
 	
 	init() {
 		super.init(baseURL: Constants.bandUpAddress)
-		
+
 		// Put the header onto every request.
 		configure {
 			let uDef = UserDefaults.standard
@@ -36,6 +36,7 @@ class BandUpAPI: Service {
 		// Get the header of a response and save it.
 		// Also save the hasFinishedSetup variable if it is in the payload.
 		configure {
+			$0.useNetworkActivityIndicator()
 			$0.decorateRequests { _, req in
 				req.onSuccess { (response) in
 					if response.headers[BandUpAPI.setCookieKey] != nil {
@@ -68,6 +69,7 @@ class BandUpAPI: Service {
 				}
 			}
 		}
+
 		configure(whenURLMatches: { $0 == self.deleteAccount.url || $0 == self.logout.url }) {
 			$0.decorateRequests { _, req in
 				req.onSuccess { (response) in
@@ -80,7 +82,8 @@ class BandUpAPI: Service {
 			}
 		}
 	}
-	
+
+	var activeRequests = 0
 	var headers =      [String:String]()
 	var register:      Resource { return resource("/signup-local") }
 	var login:         Resource { return resource("/login-local") }

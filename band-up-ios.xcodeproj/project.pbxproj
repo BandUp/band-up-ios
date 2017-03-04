@@ -15,6 +15,8 @@
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
+		F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2220D781E64810F000BC704 /* Iceland copy.gpx */; };
+		F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
 		F241B0921E614C4B00C685F4 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B0911E614C4B00C685F4 /* Stickers.xcassets */; };
 		F241B0961E614C4B00C685F4 /* BandUpStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -133,6 +135,9 @@
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
+		F2220D781E64810F000BC704 /* Iceland copy.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Iceland copy.gpx"; sourceTree = "<group>"; };
+		F22586EA1E62987D00BAFD80 /* Iceland.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Iceland.gpx; sourceTree = "<group>"; };
+		F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2017.02.18-145727.gpx"; sourceTree = "<group>"; };
 		F22935F41E53F1B5007F182B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BandUpStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,6 +389,9 @@
 				F2AB06051E0606D00039C761 /* CaviarDreams.ttf */,
 				F2AB061A1E063DE70039C761 /* master_of_break.ttf */,
 				F2AB06181E061AD80039C761 /* Media.xcassets */,
+				F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */,
+				F22586EA1E62987D00BAFD80 /* Iceland.gpx */,
+				F2220D781E64810F000BC704 /* Iceland copy.gpx */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -469,8 +477,8 @@
 				F217C0411DDFC47100EE16DF /* Resources */,
 				EAE1152327BE34EB014C5325 /* [CP] Embed Pods Frameworks */,
 				F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */,
-				F2F0E1611E5F3407005BD86F /* Tailor */,
 				F2F0E1781E6094C7005BD86F /* Embed App Extensions */,
+				F2D5A4051E69F31200FB95ED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -635,11 +643,13 @@
 				F24E07ED1E4CE4C100C45A76 /* ProfileView.storyboard in Resources */,
 				F24E07EE1E4CE4C100C45A76 /* MatchesView.storyboard in Resources */,
 				F24E07EF1E4CE4C100C45A76 /* SettingsView.storyboard in Resources */,
+				F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
+				F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */,
 				F241B09C1E61D17300C685F4 /* GoogleService-Info.plist in Resources */,
@@ -713,20 +723,18 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-band-up-ios/Pods-band-up-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2F0E1611E5F3407005BD86F /* Tailor */ = {
+		F2D5A4051E69F31200FB95ED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/.tailor.yml",
 			);
-			name = Tailor;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Analyze\" ]; then\nif hash tailor 2>/dev/null; then\ntailor --config .tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi\nfi";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 		F388BAD7CF6E58FF0FF99E31 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1291,6 +1299,7 @@
 		F2F0E17B1E6094C7005BD86F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = MatchesWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

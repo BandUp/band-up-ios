@@ -12,7 +12,7 @@ class ChatMessage {
 	var sender: String = ""
 	var message: String = ""
 	var timestamp: Date
-	
+
 	init() {
 		timestamp = Date()
 	}

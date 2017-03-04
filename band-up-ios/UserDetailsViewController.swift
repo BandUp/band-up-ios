@@ -66,18 +66,19 @@ class UserDetailsViewController: UIViewController {
 
 	// MARK: - Notification Handlers
 	func locationChanged(notification: NSNotification) {
-		guard let locations = notification.userInfo?["locations"] else { return }
-		lblDistance.text = currentUser.getDistanceString(between: (locations as! [CLLocation])[0])
+		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+			if let userLocation = appDelegate.lastKnownLocation {
+				lblDistance.text = currentUser.getDistanceString(between: userLocation)
+			} else {
+				lblDistance.text = currentUser.getDistanceString()
+			}
+		}
 	}
 	
 	// MARK: - IBActions
 	@IBAction func didClickLike(_ sender: UIBigButton) {
-		
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		
 		BandUpAPI.sharedInstance.like.request(.post, json: ["userID": self.currentUser.id]).onSuccess { (response) in
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-			
+
 			if let isMatch = response.jsonDict["isMatch"] as? Bool {
 				self.currentUser.isLiked = true
 				sender.setTitle("user_list_liked".localized, for: .normal)
@@ -88,7 +89,6 @@ class UserDetailsViewController: UIViewController {
 				}
 			}
 			}.onFailure { (error) in
-				UIApplication.shared.isNetworkActivityIndicatorVisible = false
 		}
 	}
 	
@@ -100,7 +100,7 @@ class UserDetailsViewController: UIViewController {
 		self.imgUserImage.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
 		self.imgUserImage.imageURL = URL(string: currentUser.image.url)
 
-		if (currentUser.isLiked) {
+		if currentUser.isLiked {
 			btnLike.setTitle("user_list_liked".localized, for: .normal)
 			btnLike.isEnabled = false
 		}
@@ -108,23 +108,22 @@ class UserDetailsViewController: UIViewController {
 		lblUsername.text = currentUser.username
 		lblAge.text = currentUser.getAgeString()
 		lblFavInstrument.text = currentUser.favouriteInstrument
-		if (currentUser.aboutme != "") {
+		if currentUser.aboutme != "" {
 			lblAboutMe.text = currentUser.aboutme
 		} else {
 			lblAboutMe.text = "about_me".localized
 		}
 
-		let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-
-		if let userLocation = appDelegate.lastKnownLocation {
-			lblDistance.text = currentUser.getDistanceString(between: userLocation)
-		} else {
-			lblDistance.text = currentUser.getDistanceString()
+		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+			if let userLocation = appDelegate.lastKnownLocation {
+				lblDistance.text = currentUser.getDistanceString(between: userLocation)
+			} else {
+				lblDistance.text = currentUser.getDistanceString()
+			}
 		}
 
 		lblPercentage.text = "\(currentUser.percentage)%"
 
-		
 		var instrumentString = ""
 		for instrument in currentUser.instruments {
 			 instrumentString += instrument
@@ -151,6 +150,8 @@ class UserDetailsViewController: UIViewController {
 
 }
 
+// MARK: - Extensions
+// MARK: RemoteImageViewDelegate Implementation
 extension UserDetailsViewController: RemoteImageViewDelegate {
 	func didFinishLoading() {
 		self.actIndicator.stopAnimating()

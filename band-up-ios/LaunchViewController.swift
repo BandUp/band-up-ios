@@ -14,7 +14,7 @@ class LaunchViewController: UIViewController {
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
 	func startLoginScreen() {
-		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
 		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
 			appDelegate.window?.rootViewController = vc
@@ -24,8 +24,8 @@ class LaunchViewController: UIViewController {
 	}
 	
 	func startSetup() {
-		let storyboard = UIStoryboard(name: "Setup", bundle: Bundle.main)
-		if let vc = storyboard.instantiateViewController(withIdentifier: "SetupViewController") as? SetupViewController {
+		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
+		if let vc = storyboard.instantiateViewController(withIdentifier: ControllerID.setup) as? SetupViewController {
 			vc.setupViewObject = Constants.completeSetup
 			let navController = UINavigationController(rootViewController: vc)
 			if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
@@ -37,7 +37,7 @@ class LaunchViewController: UIViewController {
 	}
 	
 	func startMain() {
-		let storyboard = UIStoryboard(name: "DrawerView", bundle: Bundle.main)
+		let storyboard = UIStoryboard(name: Storyboard.drawer, bundle: Bundle.main)
 		let vc = storyboard.instantiateInitialViewController()
 		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
 			appDelegate.window?.rootViewController = vc
@@ -82,10 +82,7 @@ class LaunchViewController: UIViewController {
 					} else {
 						self.startLoginScreen()
 					}
-					
-					
-					
-					}.onFailure { (error) in
+				}.onFailure { (error) in
 						self.startLoginScreen()
 				}
 			} else {

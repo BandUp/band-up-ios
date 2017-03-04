@@ -23,7 +23,6 @@ class UpcomingViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	
 }
 
 extension UpcomingViewController: UITableViewDataSource, UITableViewDelegate {
