@@ -37,42 +37,24 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	var layout: UICollectionViewLayout = UICollectionViewLeftAlignedLayout()
 	var fontType = "System"
 
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		initialize()
-	}
-
 	// MARK: - Initializers
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		initialize()
 	}
 
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		initialize()
+	}
+
+	// MARK: - Overridden Functions
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 		strings = ["Item", "Text", "Box", "List"]
 		initialize()
 	}
 
-	func update(strings newStrings: [String]) {
-		for item in strings {
-			if !newStrings.contains(item) {
-				let myIndex: Int = strings.index(of: item)!
-				strings.remove(at: myIndex)
-				collectionView?.deleteItems(at: [IndexPath(row: myIndex, section: 0)])
-			}
-		}
-
-		for (index, item) in newStrings.enumerated() {
-			if !strings.contains(item) {
-				strings.insert(item, at: index)
-				layoutSubviews()
-				collectionView?.insertItems(at: [IndexPath(row: index, section: 0)])
-			}
-		}
-	}
-
-	// MARK: - Overridden Functions
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		let size = CGSize(width: bounds.width, height: self.estimateHeight())
@@ -177,6 +159,24 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 
 		let estimatedHeight = lines * (2 * verticalPadding + labelHeight) + (verticalMargin * (lines - 1))
 		return estimatedHeight
+	}
+
+	func update(strings newStrings: [String]) {
+		for item in strings {
+			if !newStrings.contains(item) {
+				let myIndex: Int = strings.index(of: item)!
+				strings.remove(at: myIndex)
+				collectionView?.deleteItems(at: [IndexPath(row: myIndex, section: 0)])
+			}
+		}
+
+		for (index, item) in newStrings.enumerated() {
+			if !strings.contains(item) {
+				strings.insert(item, at: index)
+				layoutSubviews()
+				collectionView?.insertItems(at: [IndexPath(row: index, section: 0)])
+			}
+		}
 	}
 
 }

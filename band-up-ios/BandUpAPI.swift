@@ -32,7 +32,7 @@ class BandUpAPI: Service {
 				}
 			}
 		}
-		
+
 		// Get the header of a response and save it.
 		// Also save the hasFinishedSetup variable if it is in the payload.
 		configure {
@@ -57,7 +57,7 @@ class BandUpAPI: Service {
 				req.onFailure { error in
 					if error.httpStatusCode == 401 {
 						if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-							appDelegate.showLoginScreen()
+							appDelegate.showLoginScreen(animated: true)
 							self.invalidateConfiguration()
 							self.headers = [:]
 							UserDefaults.standard.set([:], forKey: DefaultsKeys.headers)
@@ -85,19 +85,21 @@ class BandUpAPI: Service {
 
 	var activeRequests = 0
 	var headers =      [String:String]()
-	var register:      Resource { return resource("/signup-local") }
-	var login:         Resource { return resource("/login-local") }
-	var instruments:   Resource { return resource("/instruments") }
-	var genres:        Resource { return resource("/genres") }
-	var isLoggedIn:    Resource { return resource("/isLoggedIn") }
-	var matches:       Resource { return resource("/matches") }
-	var nearby:        Resource { return resource("/nearby-users") }
-	var like:          Resource { return resource("/like") }
-    var profile:       Resource { return resource("/user") }
-    var chatHistory:   Resource { return resource("/chat_history") }
-	var editProfile:   Resource { return resource("/edit-user") }
-	var deleteAccount: Resource { return resource("/user-delete") }
-	var logout:        Resource { return resource("/logout")}
+	var register:      Resource { return resource("/signup-local")   }
+	var login:         Resource { return resource("/login-local")    }
+	var instruments:   Resource { return resource("/instruments")    }
+	var genres:        Resource { return resource("/genres")         }
+	var isLoggedIn:    Resource { return resource("/isLoggedIn")     }
+	var matches:       Resource { return resource("/matches")        }
+	var nearby:        Resource { return resource("/nearby-users")   }
+	var like:          Resource { return resource("/like")           }
+    var profile:       Resource { return resource("/user")           }
+    var chatHistory:   Resource { return resource("/chat_history")   }
+	var editProfile:   Resource { return resource("/edit-user")      }
+	var deleteAccount: Resource { return resource("/user-delete")    }
+	var logout:        Resource { return resource("/logout")         }
+	var loginGoogle:   Resource { return resource("/login-google")   }
+	var loginFacebook: Resource { return resource("/login-facebook") }
 	
 	private func getCookie() -> [String:String] {
 		if let setCookie = self.headers[BandUpAPI.setCookieKey] {

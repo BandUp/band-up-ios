@@ -12,4 +12,8 @@ target 'band-up-ios' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'SwiftLint'
+    pod 'Soundcloud'
+    pod 'Google/SignIn'
+    pod 'FacebookLogin'
+    pod 'MBProgressHUD', '~> 1.0.0'
 end

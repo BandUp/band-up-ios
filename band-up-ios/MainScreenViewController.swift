@@ -11,9 +11,7 @@ import KYDrawerController
 import CoreLocation
 
 class MainScreenViewController: UIViewController {
-	
-	@IBOutlet weak var viewContainer: UIView!
-	
+
 	var currentViewController = UIViewController()
 
 	override func viewDidLoad() {
@@ -112,7 +110,7 @@ class MainScreenViewController: UIViewController {
 		
 		let storyboard = UIStoryboard(name: Storyboard.upcoming, bundle: Bundle.main)
 
-		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.settings) as? UpcomingViewController {
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.upcoming) as? UpcomingViewController {
 			return viewController
 		}
 
@@ -150,7 +148,6 @@ class MainScreenViewController: UIViewController {
 	public func updateView(row: String) {
 		guard let drawerController = navigationController?.parent as? KYDrawerController else {
 			return
-
 		}
 
 		guard let drawerViewController = drawerController.drawerViewController as? DrawerViewController else {
@@ -211,7 +208,7 @@ class MainScreenViewController: UIViewController {
 			BandUpAPI.sharedInstance.logout.request(.get).onSuccess { (response) in
 
 				if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-					appDelegate.showLoginScreen()
+					appDelegate.showLoginScreen(animated: true)
 				} else {
 					print("Could not find AppDelegate")
 				}

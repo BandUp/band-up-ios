@@ -126,7 +126,9 @@ class SetupViewController: UIViewController {
 			let request = self.setupViewObject?.first?.apiResource.request(.post, json: idArr)
 
 			request?.onSuccess { (response) in
+				print(response)
 			}.onFailure { (error) in
+				print(error)
 			}
 			
 			if setupViewObject?.first?.setupViewCount != setupViewObject?.first?.setupViewIndex {
@@ -151,15 +153,16 @@ class SetupViewController: UIViewController {
 						}
 					})
 				} else {
-					let storyboard = UIStoryboard(name: Storyboard.drawer, bundle: Bundle.main)
-
-					if let vc = storyboard.instantiateViewController(withIdentifier: ControllerID.drawer) as? KYDrawerController {
-						present(vc, animated: true, completion: nil)
-						if (self.setupViewObject?.first?.shouldFinishSetup)! {
-							UserDefaults.standard.set(true, forKey: DefaultsKeys.finishedSetup)
-						}
+					guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+						print("Couldn't find AppDelegate")
+						return
 					}
 
+					appDelegate.displayMainScreenView()
+
+					if (self.setupViewObject?.first?.shouldFinishSetup)! {
+						UserDefaults.standard.set(true, forKey: DefaultsKeys.finishedSetup)
+					}
 				}
 			}
 		}

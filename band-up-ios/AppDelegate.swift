@@ -11,43 +11,69 @@ import KYDrawerController
 import CoreLocation
 import UserNotifications
 import Firebase
+import Soundcloud
+import GGLSignIn
+import Siesta
+import FacebookCore
+import FacebookLogin
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
 	let manager = CLLocationManager()
-
 	var locationTimer = Timer()
-
 	var launchedShortcutItem: UIApplicationShortcutItem?
-
 	var lastKnownLocation: CLLocation?
+	var isDisplayingActivityIndicator: Bool = false
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
-		// var shouldPerformAdditionalDelegateHandling = true
-		// FIRApp.configure()
+	// MARK: - Application Delegate
+	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-		if #available(iOS 10.0, *) {
-			UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-				// Enable or disable features based on authorization.
+		var handled = false
+		if let sourceApp = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String! {
+			if FBSDKApplicationDelegate.sharedInstance().application(UIApplication.shared, open: url, sourceApplication: sourceApp, annotation: options[UIApplicationOpenURLOptionsKey.annotation]) {
+				handled = true
 			}
-		} else {
-			// Fallback on earlier versions
 		}
 
-		application.registerForRemoteNotifications()
+		if GIDSignIn.sharedInstance().handle(url,
+											 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+											 annotation: options[UIApplicationOpenURLOptionsKey.annotation]) {
+			handled = true
+		}
+
+		return handled
+	}
+
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		var configureError: NSError?
+
+		GGLContext.sharedInstance().configureWithError(&configureError)
+		assert(configureError == nil, "Error configuring Google services: \(configureError)")
+
+		var keys: NSDictionary?
+
+		if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
+			keys = NSDictionary(contentsOfFile: path)
+		}
+		if let dict = keys {
+			let scClient = dict["soundCloudClient"] as? String
+			let scSecret = dict["soundCloudClientSecret"] as? String
+			let fbAppId  = dict["facebookAppId"] as? String
+
+			SoundcloudClient.clientIdentifier = scClient
+			SoundcloudClient.clientSecret = scSecret
+			SoundcloudClient.redirectURI = Constants.bandUpAddress?.absoluteString
+			FBSDKSettings.setAppID(fbAppId)
+		}
 
 		// If a shortcut was launched, display its information and take the appropriate action
 		if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
-
 			launchedShortcutItem = shortcutItem
-
-			// This will block "performActionForShortcutItem:completionHandler" from being called.
-			// shouldPerformAdditionalDelegateHandling = false
 		}
+
 		manager.delegate = self
 		manager.desiredAccuracy = kCLLocationAccuracyKilometer
 
@@ -56,31 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		UIApplication.shared.statusBarStyle = .lightContent
 
-		// set up your background color view
-		let colorView = UIView()
-		colorView.backgroundColor = UIColor.darkGray
-
-		// use UITableViewCell.appearance() to configure
-		// the default appearance of all UITableViewCells in your app
-		// UITableViewCell.
-
 		return true
-	}
-
-	func startLocationTimer() {
-		if !locationTimer.isValid {
-			manager.requestLocation()
-			locationTimer = Timer.scheduledTimer(timeInterval: Constants.locationUpdateRate,
-			                                     target: self,
-			                                     selector: #selector(self.myTimerFunc),
-			                                     userInfo: nil,
-			                                     repeats: true)
-		}
-	}
-
-	func myTimerFunc() {
-		print("requestLocation")
-		manager.requestLocation()
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -144,6 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		print(userInfo)
 	}
 
+	// MARK: - Helper Functions
 	func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
 		var handled = false
 
@@ -191,17 +194,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return handled
 	}
 
-	func showLoginScreen() {
+	func showLoginScreen(animated: Bool) {
+		if window?.rootViewController is LoginViewController {
+			return
+		}
 		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
-		let vc = storyboard.instantiateInitialViewController()
+		let desiredViewController = storyboard.instantiateInitialViewController()
+		if animated {
 
-		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-			appDelegate.window?.rootViewController = vc
+			let snapshot:UIView = (self.window?.rootViewController!.view.snapshotView(afterScreenUpdates: true))!
+
+			self.window?.rootViewController = desiredViewController
+			
+			self.window?.rootViewController?.view.layer.transform = CATransform3DMakeTranslation(0.0, UIScreen.main.bounds.height, 0)
+			UIView.animate(withDuration: 0.35 , delay: 0, options: [UIViewAnimationOptions.curveEaseInOut], animations: {() in
+				desiredViewController?.view.layer.transform = CATransform3DMakeTranslation(0.0, 0, 0)
+
+			}, completion: { (value: Bool) in
+				snapshot.removeFromSuperview()
+			})
 		} else {
-			print("Could not find AppDelegate")
+			window?.rootViewController = desiredViewController
 		}
 	}
-	
+
+	/**
+	Displays the setup view where instruments and genres are selected with the SetupViewController.
+
+	- returns: No return value
+	*/
+	func displaySetupView() {
+		if window?.rootViewController is SetupViewController {
+			return
+		}
+
+		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
+		if let vc = storyboard.instantiateViewController(withIdentifier: ControllerID.setup) as? SetupViewController {
+			vc.setupViewObject = Constants.completeSetup
+			let navController = UINavigationController(rootViewController: vc)
+			self.window?.rootViewController = navController
+		}
+	}
+
+	/**
+	Displays the main screen where the user list will be shown first.
+
+	- returns: No return value
+	*/
+	func displayMainScreenView() {
+		if window?.rootViewController is KYDrawerController {
+			return
+		}
+
+		let storyboard = UIStoryboard(name: Storyboard.drawer, bundle: Bundle.main)
+		let desiredViewController = storyboard.instantiateInitialViewController()
+
+		let snapshot:UIView = (self.window?.rootViewController!.view.snapshotView(afterScreenUpdates: true))!
+		desiredViewController?.view.addSubview(snapshot)
+
+		self.window?.rootViewController = desiredViewController
+
+		UIView.animate(withDuration: 0.35 , delay: 0, options: [UIViewAnimationOptions.curveEaseInOut], animations: {() in
+			snapshot.layer.transform = CATransform3DMakeTranslation(0.0, UIScreen.main.bounds.height, 0)
+		}, completion: { (value: Bool) in
+			snapshot.removeFromSuperview()
+		})
+	}
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
@@ -236,4 +294,41 @@ extension AppDelegate: CLLocationManagerDelegate {
 
 	}
 
+	func startLocationTimer() {
+		if !locationTimer.isValid {
+			manager.requestLocation()
+			locationTimer = Timer.scheduledTimer(timeInterval: Constants.locationUpdateRate,
+			                                     target: self,
+			                                     selector: #selector(self.myTimerFunc),
+			                                     userInfo: nil,
+			                                     repeats: true)
+		}
+	}
+
+	func myTimerFunc() {
+		print("requestLocation")
+		manager.requestLocation()
+	}
+
+}
+
+extension AppDelegate: LoginButtonDelegate {
+	/**
+	Called when the button was used to logout.
+
+	- parameter loginButton: Button that was used to logout.
+	*/
+	public func loginButtonDidLogOut(_ loginButton: LoginButton) {
+
+	}
+
+	/**
+	Called when the button was used to login and the process finished.
+
+	- parameter loginButton: Button that was used to login.
+	- parameter result:      The result of the login.
+	*/
+	public func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+		print(result)
+	}
 }

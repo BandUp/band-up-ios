@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIBigButton: UIButton {
+@IBDesignable class UIBigButton: UIButton {
 
 	override func layoutSubviews() {
 		super.layoutSubviews()
@@ -22,4 +22,10 @@ class UIBigButton: UIButton {
 		self.layer.cornerRadius = 15
 	}
 
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+	}
 }

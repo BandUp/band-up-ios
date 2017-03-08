@@ -10,6 +10,7 @@ import UIKit
 import ActionSheetPicker_3_0
 import AVFoundation
 import Photos
+import Soundcloud
 
 class EditProfileTableViewController: UITableViewController {
 	// MARK: - IBOutlets
@@ -32,6 +33,15 @@ class EditProfileTableViewController: UITableViewController {
 	let INSTRUMENTS_ID = 0
 	let GENRES_ID = 1
 
+	@IBAction func didClickLoginSoundCloud(_ sender: BMLoginButton) {
+		Soundcloud.login(in: self) { (response) in
+			if case .failure(let error) = response.response {
+				dump(error)
+			} else {
+				
+			}
+		}
+	}
 	// MARK: - UIViewController Overrides
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -84,14 +94,16 @@ class EditProfileTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.section == 1 {
+		if indexPath.section == 0 {
+			return 44
+		} else if indexPath.section == 1 {
 			return tagInstruments.intrinsicContentSize.height + 16
 		} else if indexPath.section == 2 {
 			return tagGenres.intrinsicContentSize.height + 16
-		} else if indexPath.section == 3 {
+		} else if indexPath.section == 4 {
 			return 150
 		}
-		return 44
+		return UITableViewAutomaticDimension
 	}
 	
 	override public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

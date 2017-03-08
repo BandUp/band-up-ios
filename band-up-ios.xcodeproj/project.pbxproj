@@ -67,6 +67,9 @@
 		F2DCB2E41E4E99FE006832F6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */; };
 		F2DCB2E61E4E9C1E006832F6 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
+		F2EC131D1E6B465500291EF3 /* SoundCloudPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC131C1E6B465500291EF3 /* SoundCloudPlayerViewController.swift */; };
+		F2EC131F1E6B7D6500291EF3 /* BMLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */; };
+		F2EC13271E6CC16300291EF3 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2EC13261E6CC16300291EF3 /* keys.plist */; };
 		F2EF61851E6134DE00756657 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2EF61871E6134DE00756657 /* InfoPlist.strings */; };
 		F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */; };
 		F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0E1661E608792005BD86F /* PrivacyViewController.swift */; };
@@ -204,6 +207,10 @@
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F2EC131C1E6B465500291EF3 /* SoundCloudPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundCloudPlayerViewController.swift; sourceTree = "<group>"; };
+		F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMLoginButton.swift; sourceTree = "<group>"; };
+		F2EC13261E6CC16300291EF3 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		F2EC13281E6CDCA600291EF3 /* band-up-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "band-up-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2EF61801E61348900756657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		F2EF61861E6134DE00756657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2EF61881E6134DF00756657 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -309,6 +316,7 @@
 				F2B0231D1E04E49400088622 /* Resources */,
 				F24E07E41E4CBEAD00C45A76 /* Localizable.strings */,
 				F24E081F1E4D231C00C45A76 /* InfoPlist.strings */,
+				F2EC13281E6CDCA600291EF3 /* band-up-ios-Bridging-Header.h */,
 			);
 			path = "band-up-ios";
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
 				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
 				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
+				F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */,
 			);
 			name = Setup;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 				F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */,
 				F22586EA1E62987D00BAFD80 /* Iceland.gpx */,
 				F2220D781E64810F000BC704 /* Iceland copy.gpx */,
+				F2EC13261E6CC16300291EF3 /* keys.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -440,6 +450,7 @@
 				F24DE70D1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift */,
 				F2F0E17E1E60E9F0005BD86F /* RemoteImageView.swift */,
 				F241B0A01E62074400C685F4 /* MatchesTableViewCell.swift */,
+				F2EC131C1E6B465500291EF3 /* SoundCloudPlayerViewController.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -574,6 +585,7 @@
 					F217C0421DDFC47100EE16DF = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = NJU97Y2JX6;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -652,6 +664,7 @@
 				F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */,
+				F2EC13271E6CC16300291EF3 /* keys.plist in Resources */,
 				F241B09C1E61D17300C685F4 /* GoogleService-Info.plist in Resources */,
 				F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */,
 				F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */,
@@ -758,6 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2EC131F1E6B7D6500291EF3 /* BMLoginButton.swift in Sources */,
 				F27051211E4C027600E2974C /* DrawerItem.swift in Sources */,
 				F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */,
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
@@ -789,6 +803,7 @@
 				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,
 				F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */,
 				F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */,
+				F2EC131D1E6B465500291EF3 /* SoundCloudPlayerViewController.swift in Sources */,
 				F24E08181E4D1B1F00C45A76 /* SettingsTableViewController.swift in Sources */,
 				F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */,
 				200B434F1E4639CD004C06F1 /* ChatSocket.swift in Sources */,
@@ -1085,12 +1100,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "band-up-ios/band-up-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1101,12 +1119,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "band-up-ios/band-up-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1259,12 +1279,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = NJU97Y2JX6;
 				INFOPLIST_FILE = "band-up-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melodies.band-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "band-up-ios/band-up-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Analyze;

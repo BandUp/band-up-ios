@@ -27,23 +27,32 @@ class UserDetailsViewController: UIViewController {
 	// MARK: - Variables
 	var currentUser = User()
 	var shouldDisplayLike = true
-	
+
 	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
-
+		
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(self.locationChanged),
 			name: NSNotification.Name(rawValue: "NewLocation"),
 			object: nil)
 	}
-	
+
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		shouldDisplayLike = true
+	}
 
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		// Get the new view controller using segue.destinationViewController.
+		// Pass the selected object to the new view controller.
+		guard let scVC = segue.destination as? SoundCloudPlayerViewController else {
+			return
+		}
+
+		scVC.trackUrl = currentUser.soundCloudURL
 	}
 
 	override func viewWillAppear(_ animated: Bool) {

@@ -39,8 +39,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="aAX-U0-odr" kind="custom" identifier="main" customClass="KYEmbedMainControllerSegue" customModule="KYDrawerController" id="hgS-Y8-j6O"/>
                         <segue destination="dwL-IM-ke9" kind="custom" identifier="drawer" customClass="KYEmbedDrawerControllerSegue" customModule="KYDrawerController" id="6ro-18-BqM"/>
+                        <segue destination="aAX-U0-odr" kind="custom" identifier="main" customClass="KYEmbedMainControllerSegue" customModule="KYDrawerController" id="07L-2p-VFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSf-Mu-XNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,6 +188,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Smd-FJ-F6U">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXo-53-smH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="MainNavigation" id="aAX-U0-odr" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="1pD-RP-QZP">
@@ -197,15 +198,10 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         </textAttributes>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Jj4-W5-Xv3">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="gdX-Nl-c1F" kind="relationship" relationship="rootViewController" id="JJ6-rx-7o6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kXo-53-smH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-597" y="399"/>
         </scene>
@@ -233,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SP-hX-YjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="399"/>
+            <point key="canvasLocation" x="143" y="399"/>
         </scene>
     </scenes>
     <resources>

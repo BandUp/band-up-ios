@@ -13,45 +13,15 @@ import Siesta
 class LaunchViewController: UIViewController {
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-	func startLoginScreen() {
-		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
-		let vc = storyboard.instantiateInitialViewController()
-		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-			appDelegate.window?.rootViewController = vc
-		} else {
-			print("Couldn't find AppDelegate")
-		}
-	}
-	
-	func startSetup() {
-		let storyboard = UIStoryboard(name: Storyboard.setup, bundle: Bundle.main)
-		if let vc = storyboard.instantiateViewController(withIdentifier: ControllerID.setup) as? SetupViewController {
-			vc.setupViewObject = Constants.completeSetup
-			let navController = UINavigationController(rootViewController: vc)
-			if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-				appDelegate.window?.rootViewController = navController
-			} else {
-				print("Couldn't find AppDelegate")
-			}
-		}
-	}
-	
-	func startMain() {
-		let storyboard = UIStoryboard(name: Storyboard.drawer, bundle: Bundle.main)
-		let vc = storyboard.instantiateInitialViewController()
-		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-			appDelegate.window?.rootViewController = vc
-		} else {
-			print("Couldn't find AppDelegate")
-		}
-	}
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+			return
+		}
+
 		let uDef = UserDefaults.standard
 		guard let storedHeaders = uDef.dictionary(forKey: DefaultsKeys.headers) as? [String:String] else {
-			self.startLoginScreen()
+			appDelegate.showLoginScreen(animated: false)
 			return
 		}
 
@@ -59,14 +29,14 @@ class LaunchViewController: UIViewController {
 			
 			if UserDefaults.standard.object(forKey: DefaultsKeys.finishedSetup) == nil {
 				BandUpAPI.sharedInstance.isLoggedIn.request(.get).onSuccess { (response) in
-					print(response)
+
 					guard let loggedIn = response.jsonDict["isLoggedIn"] as? Bool else {
-						self.startLoginScreen()
+						appDelegate.showLoginScreen(animated: false)
 						return
 					}
 					
 					guard let finishedSetup = response.jsonDict["hasFinishedSetup"] as? Bool else {
-						self.startLoginScreen()
+						appDelegate.showLoginScreen(animated: false)
 						return
 					}
 					
@@ -74,28 +44,28 @@ class LaunchViewController: UIViewController {
 					
 					if loggedIn {
 						if !finishedSetup {
-							self.startSetup()
+							appDelegate.displaySetupView()
 						} else {
-							self.startMain()
+							appDelegate.displayMainScreenView()
 						}
 						
 					} else {
-						self.startLoginScreen()
+						appDelegate.showLoginScreen(animated: false)
 					}
 				}.onFailure { (error) in
-						self.startLoginScreen()
+					appDelegate.showLoginScreen(animated: false)
 				}
 			} else {
 				if UserDefaults.standard.bool(forKey: DefaultsKeys.finishedSetup) {
-					self.startMain()
+					appDelegate.displayMainScreenView()
 				} else {
 					
-					self.startSetup()
+					appDelegate.displaySetupView()
 				}
 			}
 			return
 		} else {
-			self.startLoginScreen()
+			appDelegate.showLoginScreen(animated: false)
 			return
 		}
 	}
