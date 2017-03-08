@@ -9,8 +9,13 @@
 import SocketIO
 
 class ChatSocket: NSObject {
-    static let sharedInstance = ChatSocket()
-    
+
+	static let sharedInstance = ChatSocket()
+
+	// MARK: - Variables
+	var socket: SocketIOClient
+
+    // MARK: - Initializers
     override init() {
 		let configuration: SocketIOClientConfiguration
 
@@ -26,9 +31,7 @@ class ChatSocket: NSObject {
 		socket = SocketIOClient(socketURL: Constants.bandUpAddress!, config: configuration)
 		super.init()
     }
-	
-    var socket: SocketIOClient
-
+	// MARK: - Instance Functions
     func establishConnection() {
 		if socket.status == .disconnected || socket.status == .notConnected {
 			print("Connecting...")

@@ -10,12 +10,17 @@ import Foundation
 import Siesta
 
 class BandUpAPI: Service {
-	
+
 	static let sharedInstance = BandUpAPI()
+
+	// MARK: - Constants
 	static let cookieKey = "cookie"
 	static let setCookieKey = "set-cookie"
 	static let hasFinishedSetup = "hasFinishedSetup"
-	
+	// MARK: - Variables
+	var activeRequests = 0
+	var headers =      [String:String]()
+	// MARK: - Initializers
 	init() {
 		super.init(baseURL: Constants.bandUpAddress)
 
@@ -83,8 +88,7 @@ class BandUpAPI: Service {
 		}
 	}
 
-	var activeRequests = 0
-	var headers =      [String:String]()
+	// MARK: - Resources
 	var register:      Resource { return resource("/signup-local")   }
 	var login:         Resource { return resource("/login-local")    }
 	var instruments:   Resource { return resource("/instruments")    }
@@ -100,7 +104,8 @@ class BandUpAPI: Service {
 	var logout:        Resource { return resource("/logout")         }
 	var loginGoogle:   Resource { return resource("/login-google")   }
 	var loginFacebook: Resource { return resource("/login-facebook") }
-	
+
+	// MARK: - Helper Functions
 	private func getCookie() -> [String:String] {
 		if let setCookie = self.headers[BandUpAPI.setCookieKey] {
 			return [BandUpAPI.cookieKey : setCookie]

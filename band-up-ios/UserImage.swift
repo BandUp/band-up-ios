@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 
 class UserImage: CustomStringConvertible {
+
+	// MARK: - Variables
+	var publicId: String = ""
+	var url:      String = ""
+	var image:    UIImage = UIImage()
+
+	// MARK: - Initializers
 	convenience init(_ dictionary: NSDictionary) {
 		self.init()
 		
@@ -21,11 +28,7 @@ class UserImage: CustomStringConvertible {
 			self.publicId = jsonPublicId
 		}
 	}
-	
-	var publicId: String = ""
-	var url:      String = ""
-	var image:    UIImage = UIImage()
-	
+
 	var description: String {
 		var bla = [String:String]()
 		

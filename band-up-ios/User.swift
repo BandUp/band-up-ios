@@ -10,6 +10,26 @@ import Foundation
 import CoreLocation
 
 class User: CustomStringConvertible {
+
+	// MARK: - Variables
+	var id:                  String       = ""
+	var aboutme:             String       = ""
+	var dateOfBirth:         Date?
+	var distance:            Double       = 0.0
+	var favouriteInstrument: String       = ""
+	var genres:              [String]     = []
+	var image:               UserImage    = UserImage()
+	var instruments:         [String]     = []
+	var isLiked:             Bool         = false
+	var location:            UserLocation = UserLocation()
+	var percentage:          Int          = 0
+	var soundCloudId:        Int          = 0
+	var soundCloudSongName:  String       = ""
+	var soundCloudURL:       String       = ""
+	var status:              String       = ""
+	var username:            String       = ""
+
+	// MARK: - Initializers
 	convenience init(_ dictionary: NSDictionary) {
 		self.init()
 		
@@ -96,24 +116,8 @@ class User: CustomStringConvertible {
 			self.username = jsonUsername
 		}
 	}
-	
-	var id:                  String       = ""
-	var aboutme:             String       = ""
-	var dateOfBirth:         Date?
-	var distance:            Double       = 0.0
-	var favouriteInstrument: String       = ""
-	var genres:              [String]     = []
-	var image:               UserImage    = UserImage()
-	var instruments:         [String]     = []
-	var isLiked:             Bool         = false
-	var location:            UserLocation = UserLocation()
-	var percentage:          Int          = 0
-	var soundCloudId:        Int          = 0
-	var soundCloudSongName:  String       = ""
-	var soundCloudURL:       String       = ""
-	var status:              String       = ""
-	var username:            String       = ""
-	
+
+	// MARK: - Instance Functions
 	func getAge() -> Int {
 		let calendar = Calendar.current
 		let now = Date()
@@ -168,6 +172,7 @@ class User: CustomStringConvertible {
 		}
 	}
 
+	// MARK: - Private Functions
 	private func getDistanceString(distance:Double) -> String {
 		var shouldUseMetric = true
 		let defObj = UserDefaults.standard.object(forKey: DefaultsKeys.Settings.usesImperial)

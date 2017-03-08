@@ -9,6 +9,13 @@
 import Foundation
 
 class UserLocation: CustomStringConvertible {
+
+	// MARK: - Variables
+	var latitude:  Double = 0.0
+	var longitude: Double = 0.0
+	var valid:     Bool   = false
+
+	// MARK: - Initializers
 	convenience init(_ dictionary: NSDictionary) {
 		self.init()
 		
@@ -25,10 +32,6 @@ class UserLocation: CustomStringConvertible {
 		}
 		
 	}
-	
-	var latitude:  Double = 0.0
-	var longitude: Double = 0.0
-	var valid:     Bool   = false
 	
 	var description: String {
 		return "\(UserLocation.self)\n\tLatitude:\(latitude)\n\tLongitude:\(longitude)\n\tValid:\(valid)"

@@ -9,10 +9,13 @@
 import Foundation
 
 class ChatMessage {
+
+	// MARK: - Variables
 	var sender: String = ""
 	var message: String = ""
 	var timestamp: Date
 
+	// MARK: - Initializers
 	init() {
 		timestamp = Date()
 	}
