@@ -28,11 +28,9 @@ class ChatViewController: UIViewController {
 			return
 		}
 
-		//btnSend.isEnabled = false
+		btnSend.isEnabled = false
 
 		ChatSocket.sharedInstance.send(message: txtMessage.text!, to: user.id).timingOut(after: 0) { (data) in
-			print("SEND")
-			print(data)
 			if data.count > 0 {
 				guard let successful = data[0] as? Bool else {
 					return
@@ -71,8 +69,6 @@ class ChatViewController: UIViewController {
 		ChatSocket.sharedInstance.establishConnection()
 
 		ChatSocket.sharedInstance.socket.on("recv_privatemsg") { (dataList, callback) in
-			print("RECV_PRIVATEMSG")
-			print(dataList)
 			if dataList.count < 2 {
 				return
 			}
