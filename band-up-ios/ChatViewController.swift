@@ -28,16 +28,20 @@ class ChatViewController: UIViewController {
 			return
 		}
 
-		btnSend.isEnabled = false
+		//btnSend.isEnabled = false
 
 		ChatSocket.sharedInstance.send(message: txtMessage.text!, to: user.id).timingOut(after: 0) { (data) in
+			print("SEND")
+			print(data)
 			if data.count > 0 {
-				if let successful = data[0] as? Bool {
-					if successful {
-						print("Message sent.")
-					} else {
-						print("Sending message failed on server.")
-					}
+				guard let successful = data[0] as? Bool else {
+					return
+				}
+
+				if successful {
+					print("Message sent.")
+				} else {
+					print("Sending message failed on server.")
 				}
 			}
 
@@ -67,6 +71,8 @@ class ChatViewController: UIViewController {
 		ChatSocket.sharedInstance.establishConnection()
 
 		ChatSocket.sharedInstance.socket.on("recv_privatemsg") { (dataList, callback) in
+			print("RECV_PRIVATEMSG")
+			print(dataList)
 			if dataList.count < 2 {
 				return
 			}
@@ -86,20 +92,6 @@ class ChatViewController: UIViewController {
 			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
 			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
 
-		}
-		ChatSocket.sharedInstance.socket.on("connect") { (data, ack) in
-			print("Connected. Registering...")
-			ChatSocket.sharedInstance.registerUser().timingOut(after: 0, callback: { (data) in
-				if data.count > 0 {
-					if let successful = data[0] as? Bool {
-						if successful {
-							print("Registration Successful")
-						} else {
-							print("Could not register. Username already taken")
-						}
-					}
-				}
-			})
 		}
 
 		BandUpAPI.sharedInstance.chatHistory.child(user.id).load().onSuccess { (response) in
@@ -132,6 +124,10 @@ class ChatViewController: UIViewController {
 		infoButton.addTarget(self, action: #selector(someAction), for: .touchUpInside)
 		let barButton = UIBarButtonItem(customView: infoButton)
 		self.navigationItem.rightBarButtonItem = barButton
+	}
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		ChatSocket.sharedInstance.socket.off("recv_privatemsg")
 	}
 
     override func didReceiveMemoryWarning() {

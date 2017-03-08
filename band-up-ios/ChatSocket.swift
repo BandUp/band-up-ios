@@ -15,11 +15,11 @@ class ChatSocket: NSObject {
 		let configuration: SocketIOClientConfiguration
 
 		if let headers = UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as? [String:String] {
-			configuration = [.log(false),
+			configuration = [.log(true),
 			                 .forcePolling(true),
 			                 .extraHeaders(headers)]
 		} else {
-			configuration = [.log(false),
+			configuration = [.log(true),
 			                 .forcePolling(true)]
 		}
 
@@ -30,12 +30,31 @@ class ChatSocket: NSObject {
     var socket: SocketIOClient
 
     func establishConnection() {
-		print("Connecting...")
-        socket.connect()
+		if socket.status == .disconnected || socket.status == .notConnected {
+			print("Connecting...")
+			ChatSocket.sharedInstance.socket.on("connect") { (data, ack) in
+				print("Connected. Registering...")
+				ChatSocket.sharedInstance.registerUser().timingOut(after: 5, callback: { (data) in
+					if data.count > 0 {
+						if let successful = data[0] as? Bool {
+							if successful {
+								print("Registration Successful")
+							} else {
+								print("Could not register. Username already taken")
+							}
+						}
+					}
+				})
+			}
+			socket.connect()
+		} else {
+			print("Already connected")
+		}
     }
     
     func closeConnection() {
-		print("Disonnecting")
+		print("Disonnecting...")
+		socket.off("connect")
         socket.disconnect()
     }
 	

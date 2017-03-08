@@ -79,7 +79,7 @@
 "user_list_no_users" = "Ekkert tónlistarfólk nálægt";
 "age_year_plural" = "ára";
 "age_year_singular" = "árs";
-"login_credentials_incorrect" = "Notandanafn eða lykilorð rangt";
+"login_credentials_incorrect" = "Tölvupóstur eða lykilorð rangt";
 "no_distance_available" = "Vegalengd ekki tiltæk";
 "km_distance" = "km frá þér";
 "profile_select_song" = "Velja lag";
