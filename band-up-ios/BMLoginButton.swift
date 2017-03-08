@@ -10,18 +10,15 @@ import UIKit
 
 @IBDesignable class BMLoginButton: UIButton {
 
+	// MARK: - IBInspectables
 	@IBInspectable open var cornerRadius: CGFloat = 0.0
 	@IBInspectable open var imagePadding: CGFloat = 0.0
 	@IBInspectable open var backColor: UIColor = UIColor.clear
 	@IBInspectable open var highlightedColor: UIColor = UIColor.clear
 
+	// MARK: - Initializers
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		initialize()
-	}
-
-	override func prepareForInterfaceBuilder() {
-		super.prepareForInterfaceBuilder()
 		initialize()
 	}
 	
@@ -30,6 +27,7 @@ import UIKit
 		initialize()
 	}
 
+	// MARK: - UIButton Overrides
 	override var isHighlighted: Bool {
 		didSet {
 			if isHighlighted {
@@ -40,6 +38,17 @@ import UIKit
 		}
 	}
 
+	override func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+		initialize()
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		setColors()
+	}
+
+	// MARK: - Helper Functions
 	func initialize() {
 		setColors()
 		setInsets()
@@ -73,17 +82,5 @@ import UIKit
 		imageView?.contentMode = .scaleAspectFit
 
 	}
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		setColors()
-	}
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

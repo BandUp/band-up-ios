@@ -9,8 +9,10 @@
 import UIKit
 
 class UpcomingViewController: UIViewController {
+	// MARK: - Variables
 	var upcomingFeatures = [String]()
 
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		upcomingFeatures.append(NSLocalizedString("upcoming_share_users", comment: "List item in the Upcoming Features List"))
@@ -25,6 +27,8 @@ class UpcomingViewController: UIViewController {
 	
 }
 
+// MARK: - Extensions
+// MARK: UITableView Implementation
 extension UpcomingViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

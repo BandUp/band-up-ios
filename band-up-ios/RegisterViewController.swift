@@ -172,7 +172,7 @@ class RegisterViewController: UIViewController {
 		}
 	}
 	
-	// MARK: - Overridden Functions
+	// MARK: - UIViewController Overrides
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(false, animated: animated)
 		super.viewWillAppear(animated)

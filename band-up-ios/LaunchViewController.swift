@@ -11,8 +11,10 @@ import UIKit
 import Siesta
 
 class LaunchViewController: UIViewController {
+	// MARK: - IBOutlets
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

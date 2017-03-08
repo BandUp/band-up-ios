@@ -50,6 +50,7 @@ class MatchesViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
+	// MARK: - Helper Functions
 	func loadMatches() {
 		BandUpAPI.sharedInstance.matches.load().onSuccess { (response) in
 			self.stopActivityIndicators()
@@ -87,7 +88,8 @@ class MatchesViewController: UIViewController {
 	}
 
 }
-
+// MARK: - Extensions
+// MARK: UITableView Implementation
 extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,7 +115,7 @@ extension MatchesViewController: UITableViewDataSource, UITableViewDelegate {
 
 }
 
-// MARK: - 3D touch Implementation
+// MARK: 3D touch Implementation
 extension MatchesViewController: UIViewControllerPreviewingDelegate {
 
 	func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {

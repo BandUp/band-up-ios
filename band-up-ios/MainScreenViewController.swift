@@ -11,9 +11,10 @@ import KYDrawerController
 import CoreLocation
 
 class MainScreenViewController: UIViewController {
-
+	// MARK: - Variables
 	var currentViewController = UIViewController()
 
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -51,18 +52,21 @@ class MainScreenViewController: UIViewController {
 		self.navigationItem.backBarButtonItem = backItem
 		self.navigationController?.navigationBar.tintColor = UIColor.bandUpYellow
 	}
-	
-	@IBAction func didTapOpenDrawer(_ sender: Any) {
-		if let drawerController = navigationController?.parent as? KYDrawerController {
-			drawerController.setDrawerState(.opened, animated: true)
-		}
-	}
+
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+
+	// MARK: - IBActions
+	@IBAction func didTapOpenDrawer(_ sender: Any) {
+		if let drawerController = navigationController?.parent as? KYDrawerController {
+			drawerController.setDrawerState(.opened, animated: true)
+		}
+	}
+
+	// MARK: - Lazy Variables
 	public lazy var profileViewController: ProfileViewController? = {
 		let storyboard = UIStoryboard(name: Storyboard.profile, bundle: Bundle.main)
 
@@ -117,6 +121,7 @@ class MainScreenViewController: UIViewController {
 		return nil
 	}()
 
+	// MARK: - Helper Functions
 	private func add(asChildViewController viewController: UIViewController) {
 		// Add Child View Controller
 		addChildViewController(viewController)

@@ -10,6 +10,15 @@ import UIKit
 
 @IBDesignable class UIBigButton: UIButton {
 
+	// MARK: - Initializers
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+	}
+
+	// MARK: - UIButton Overrides
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
@@ -22,10 +31,5 @@ import UIKit
 		self.layer.cornerRadius = 15
 	}
 
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-	}
+
 }

@@ -13,14 +13,18 @@ protocol EditProfileViewControllerDelegate: class {
 }
 
 class EditProfileViewController: UIViewController {
+	// MARK: - IBOutlets
 	@IBOutlet weak var btnDone: UIBarButtonItem!
 	@IBOutlet weak var btnCancel: UIBarButtonItem!
 	@IBOutlet weak var containerView: UIView!
+
+	// MARK: - Variables
 	var tableViewController: EditProfileTableViewController = EditProfileTableViewController()
 	
 	var user = User()
 	weak var delegate : EditProfileViewControllerDelegate?
-	
+
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableViewController.txtName.text = user.username
@@ -73,6 +77,7 @@ class EditProfileViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
+	// MARK: - IBActions
 	@IBAction func didTapDone(_ sender: Any) {
 		print("bla")
 		btnDone.isEnabled = false

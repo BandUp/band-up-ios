@@ -10,9 +10,11 @@ import UIKit
 
 class MatchesTableViewCell: UITableViewCell {
 
+	// MARK: - IBOutlets
 	@IBOutlet weak var imgProfile: RemoteImageView!
 	@IBOutlet weak var lblUsername: UILabel!
 
+	// MARK: - Variables
 	var user = User() {
 		didSet {
 
@@ -23,6 +25,7 @@ class MatchesTableViewCell: UITableViewCell {
 		}
 	}
 
+	// MARK: - Initailizers
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		let colorView = UIView()
@@ -30,6 +33,7 @@ class MatchesTableViewCell: UITableViewCell {
 		self.selectedBackgroundView = colorView
 	}
 
+	// MARK: - UITableViewCell Overrides
 	override func prepareForReuse() {
 		imgProfile.image = nil
 		lblUsername.text = ""

@@ -10,11 +10,13 @@ import UIKit
 
 class OpenSourceTableViewController: UITableViewController {
 
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = NSLocalizedString("settings_open_source", comment: "")
 	}
 
+	// MARK: - UITableView Implementation
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
 	}

@@ -9,20 +9,23 @@
 import UIKit
 
 class ChatViewController: UIViewController {
-    
-    var user = User()
-    var chatHistory = [ChatMessage]()
 
-	let chatCellOther = "chat_message_cell_other"
-	let chatCellMe    = "chat_message_cell_me"
-    
+	// MARK: - IBOutlets
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var lblError: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtMessage: UITextField!
 	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-	
+
+	// MARK: - Variables
+	var user = User()
+	var chatHistory = [ChatMessage]()
+
+	let chatCellOther = "chat_message_cell_other"
+	let chatCellMe    = "chat_message_cell_me"
+
+	// MARK: - IBActions
 	@IBAction func didClickSend(_ sender: UIButton) {
 		if (txtMessage.text?.characters.count)! <= 0 {
 			return
@@ -61,7 +64,8 @@ class ChatViewController: UIViewController {
 			}
 		}
 	}
-	
+
+	// MARK: - UIViewController Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.tableView.estimatedRowHeight = 44
@@ -83,10 +87,15 @@ class ChatViewController: UIViewController {
 			}
 
 			self.chatHistory.append(msg)
+
 			self.tableView.reloadData()
-			// self.tableView.insertRows(at: [IndexPath(row:self.chatHistory.count-1, section: 0)], with: .bottom)
-			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
-			self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+			if self.chatHistory.count >= 2 {
+				self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-2, section: 0), at: UITableViewScrollPosition.bottom, animated: false)
+			}
+
+			if self.chatHistory.count >= 1 {
+				self.tableView.scrollToRow(at: IndexPath(row:self.chatHistory.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+			}
 
 		}
 
@@ -130,7 +139,8 @@ class ChatViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
+
+	// MARK: - Helper Functions
 	func keyboardWillShow(sender: NSNotification) {
 		let info = sender.userInfo!
 
@@ -188,7 +198,7 @@ class ChatViewController: UIViewController {
 	}
 
 }
-
+// MARK: - Extensions
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

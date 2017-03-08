@@ -10,6 +10,7 @@ import UIKit
 import KYDrawerController
 import FacebookLogin
 import MBProgressHUD
+import Soundcloud
 
 class LoginViewController: UIViewController {
 	// MARK: IBOutlets
@@ -17,7 +18,8 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var txtEmail: UITextField!
 	@IBOutlet weak var txtPassword: UITextField!
 	@IBOutlet weak var scrollView: UIScrollView!
-	
+
+	// MARK: Lazy Variables
 	lazy var loginHUD: MBProgressHUD = {
 		let hud = MBProgressHUD()
 		hud.center = self.view.center
@@ -51,6 +53,7 @@ class LoginViewController: UIViewController {
 		return hud
 	}()
 
+	// MARK: UIViewController Overrides
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(true, animated: animated)
 		super.viewWillAppear(animated)
@@ -58,21 +61,6 @@ class LoginViewController: UIViewController {
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-	}
-
-	func adjustForKeyboard(notification: Notification) {
-		let userInfo = notification.userInfo!
-		guard let frameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
-		let keyboardScreenEndFrame = frameEnd.cgRectValue
-		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-
-		if notification.name == Notification.Name.UIKeyboardWillHide {
-			scrollView.contentInset = UIEdgeInsets.zero
-		} else {
-			scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
-		}
-
-		scrollView.scrollIndicatorInsets = scrollView.contentInset
 	}
 
 	override func viewDidLoad() {
@@ -101,7 +89,8 @@ class LoginViewController: UIViewController {
 	}
 
 	// MARK: IBActions
-	@IBAction func onClickLogin(_ sender: Any) {
+
+	@IBAction func didTapLoginLocal(_ sender: UIButton) {
 		if txtEmail.text?.characters.count == 0 {
 			inputHUD.label.text = "login_username_validation".localized
 			inputHUD.show(animated: true)
@@ -117,31 +106,6 @@ class LoginViewController: UIViewController {
 		txtEmail.resignFirstResponder()
 		txtPassword.resignFirstResponder()
 		login()
-	}
-
-	@IBAction func didTapLoginGoogle(_ sender: Any) {
-		GIDSignIn.sharedInstance().signIn()
-	}
-
-	func openCorrectView(_ hasFinishedSetup:Bool?) {
-		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-			print("Cannot find AppDelegate")
-			return
-		}
-
-		// Check if the boolean actually was in the response.
-		if hasFinishedSetup != nil {
-			// If it is in the response,
-			// unwrap it and check.
-			if (hasFinishedSetup ?? false)! {
-				appDelegate.displayMainScreenView()
-			} else {
-				appDelegate.displaySetupView()
-			}
-		} else {
-			appDelegate.displaySetupView()
-		}
-
 	}
 
 	@IBAction func didTapLoginFacebook(_ sender: BMLoginButton) {
@@ -168,6 +132,56 @@ class LoginViewController: UIViewController {
 			}
 		}
 	}
+	@IBAction func didTapLoginSoundCloud(_ sender: BMLoginButton) {
+		Soundcloud.login(in: self) { (response) in
+			if case .failure(let error) = response.response {
+				dump(error)
+			} else {
+
+			}
+		}
+	}
+
+	@IBAction func didTapLoginGoogle(_ sender: Any) {
+		GIDSignIn.sharedInstance().signIn()
+	}
+
+	// MARK: Helper functions
+	func adjustForKeyboard(notification: Notification) {
+		let userInfo = notification.userInfo!
+		guard let frameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+		let keyboardScreenEndFrame = frameEnd.cgRectValue
+		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+		if notification.name == Notification.Name.UIKeyboardWillHide {
+			scrollView.contentInset = UIEdgeInsets.zero
+		} else {
+			scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+		}
+
+		scrollView.scrollIndicatorInsets = scrollView.contentInset
+	}
+
+	func openCorrectView(_ hasFinishedSetup:Bool?) {
+		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+			print("Cannot find AppDelegate")
+			return
+		}
+
+		// Check if the boolean actually was in the response.
+		if hasFinishedSetup != nil {
+			// If it is in the response,
+			// unwrap it and check.
+			if (hasFinishedSetup ?? false)! {
+				appDelegate.displayMainScreenView()
+			} else {
+				appDelegate.displaySetupView()
+			}
+		} else {
+			appDelegate.displaySetupView()
+		}
+
+	}
 
 	func login() {
 		// LoginHUD disables the whole view so we don't need to disable buttons.
@@ -184,7 +198,10 @@ class LoginViewController: UIViewController {
 					self.inputHUD.show(animated: true)
 					self.inputHUD.hide(animated: true)
 				} else {
-					print(error.httpStatusCode ?? 0)
+					self.inputHUD.label.text = error.cause?.localizedDescription
+					self.inputHUD.show(animated: true)
+					self.inputHUD.hide(animated: true)
+
 				}
 		}.onCompletion { (response) in
 			self.loginHUD.hide(animated: true)

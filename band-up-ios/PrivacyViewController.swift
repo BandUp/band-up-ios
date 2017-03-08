@@ -10,6 +10,7 @@ import UIKit
 
 class PrivacyViewController: UIViewController {
 
+	// MARK: - UIViewController Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

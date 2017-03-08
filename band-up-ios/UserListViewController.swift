@@ -17,9 +17,9 @@ class UserListViewController: UIViewController {
 	@IBOutlet weak var lblError: UILabel!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+	// MARK: - Variables
 	let userCell = "user_item_cell"
 
-	// MARK - Variables
 	var userArray: [User] = [] {
 		didSet {
 			if userArray.count == 0 {
@@ -34,6 +34,7 @@ class UserListViewController: UIViewController {
 	}
 	var currentIndex : CGFloat = 0
 
+	// MARK: - Lazy Variables
 	public lazy var userDetailsViewController: UserDetailsViewController = {
 		let storyboard = UIStoryboard(name: Storyboard.userDetails, bundle: Bundle.main)
 
@@ -43,53 +44,6 @@ class UserListViewController: UIViewController {
 
 		return UserDetailsViewController()
 	}()
-
-	func shouldDisplay(user: User) -> Bool {
-		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-			return false
-		}
-
-		if user.location.valid {
-			let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
-
-			if let myLocation = appDelegate.lastKnownLocation {
-				if user.getDistance(myLocation: myLocation) < Int(radius) {
-					return true
-				}
-			} else {
-				if user.distance < Double(radius) && user.distance != 0.0 {
-					return true
-				}
-			}
-		}
-		
-		return false
-	}
-
-	func loadUserList() {
-
-		BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
-			self.activityIndicator.stopAnimating()
-
-			self.userArray = []
-			for user in response.jsonArray {
-				if let jsonUser = user as? NSDictionary {
-					let newUser = User(jsonUser)
-					if self.shouldDisplay(user: newUser) {
-						self.userArray.append(newUser)
-					}
-				}
-			}
-
-			self.userArray.shuffle()
-			self.userCollectionView.reloadData()
-		}.onFailure { (error) in
-			self.activityIndicator.stopAnimating()
-			self.lblError.isHidden = false
-			self.lblError.text = "user_list_error_fetch_list".localized
-			print(error.userMessage)
-		}
-	}
 
 	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
@@ -161,6 +115,53 @@ class UserListViewController: UIViewController {
 			UIView.setAnimationsEnabled(true)
 		} else {
 			userCollectionView.reloadSections(IndexSet(integer: section))
+		}
+	}
+	// MARK: - Helper Functions
+	func shouldDisplay(user: User) -> Bool {
+		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+			return false
+		}
+
+		if user.location.valid {
+			let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
+
+			if let myLocation = appDelegate.lastKnownLocation {
+				if user.getDistance(myLocation: myLocation) < Int(radius) {
+					return true
+				}
+			} else {
+				if user.distance < Double(radius) && user.distance != 0.0 {
+					return true
+				}
+			}
+		}
+
+		return false
+	}
+
+	func loadUserList() {
+
+		BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
+			self.activityIndicator.stopAnimating()
+
+			self.userArray = []
+			for user in response.jsonArray {
+				if let jsonUser = user as? NSDictionary {
+					let newUser = User(jsonUser)
+					if self.shouldDisplay(user: newUser) {
+						self.userArray.append(newUser)
+					}
+				}
+			}
+
+			self.userArray.shuffle()
+			self.userCollectionView.reloadData()
+			}.onFailure { (error) in
+				self.activityIndicator.stopAnimating()
+				self.lblError.isHidden = false
+				self.lblError.text = "user_list_error_fetch_list".localized
+				print(error.userMessage)
 		}
 	}
 

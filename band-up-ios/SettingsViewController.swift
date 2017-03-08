@@ -9,7 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-	
+
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}

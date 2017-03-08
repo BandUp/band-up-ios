@@ -9,7 +9,8 @@
 import UIKit
 
 class PasswordResetViewController: UIViewController {
-	
+
+	// MARK: - UIViewController Overrides
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(false, animated: animated)
 		super.viewWillAppear(animated)

@@ -10,12 +10,14 @@ import UIKit
 import KYDrawerController
 
 class DrawerViewController: UIViewController {
-	
+
+	// MARK: - IBOutlets
 	@IBOutlet weak var lblUsername: UILabel!
 	@IBOutlet weak var imgUserImage: UIImageView!
 	@IBOutlet weak var lblFavInstrument: UILabel!
 	@IBOutlet weak var tableView: UITableView!
-	
+
+	// MARK: - Variables
 	let listItems = [
 		DrawerItem(id: "main_nav_near_me",    name: "Near Me"),
 		DrawerItem(id: "main_nav_my_profile", name: "My Profile"),
@@ -29,11 +31,8 @@ class DrawerViewController: UIViewController {
 	let ITEM_NAME_TAG = 2
 	
 	var currentUser = User()
-	
-	@IBAction func tappedProfile(_ sender: UIButton) {
-		self.displayView("main_nav_my_profile", drawerAnimated: true)
-	}
 
+	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		for i in listItems {
@@ -52,6 +51,12 @@ class DrawerViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
+	// MARK: - IBActions
+	@IBAction func tappedProfile(_ sender: UIButton) {
+		self.displayView("main_nav_my_profile", drawerAnimated: true)
+	}
+
+	// MARK: - Helper Functions
 	func populateUser() {
 		self.lblUsername.text = currentUser.username
 		self.lblFavInstrument.text = currentUser.favouriteInstrument

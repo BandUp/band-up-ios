@@ -10,6 +10,7 @@ import UIKit
 
 class BMItemBoxListCell: UICollectionViewCell {
 
+	// MARK: - Variables
 	var fontSize: CGFloat = 11.0
 	var textColor: UIColor?
 	var fontType = "System"
@@ -23,11 +24,8 @@ class BMItemBoxListCell: UICollectionViewCell {
 
 	weak var boxText: UILabel?
 
-	override func prepareForReuse() {
-		super.prepareForReuse()
-		title = ""
-	}
 
+	// MARK: - Initializers
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
@@ -38,6 +36,19 @@ class BMItemBoxListCell: UICollectionViewCell {
 		setup()
 	}
 
+	// MARK: - UICollectionViewCell Overrides
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		title = ""
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		boxText?.frame = bounds
+		contentView.layer.cornerRadius = cornerRadius
+	}
+
+	// MARK: - Helper Functions
 	func setup() {
 		let titleLabel = UILabel(frame: bounds)
 		boxText = titleLabel
@@ -52,12 +63,6 @@ class BMItemBoxListCell: UICollectionViewCell {
 		label.textColor = textColor
 
 		label.textAlignment = .center
-	}
-
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		boxText?.frame = bounds
-		contentView.layer.cornerRadius = cornerRadius
 	}
 
 }

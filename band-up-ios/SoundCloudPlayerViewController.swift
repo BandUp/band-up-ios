@@ -12,17 +12,19 @@ import Soundcloud
 
 class SoundCloudPlayerViewController: UIViewController {
 
+	// MARK: - IBOutlets
 	@IBOutlet weak var songSlider: UISlider!
 	@IBOutlet weak var lblTimeElapsed: UILabel!
 	@IBOutlet weak var lblTimeTotal: UILabel!
-
+	// MARK: - Variables
 	var player = AVPlayer()
 	var trackUrl: String?
 
+	// MARK: - UIViewController Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-		print("VIEWDIDLOAD")
     }
+
 	override func viewWillAppear(_ animated: Bool) {
 		if trackUrl == nil || trackUrl == "" {
 			self.lblTimeTotal.isHidden = true
@@ -76,19 +78,9 @@ class SoundCloudPlayerViewController: UIViewController {
 		super.viewWillDisappear(animated)
 		player.pause()
 	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

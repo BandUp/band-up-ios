@@ -12,6 +12,7 @@ import MessageUI
 
 class SettingsTableViewController: UITableViewController {
 
+	// MARK: - IBOutlets
 	@IBOutlet weak var schMatches: UISwitch!
 	@IBOutlet weak var schInactive: UISwitch!
 	@IBOutlet weak var schMessages: UISwitch!
@@ -21,6 +22,7 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var lblAges: UILabel!
 	@IBOutlet weak var sldRadius: UISlider!
 
+	// MARK: - IBActions
 	@IBAction func agesChanged(_ sender: MARKRangeSlider) {
 		let maxAge = Int(round(sender.rightValue))
 		let minAge = Int(round(sender.leftValue))
@@ -73,7 +75,8 @@ class SettingsTableViewController: UITableViewController {
 		lblRadius.text = resultString
 		sender.setValue((round(sender.value / 5)) * 5, animated: true)
 	}
-	
+
+	// MARK: - UITableViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.usesImperial) == nil {
@@ -111,12 +114,7 @@ class SettingsTableViewController: UITableViewController {
 		agesChanged(rangeSlider)
 	}
 
-	func initializeNotificationSettings(forKey key: String, value: Bool) {
-		if UserDefaults.standard.object(forKey: key) == nil {
-			UserDefaults.standard.set(value, forKey: key)
-		}
-	}
-	
+	// MARK: - UITableView Overrides
 	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		if section == 5 {
 			guard let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] else {
@@ -169,6 +167,14 @@ class SettingsTableViewController: UITableViewController {
 				break
 			default:
 				break
+		}
+	}
+
+
+	// MARK: - Helper Functions
+	func initializeNotificationSettings(forKey key: String, value: Bool) {
+		if UserDefaults.standard.object(forKey: key) == nil {
+			UserDefaults.standard.set(value, forKey: key)
 		}
 	}
 
@@ -226,6 +232,8 @@ class SettingsTableViewController: UITableViewController {
 
 }
 
+// MARK: - Extensions
+// MARK: Mail Composer
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
 
 	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
@@ -234,6 +242,7 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
 
 }
 
+// MARK: UIImage From Color
 extension UIImage {
 
 	static func fromColor(color: UIColor) -> UIImage {

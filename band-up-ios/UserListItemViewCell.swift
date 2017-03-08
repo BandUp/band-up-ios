@@ -9,6 +9,7 @@
 import UIKit
 
 class UserListItemViewCell: UICollectionViewCell {
+	// MARK: - IBOutlets
 	@IBOutlet weak var lblUsername: UILabel!
 	@IBOutlet weak var imgUserImage: RemoteImageView!
 	@IBOutlet weak var lblAge: UILabel!
@@ -19,10 +20,12 @@ class UserListItemViewCell: UICollectionViewCell {
 	@IBOutlet weak var btnDetails: UIBigButton!
 	@IBOutlet weak var btnLike: UIBigButton!
 	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
-	
+
+	// MARK: - Initializers
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
+	// MARK: - Variables
 	weak var user = User() {
 		didSet {
 			guard let user = user else { return }
@@ -71,6 +74,7 @@ class UserListItemViewCell: UICollectionViewCell {
 	}
 }
 
+// MARK: - RemoteImageViewDelegate Implementation
 extension UserListItemViewCell: RemoteImageViewDelegate {
 	func didFinishLoading() {
 		self.actIndicator.stopAnimating()
