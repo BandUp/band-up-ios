@@ -20,9 +20,6 @@
 /* Class = "UILabel"; text = "The email is not in the correct format."; ObjectID = "Btl-54-j9b"; */
 "Btl-54-j9b.text" = "The email is not in the correct format.";
 
-/* Class = "UILabel"; text = "Log in with Facebook"; ObjectID = "C3G-4x-Bb9"; */
-"C3G-4x-Bb9.text" = "Skrá inn með Facebook";
-
 /* Class = "UILabel"; text = "Date of Birth"; ObjectID = "Fzd-gv-fK2"; */
 "Fzd-gv-fK2.text" = "Fæðingardagur";
 
@@ -74,9 +71,6 @@
 /* Class = "UILabel"; text = "1/2"; ObjectID = "aBE-T4-3qA"; */
 "aBE-T4-3qA.text" = "1/2";
 
-/* Class = "UILabel"; text = "Log in with SoundCloud"; ObjectID = "cNd-Pw-Ztp"; */
-"cNd-Pw-Ztp.text" = "Skrá inn með SoundCloud";
-
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "eV2-Eg-r4I"; */
 "eV2-Eg-r4I.placeholder" = "Tölvupóstur";
 
@@ -118,3 +112,12 @@
 
 /* Class = "UILabel"; text = "The email is not in the correct format."; ObjectID = "x5P-pI-d6h"; */
 "x5P-pI-d6h.text" = "The email is not in the correct format.";
+
+/* Class = "UIButton"; normalTitle = "Log in with SoundCloud"; ObjectID = "D9M-sD-kyu"; */
+"D9M-sD-kyu.normalTitle" = "Skrá inn með SoundCloud";
+
+/* Class = "UIButton"; normalTitle = "Log in with Facebook"; ObjectID = "oDP-J6-itp"; */
+"oDP-J6-itp.normalTitle" = "Skrá inn með Facebook";
+
+/* Class = "UIButton"; normalTitle = "Log in with Google"; ObjectID = "xSP-MT-MwB"; */
+"xSP-MT-MwB.normalTitle" = "Skrá inn með Google";

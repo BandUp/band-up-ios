@@ -23,6 +23,16 @@
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "VeK-L0-Kyh"; */
 "VeK-L0-Kyh.placeholder" = "Nafn";
 
+/* Class = "UITableViewSection"; footerTitle = "Log into your SoundCloud account to showcase your work."; ObjectID = "Wqr-eg-s85"; */
+"Wqr-eg-s85.footerTitle" = "Skráðu þig inn á SoundCloud reikninginn þinn til að sýna verkin þín.";
+
+
+/* Class = "UITableViewSection"; headerTitle = "Audio Sample from SoundCloud"; ObjectID = "Wqr-eg-s85"; */
+"Wqr-eg-s85.headerTitle" = "Hljóðdæmi frá SoundCloud";
+
+/* Class = "UIButton"; normalTitle = "Log in with SoundCloud"; ObjectID = "crB-UH-DQo"; */
+"crB-UH-DQo.normalTitle" = "Skrá inn með SoundCloud";
+
 /* Class = "UITextField"; text = "Name"; ObjectID = "VeK-L0-Kyh"; */
 "VeK-L0-Kyh.text" = "Nafn";
 
@@ -54,7 +64,7 @@
 "m5H-Z0-C8U.title" = "Hætta við";
 
 /* Class = "UILabel"; text = "MYLABEL IS BEST"; ObjectID = "odF-37-kCE"; Note = "Placeholder. No need to translate."; */
-"odF-37-kCE.text" = "MYLABEL IS BEST";
+"odF-37-kCE.text" = "Error Label";
 
 /* Class = "UILabel"; text = "Favourite Instrument"; ObjectID = "tKg-pL-jsX"; Note = "Placeholder. No need to translate."; */
 "tKg-pL-jsX.text" = "Favourite Instrument";
