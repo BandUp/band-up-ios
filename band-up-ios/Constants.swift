@@ -41,7 +41,7 @@ class Constants {
 	// http://192.168.1.5:3000
 	// http://192.168.1.14:3000
 
-	static var bandUpAddress = URL(string: "http://192.168.1.7:3000")
+	static var bandUpAddress = URL(string: "https://band-up-server.herokuapp.com")
 	static var maxAge = 99
 	static var minAge = 13
 	static var locationUpdateRate = 120.0
