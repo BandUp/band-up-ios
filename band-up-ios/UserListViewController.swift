@@ -49,6 +49,7 @@ class UserListViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		registerForPreviewing(with: self, sourceView: userCollectionView)
+		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(someAction))
 
 		loadUserList()
 
@@ -64,7 +65,11 @@ class UserListViewController: UIViewController {
 			name: NSNotification.Name(rawValue: "UnitsChanged"),
 			object: nil)
 	}
-	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(someAction))
+
+	}
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		reload(section: 0, animated: false)
@@ -138,6 +143,14 @@ class UserListViewController: UIViewController {
 		}
 
 		return false
+	}
+
+	public func someAction() {
+		let storyboard = UIStoryboard(name: Storyboard.search, bundle: Bundle.main)
+
+		if let viewController = storyboard.instantiateInitialViewController() {
+			self.present(viewController, animated: true, completion: nil)
+		}
 	}
 
 	func loadUserList() {

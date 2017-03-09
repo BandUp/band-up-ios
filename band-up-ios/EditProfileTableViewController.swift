@@ -90,26 +90,11 @@ class EditProfileTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.section == 0 {
-			return 44
-		} else if indexPath.section == 1 {
-			return tagInstruments.intrinsicContentSize.height + 16
-		} else if indexPath.section == 2 {
-			return tagGenres.intrinsicContentSize.height + 16
-		} else if indexPath.section == 4 {
-			return 150
-		}
 		return UITableViewAutomaticDimension
+
 	}
 	
 	override public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.section == 1 {
-			return tagInstruments.intrinsicContentSize.height + 16
-		} else if indexPath.section == 2 {
-			return tagGenres.intrinsicContentSize.height + 16
-		} else if indexPath.section == 3 {
-			return 150
-		}
 		return 44
 	}
 

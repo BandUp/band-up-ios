@@ -15,6 +15,7 @@
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
+		F21E41F71E71A23D0068F3B2 /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21E41F61E71A23D0068F3B2 /* SearchView.storyboard */; };
 		F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2220D781E64810F000BC704 /* Iceland copy.gpx */; };
 		F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
@@ -58,6 +59,7 @@
 		F2AB06171E0616EA0039C761 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */; };
 		F2AB06191E061AD80039C761 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06181E061AD80039C761 /* Media.xcassets */; };
 		F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB061A1E063DE70039C761 /* master_of_break.ttf */; };
+		F2AD91B51E71C60F00FD1B75 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
 		F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */; };
@@ -138,6 +140,7 @@
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
+		F21E41F61E71A23D0068F3B2 /* SearchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
 		F2220D781E64810F000BC704 /* Iceland copy.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Iceland copy.gpx"; sourceTree = "<group>"; };
 		F22586EA1E62987D00BAFD80 /* Iceland.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Iceland.gpx; sourceTree = "<group>"; };
 		F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2017.02.18-145727.gpx"; sourceTree = "<group>"; };
@@ -196,6 +199,7 @@
 		F2AB06161E0616EA0039C761 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		F2AB06181E061AD80039C761 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		F2AB061A1E063DE70039C761 /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
+		F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		F2B82FE61E53EFAD000F71D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 				F278537D1E4C1FEA00DB9810 /* MatchesView.storyboard */,
 				F27853821E4C201600DB9810 /* SettingsView.storyboard */,
 				F278538C1E4C218700DB9810 /* UpcomingView.storyboard */,
+				F21E41F61E71A23D0068F3B2 /* SearchView.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				F2F0E1661E608792005BD86F /* PrivacyViewController.swift */,
 				F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
+				F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -658,6 +664,7 @@
 				F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
+				F21E41F71E71A23D0068F3B2 /* SearchView.storyboard in Resources */,
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
@@ -776,6 +783,7 @@
 				F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */,
 				F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */,
 				2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */,
+				F2AD91B51E71C60F00FD1B75 /* SearchTableViewController.swift in Sources */,
 				F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */,
 				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */,

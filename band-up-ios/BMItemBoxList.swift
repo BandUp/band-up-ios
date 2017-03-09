@@ -32,7 +32,11 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 	@IBInspectable open var borderWidth: CGFloat = 0.0
 
 	// MARK: Variables
-	var strings: [String] = []
+	var strings: [String] = [] {
+		didSet {
+			invalidateIntrinsicContentSize()
+		}
+	}
 	var collectionView: UICollectionView?
 	var layout: UICollectionViewLayout = UICollectionViewLeftAlignedLayout()
 	var fontType = "System"
@@ -59,8 +63,6 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 		super.layoutSubviews()
 		let size = CGSize(width: bounds.width, height: self.estimateHeight())
 		collectionView?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
-		collectionView?.layoutSubviews()
-		invalidateIntrinsicContentSize()
 	}
 
 	override var intrinsicContentSize: CGSize {
@@ -178,5 +180,4 @@ class BMItemBoxList: UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 			}
 		}
 	}
-
 }

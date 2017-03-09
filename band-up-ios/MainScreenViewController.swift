@@ -167,7 +167,6 @@ class MainScreenViewController: UIViewController {
 			self.add(asChildViewController: userItemViewController)
 			currentViewController = userItemViewController
 			self.title = "main_title_user_list".localized
-			self.navigationItem.rightBarButtonItem = nil
 			break
 		case "main_nav_my_profile":
 			guard let profileViewController = profileViewController else {
