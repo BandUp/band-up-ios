@@ -24,7 +24,6 @@ class BMItemBoxListCell: UICollectionViewCell {
 
 	weak var boxText: UILabel?
 
-
 	// MARK: - Initializers
 	override init(frame: CGRect) {
 		super.init(frame: frame)

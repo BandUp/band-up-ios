@@ -14,11 +14,10 @@ import Soundcloud
 
 class EditProfileTableViewController: UITableViewController {
 	// MARK: - IBOutlets
-	@IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var txtName: UITextField!
 	@IBOutlet weak var lblAge: UILabel!
 	@IBOutlet weak var lblFavInstrument: UILabel!
-	@IBOutlet weak var imgProfileImage: RemoteImageView!
+	@IBOutlet weak var imgProfileImage: UIImageView!
 	@IBOutlet weak var txtAboutMe: UITextView!
 	@IBOutlet weak var tagGenres: BMItemBoxList!
 	@IBOutlet weak var tagInstruments: BMItemBoxList!
@@ -56,10 +55,7 @@ class EditProfileTableViewController: UITableViewController {
 		tagGenres.strings = oldUser.genres
 
 		if !hasUpdatedImage {
-			self.imgProfileImage.delegate = self
-			self.imgProfileImage.placeholderImage = #imageLiteral(resourceName: "ProfilePlaceholder")
-			self.imgProfileImage.imageURL = URL(string: oldUser.image.url)
-
+			self.imgProfileImage.image = oldUser.image.image
 		}
 	}
 	
@@ -461,16 +457,5 @@ extension EditProfileTableViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		self.view.endEditing(true)
 		return false
-	}
-}
-
-// MARK: RemoteImageViewDelegate Implementation
-extension EditProfileTableViewController: RemoteImageViewDelegate {
-	func didFinishLoading() {
-		self.imageActivityIndicator.stopAnimating()
-	}
-
-	func imageWillLoad() {
-		self.imageActivityIndicator.startAnimating()
 	}
 }

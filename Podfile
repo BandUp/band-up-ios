@@ -16,4 +16,5 @@ target 'band-up-ios' do
     pod 'Google/SignIn'
     pod 'FacebookLogin'
     pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'Alamofire', '~> 4.4'
 end

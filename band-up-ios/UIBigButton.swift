@@ -31,5 +31,4 @@ import UIKit
 		self.layer.cornerRadius = 15
 	}
 
-
 }

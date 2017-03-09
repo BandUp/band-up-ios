@@ -313,7 +313,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="kWL-wt-0Cy" customClass="RemoteImageView" customModule="band_up_ios" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="kWL-wt-0Cy">
                                     <rect key="frame" x="150" y="8" width="75" height="75"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="75" id="NsM-QX-DWm"/>
@@ -335,20 +335,14 @@
                                         <action selector="didTapEditPicture:" destination="tmI-QQ-2mz" eventType="touchUpInside" id="iuw-yr-Nci"/>
                                     </connections>
                                 </button>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jz9-ot-9ti">
-                                    <rect key="frame" x="177" y="35" width="20" height="20"/>
-                                    <color key="color" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </activityIndicatorView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="k2Q-Yu-hel" firstAttribute="bottom" secondItem="kWL-wt-0Cy" secondAttribute="bottom" id="3W5-Kr-LoP"/>
                                 <constraint firstItem="k2Q-Yu-hel" firstAttribute="trailing" secondItem="kWL-wt-0Cy" secondAttribute="trailing" id="Aob-mz-glP"/>
                                 <constraint firstItem="9II-fA-8HE" firstAttribute="trailing" secondItem="kWL-wt-0Cy" secondAttribute="trailing" id="J5p-52-gfG"/>
-                                <constraint firstItem="jz9-ot-9ti" firstAttribute="centerY" secondItem="kWL-wt-0Cy" secondAttribute="centerY" id="MCZ-Qb-iGH"/>
                                 <constraint firstItem="9II-fA-8HE" firstAttribute="top" secondItem="kWL-wt-0Cy" secondAttribute="bottom" id="RaH-ml-7ue"/>
                                 <constraint firstItem="kWL-wt-0Cy" firstAttribute="centerX" secondItem="jcQ-X0-VzI" secondAttribute="centerX" id="Wn9-Kc-beJ"/>
-                                <constraint firstItem="jz9-ot-9ti" firstAttribute="centerX" secondItem="kWL-wt-0Cy" secondAttribute="centerX" id="bJn-vh-bM9"/>
                                 <constraint firstItem="kWL-wt-0Cy" firstAttribute="top" secondItem="jcQ-X0-VzI" secondAttribute="topMargin" id="bLi-mr-E2d"/>
                                 <constraint firstAttribute="bottom" secondItem="9II-fA-8HE" secondAttribute="bottom" id="bOu-qf-4dG"/>
                                 <constraint firstItem="k2Q-Yu-hel" firstAttribute="top" secondItem="kWL-wt-0Cy" secondAttribute="top" id="iVf-vK-GK0"/>
@@ -470,7 +464,7 @@
                             <tableViewSection headerTitle="What instruments do you play?" id="VK7-2A-SnZ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" id="WCE-b3-bRZ">
-                                        <rect key="frame" x="0.0" y="298" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="299" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCE-b3-bRZ" id="IuU-nM-fo5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -528,7 +522,7 @@
                             <tableViewSection headerTitle="What is your taste in music?" id="wGx-Yt-ftS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LMN-Om-h8k">
-                                        <rect key="frame" x="0.0" y="398" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="400" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LMN-Om-h8k" id="ViO-pS-KmP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -584,7 +578,7 @@
                             <tableViewSection headerTitle="Audio Sample from SoundCloud" footerTitle="Log into your SoundCloud account to showcase your work." id="Wqr-eg-s85">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="66" id="F4z-yx-fmc">
-                                        <rect key="frame" x="0.0" y="505.5" width="375" height="66"/>
+                                        <rect key="frame" x="0.0" y="508" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F4z-yx-fmc" id="Fwd-A3-myM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -634,7 +628,7 @@
                             <tableViewSection headerTitle="About Me" footerTitle="More information is better for other users." id="fdU-bN-0YB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="119" id="jYy-pS-bjb">
-                                        <rect key="frame" x="0.0" y="663" width="375" height="119"/>
+                                        <rect key="frame" x="0.0" y="666" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jYy-pS-bjb" id="7tH-QC-dJo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
@@ -667,7 +661,6 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="imageActivityIndicator" destination="jz9-ot-9ti" id="NN6-iw-tvZ"/>
                         <outlet property="imgProfileImage" destination="kWL-wt-0Cy" id="WbU-cw-KdS"/>
                         <outlet property="lblAge" destination="5GD-cz-tuz" id="A0E-QA-eQQ"/>
                         <outlet property="lblFavInstrument" destination="ZbJ-3H-hsf" id="DxI-VH-a3B"/>

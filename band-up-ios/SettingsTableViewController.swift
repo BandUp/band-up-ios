@@ -170,7 +170,6 @@ class SettingsTableViewController: UITableViewController {
 		}
 	}
 
-
 	// MARK: - Helper Functions
 	func initializeNotificationSettings(forKey key: String, value: Bool) {
 		if UserDefaults.standard.object(forKey: key) == nil {

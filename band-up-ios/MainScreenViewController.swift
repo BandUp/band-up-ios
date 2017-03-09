@@ -52,7 +52,6 @@ class MainScreenViewController: UIViewController {
 		self.navigationItem.backBarButtonItem = backItem
 		self.navigationController?.navigationBar.tintColor = UIColor.bandUpYellow
 	}
-
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()

@@ -35,6 +35,12 @@ class DrawerViewController: UIViewController {
 	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		if let parent = parent as? KYDrawerController {
+			if let mainViewController = parent.mainViewController.childViewControllers[0] as? MainScreenViewController {
+				mainViewController.profileViewController?.delegate = self
+			}
+		}
+		
 		for i in listItems {
 			i.name = i.id.localized
 		}

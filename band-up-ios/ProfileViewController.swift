@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
 
 protocol ProfileViewDelegate: class {
 	func update(user: User)
@@ -122,11 +124,81 @@ class ProfileViewController: UIViewController {
 		}
 
 	}
+
+	func shouldShrink(image: UIImage) -> Bool {
+		return image.size.height > CGFloat(2048) ||
+			   image.size.width > CGFloat(2048)
+	}
 }
 // MARK: - Extensions
 extension ProfileViewController: EditProfileViewControllerDelegate {
-	func userUpdated(_ newUser: User) {
+	func userUpdated(_ newUser: User, hasNewImage:Bool) {
+		if let delegate = self.delegate {
+			delegate.update(user: newUser)
+		}
+		
+		if hasNewImage {
+			let parameters = [
+				"file_name": "swift_file.jpeg"
+			]
+
+			let progressHUD = MBProgressHUD()
+			self.view.addSubview(progressHUD)
+			progressHUD.center = self.view.center
+			progressHUD.animationType = .zoom
+			progressHUD.mode = .determinateHorizontalBar
+			progressHUD.label.text = "profile_upload_title".localized
+			progressHUD.detailsLabel.text = "profile_upload_message".localized
+			progressHUD.show(animated: true)
+			let uploadUrl = BandUpAPI.sharedInstance.profilePicture.url.absoluteString
+
+			if let headers = UserDefaults.standard.dictionary(forKey: DefaultsKeys.headers) as? [String:String] {
+				Alamofire.upload(multipartFormData: { (multipartFormData) in
+					multipartFormData.append(UIImageJPEGRepresentation(self.currentUser!.image.image, 0.7)!, withName: "photo_path", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+					for (key, value) in parameters {
+						multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+					}
+				}, to: uploadUrl, headers: headers) { (result) in
+					switch result {
+					case .success(let upload, _, _):
+
+						upload.uploadProgress(closure: { (progress) in
+							progressHUD.progressObject = progress
+							if progress.fractionCompleted == 1 {
+								progressHUD.mode = .indeterminate
+							}
+						})
+
+						upload.responseJSON { response in
+							print("ERROR: \(response.error)")
+							if response.error == nil {
+								if response.response?.statusCode == 201 {
+									self.imgProfileImage.image = newUser.image.image
+									self.currentUser?.image.image = newUser.image.image
+									if let result = response.result.value {
+										if let JSON = result as? NSDictionary {
+											if let jsonUrl = JSON["url"] as? String {
+												self.currentUser?.image.url = jsonUrl
+												if let delegate = self.delegate {
+													delegate.update(user: newUser)
+												}
+											}
+										}
+									}
+								}
+
+							}
+							progressHUD.hide(animated: true)
+
+						}
+					case .failure(_):
+						progressHUD.hide(animated: true)
+					}
+				}
+			}
+		}
 		self.currentUser = newUser
+
 		populateUser()
 	}
 }

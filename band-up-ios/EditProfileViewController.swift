@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EditProfileViewControllerDelegate: class {
-	func userUpdated(_ newUser: User)
+	func userUpdated(_ newUser: User, hasNewImage: Bool)
 }
 
 class EditProfileViewController: UIViewController {
@@ -40,30 +40,6 @@ class EditProfileViewController: UIViewController {
 		}
 		
 		tableViewController.lblAge.text = String(user.getBirthString())
-
-		var count = user.instruments.count
-		if count > 0 {
-			let last = user.instruments[count-1]
-			var instruString = ""
-			for instrument in user.instruments {
-				instruString += instrument
-				if instrument != last {
-					instruString += ", "
-				}
-			}
-		}
-
-		count = user.genres.count
-		if count > 0 {
-			let last = user.genres[count-1]
-			var genreString = ""
-			for genre in user.genres {
-				genreString += genre
-				if genre != last {
-					genreString += ", "
-				}
-			}
-		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +55,6 @@ class EditProfileViewController: UIViewController {
 
 	// MARK: - IBActions
 	@IBAction func didTapDone(_ sender: Any) {
-		print("bla")
 		btnDone.isEnabled = false
 
 		var updatedUser: [String:String] = [:]
@@ -102,7 +77,7 @@ class EditProfileViewController: UIViewController {
 			self.tableViewController.txtName.resignFirstResponder()
 			self.tableViewController.txtAboutMe.resignFirstResponder()
 			if let del = self.delegate {
-				del.userUpdated(self.user)
+				del.userUpdated(self.user, hasNewImage: self.tableViewController.hasUpdatedImage)
 			}
 			self.dismiss(animated: true, completion: nil)
 			
@@ -116,7 +91,7 @@ class EditProfileViewController: UIViewController {
 		tableViewController.txtName.resignFirstResponder()
 		tableViewController.txtAboutMe.resignFirstResponder()
 		if let del = self.delegate {
-			del.userUpdated(tableViewController.oldUser)
+			del.userUpdated(tableViewController.oldUser, hasNewImage: false)
 		}
 		self.dismiss(animated: true, completion: nil)
 	}
