@@ -27,10 +27,10 @@ class SettingsTableViewController: UITableViewController {
 		let maxAge = Int(round(sender.rightValue))
 		let minAge = Int(round(sender.leftValue))
 		if minAge != maxAge {
-			let locString = NSLocalizedString("settings_age_between", comment: "")
+			let locString = "settings_age_between".localized
 			lblAges.text = String(format: locString, String(minAge), String(maxAge))
 		} else {
-			let locString = NSLocalizedString("settings_age_single", comment: "")
+			let locString = "settings_age_single".localized
 			lblAges.text = String(format: locString, String(minAge))
 		}
 

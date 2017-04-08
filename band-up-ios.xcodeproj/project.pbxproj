@@ -15,7 +15,6 @@
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
-		F21E41F71E71A23D0068F3B2 /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21E41F61E71A23D0068F3B2 /* SearchView.storyboard */; };
 		F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2220D781E64810F000BC704 /* Iceland copy.gpx */; };
 		F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
@@ -45,6 +44,7 @@
 		F27051211E4C027600E2974C /* DrawerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27051201E4C027600E2974C /* DrawerItem.swift */; };
 		F277C27F1E560DCF008AF036 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F277C2761E560D8C008AF036 /* UserTests.swift */; };
 		F277C2881E561F41008AF036 /* band_up_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F277C2871E561F41008AF036 /* band_up_iosUITests.swift */; };
+		F28755F81E73054000D9E837 /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28755FA1E73054000D9E837 /* SearchView.storyboard */; };
 		F29002EA1E1A0F1600884F8E /* UserListItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */; };
 		F29B9E851E47688E00BDB645 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E841E47688E00BDB645 /* Constants.swift */; };
 		F29B9E871E47D2AC00BDB645 /* BMItemBoxList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */; };
@@ -140,7 +140,6 @@
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
-		F21E41F61E71A23D0068F3B2 /* SearchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
 		F2220D781E64810F000BC704 /* Iceland copy.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Iceland copy.gpx"; sourceTree = "<group>"; };
 		F22586EA1E62987D00BAFD80 /* Iceland.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Iceland.gpx; sourceTree = "<group>"; };
 		F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2017.02.18-145727.gpx"; sourceTree = "<group>"; };
@@ -185,6 +184,8 @@
 		F277C2851E561F41008AF036 /* band-up-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "band-up-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F277C2871E561F41008AF036 /* band_up_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = band_up_iosUITests.swift; sourceTree = "<group>"; };
 		F277C2891E561F41008AF036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F28755F91E73054000D9E837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchView.storyboard; sourceTree = "<group>"; };
+		F28755FC1E73054400D9E837 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/SearchView.strings; sourceTree = "<group>"; };
 		F29002E91E1A0F1600884F8E /* UserListItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListItemViewCell.swift; sourceTree = "<group>"; };
 		F29B9E841E47688E00BDB645 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F29B9E861E47D2AC00BDB645 /* BMItemBoxList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMItemBoxList.swift; sourceTree = "<group>"; };
@@ -420,7 +421,7 @@
 				F278537D1E4C1FEA00DB9810 /* MatchesView.storyboard */,
 				F27853821E4C201600DB9810 /* SettingsView.storyboard */,
 				F278538C1E4C218700DB9810 /* UpcomingView.storyboard */,
-				F21E41F61E71A23D0068F3B2 /* SearchView.storyboard */,
+				F28755FA1E73054000D9E837 /* SearchView.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -585,7 +586,7 @@
 			attributes = {
 				CLASSPREFIX = BM;
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Bad Melody";
 				TargetAttributes = {
 					F217C0421DDFC47100EE16DF = {
@@ -664,7 +665,7 @@
 				F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
-				F21E41F71E71A23D0068F3B2 /* SearchView.storyboard in Resources */,
+				F28755F81E73054000D9E837 /* SearchView.storyboard in Resources */,
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
@@ -964,6 +965,15 @@
 				F24E08221E4D245300C45A76 /* is */,
 			);
 			name = Setup.storyboard;
+			sourceTree = "<group>";
+		};
+		F28755FA1E73054000D9E837 /* SearchView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F28755F91E73054000D9E837 /* Base */,
+				F28755FC1E73054400D9E837 /* is */,
+			);
+			name = SearchView.storyboard;
 			sourceTree = "<group>";
 		};
 		F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */ = {

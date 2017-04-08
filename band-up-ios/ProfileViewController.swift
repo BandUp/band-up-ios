@@ -170,7 +170,7 @@ extension ProfileViewController: EditProfileViewControllerDelegate {
 						})
 
 						upload.responseJSON { response in
-							print("ERROR: \(response.error)")
+							print("ERROR: \(String(describing: response.error))")
 							if response.error == nil {
 								if response.response?.statusCode == 201 {
 									self.imgProfileImage.image = newUser.image.image

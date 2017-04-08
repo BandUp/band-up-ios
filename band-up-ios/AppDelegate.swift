@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		var configureError: NSError?
 
 		GGLContext.sharedInstance().configureWithError(&configureError)
-		assert(configureError == nil, "Error configuring Google services: \(configureError)")
+		assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
 
 		var keys: NSDictionary?
 
@@ -272,7 +272,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if locations.count > 0 {
-			if locations[0].horizontalAccuracy < .abs(1000) {
+			if locations[0].horizontalAccuracy < abs(1000) {
 				if let lastKnownLocation = lastKnownLocation {
 					for location in locations {
 						if lastKnownLocation.timestamp < location.timestamp {

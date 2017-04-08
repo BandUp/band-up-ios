@@ -79,12 +79,12 @@ PODS:
   - KYDrawerController (2.0.1)
   - MARKRangeSlider (1.1.1)
   - MBProgressHUD (1.0.0)
-  - Siesta (1.1.0):
-    - Siesta/Core (= 1.1.0)
-  - Siesta/Core (1.1.0)
-  - Siesta/UI (1.1.0):
+  - Siesta (1.1.1):
+    - Siesta/Core (= 1.1.1)
+  - Siesta/Core (1.1.1)
+  - Siesta/UI (1.1.1):
     - Siesta/Core
-  - Socket.IO-Client-Swift (8.2.0)
+  - Socket.IO-Client-Swift (8.3.3)
   - Soundcloud (1.1.0):
     - 1PasswordExtension (~> 1.8.3)
     - KeychainAccess (~> 3.0)
@@ -101,9 +101,9 @@ DEPENDENCIES:
   - KYDrawerController
   - MARKRangeSlider
   - MBProgressHUD (~> 1.0.0)
-  - Siesta (= 1.1.0)
-  - Siesta/UI (= 1.1.0)
-  - Socket.IO-Client-Swift (~> 8.2.0)
+  - Siesta (= 1.1.1)
+  - Siesta/UI (= 1.1.1)
+  - Socket.IO-Client-Swift (= 8.3.3)
   - Soundcloud
   - SwiftLint
   - UICollectionViewLeftAlignedLayout
@@ -133,12 +133,12 @@ SPEC CHECKSUMS:
   KYDrawerController: b716cfa5730dc2133a67efcfc28b3b5a2cff6101
   MARKRangeSlider: ef7e1fe84d22996f47fd72dcb8de50b9410aac47
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  Siesta: ada9f35255e4eb16fad45cc3080927f6c6cba9cc
-  Socket.IO-Client-Swift: 900cf511777045c80d1ce1f11f71261e87765dd1
+  Siesta: 920372f09b7cfd798074d85d8f3cf8505529a56e
+  Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
   Soundcloud: 476ba41826b4968a963048e76303056dbe529b64
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: 5f5daadfc99090b6fb761170bf0256729552bb3b
+PODFILE CHECKSUM: 3e71a54206611266dd93233648443c64a60ea809
 
 COCOAPODS: 1.1.1

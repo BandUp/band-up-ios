@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WO6-Oh-vog">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WO6-Oh-vog">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,27 +13,28 @@
         <scene sceneID="hRD-LD-Ftd">
             <objects>
                 <tableViewController id="CQC-qH-eM8" customClass="SearchTableViewController" customModule="band_up_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7D9-j0-cac">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="7D9-j0-cac">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Use these tools to find the perfect musician" id="jWU-P5-Xoz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Wxf-Tr-8py">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wxf-Tr-8py" id="b2D-8j-BeR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ASDF" placeholder="Search by Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIB-S3-DCf">
-                                                    <rect key="frame" x="20" y="0.0" width="335" height="44"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search by Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIB-S3-DCf">
+                                                    <rect key="frame" x="20" y="0.0" width="280" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="43" id="hNJ-jN-JVw"/>
                                                     </constraints>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -48,64 +49,62 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="What kind of musicians do you want to find?" id="kes-tt-4cX">
+                                <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="75" id="Hnj-TH-6WT">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hnj-TH-6WT" id="83N-z4-TyN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2G-Lq-BE9">
-                                                    <rect key="frame" x="20" y="8" width="335" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="20" y="8" width="280" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOS-rh-XQ2" customClass="MARKRangeSlider">
-                                                    <rect key="frame" x="25" y="36" width="325" height="30"/>
+                                                    <rect key="frame" x="20" y="36" width="280" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="5k7-ab-ZeJ"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="agesChanged:" destination="CQC-qH-eM8" eventType="valueChanged" id="cnz-Vm-rw3"/>
+                                                    </connections>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="yOS-rh-XQ2" secondAttribute="bottom" constant="8" id="7Ak-fS-hdW"/>
                                                 <constraint firstItem="I2G-Lq-BE9" firstAttribute="top" secondItem="83N-z4-TyN" secondAttribute="topMargin" id="DDA-HL-vQR"/>
                                                 <constraint firstItem="yOS-rh-XQ2" firstAttribute="centerX" secondItem="83N-z4-TyN" secondAttribute="centerX" id="E5b-af-OEB"/>
-                                                <constraint firstAttribute="trailing" secondItem="I2G-Lq-BE9" secondAttribute="trailing" constant="20" id="Iez-AR-5Ds"/>
+                                                <constraint firstAttribute="trailing" secondItem="I2G-Lq-BE9" secondAttribute="trailing" constant="20" symbolic="YES" id="Iez-AR-5Ds"/>
                                                 <constraint firstItem="yOS-rh-XQ2" firstAttribute="top" secondItem="I2G-Lq-BE9" secondAttribute="bottom" constant="8" id="NaN-ZU-tib"/>
-                                                <constraint firstItem="yOS-rh-XQ2" firstAttribute="top" secondItem="I2G-Lq-BE9" secondAttribute="bottom" constant="8" id="b2q-gp-L7e"/>
-                                                <constraint firstItem="I2G-Lq-BE9" firstAttribute="leading" secondItem="83N-z4-TyN" secondAttribute="leading" constant="20" id="eGK-Dt-ThQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="yOS-rh-XQ2" secondAttribute="trailing" constant="25" id="gfs-aj-Ycf"/>
-                                                <constraint firstItem="yOS-rh-XQ2" firstAttribute="leading" secondItem="83N-z4-TyN" secondAttribute="leading" constant="25" id="s1I-IJ-EHK"/>
+                                                <constraint firstItem="I2G-Lq-BE9" firstAttribute="leading" secondItem="83N-z4-TyN" secondAttribute="leading" constant="20" symbolic="YES" id="eGK-Dt-ThQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="yOS-rh-XQ2" secondAttribute="trailing" constant="20" symbolic="YES" id="gfs-aj-Ycf"/>
+                                                <constraint firstItem="yOS-rh-XQ2" firstAttribute="leading" secondItem="83N-z4-TyN" secondAttribute="leading" constant="20" symbolic="YES" id="s1I-IJ-EHK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Choose what kind of musicians you want to display" id="kes-tt-4cX">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="dJA-Qk-8si">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="101" id="dJA-Qk-8si">
+                                        <rect key="frame" x="0.0" y="230.5" width="320" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dJA-Qk-8si" id="cbS-rj-t9g">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjs-S3-YZp">
-                                                    <rect key="frame" x="311" y="36" width="44" height="30"/>
-                                                    <state key="normal" title="Select"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instruments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuM-Ec-QNE">
-                                                    <rect key="frame" x="20" y="8" width="96.5" height="21"/>
+                                                    <rect key="frame" x="20" y="8" width="247" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="kok-mC-TJZ" customClass="BMItemBoxList" customModule="band_up_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="36.5" width="283" height="56"/>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="kok-mC-TJZ" customClass="BMItemBoxList" customModule="band_up_ios" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="37" width="247" height="56"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -143,36 +142,31 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xuM-Ec-QNE" firstAttribute="top" secondItem="cbS-rj-t9g" secondAttribute="top" constant="8" id="3Y3-fW-ReX"/>
-                                                <constraint firstItem="Zjs-S3-YZp" firstAttribute="leading" secondItem="kok-mC-TJZ" secondAttribute="trailing" constant="8" id="9Tm-MX-Grj"/>
                                                 <constraint firstAttribute="bottom" secondItem="kok-mC-TJZ" secondAttribute="bottom" constant="8" id="DTT-oD-xdW"/>
-                                                <constraint firstItem="Zjs-S3-YZp" firstAttribute="centerY" secondItem="cbS-rj-t9g" secondAttribute="centerY" id="Oup-Hf-Fa9"/>
                                                 <constraint firstItem="kok-mC-TJZ" firstAttribute="top" secondItem="xuM-Ec-QNE" secondAttribute="bottom" constant="8" id="RCJ-aI-6Et"/>
-                                                <constraint firstAttribute="trailing" secondItem="Zjs-S3-YZp" secondAttribute="trailing" constant="20" symbolic="YES" id="Vrm-XJ-MDp"/>
                                                 <constraint firstItem="xuM-Ec-QNE" firstAttribute="leading" secondItem="cbS-rj-t9g" secondAttribute="leading" constant="20" symbolic="YES" id="bbo-fp-uRg"/>
+                                                <constraint firstAttribute="trailing" secondItem="xuM-Ec-QNE" secondAttribute="trailing" constant="20" symbolic="YES" id="hU1-vG-0F3"/>
                                                 <constraint firstItem="kok-mC-TJZ" firstAttribute="leading" secondItem="cbS-rj-t9g" secondAttribute="leading" constant="20" symbolic="YES" id="jbm-kv-C3g"/>
+                                                <constraint firstAttribute="trailing" secondItem="kok-mC-TJZ" secondAttribute="trailing" constant="20" symbolic="YES" id="q5Q-4d-Sfc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="7iZ-OS-hGw">
-                                        <rect key="frame" x="0.0" y="333" width="375" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="101" id="7iZ-OS-hGw">
+                                        <rect key="frame" x="0.0" y="331.5" width="320" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7iZ-OS-hGw" id="qom-26-x9F">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-lt-H8E">
-                                                    <rect key="frame" x="311" y="36" width="44" height="30"/>
-                                                    <state key="normal" title="Select"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhz-W4-yyD">
-                                                    <rect key="frame" x="20" y="8" width="57.5" height="21"/>
+                                                    <rect key="frame" x="20" y="8" width="247" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-sD-aiZ" customClass="BMItemBoxList" customModule="band_up_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="36.5" width="283" height="56"/>
+                                                    <rect key="frame" x="20" y="36.5" width="247" height="56"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -211,12 +205,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="bBu-sD-aiZ" secondAttribute="bottom" constant="8" id="1gu-Va-tDd"/>
                                                 <constraint firstItem="Vhz-W4-yyD" firstAttribute="leading" secondItem="qom-26-x9F" secondAttribute="leading" constant="20" symbolic="YES" id="4dN-Kl-ocz"/>
-                                                <constraint firstItem="fbd-lt-H8E" firstAttribute="centerY" secondItem="qom-26-x9F" secondAttribute="centerY" id="FzS-Ce-lT3"/>
-                                                <constraint firstAttribute="trailing" secondItem="fbd-lt-H8E" secondAttribute="trailing" constant="20" symbolic="YES" id="Png-8l-UXT"/>
                                                 <constraint firstItem="bBu-sD-aiZ" firstAttribute="leading" secondItem="qom-26-x9F" secondAttribute="leading" constant="20" symbolic="YES" id="VzC-R9-5sx"/>
-                                                <constraint firstItem="fbd-lt-H8E" firstAttribute="leading" secondItem="bBu-sD-aiZ" secondAttribute="trailing" constant="8" id="XDx-87-kg1"/>
                                                 <constraint firstItem="bBu-sD-aiZ" firstAttribute="top" secondItem="Vhz-W4-yyD" secondAttribute="bottom" constant="8" id="Ytq-vY-WxG"/>
                                                 <constraint firstItem="Vhz-W4-yyD" firstAttribute="top" secondItem="qom-26-x9F" secondAttribute="top" constant="8" id="aFK-aF-jEQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="bBu-sD-aiZ" secondAttribute="trailing" constant="20" symbolic="YES" id="j2H-xB-wWe"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vhz-W4-yyD" secondAttribute="trailing" constant="20" symbolic="YES" id="qkB-YY-YSU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -231,8 +224,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="M9A-cG-5QA"/>
                     <connections>
+                        <outlet property="lblAges" destination="I2G-Lq-BE9" id="XLG-vB-tdp"/>
+                        <outlet property="rangeSlider" destination="yOS-rh-XQ2" id="O5w-dg-LJF"/>
                         <outlet property="tagGenres" destination="bBu-sD-aiZ" id="5hm-Hs-9je"/>
                         <outlet property="tagInstruments" destination="kok-mC-TJZ" id="2sn-fD-IJ7"/>
+                        <outlet property="txtName" destination="fIB-S3-DCf" id="c8H-qe-Hka"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgA-ti-WQt" userLabel="First Responder" sceneMemberID="firstResponder"/>

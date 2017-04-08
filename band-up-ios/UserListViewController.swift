@@ -147,7 +147,6 @@ class UserListViewController: UIViewController {
 
 	public func someAction() {
 		let storyboard = UIStoryboard(name: Storyboard.search, bundle: Bundle.main)
-
 		if let viewController = storyboard.instantiateInitialViewController() {
 			self.present(viewController, animated: true, completion: nil)
 		}

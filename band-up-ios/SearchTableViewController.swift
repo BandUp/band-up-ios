@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import MARKRangeSlider
 
 class SearchTableViewController: UITableViewController {
 
+	@IBOutlet weak var txtName: UITextField!
 	@IBOutlet weak var tagInstruments: BMItemBoxList!
 	@IBOutlet weak var tagGenres: BMItemBoxList!
+	@IBOutlet weak var lblAges: UILabel!
+	@IBOutlet weak var rangeSlider: MARKRangeSlider!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +23,24 @@ class SearchTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-		tagInstruments.strings = ["Item", "Text", "Box", "List","Item", "Text", "Box", "List","Item", "Text", "Box", "List"]
-		tagGenres.strings = ["Item", "Text", "Box", "List","Item", "Text", "Box", "List","Item", "Text", "Box", "List"]
+		tagInstruments.strings = ["No Instrument Selected"]
+		tagGenres.strings = ["No Genre Selected"]
+
+		rangeSlider.disableOverlapping = false
+		rangeSlider.rangeImage = UIImage.fromColor(color: .bandUpYellow)
+		rangeSlider.tintColor = UIColor.bandUpYellow
+		rangeSlider.setMinValue(CGFloat(Constants.minAge), maxValue: CGFloat(Constants.maxAge))
+		rangeSlider.setLeftValue(CGFloat(Constants.minAge), rightValue: CGFloat(Constants.maxAge))
+		updateAges()
+
+		let nameString = "search_find_username".localized
+		let nameStr = NSAttributedString(string: nameString, attributes: [NSForegroundColorAttributeName:UIColor.gray])
+
+		txtName.attributedPlaceholder = nameStr
+		tableView.keyboardDismissMode = .interactive
+
+		txtName.keyboardAppearance = .dark
+
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(didTapSearch))
 		self.navigationItem.leftBarButtonItem  = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(didTapCancel))
 		self.title = "search_title".localized
@@ -49,6 +67,23 @@ class SearchTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableViewAutomaticDimension
 	}
+
+	@IBAction func agesChanged(_ sender: MARKRangeSlider) {
+		updateAges()
+	}
+
+	func updateAges() {
+		let maxAge = Int(round(rangeSlider.rightValue))
+		let minAge = Int(round(rangeSlider.leftValue))
+		if minAge != maxAge {
+			let locString = "settings_age_between".localized
+			lblAges.text = String(format: locString, String(minAge), String(maxAge))
+		} else {
+			let locString = "settings_age_single".localized
+			lblAges.text = String(format: locString, String(minAge))
+		}
+	}
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

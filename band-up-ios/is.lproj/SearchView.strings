@@ -1,0 +1,20 @@
+/* Class = "UILabel"; text = "Genres"; ObjectID = "Vhz-W4-yyD"; */
+"Vhz-W4-yyD.text" = "Tónlistarstefnur";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "Zjs-S3-YZp"; */
+"Zjs-S3-YZp.normalTitle" = "Velja";
+
+/* Class = "UITextField"; placeholder = "Search by Name"; ObjectID = "fIB-S3-DCf"; */
+"fIB-S3-DCf.placeholder" = "Leita eftir nafni";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "fbd-lt-H8E"; */
+"fbd-lt-H8E.normalTitle" = "Velja";
+
+/* Class = "UITableViewSection"; headerTitle = "Use these tools to find the perfect musician"; ObjectID = "jWU-P5-Xoz"; */
+"jWU-P5-Xoz.headerTitle" = "Notaðu þessi tól til þess að finna hinn fullkomna tónlistarmann";
+
+/* Class = "UITableViewSection"; headerTitle = "What kind of musicians do you want to find?"; ObjectID = "kes-tt-4cX"; */
+"kes-tt-4cX.headerTitle" = "Hverskonar tónlistarfólk vilt þú finna?";
+
+/* Class = "UILabel"; text = "Instruments"; ObjectID = "xuM-Ec-QNE"; */
+"xuM-Ec-QNE.text" = "Hljóðfæri";
