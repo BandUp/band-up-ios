@@ -251,6 +251,9 @@ extension UserListViewController: UIViewControllerPreviewingDelegate {
 	
 	// If you return nil, a preview presentation will not be performed
 	public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		if userArray.count <= 0 {
+			return nil
+		}
 		userDetailsViewController.currentUser = userArray[Int(currentIndex)]
 		
 		let indexPath: IndexPath = IndexPath(item: Int(currentIndex), section: 0)
