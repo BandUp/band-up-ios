@@ -44,8 +44,11 @@ class Constants {
 	// http://192.168.1.14:3000
 
 	static var bandUpAddress = URL(string: "https://band-up-server.herokuapp.com")
+	static var supportEmail = "support@badmelody.com"
 	static var maxAge = 99
 	static var minAge = 13
+	static var defaultRadius = 50
+	static var maxRadius = 300
 	static var locationUpdateRate = 120.0
 
 	static var setupInstruments: SetupViewObject = {

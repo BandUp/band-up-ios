@@ -48,6 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		
+		// Set default.
+		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.radius) == nil {
+			UserDefaults.standard.set(Constants.defaultRadius, forKey: DefaultsKeys.Settings.radius)
+		}
+
+		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.minAge) == nil {
+			UserDefaults.standard.set(Constants.minAge, forKey: DefaultsKeys.Settings.minAge)
+		}
+
+		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.maxAge) == nil {
+			UserDefaults.standard.set(Constants.maxAge, forKey: DefaultsKeys.Settings.maxAge)
+		}
+
 		var configureError: NSError?
 
 		GGLContext.sharedInstance().configureWithError(&configureError)
