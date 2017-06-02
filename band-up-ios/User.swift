@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 class User: CustomStringConvertible {
 
@@ -128,7 +129,7 @@ class User: CustomStringConvertible {
 			return -1
 		}
 	}
-	
+
 	func getBirthString() -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateStyle = .long
@@ -153,20 +154,21 @@ class User: CustomStringConvertible {
 
 	func getDistance(myLocation:CLLocation) -> Int {
 		let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
-		return Int(userLocation.distance(from: myLocation)/1000)
+		return Int(userLocation.distance(from: myLocation))
 	}
 
 	func getDistanceString(between location:CLLocation? = nil) -> String {
 		let localizedNoDistance = "no_distance_available".localized
+
 		if !self.location.valid {
 			return localizedNoDistance
 		} else {
 			if location == nil {
-				return getDistanceString(distance: self.distance)
+				return getDistanceString(distance: self.distance*1000)
 			} else {
 				guard let location = location else { return localizedNoDistance }
 				let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
-				let distance = location.distance(from: userLocation)/1000
+				let distance = location.distance(from: userLocation)
 				return getDistanceString(distance: distance)
 			}
 		}
@@ -183,16 +185,16 @@ class User: CustomStringConvertible {
 				shouldUseMetric = !defObj
 			}
 		}
+		let formatter = MKDistanceFormatter()
 
 		if shouldUseMetric {
-			let localizedString = NSLocalizedString("km_distance", comment: "")
-			let distanceString = "\(Int(round(distance))) \(localizedString)"
-			return distanceString
+			formatter.units = .metric
 		} else {
-			let localizedString = NSLocalizedString("mi_distance", comment: "")
-			let distanceString = "\(Int(round(distance*0.621371192))) \(localizedString)"
-			return distanceString
+			formatter.units = .imperial
 		}
+		formatter.unitStyle = .abbreviated
+		let formattedDistance = formatter.string(fromDistance: CLLocationDistance(distance))
+		return String(format: "distance_from_you".localized, formattedDistance)
 	}
 
 	var description: String {

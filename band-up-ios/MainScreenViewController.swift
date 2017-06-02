@@ -10,6 +10,8 @@ import UIKit
 import KYDrawerController
 import CoreLocation
 
+// LocationAuthorizationChanged
+
 class MainScreenViewController: UIViewController {
 	// MARK: - Variables
 	var currentViewController = UIViewController()
@@ -42,10 +44,23 @@ class MainScreenViewController: UIViewController {
 			if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
 				appDelegate.manager.requestWhenInUseAuthorization()
 			}
-		} else if status == .denied {
-			// Display some screen that says that we need location
-		} else if status == .restricted {
-			// Display some screen that says that we need location but the user has restricted access.
+		} else if status == .denied || status == .restricted {
+			guard let navigationController = navigationController else {
+				break auth
+			}
+
+			guard let drawerController = navigationController.parent as? KYDrawerController else {
+				break auth
+			}
+
+			if let drawerViewController = drawerController.drawerViewController as? DrawerViewController {
+				guard let errorViewController = errorViewController else {
+					return
+				}
+				drawerViewController.selectControllerWith(id:"main_nav_near_me")
+				currentViewController = errorViewController
+				add(asChildViewController: currentViewController)
+			}
 		}
 
 		let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -120,6 +135,17 @@ class MainScreenViewController: UIViewController {
 		return nil
 	}()
 
+	public lazy var errorViewController: ErrorViewController? = {
+
+		let storyboard = UIStoryboard(name: Storyboard.error, bundle: Bundle.main)
+
+		if let viewController = storyboard.instantiateViewController(withIdentifier: ControllerID.error) as? ErrorViewController {
+			return viewController
+		}
+
+		return nil
+	}()
+
 	// MARK: - Helper Functions
 	private func add(asChildViewController viewController: UIViewController) {
 		// Add Child View Controller
@@ -163,9 +189,23 @@ class MainScreenViewController: UIViewController {
 			guard let userItemViewController = userItemViewController else {
 				return
 			}
-			self.remove(asChildViewController: currentViewController)
-			self.add(asChildViewController: userItemViewController)
-			currentViewController = userItemViewController
+
+			guard let errorViewController = errorViewController else {
+				return
+			}
+
+			let status = CLLocationManager.authorizationStatus()
+			if status == .denied || status == .restricted {
+				self.remove(asChildViewController: currentViewController)
+				self.add(asChildViewController: errorViewController)
+				currentViewController = errorViewController
+			} else {
+				self.remove(asChildViewController: currentViewController)
+				self.add(asChildViewController: userItemViewController)
+				currentViewController = userItemViewController
+
+			}
+
 			self.title = "main_title_user_list".localized
 			break
 		case "main_nav_my_profile":
@@ -232,5 +272,26 @@ class MainScreenViewController: UIViewController {
 
 		drawerViewController.selectControllerWith(id: row)
 	}
-	
+
+	func locationAuthorizationChanged(status:CLAuthorizationStatus) {
+		guard let userItemViewController = userItemViewController else {
+			return
+		}
+
+		guard let errorViewController = errorViewController else {
+			return
+		}
+
+		let status = CLLocationManager.authorizationStatus()
+		if status == .denied || status == .restricted {
+			self.remove(asChildViewController: currentViewController)
+			self.add(asChildViewController: errorViewController)
+			currentViewController = errorViewController
+		} else {
+			self.remove(asChildViewController: currentViewController)
+			self.add(asChildViewController: userItemViewController)
+			currentViewController = userItemViewController
+
+		}
+	}
 }

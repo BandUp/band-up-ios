@@ -134,6 +134,7 @@
 "exit_bandup_toast" = "To exit BandUp, click BACK again.";
 "no_distance_available" = "Distance not available";
 "km_distance" = "km away from you";
+"distance_from_you" = "%@ away from you";
 "dateOfBirth" = "Date of Birth";
 "profile_select_song" = "Select a Song";
 "ages" = "Show age range&#8230;";
@@ -197,3 +198,6 @@
 "settings_age_single"  = "Ages: %@ years old";
 "navigation_drawer_open" = "Open navigation drawer";
 "navigation_drawer_close" = "Close navigation drawer";
+
+"aquiring_location" = "Aquiring Location";
+"aquiring_location_hint" = "Try moving to a window or go outside.";

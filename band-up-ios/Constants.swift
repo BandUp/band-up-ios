@@ -23,6 +23,7 @@ struct ControllerID {
 	static let privacy     = "PrivacyViewController"
 	static let openSource  = "OpenSourceViewController"
 	static let search      = "SearchViewController"
+	static let error       = "ErrorViewController"
 }
 
 struct Storyboard {
@@ -35,6 +36,7 @@ struct Storyboard {
 	static let settings    = "SettingsView"
 	static let upcoming    = "UpcomingView"
 	static let search      = "SearchView"
+	static let error       = "ErrorView"
 }
 
 class Constants {

@@ -16,6 +16,8 @@ class UserListViewController: UIViewController {
 	@IBOutlet weak var userCollectionView: UICollectionView!
 	@IBOutlet weak var lblError: UILabel!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var lblLocationError: UILabel!
+	@IBOutlet weak var lblLocationErrorSub: UILabel!
 
 	// MARK: - Variables
 	let userCell = "user_item_cell"
@@ -29,10 +31,16 @@ class UserListViewController: UIViewController {
 			} else {
 				self.userCollectionView.isHidden = false
 				self.lblError.isHidden = true
+				self.lblLocationError.isHidden = true
+				self.lblLocationErrorSub.isHidden = true
 			}
 		}
 	}
+
 	var currentIndex : CGFloat = 0
+
+	var isUpdating = false
+	var locationAcquired = false
 
 	// MARK: - Lazy Variables
 	public lazy var userDetailsViewController: UserDetailsViewController = {
@@ -48,10 +56,18 @@ class UserListViewController: UIViewController {
 	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		var timer = Timer.scheduledTimer(timeInterval: 3.0,
+		    			                                     target: self,
+		    			                                     selector: #selector(self.myTimerFunc),
+		    			                                     userInfo: nil,
+		    			                                     repeats: false)
+
 		registerForPreviewing(with: self, sourceView: userCollectionView)
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(someAction))
 
-		loadUserList()
+		if hasValidCoordinates() {
+			loadUserList()
+		}
 
 		NotificationCenter.default.addObserver(
 			self,
@@ -67,6 +83,10 @@ class UserListViewController: UIViewController {
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		if userArray.count > 0 {
+			activityIndicator.stopAnimating()
+		}
+		
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(someAction))
 
 	}
@@ -77,35 +97,48 @@ class UserListViewController: UIViewController {
 
 	// MARK: - Notification Handlers
 	func locationChanged(notification: NSNotification) {
+		locationAcquired = true
 		print("Location Changed")
-		BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
-			var tempUserArr = [User]()
-			for user in response.jsonArray {
-				if let jsonUser = user as? NSDictionary {
-					let newUser = User(jsonUser)
-					if self.shouldDisplay(user: newUser) {
-						tempUserArr.append(newUser)
+		lblLocationError.isHidden = true
+		lblLocationErrorSub.isHidden = true
+		if !isUpdating {
+			self.isUpdating = true
+			BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
+				print(response)
+				var tempUserArr = [User]()
+				for user in response.jsonArray {
+					if let jsonUser = user as? NSDictionary {
+						let newUser = User(jsonUser)
+						if self.shouldDisplay(user: newUser) {
+							tempUserArr.append(newUser)
+						}
 					}
 				}
-			}
 
-			for item in self.userArray {
-				if !tempUserArr.contains(item) {
-					let myIndex: Int = self.userArray.index(of: item)!
-					self.userArray.remove(at: myIndex)
-					self.userCollectionView?.deleteItems(at: [IndexPath(row: myIndex, section: 0)])
+				tempUserArr.shuffle()
+
+				for item in self.userArray {
+					if !tempUserArr.contains(item) {
+						let myIndex: Int = self.userArray.index(of: item)!
+						self.userArray.remove(at: myIndex)
+						self.userCollectionView?.deleteItems(at: [IndexPath(row: myIndex, section: 0)])
+					}
 				}
-			}
 
-			for (index, item) in tempUserArr.enumerated() {
-				if !self.userArray.contains(item) {
-					self.userArray.insert(item, at: index)
-					self.userCollectionView?.insertItems(at: [IndexPath(row: index, section: 0)])
+				for (index, item) in tempUserArr.enumerated() {
+					if !self.userArray.contains(item) {
+						self.userArray.insert(item, at: index)
+						self.userCollectionView?.insertItems(at: [IndexPath(row: index, section: 0)])
+					}
 				}
+				self.activityIndicator.isHidden = true
+				self.isUpdating = false
+				}.onFailure { (error) in
+					self.isUpdating = false
+					self.activityIndicator.isHidden = true
 			}
-		}.onFailure { (error) in
-
 		}
+
 	}
 
 	func unitsChanged(notification: NSNotification) {
@@ -132,7 +165,7 @@ class UserListViewController: UIViewController {
 			let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
 
 			if let myLocation = appDelegate.lastKnownLocation {
-				if user.getDistance(myLocation: myLocation) < Int(radius) {
+				if user.getDistance(myLocation: myLocation)/1000 < Int(radius) {
 					return true
 				}
 			} else {
@@ -145,6 +178,20 @@ class UserListViewController: UIViewController {
 		return false
 	}
 
+	func hasValidCoordinates() -> Bool {
+
+		if UserDefaults.standard.object(forKey: DefaultsKeys.lastKnownLocationLat) == nil {
+			return false
+		}
+
+		if UserDefaults.standard.object(forKey: DefaultsKeys.lastKnownLocationLon) == nil {
+			return false
+		}
+
+		return true
+
+	}
+
 	public func someAction() {
 		let storyboard = UIStoryboard(name: Storyboard.search, bundle: Bundle.main)
 		if let viewController = storyboard.instantiateInitialViewController() {
@@ -154,26 +201,52 @@ class UserListViewController: UIViewController {
 
 	func loadUserList() {
 
-		BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
-			self.activityIndicator.stopAnimating()
+		if !isUpdating {
+			isUpdating = true
+			BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
+				self.activityIndicator.stopAnimating()
 
-			self.userArray = []
-			for user in response.jsonArray {
-				if let jsonUser = user as? NSDictionary {
-					let newUser = User(jsonUser)
-					if self.shouldDisplay(user: newUser) {
-						self.userArray.append(newUser)
+				self.userArray = []
+				for user in response.jsonArray {
+					if let jsonUser = user as? NSDictionary {
+						let newUser = User(jsonUser)
+						if self.shouldDisplay(user: newUser) {
+							self.userArray.append(newUser)
+						}
 					}
 				}
-			}
 
-			self.userArray.shuffle()
-			self.userCollectionView.reloadData()
-			}.onFailure { (error) in
-				self.activityIndicator.stopAnimating()
-				self.lblError.isHidden = false
-				self.lblError.text = "user_list_error_fetch_list".localized
-				print(error.userMessage)
+				self.userArray.shuffle()
+				self.userCollectionView.reloadData()
+				self.isUpdating = false
+				}.onFailure { (error) in
+					self.activityIndicator.stopAnimating()
+					self.lblError.isHidden = false
+					self.lblError.text = "user_list_error_fetch_list".localized
+					print(error.userMessage)
+					self.isUpdating = false
+			}
+		}
+
+	}
+
+	func myTimerFunc() {
+		if !locationAcquired && !hasValidCoordinates() {
+			lblLocationError.text = "aquiring_location".localized
+			lblLocationErrorSub.text = "aquiring_location_hint".localized
+
+			lblLocationError.alpha = 0
+			lblLocationErrorSub.alpha = 0
+			lblLocationError.isHidden = false
+			lblLocationErrorSub.isHidden = false
+
+			let animationDuration = 0.25
+
+			// Fade in the view
+			UIView.animate(withDuration: animationDuration, animations: { () -> Void in
+				self.lblLocationError.alpha = 1
+				self.lblLocationErrorSub.alpha = 1
+			})
 		}
 	}
 

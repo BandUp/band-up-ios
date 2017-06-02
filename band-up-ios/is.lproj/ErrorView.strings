@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "Go to Settings"; ObjectID = "Pvh-h0-FFt"; */
+"Pvh-h0-FFt.normalTitle" = "Fara í Stillingar";
+
+/* Class = "UILabel"; text = "We need to access your location to show you nearby musicians."; ObjectID = "ncQ-3H-qOT"; */
+"ncQ-3H-qOT.text" = "Við þurfum aðgang að staðsetningu þinni til þess að sýna þér tónlistarfólk nálægt þér.";

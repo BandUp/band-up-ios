@@ -169,18 +169,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		guard let shortCutType = shortcutItem.type as String? else { return false }
 
 		if window?.rootViewController is KYDrawerController {
-			guard let drawerController = window?.rootViewController as? KYDrawerController else {
-				print("Could not find KYDrawerController")
+
+			guard let drawerController = getDrawerController() else {
 				return false
 			}
 
-			guard let navigationController = drawerController.mainViewController as? UINavigationController else {
-				print("Could not find NavigationController")
-				return false
-			}
-
-			guard let mainController = navigationController.viewControllers.first as? MainScreenViewController else {
-				print("Could not find MainScreenViewController")
+			guard let mainController = getMainController() else {
 				return false
 			}
 
@@ -274,6 +268,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			snapshot.removeFromSuperview()
 		})
 	}
+
+	func getDrawerController() -> KYDrawerController? {
+		guard let drawerController = window?.rootViewController as? KYDrawerController else {
+			print("Could not find the Drawer Controller")
+			return nil
+		}
+		return drawerController
+	}
+
+	func getMainController() -> MainScreenViewController? {
+		guard let drawerController = window?.rootViewController as? KYDrawerController else {
+			print("Could not find the Drawer Controller")
+			return nil
+		}
+
+		guard let navigationController = drawerController.mainViewController as? UINavigationController else {
+			print("Could not find the Main Navigation Controller")
+			return nil
+		}
+
+		guard let mainController = navigationController.viewControllers.first as? MainScreenViewController else {
+			print("Could not find the Main Screen Controller")
+			return nil
+		}
+		return mainController
+	}
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
@@ -281,6 +301,10 @@ extension AppDelegate: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		if status == .authorizedWhenInUse {
 			manager.delegate = self
+		}
+
+		if let mainController = getMainController() {
+			mainController.locationAuthorizationChanged(status: status)
 		}
 	}
 
@@ -297,8 +321,9 @@ extension AppDelegate: CLLocationManagerDelegate {
 					}
 				} else {
 					lastKnownLocation = locations[0]
+					UserDefaults.standard.set(lastKnownLocation?.coordinate.latitude, forKey: DefaultsKeys.lastKnownLocationLat)
+					UserDefaults.standard.set(lastKnownLocation?.coordinate.longitude, forKey: DefaultsKeys.lastKnownLocationLon)
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
-
 				}
 			}
 		}
@@ -310,6 +335,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 
 	func startLocationTimer() {
 		if !locationTimer.isValid {
+			print("requestLocation")
 			manager.requestLocation()
 			locationTimer = Timer.scheduledTimer(timeInterval: Constants.locationUpdateRate,
 			                                     target: self,

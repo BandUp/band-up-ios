@@ -82,6 +82,7 @@
 "login_credentials_incorrect" = "Tölvupóstur eða lykilorð rangt";
 "no_distance_available" = "Vegalengd ekki tiltæk";
 "km_distance" = "km frá þér";
+"distance_from_you" = "%@ frá þér";
 "profile_select_song" = "Velja lag";
 "search" = "Leita";
 "search_title" = "Ítarleg leit";
@@ -199,3 +200,6 @@
 "drawer_alert_logout_error_message" = "Gat ekki skráð þig út.\nVinsamlega reyndu aftur síðar.";
 "settings_open_source" = "Opinn hugbúnaður"; 
 "main_title_user_details" = "Nánari upplýsingar";
+
+"aquiring_location" = "Finn staðsetningu þína";
+"aquiring_location_hint" = "Prófaðu að fara út í glugga eða út.";

@@ -69,6 +69,8 @@
 		F2DCB2E41E4E99FE006832F6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */; };
 		F2DCB2E61E4E9C1E006832F6 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
+		F2EB1C091EE0844D00889991 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB1C081EE0844D00889991 /* ErrorViewController.swift */; };
+		F2EB1C0A1EE09BEF00889991 /* ErrorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2EB1C0C1EE09BEF00889991 /* ErrorView.storyboard */; };
 		F2EC131D1E6B465500291EF3 /* SoundCloudPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC131C1E6B465500291EF3 /* SoundCloudPlayerViewController.swift */; };
 		F2EC131F1E6B7D6500291EF3 /* BMLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */; };
 		F2EC13271E6CC16300291EF3 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2EC13261E6CC16300291EF3 /* keys.plist */; };
@@ -212,6 +214,9 @@
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F2EB1C081EE0844D00889991 /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		F2EB1C0E1EE09BFB00889991 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/ErrorView.strings; sourceTree = "<group>"; };
+		F2EB1C0F1EE09C0100889991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ErrorView.storyboard; sourceTree = "<group>"; };
 		F2EC131C1E6B465500291EF3 /* SoundCloudPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundCloudPlayerViewController.swift; sourceTree = "<group>"; };
 		F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMLoginButton.swift; sourceTree = "<group>"; };
 		F2EC13261E6CC16300291EF3 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
@@ -416,6 +421,7 @@
 			children = (
 				F27853871E4C214A00DB9810 /* DrawerView.storyboard */,
 				F27853731E4C1A3200DB9810 /* UserListView.storyboard */,
+				F2EB1C0C1EE09BEF00889991 /* ErrorView.storyboard */,
 				F278536C1E4C194B00DB9810 /* UserDetailsView.storyboard */,
 				F27853781E4C1A9200DB9810 /* ProfileView.storyboard */,
 				F278537D1E4C1FEA00DB9810 /* MatchesView.storyboard */,
@@ -444,6 +450,7 @@
 				F2F0E1641E5FD245005BD86F /* OpenSourceTableViewController.swift */,
 				F2AB06141E0616DA0039C761 /* UpcomingViewController.swift */,
 				F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */,
+				F2EB1C081EE0844D00889991 /* ErrorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -662,6 +669,7 @@
 				F24E07ED1E4CE4C100C45A76 /* ProfileView.storyboard in Resources */,
 				F24E07EE1E4CE4C100C45A76 /* MatchesView.storyboard in Resources */,
 				F24E07EF1E4CE4C100C45A76 /* SettingsView.storyboard in Resources */,
+				F2EB1C0A1EE09BEF00889991 /* ErrorView.storyboard in Resources */,
 				F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
@@ -807,6 +815,7 @@
 				F2AB06131E0616C10039C761 /* SettingsViewController.swift in Sources */,
 				F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */,
 				F270511F1E4C022D00E2974C /* ChatMessage.swift in Sources */,
+				F2EB1C091EE0844D00889991 /* ErrorViewController.swift in Sources */,
 				F207F6401E02DBB000F57892 /* SetupViewController.swift in Sources */,
 				F24DE70E1E4A3ABB00BE56C6 /* BMItemBoxListCell.swift in Sources */,
 				F2AB06151E0616DA0039C761 /* UpcomingViewController.swift in Sources */,
@@ -984,6 +993,15 @@
 				F22935F41E53F1B5007F182B /* Base */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F2EB1C0C1EE09BEF00889991 /* ErrorView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2EB1C0E1EE09BFB00889991 /* is */,
+				F2EB1C0F1EE09C0100889991 /* Base */,
+			);
+			name = ErrorView.storyboard;
 			sourceTree = "<group>";
 		};
 		F2EF61811E61348900756657 /* Info.plist */ = {

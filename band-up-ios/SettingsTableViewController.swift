@@ -9,6 +9,7 @@
 import UIKit
 import MARKRangeSlider
 import MessageUI
+import MapKit
 
 class SettingsTableViewController: UITableViewController {
 
@@ -60,20 +61,27 @@ class SettingsTableViewController: UITableViewController {
 	@IBAction func radiusChanged(_ sender: UISlider) {
 		UserDefaults.standard.set(sender.value, forKey: DefaultsKeys.Settings.radius)
 		let localizedString = NSLocalizedString("settings_radius", comment: "")
-		var resultString: String
+
+		// Set up the distance formatter.
+		let formatter = MKDistanceFormatter()
+		formatter.unitStyle = .full
+
 		if schImperial.isOn {
-			let distance = Int(((round(sender.value / 5)) * 5)*0.621371192)
-			let distanceString = String(format: localizedString, String(distance))
-			let localizedUnits = NSLocalizedString("settings_distance_mi", comment: "")
-			resultString = "\(distanceString) \(localizedUnits)"
+			formatter.units = .imperial
 		} else {
-			let distance = Int((round(sender.value / 5)) * 5)
-			let distanceString = String(format: localizedString, String(distance))
-			let localizedUnits = NSLocalizedString("settings_distance_km", comment: "")
-			resultString = "\(distanceString) \(localizedUnits)"
+			formatter.units = .metric
 		}
-		lblRadius.text = resultString
-		sender.setValue((round(sender.value / 5)) * 5, animated: true)
+
+		// Selected distance in kilometers.
+		let distance = ((round(sender.value / 5)) * 5)
+
+		let formattedDistance = formatter.string(fromDistance: CLLocationDistance(distance*1000))
+		let distanceString = String(format: localizedString, formattedDistance)
+
+		// Set the title text of the distance slider.
+		lblRadius.text = distanceString
+
+		sender.setValue(distance, animated: true)
 	}
 
 	// MARK: - UITableViewController Overrides
@@ -180,7 +188,7 @@ class SettingsTableViewController: UITableViewController {
 	func displayMailComposer() {
 		let mailVC = MFMailComposeViewController()
 		mailVC.mailComposeDelegate = self
-		mailVC.setToRecipients(["support@badmelody.com"])
+		mailVC.setToRecipients([Constants.supportEmail])
 		guard let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
 			return
 		}
