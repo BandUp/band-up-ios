@@ -44,7 +44,7 @@ class EditProfileViewController: UIViewController {
 		}
 
 		tableViewController.lblAge.text = String(user.getBirthString())
-
+		tableViewController.tableView.setContentOffset(CGPoint.zero, animated: false)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,9 +88,9 @@ class EditProfileViewController: UIViewController {
 			}
 			self.btnDone.isEnabled = true
 			self.dismiss(animated: true, completion: nil)
-
+			self.tableViewController.hasUpdatedImage = false
 		}.onFailure { (error) in
-			self.btnDone.isEnabled
+			self.btnDone.isEnabled = true
 		}
 
 	}
