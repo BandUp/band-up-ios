@@ -110,19 +110,27 @@ class ProfileViewController: UIViewController {
 		lblGenreList.text = genreString
 	}
 
+	// MARK: - Lazy Variables
+	public lazy var editProfileViewController: EditProfileViewController? = {
+		let storyboard = UIStoryboard(name: Storyboard.profile, bundle: Bundle.main)
+
+		if let viewController =  storyboard.instantiateViewController(withIdentifier: ControllerID.editProfile) as? EditProfileViewController {
+			return viewController
+		}
+
+		return nil
+	}()
+
 	public func someAction() {
 		guard let currentUser = currentUser else { return }
 		if let profileImage = imgProfileImage.image {
 			currentUser.image.image = profileImage
 		}
-		let storyboard = UIStoryboard(name: Storyboard.profile, bundle: Bundle.main)
-
-		if let viewController =  storyboard.instantiateViewController(withIdentifier: ControllerID.editProfile) as? EditProfileViewController {
-			viewController.user = currentUser
-			viewController.delegate = self
-			self.present(viewController, animated: true, completion: nil)
+		if let editProfileViewController = editProfileViewController {
+			editProfileViewController.user = currentUser
+			editProfileViewController.delegate = self
+			self.present(editProfileViewController, animated: true, completion: nil)
 		}
-
 	}
 
 	func shouldShrink(image: UIImage) -> Bool {
@@ -207,6 +215,11 @@ extension ProfileViewController: EditProfileViewControllerDelegate {
 extension ProfileViewController: RemoteImageViewDelegate {
 	func didFinishLoading() {
 		self.imageActivityIndicator.stopAnimating()
+		if let editProfileViewController = editProfileViewController {
+			if let image = imgProfileImage.image {
+				editProfileViewController.updateProfileImage(image: image)
+			}
+		}
 	}
 
 	func imageWillLoad() {

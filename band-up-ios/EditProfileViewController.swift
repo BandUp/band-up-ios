@@ -97,5 +97,9 @@ class EditProfileViewController: UIViewController {
 		}
 		self.dismiss(animated: true, completion: nil)
 	}
+
+	func updateProfileImage(image:UIImage) {
+		tableViewController.updateProfileImage(image: image)
+	}
 	
 }

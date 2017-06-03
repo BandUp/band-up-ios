@@ -12,6 +12,10 @@ import AVFoundation
 import Photos
 import Soundcloud
 
+protocol EditProfileImageUpdateDelegate {
+	func imageUpdated(image:UIImage)
+}
+
 class EditProfileTableViewController: UITableViewController {
 	// MARK: - IBOutlets
 	@IBOutlet weak var txtName: UITextField!
@@ -139,6 +143,14 @@ class EditProfileTableViewController: UITableViewController {
 	}
 
 	// MARK: - Helper Functions
+
+	func updateProfileImage(image:UIImage) {
+		if !hasUpdatedImage {
+			self.imgProfileImage.image = image
+			self.oldUser.image.image = image
+			self.newUser.image.image = image
+		}
+	}
 	// MARK: Photo Management
 	func openCamera() -> Bool {
 		if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
