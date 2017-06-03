@@ -209,20 +209,35 @@ class UserListViewController: UIViewController {
 
 		// Really not needed, but good to have nonetheless.
 		let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
+		var shouldDisplay = false
 		if let myLocation = appDelegate.lastKnownLocation {
 			if user.getDistance(myLocation: myLocation)/1000 < Int(radius) {
-				return true
+				shouldDisplay = true
+			} else {
+				shouldDisplay = false
 			}
 		} else {
 			if let userDistance = user.distance {
 				if userDistance < Double(radius) && user.distance != nil {
-					return true
+					shouldDisplay = true
+				} else {
+					shouldDisplay = false
 				}
 			}
 
 		}
 
-		return false
+		let desMinAge = UserDefaults.standard.integer(forKey: DefaultsKeys.Settings.minAge)
+
+		let desMaxAge = UserDefaults.standard.integer(forKey: DefaultsKeys.Settings.maxAge)
+
+		if desMinAge <= user.getAge() && user.getAge() <= desMaxAge {
+			shouldDisplay = true
+		} else {
+			shouldDisplay = false
+		}
+
+		return shouldDisplay
 	}
 
 	func hasValidCoordinates() -> Bool {
