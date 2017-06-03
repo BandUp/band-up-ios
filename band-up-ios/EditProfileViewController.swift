@@ -27,10 +27,14 @@ class EditProfileViewController: UIViewController {
 	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		tableViewController.txtName.text = user.username
 		tableViewController.lblFavInstrument.text = user.favouriteInstrument
 		tableViewController.txtName.textColor = UIColor.lightGray
-		
+
 		if user.aboutme == "" {
 			tableViewController.txtAboutMe.text = NSLocalizedString("edit_profile_influences", comment: "About Me Placeholder")
 			tableViewController.txtAboutMe.textColor = UIColor.lightGray
@@ -38,8 +42,9 @@ class EditProfileViewController: UIViewController {
 			tableViewController.txtAboutMe.text = user.aboutme
 			tableViewController.txtAboutMe.textColor = UIColor.white
 		}
-		
+
 		tableViewController.lblAge.text = String(user.getBirthString())
+
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,10 +86,11 @@ class EditProfileViewController: UIViewController {
 			if let del = self.delegate {
 				del.userUpdated(self.user, hasNewImage: self.tableViewController.hasUpdatedImage)
 			}
+			self.btnDone.isEnabled = true
 			self.dismiss(animated: true, completion: nil)
-			
+
 		}.onFailure { (error) in
-			self.navigationItem.rightBarButtonItem?.isEnabled = true
+			self.btnDone.isEnabled
 		}
 
 	}
