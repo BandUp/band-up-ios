@@ -97,7 +97,6 @@ class SettingsTableViewController: UITableViewController {
 	// MARK: - UITableViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.usesImperial) == nil {
 			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.Settings.usesImperial)
 		}

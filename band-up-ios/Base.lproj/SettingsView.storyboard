@@ -69,7 +69,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-AD-is9">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-AD-is9">
                                                     <rect key="frame" x="23" y="37" width="329" height="31"/>
                                                     <color key="minimumTrackTintColor" red="1" green="0.82745098039999998" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
@@ -104,6 +104,8 @@
                                                         <constraint firstAttribute="height" constant="30" id="bne-ei-Tkw"/>
                                                     </constraints>
                                                     <connections>
+                                                        <action selector="ageEditingDidEnd:" destination="8RF-Vx-pB5" eventType="touchUpInside" id="5a0-HA-7b8"/>
+                                                        <action selector="ageEditingDidEnd:" destination="8RF-Vx-pB5" eventType="touchUpOutside" id="eqv-8X-PVA"/>
                                                         <action selector="agesChanged:" destination="8RF-Vx-pB5" eventType="valueChanged" id="FVp-Ay-Wuh"/>
                                                     </connections>
                                                 </view>
