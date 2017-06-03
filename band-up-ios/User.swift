@@ -238,3 +238,26 @@ extension User: Equatable {
 	}
 
 }
+
+extension User: NSCopying {
+	func copy(with zone: NSZone? = nil) -> Any {
+		let copy = User()
+		copy.id = self.id
+		copy.aboutme = self.aboutme
+		copy.dateOfBirth = self.dateOfBirth
+		copy.distance = self.distance
+		copy.favouriteInstrument = self.favouriteInstrument
+		copy.genres = self.genres
+		copy.image = self.image
+		copy.instruments = self.instruments
+		copy.isLiked = self.isLiked
+		copy.location = self.location
+		copy.percentage = self.percentage
+		copy.soundCloudId = self.soundCloudId
+		copy.soundCloudSongName = self.soundCloudSongName
+		copy.soundCloudURL = self.soundCloudURL
+		copy.status = self.status
+		copy.username = self.username
+		return copy
+	}
+}

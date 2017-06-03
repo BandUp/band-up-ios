@@ -49,7 +49,9 @@ class EditProfileTableViewController: UITableViewController {
 		} else {
 			print("Couldn't find parent controller.")
 		}
-		newUser = oldUser
+		if let oldCopiedUser = oldUser.copy() as? User {
+			newUser = oldCopiedUser
+		}
 
 		tagInstruments.strings = oldUser.instruments
 		tagGenres.strings = oldUser.genres
@@ -387,6 +389,8 @@ class EditProfileTableViewController: UITableViewController {
 // MARK: - Extensions
 extension EditProfileTableViewController: SetupViewControllerDelegate {
 	func didSave(_ setup: Int, with data: [String]) {
+		// Because of a bug on the server, we need to save the selection to
+		// both old user and new user.
 		if setup == INSTRUMENTS_ID {
 			tableView.beginUpdates()
 			tagInstruments.update(strings: data)

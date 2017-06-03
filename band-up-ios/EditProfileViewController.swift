@@ -61,7 +61,9 @@ class EditProfileViewController: UIViewController {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 		var dateString: String = ""
+
 		if let safeDate = tableViewController.newUser.dateOfBirth {
+			user.dateOfBirth = safeDate
 			dateString = dateFormatter.string(from: safeDate)
 		}
 		
