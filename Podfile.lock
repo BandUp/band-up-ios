@@ -99,7 +99,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Google/SignIn
   - KYDrawerController
-  - MARKRangeSlider
+  - MARKRangeSlider (from `https://github.com/bergthor13/MARKRangeSlider`, commit `6178476bafee39a99e1c13edb03340ce60fc02b2`)
   - MBProgressHUD (~> 1.0.0)
   - Siesta (= 1.1.1)
   - Siesta/UI (= 1.1.1)
@@ -107,6 +107,16 @@ DEPENDENCIES:
   - Soundcloud
   - SwiftLint
   - UICollectionViewLeftAlignedLayout
+
+EXTERNAL SOURCES:
+  MARKRangeSlider:
+    :commit: 6178476bafee39a99e1c13edb03340ce60fc02b2
+    :git: https://github.com/bergthor13/MARKRangeSlider
+
+CHECKOUT OPTIONS:
+  MARKRangeSlider:
+    :commit: 6178476bafee39a99e1c13edb03340ce60fc02b2
+    :git: https://github.com/bergthor13/MARKRangeSlider
 
 SPEC CHECKSUMS:
   1PasswordExtension: e775a29310c65851e5a6cec1afc349ab4e334e47
@@ -139,6 +149,6 @@ SPEC CHECKSUMS:
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: 3e71a54206611266dd93233648443c64a60ea809
+PODFILE CHECKSUM: e2837078ea13ae8e17bf4ffa0bc41c102533a236
 
 COCOAPODS: 1.1.1

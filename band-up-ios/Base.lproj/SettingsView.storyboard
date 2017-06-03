@@ -104,8 +104,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="bne-ei-Tkw"/>
                                                     </constraints>
                                                     <connections>
-                                                        <action selector="ageEditingDidEnd:" destination="8RF-Vx-pB5" eventType="touchUpInside" id="5a0-HA-7b8"/>
-                                                        <action selector="ageEditingDidEnd:" destination="8RF-Vx-pB5" eventType="touchUpOutside" id="eqv-8X-PVA"/>
+                                                        <action selector="ageEditingDidEnd:" destination="8RF-Vx-pB5" eventType="editingDidEnd" id="Tyv-pH-Bl6"/>
                                                         <action selector="agesChanged:" destination="8RF-Vx-pB5" eventType="valueChanged" id="FVp-Ay-Wuh"/>
                                                     </connections>
                                                 </view>

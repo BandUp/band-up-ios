@@ -27,8 +27,7 @@ class SettingsTableViewController: UITableViewController {
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RadiusChanged"), object: nil, userInfo: nil)
 	}
 
-	@IBAction func ageEditingDidEnd(_ sender: Any) {
-		print("WW")
+	@IBAction func ageEditingDidEnd(_ sender: MARKRangeSlider) {
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AgeChanged"), object: nil, userInfo: nil)
 
 	}
