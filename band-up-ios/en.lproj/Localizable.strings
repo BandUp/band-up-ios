@@ -200,4 +200,4 @@
 "navigation_drawer_close" = "Close navigation drawer";
 
 "aquiring_location" = "Aquiring Location";
-"aquiring_location_hint" = "Try moving to a window or go outside.";
+"aquiring_location_hint" = "To speed things up, try moving to a window or go outside.";

@@ -62,6 +62,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			UserDefaults.standard.set(Constants.maxAge, forKey: DefaultsKeys.Settings.maxAge)
 		}
 
+		if let location = UserDefaults.standard.object(forKey: DefaultsKeys.lastKnownLocation) as? Data {
+			if let decodedLocation = NSKeyedUnarchiver.unarchiveObject(with: location) as? CLLocation {
+				lastKnownLocation = decodedLocation
+
+				print("SAVED LOCATION: \(decodedLocation)")
+				print("----------------------------------")
+			}
+		}
+
 		var configureError: NSError?
 
 		GGLContext.sharedInstance().configureWithError(&configureError)
@@ -309,23 +318,32 @@ extension AppDelegate: CLLocationManagerDelegate {
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		if locations.count > 0 {
-			if locations[0].horizontalAccuracy < abs(1000) {
-				if let lastKnownLocation = lastKnownLocation {
-					for location in locations {
-						if lastKnownLocation.timestamp < location.timestamp {
-							self.lastKnownLocation = location
-							NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": [lastKnownLocation]])
+		if locations.count <= 0 {
+			return
+		}
+		if locations[0].horizontalAccuracy >= abs(1000) {
+			return
+		}
 
-						}
-					}
-				} else {
-					lastKnownLocation = locations[0]
-					UserDefaults.standard.set(lastKnownLocation?.coordinate.latitude, forKey: DefaultsKeys.lastKnownLocationLat)
-					UserDefaults.standard.set(lastKnownLocation?.coordinate.longitude, forKey: DefaultsKeys.lastKnownLocationLon)
-					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
+		if let lastKnownLocation = lastKnownLocation {
+			for location in locations {
+				if lastKnownLocation.timestamp < location.timestamp && (lastKnownLocation.coordinate.latitude != location.coordinate.latitude && lastKnownLocation.coordinate.longitude != location.coordinate.longitude) {
+					self.lastKnownLocation = location
+					let archivedLocation = NSKeyedArchiver.archivedData(withRootObject: location)
+					UserDefaults.standard.set(archivedLocation, forKey: DefaultsKeys.lastKnownLocation)
+					print("LOCATIONS UPDATED1: \(location)")
+					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": [lastKnownLocation]])
+
 				}
 			}
+		} else {
+			lastKnownLocation = locations[0]
+			if let lastKnownLocation = lastKnownLocation {
+				let archivedLocation = NSKeyedArchiver.archivedData(withRootObject: lastKnownLocation)
+				UserDefaults.standard.set(archivedLocation, forKey: DefaultsKeys.lastKnownLocation)
+			}
+			print("LOCATIONS UPDATED2: \(locations)")
+			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
 		}
 	}
 

@@ -23,6 +23,16 @@ class SettingsTableViewController: UITableViewController {
 	@IBOutlet weak var lblAges: UILabel!
 	@IBOutlet weak var sldRadius: UISlider!
 
+	@IBAction func radiusEditingDidEnd(_ sender: UISlider) {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RadiusChanged"), object: nil, userInfo: nil)
+	}
+
+	@IBAction func ageEditingDidEnd(_ sender: Any) {
+		print("WW")
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AgeChanged"), object: nil, userInfo: nil)
+
+	}
+
 	// MARK: - IBActions
 	@IBAction func agesChanged(_ sender: MARKRangeSlider) {
 		let maxAge = Int(round(sender.rightValue))
@@ -87,6 +97,7 @@ class SettingsTableViewController: UITableViewController {
 	// MARK: - UITableViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		if UserDefaults.standard.object(forKey: DefaultsKeys.Settings.usesImperial) == nil {
 			UserDefaults.standard.set(!Locale.current.usesMetricSystem, forKey: DefaultsKeys.Settings.usesImperial)
 		}

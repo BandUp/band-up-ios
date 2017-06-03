@@ -56,11 +56,11 @@ class UserListViewController: UIViewController {
 	// MARK: - UIViewController Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		var timer = Timer.scheduledTimer(timeInterval: 3.0,
-		    			                                     target: self,
-		    			                                     selector: #selector(self.myTimerFunc),
-		    			                                     userInfo: nil,
-		    			                                     repeats: false)
+		Timer.scheduledTimer(timeInterval: 3.0,
+		                     target: self,
+		                     selector: #selector(self.myTimerFunc),
+		                     userInfo: nil,
+		                     repeats: false)
 
 		registerForPreviewing(with: self, sourceView: userCollectionView)
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(someAction))
@@ -80,13 +80,26 @@ class UserListViewController: UIViewController {
 			selector: #selector(self.unitsChanged(notification:)),
 			name: NSNotification.Name(rawValue: "UnitsChanged"),
 			object: nil)
+
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(self.radiusChanged(notification:)),
+			name: NSNotification.Name(rawValue: "RadiusChanged"),
+			object: nil)
+
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(self.ageChanged(notification:)),
+			name: NSNotification.Name(rawValue: "AgeChanged"),
+			object: nil)
+
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if userArray.count > 0 {
 			activityIndicator.stopAnimating()
 		}
-		
+
 		self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(someAction))
 
 	}
@@ -97,14 +110,36 @@ class UserListViewController: UIViewController {
 
 	// MARK: - Notification Handlers
 	func locationChanged(notification: NSNotification) {
+		print("GOT IT")
 		locationAcquired = true
-		print("Location Changed")
 		lblLocationError.isHidden = true
 		lblLocationErrorSub.isHidden = true
-		if !isUpdating {
-			self.isUpdating = true
-			BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
-				print(response)
+
+		updateUserList()
+	}
+
+	func updateUserList() {
+		if isUpdating {
+			return
+		}
+
+		let radius = UserDefaults.standard.integer(forKey: DefaultsKeys.Settings.radius)
+		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+			return
+		}
+
+		guard let lastLocation = appDelegate.lastKnownLocation else {
+			return
+		}
+
+		isUpdating = true
+		BandUpAPI.sharedInstance.nearby
+			.withParam("lat", String(describing: lastLocation.coordinate.latitude))
+			.withParam("lon", String(describing: lastLocation.coordinate.longitude))
+			.withParam("radius", String(describing:radius))
+			.load()
+			.onSuccess { (response) in
+
 				var tempUserArr = [User]()
 				for user in response.jsonArray {
 					if let jsonUser = user as? NSDictionary {
@@ -129,20 +164,31 @@ class UserListViewController: UIViewController {
 					if !self.userArray.contains(item) {
 						self.userArray.insert(item, at: index)
 						self.userCollectionView?.insertItems(at: [IndexPath(row: index, section: 0)])
+					} else {
+						// Replace with the new user as the details may have updated.
+						self.userArray[self.userArray.index(of: item)!] = tempUserArr[index]
 					}
 				}
+
 				self.activityIndicator.isHidden = true
 				self.isUpdating = false
-				}.onFailure { (error) in
-					self.isUpdating = false
-					self.activityIndicator.isHidden = true
-			}
+				self.reload(section: 0, animated: false)
+			}.onFailure { (error) in
+				self.isUpdating = false
+				self.activityIndicator.isHidden = true
 		}
-
 	}
 
 	func unitsChanged(notification: NSNotification) {
 		reload(section: 0, animated: false)
+	}
+
+	func radiusChanged(notification: NSNotification) {
+		updateUserList()
+	}
+
+	func ageChanged(notification: NSNotification) {
+		updateUserList()
 	}
 
 	func reload(section: Int, animated: Bool) {
@@ -161,35 +207,30 @@ class UserListViewController: UIViewController {
 			return false
 		}
 
-		if user.location.valid {
-			let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
-
-			if let myLocation = appDelegate.lastKnownLocation {
-				if user.getDistance(myLocation: myLocation)/1000 < Int(radius) {
-					return true
-				}
-			} else {
-				if user.distance < Double(radius) && user.distance != 0.0 {
+		// Really not needed, but good to have nonetheless.
+		let radius = UserDefaults.standard.float(forKey: DefaultsKeys.Settings.radius)
+		if let myLocation = appDelegate.lastKnownLocation {
+			if user.getDistance(myLocation: myLocation)/1000 < Int(radius) {
+				return true
+			}
+		} else {
+			if let userDistance = user.distance {
+				if userDistance < Double(radius) && user.distance != nil {
 					return true
 				}
 			}
+
 		}
 
 		return false
 	}
 
 	func hasValidCoordinates() -> Bool {
-
-		if UserDefaults.standard.object(forKey: DefaultsKeys.lastKnownLocationLat) == nil {
-			return false
-		}
-
-		if UserDefaults.standard.object(forKey: DefaultsKeys.lastKnownLocationLon) == nil {
+		if UserDefaults.standard.object(forKey: DefaultsKeys.lastKnownLocation) == nil {
 			return false
 		}
 
 		return true
-
 	}
 
 	public func someAction() {
@@ -201,9 +242,27 @@ class UserListViewController: UIViewController {
 
 	func loadUserList() {
 
-		if !isUpdating {
-			isUpdating = true
-			BandUpAPI.sharedInstance.nearby.load().onSuccess { (response) in
+		if isUpdating {
+			return
+		}
+
+		let radius = UserDefaults.standard.integer(forKey: DefaultsKeys.Settings.radius)
+		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+			return
+		}
+
+		guard let lastLocation = appDelegate.lastKnownLocation else {
+			return
+		}
+
+		isUpdating = true
+		BandUpAPI.sharedInstance.nearby
+			.withParam("lat", String(describing: lastLocation.coordinate.latitude))
+			.withParam("lon", String(describing: lastLocation.coordinate.longitude))
+			.withParam("radius", String(describing:radius))
+			.load()
+			.onSuccess { (response) in
+
 				self.activityIndicator.stopAnimating()
 
 				self.userArray = []
@@ -219,15 +278,13 @@ class UserListViewController: UIViewController {
 				self.userArray.shuffle()
 				self.userCollectionView.reloadData()
 				self.isUpdating = false
-				}.onFailure { (error) in
-					self.activityIndicator.stopAnimating()
-					self.lblError.isHidden = false
-					self.lblError.text = "user_list_error_fetch_list".localized
-					print(error.userMessage)
-					self.isUpdating = false
-			}
+			}.onFailure { (error) in
+				self.activityIndicator.stopAnimating()
+				self.lblError.isHidden = false
+				self.lblError.text = "user_list_error_fetch_list".localized
+				print(error.userMessage)
+				self.isUpdating = false
 		}
-
 	}
 
 	func myTimerFunc() {
@@ -283,7 +340,7 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return userArray.count
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCell, for: indexPath) as? UserListItemViewCell else {
 			return UICollectionViewCell()
@@ -291,14 +348,14 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 		cell.user = userArray[indexPath.row]
 		return cell
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView,
 	                    layout collectionViewLayout: UICollectionViewLayout,
 	                    sizeForItemAt indexPath: IndexPath) -> CGSize {
-		
+
 		return CGSize(width: view.frame.width, height: view.frame.height)
 	}
-	
+
 	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
 			return
@@ -312,7 +369,7 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 			userCell.lblDistance.text = userCell.user?.getDistanceString(between: lastLocation)
 		}
 	}
-	
+
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		currentIndex = self.userCollectionView.contentOffset.x / self.userCollectionView.frame.size.width
 	}
@@ -321,14 +378,14 @@ extension UserListViewController: UICollectionViewDataSource, UICollectionViewDe
 
 // MARK: 3D touch Implementation
 extension UserListViewController: UIViewControllerPreviewingDelegate {
-	
+
 	// If you return nil, a preview presentation will not be performed
 	public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
 		if userArray.count <= 0 {
 			return nil
 		}
 		userDetailsViewController.currentUser = userArray[Int(currentIndex)]
-		
+
 		let indexPath: IndexPath = IndexPath(item: Int(currentIndex), section: 0)
 
 		guard let itemCell = userCollectionView.cellForItem(at: indexPath) as? UserListItemViewCell else {
@@ -339,19 +396,19 @@ extension UserListViewController: UIViewControllerPreviewingDelegate {
 		let newX = location.x - itemCell.imgUserImage.frame.width * currentIndex
 
 		let newLocation = CGPoint(x: newX, y: location.y)
-		
+
 		if !imageViewRect.contains(newLocation) {
 			return nil
 		}
-		
+
 		let sourceRect = previewingContext.sourceView.convert(imageViewRect, from: userCollectionView.superview)
 
 		previewingContext.sourceRect = sourceRect
 		userDetailsViewController.shouldDisplayLike = false
 		return userDetailsViewController
-		
+
 	}
-	
+
 	public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
 		userDetailsViewController.shouldDisplayLike = true
 		show(userDetailsViewController, sender: self)
@@ -368,7 +425,7 @@ extension MutableCollection where Index == Int {
 		if count < 2 {
 			return
 		}
-		
+
 		for i in startIndex ..< endIndex - 1 {
 			let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
 			if i != j {
@@ -376,5 +433,5 @@ extension MutableCollection where Index == Int {
 			}
 		}
 	}
-
+	
 }

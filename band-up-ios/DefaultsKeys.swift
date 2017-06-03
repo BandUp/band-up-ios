@@ -12,8 +12,7 @@ struct DefaultsKeys {
 	static let headers = "headers"                // [String:String]
 	static let finishedSetup = "hasFinishedSetup" // Bool
 
-	static let lastKnownLocationLat = "lastKnownLocationLatitude"
-	static let lastKnownLocationLon = "lastKnownLocationLongitude"
+	static let lastKnownLocation = "lastKnownLocation"
 
 	struct Settings {
 		static let usesImperial = "settingsImperial"             // Bool

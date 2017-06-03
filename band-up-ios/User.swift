@@ -16,7 +16,7 @@ class User: CustomStringConvertible {
 	var id:                  String       = ""
 	var aboutme:             String       = ""
 	var dateOfBirth:         Date?
-	var distance:            Double       = 0.0
+	var distance:            Double?      = 0.0
 	var favouriteInstrument: String       = ""
 	var genres:              [String]     = []
 	var image:               UserImage    = UserImage()
@@ -153,6 +153,9 @@ class User: CustomStringConvertible {
 	}
 
 	func getDistance(myLocation:CLLocation) -> Int {
+		if !self.location.valid {
+			return -1
+		}
 		let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
 		return Int(userLocation.distance(from: myLocation))
 	}
@@ -160,18 +163,30 @@ class User: CustomStringConvertible {
 	func getDistanceString(between location:CLLocation? = nil) -> String {
 		let localizedNoDistance = "no_distance_available".localized
 
-		if !self.location.valid {
+		if !self.location.valid && self.distance == nil {
 			return localizedNoDistance
-		} else {
-			if location == nil {
-				return getDistanceString(distance: self.distance*1000)
+		}
+
+		if location == nil {
+			if let distance = self.distance {
+				return getDistanceString(distance: distance*1000)
 			} else {
-				guard let location = location else { return localizedNoDistance }
+				return localizedNoDistance
+			}
+		} else {
+			guard let location = location else { return localizedNoDistance }
+			if self.location.valid {
 				let userLocation = CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
 				let distance = location.distance(from: userLocation)
 				return getDistanceString(distance: distance)
+			} else {
+				guard let distance = self.distance else {
+					return localizedNoDistance
+				}
+				return getDistanceString(distance: distance*1000)
 			}
 		}
+
 	}
 
 	// MARK: - Private Functions

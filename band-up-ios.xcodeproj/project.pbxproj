@@ -15,8 +15,7 @@
 		F217C0491DDFC47100EE16DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0481DDFC47100EE16DF /* LoginViewController.swift */; };
 		F217C07A1DDFC53E00EE16DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */; };
 		F21A89E91E160AB80061F559 /* UIBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A89E81E160AB80061F559 /* UIBigButton.swift */; };
-		F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2220D781E64810F000BC704 /* Iceland copy.gpx */; };
-		F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */; };
+		F2220D791E64810F000BC704 /* Kópavogur.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2220D781E64810F000BC704 /* Kópavogur.gpx */; };
 		F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */; };
 		F241B0921E614C4B00C685F4 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F241B0911E614C4B00C685F4 /* Stickers.xcassets */; };
 		F241B0961E614C4B00C685F4 /* BandUpStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -62,6 +61,7 @@
 		F2AD91B51E71C60F00FD1B75 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
+		F2B14ADE1EE2364F00EA3DE8 /* Hafnarfjörður.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2B14ADD1EE2364F00EA3DE8 /* Hafnarfjörður.gpx */; };
 		F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */; };
 		F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */; };
 		F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */; };
@@ -142,9 +142,8 @@
 		F217C0481DDFC47100EE16DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F21A89E81E160AB80061F559 /* UIBigButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBigButton.swift; sourceTree = "<group>"; };
-		F2220D781E64810F000BC704 /* Iceland copy.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Iceland copy.gpx"; sourceTree = "<group>"; };
-		F22586EA1E62987D00BAFD80 /* Iceland.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Iceland.gpx; sourceTree = "<group>"; };
-		F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2017.02.18-145727.gpx"; sourceTree = "<group>"; };
+		F2220D781E64810F000BC704 /* Kópavogur.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Kópavogur.gpx"; sourceTree = "<group>"; };
+		F22586EA1E62987D00BAFD80 /* Manassas.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Manassas.gpx; sourceTree = "<group>"; };
 		F22935F41E53F1B5007F182B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F23EFD5D1E15D90F00F1CF71 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		F241B08F1E614C4B00C685F4 /* BandUpStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BandUpStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +204,7 @@
 		F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
+		F2B14ADD1EE2364F00EA3DE8 /* Hafnarfjörður.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Hafnarfjörður.gpx"; sourceTree = "<group>"; };
 		F2B82FE61E53EFAD000F71D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B82FED1E53F03A000F71D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2B82FEE1E53F03B000F71D1 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -408,9 +408,9 @@
 				F2AB06051E0606D00039C761 /* CaviarDreams.ttf */,
 				F2AB061A1E063DE70039C761 /* master_of_break.ttf */,
 				F2AB06181E061AD80039C761 /* Media.xcassets */,
-				F22586EB1E629A1F00BAFD80 /* 2017.02.18-145727.gpx */,
-				F22586EA1E62987D00BAFD80 /* Iceland.gpx */,
-				F2220D781E64810F000BC704 /* Iceland copy.gpx */,
+				F22586EA1E62987D00BAFD80 /* Manassas.gpx */,
+				F2220D781E64810F000BC704 /* Kópavogur.gpx */,
+				F2B14ADD1EE2364F00EA3DE8 /* Hafnarfjörður.gpx */,
 				F2EC13261E6CC16300291EF3 /* keys.plist */,
 			);
 			name = Resources;
@@ -670,18 +670,18 @@
 				F24E07EE1E4CE4C100C45A76 /* MatchesView.storyboard in Resources */,
 				F24E07EF1E4CE4C100C45A76 /* SettingsView.storyboard in Resources */,
 				F2EB1C0A1EE09BEF00889991 /* ErrorView.storyboard in Resources */,
-				F22586EC1E629A1F00BAFD80 /* 2017.02.18-145727.gpx in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
 				F28755F81E73054000D9E837 /* SearchView.storyboard in Resources */,
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
 				F2AB06071E0606DF0039C761 /* CaviarDreams_BoldItalic.ttf in Resources */,
-				F2220D791E64810F000BC704 /* Iceland copy.gpx in Resources */,
+				F2220D791E64810F000BC704 /* Kópavogur.gpx in Resources */,
 				F2AB06191E061AD80039C761 /* Media.xcassets in Resources */,
 				F24E07E21E4CBEAD00C45A76 /* Localizable.strings in Resources */,
 				F2EC13271E6CC16300291EF3 /* keys.plist in Resources */,
 				F241B09C1E61D17300C685F4 /* GoogleService-Info.plist in Resources */,
+				F2B14ADE1EE2364F00EA3DE8 /* Hafnarfjörður.gpx in Resources */,
 				F2AB06081E0606DF0039C761 /* CaviarDreams_Italic.ttf in Resources */,
 				F2AB06091E0606DF0039C761 /* CaviarDreams.ttf in Resources */,
 			);

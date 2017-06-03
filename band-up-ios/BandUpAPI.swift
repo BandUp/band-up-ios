@@ -95,7 +95,7 @@ class BandUpAPI: Service {
 	var genres:         Resource { return resource("/genres")          }
 	var isLoggedIn:     Resource { return resource("/isLoggedIn")      }
 	var matches:        Resource { return resource("/matches")         }
-	var nearby:         Resource { return resource("/nearby-users")    }
+	var nearby:         Resource { return resource("/v2/users/nearby") }
 	var like:           Resource { return resource("/like")            }
     var profile:        Resource { return resource("/user")            }
     var chatHistory:    Resource { return resource("/chat_history")    }
