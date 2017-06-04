@@ -121,7 +121,9 @@ class LoginViewController: UIViewController {
 	@IBAction func didTapLoginFacebook(_ sender: BMLoginButton) {
 		let loginManager = LoginManager()
 
+		UIApplication.shared.statusBarStyle = .default
 		loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
+			UIApplication.shared.statusBarStyle = .lightContent
 			switch loginResult {
 			case .failed(let error):
 				print(error)
@@ -143,7 +145,9 @@ class LoginViewController: UIViewController {
 		}
 	}
 	@IBAction func didTapLoginSoundCloud(_ sender: BMLoginButton) {
+		UIApplication.shared.statusBarStyle = .default
 		Soundcloud.login(in: self) { (response) in
+			UIApplication.shared.statusBarStyle = .lightContent
 			if case .failure(let error) = response.response {
 				dump(error)
 			} else {
@@ -221,7 +225,13 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: GIDSignInUIDelegate {
+	func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+		UIApplication.shared.statusBarStyle = .default
+	}
 
+	func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+		UIApplication.shared.statusBarStyle = .lightContent
+	}
 }
 
 extension LoginViewController: UITextFieldDelegate {
