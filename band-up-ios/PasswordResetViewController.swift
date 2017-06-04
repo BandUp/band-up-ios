@@ -10,6 +10,7 @@ import UIKit
 
 class PasswordResetViewController: UIViewController {
 
+	@IBOutlet weak var txtEmail: UITextField!
 	// MARK: - UIViewController Overrides
 	override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -25,5 +26,7 @@ class PasswordResetViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+	@IBOutlet weak var btnResetPassword: UIButton!
+
+
 }

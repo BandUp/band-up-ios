@@ -105,6 +105,7 @@ class BandUpAPI: Service {
 	var loginGoogle:    Resource { return resource("/login-google")    }
 	var loginFacebook:  Resource { return resource("/login-facebook")  }
 	var profilePicture: Resource { return resource("/profile-picture") }
+	var resetPassword:  Resource { return resource("/reset-password")  }
 
 	// MARK: - Helper Functions
 	private func getCookie() -> [String:String] {

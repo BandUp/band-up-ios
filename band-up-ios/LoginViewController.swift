@@ -19,6 +19,15 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var txtPassword: UITextField!
 	@IBOutlet weak var scrollView: UIScrollView!
 
+	lazy var overlayView: PasswordResetView = {
+		let overlayView = PasswordResetView()
+		return overlayView
+	}()
+
+	@IBAction func didTapResetPassword(_ sender: Any) {
+		overlayView.displayView(onView: self.view, withEmail: txtEmail.text)
+	}
+
 	// MARK: Lazy Variables
 	lazy var loginHUD: MBProgressHUD = {
 		let hud = MBProgressHUD()
@@ -65,6 +74,7 @@ class LoginViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		GIDSignIn.sharedInstance().delegate = self
 		GIDSignIn.sharedInstance().uiDelegate = self
 		btnLogin.layer.cornerRadius = 15
@@ -224,7 +234,6 @@ extension LoginViewController: UITextFieldDelegate {
 		}
 		return true
 	}
-	
 }
 
 extension LoginViewController: GIDSignInDelegate {

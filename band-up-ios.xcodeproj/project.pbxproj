@@ -59,6 +59,8 @@
 		F2AB06191E061AD80039C761 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AB06181E061AD80039C761 /* Media.xcassets */; };
 		F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2AB061A1E063DE70039C761 /* master_of_break.ttf */; };
 		F2AD91B51E71C60F00FD1B75 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */; };
+		F2AFB3A61EE35567009C0C91 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFB3A51EE35567009C0C91 /* PasswordResetView.swift */; };
+		F2AFB3A71EE38E0D009C0C91 /* PasswordResetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AFB3A91EE38E0D009C0C91 /* PasswordResetView.xib */; };
 		F2B023181E04000600088622 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B023171E04000600088622 /* MainScreenViewController.swift */; };
 		F2B0231C1E049BDA00088622 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B0231B1E049BDA00088622 /* DrawerViewController.swift */; };
 		F2B14ADE1EE2364F00EA3DE8 /* Hafnarfjörður.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F2B14ADD1EE2364F00EA3DE8 /* Hafnarfjörður.gpx */; };
@@ -202,6 +204,9 @@
 		F2AB06181E061AD80039C761 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		F2AB061A1E063DE70039C761 /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		F2AD91B41E71C60F00FD1B75 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		F2AFB3A51EE35567009C0C91 /* PasswordResetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		F2AFB3A81EE38E0D009C0C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PasswordResetView.xib; sourceTree = "<group>"; };
+		F2AFB3AB1EE38E17009C0C91 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/PasswordResetView.strings; sourceTree = "<group>"; };
 		F2B023171E04000600088622 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F2B0231B1E049BDA00088622 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		F2B14ADD1EE2364F00EA3DE8 /* Hafnarfjörður.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Hafnarfjörður.gpx"; sourceTree = "<group>"; };
@@ -379,6 +384,8 @@
 				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
 				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
 				F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */,
+				F2AFB3A91EE38E0D009C0C91 /* PasswordResetView.xib */,
+				F2AFB3A51EE35567009C0C91 /* PasswordResetView.swift */,
 			);
 			name = Setup;
 			sourceTree = "<group>";
@@ -672,6 +679,7 @@
 				F2EB1C0A1EE09BEF00889991 /* ErrorView.storyboard in Resources */,
 				F24E07F01E4CE4C100C45A76 /* UpcomingView.storyboard in Resources */,
 				F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */,
+				F2AFB3A71EE38E0D009C0C91 /* PasswordResetView.xib in Resources */,
 				F28755F81E73054000D9E837 /* SearchView.storyboard in Resources */,
 				F2AB061B1E063DF80039C761 /* master_of_break.ttf in Resources */,
 				F2AB06061E0606DF0039C761 /* CaviarDreams_Bold.ttf in Resources */,
@@ -798,6 +806,7 @@
 				F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */,
+				F2AFB3A61EE35567009C0C91 /* PasswordResetView.swift in Sources */,
 				F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */,
 				F252C95A1E44FE9A002B2E2B /* EditProfileTableViewController.swift in Sources */,
 				F2F0E1671E608792005BD86F /* PrivacyViewController.swift in Sources */,
@@ -983,6 +992,15 @@
 				F28755FC1E73054400D9E837 /* is */,
 			);
 			name = SearchView.storyboard;
+			sourceTree = "<group>";
+		};
+		F2AFB3A91EE38E0D009C0C91 /* PasswordResetView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2AFB3A81EE38E0D009C0C91 /* Base */,
+				F2AFB3AB1EE38E17009C0C91 /* is */,
+			);
+			name = PasswordResetView.xib;
 			sourceTree = "<group>";
 		};
 		F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */ = {

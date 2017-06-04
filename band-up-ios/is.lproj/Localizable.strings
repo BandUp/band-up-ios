@@ -203,3 +203,8 @@
 
 "aquiring_location" = "Finn staðsetningu þína";
 "aquiring_location_hint" = "Til að flýta fyrir, prófaðu að fara út í glugga eða út.";
+"password_reset_email_invalid_title" = "Ógilt tölvupóstfang";
+"password_reset_email_invalid_message" = "Tölvupóstfangið sem þú gafst upp er ekki á löglegu sniði.";
+
+"reset_email_done" = "Við höfum sent þér tölvupóst með upplýsingum um hvernig á að endursetja lykilorðið þitt.";
+"reset_email_error" = "Villa kom upp við að senda endursetja lykilorðið þitt.";

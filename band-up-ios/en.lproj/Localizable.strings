@@ -201,3 +201,6 @@
 
 "aquiring_location" = "Aquiring Location";
 "aquiring_location_hint" = "To speed things up, try moving to a window or go outside.";
+
+"reset_email_done" = "We have sent you an email with information on how to reset your password.";
+"reset_email_error" = "An error occurred when resetting your password";
