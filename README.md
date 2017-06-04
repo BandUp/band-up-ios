@@ -1,4 +1,4 @@
-# BandUp iOS Client
+# Band Up iOS Client
 ## Getting Started
 To get started install CocoaPods onto your machine.
 
