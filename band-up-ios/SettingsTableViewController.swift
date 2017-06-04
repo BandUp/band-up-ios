@@ -43,9 +43,9 @@ class SettingsTableViewController: UITableViewController {
 			let locString = "settings_age_single".localized
 			lblAges.text = String(format: locString, String(minAge))
 		}
-
-		UserDefaults.standard.set(sender.rightValue, forKey: DefaultsKeys.Settings.maxAge)
-		UserDefaults.standard.set(sender.leftValue, forKey: DefaultsKeys.Settings.minAge)
+		
+		UserDefaults.standard.set(minAge, forKey: DefaultsKeys.Settings.minAge)
+		UserDefaults.standard.set(maxAge, forKey: DefaultsKeys.Settings.maxAge)
 	}
 
 	@IBAction func matchesChanged(_ sender: UISwitch) {
