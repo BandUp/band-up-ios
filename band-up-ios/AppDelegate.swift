@@ -331,7 +331,6 @@ extension AppDelegate: CLLocationManagerDelegate {
 					self.lastKnownLocation = location
 					let archivedLocation = NSKeyedArchiver.archivedData(withRootObject: location)
 					UserDefaults.standard.set(archivedLocation, forKey: DefaultsKeys.lastKnownLocation)
-					print("LOCATIONS UPDATED1: \(location)")
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": [lastKnownLocation]])
 
 				}
@@ -342,7 +341,6 @@ extension AppDelegate: CLLocationManagerDelegate {
 				let archivedLocation = NSKeyedArchiver.archivedData(withRootObject: lastKnownLocation)
 				UserDefaults.standard.set(archivedLocation, forKey: DefaultsKeys.lastKnownLocation)
 			}
-			print("LOCATIONS UPDATED2: \(locations)")
 			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewLocation"), object: nil, userInfo: ["locations": locations])
 		}
 	}
@@ -353,7 +351,6 @@ extension AppDelegate: CLLocationManagerDelegate {
 
 	func startLocationTimer() {
 		if !locationTimer.isValid {
-			print("requestLocation")
 			manager.requestLocation()
 			locationTimer = Timer.scheduledTimer(timeInterval: Constants.locationUpdateRate,
 			                                     target: self,
@@ -364,7 +361,6 @@ extension AppDelegate: CLLocationManagerDelegate {
 	}
 
 	func myTimerFunc() {
-		print("requestLocation")
 		manager.requestLocation()
 	}
 

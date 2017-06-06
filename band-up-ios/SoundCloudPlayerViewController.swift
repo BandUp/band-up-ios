@@ -16,9 +16,11 @@ class SoundCloudPlayerViewController: UIViewController {
 	@IBOutlet weak var songSlider: UISlider!
 	@IBOutlet weak var lblTimeElapsed: UILabel!
 	@IBOutlet weak var lblTimeTotal: UILabel!
+	@IBOutlet weak var lblSongName: UILabel!
 	// MARK: - Variables
 	var player = AVPlayer()
 	var trackUrl: String?
+	var trackName: String?
 
 	// MARK: - UIViewController Overrides
     override func viewDidLoad() {
@@ -26,13 +28,9 @@ class SoundCloudPlayerViewController: UIViewController {
     }
 
 	override func viewWillAppear(_ animated: Bool) {
-		if trackUrl == nil || trackUrl == "" {
-			self.lblTimeTotal.isHidden = true
-			self.lblTimeElapsed.isHidden = true
-			self.songSlider.isHidden = true
-
+		if let trackName = trackName {
+			lblSongName.text = trackName
 		}
-
 		Soundcloud.resolve(URI: trackUrl!) { [weak self] response in
 
 			if case .failure(let error) = response.response {
@@ -66,9 +64,6 @@ class SoundCloudPlayerViewController: UIViewController {
 						let timeString = bla.string(from: Date(timeIntervalSince1970: time.seconds))
 						self?.self.lblTimeElapsed.text = timeString
 					}
-					self?.lblTimeTotal.isHidden = false
-					self?.lblTimeElapsed.isHidden = false
-					self?.songSlider.isHidden = false
 				}
 			}
 		}

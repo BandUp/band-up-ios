@@ -378,13 +378,12 @@
 		F2AB060A1E0614F20039C761 /* Setup */ = {
 			isa = PBXGroup;
 			children = (
-				F27853911E4C21A600DB9810 /* Setup.storyboard */,
+				F2AFB3AC1EE479BF009C0C91 /* Views */,
 				F217C0481DDFC47100EE16DF /* LoginViewController.swift */,
 				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
 				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
 				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
 				F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */,
-				F2AFB3A91EE38E0D009C0C91 /* PasswordResetView.xib */,
 				F2AFB3A51EE35567009C0C91 /* PasswordResetView.swift */,
 			);
 			name = Setup;
@@ -398,6 +397,15 @@
 				F2CF64C41E3C1DB90017B70E /* Controllers */,
 			);
 			name = "Main Screen";
+			sourceTree = "<group>";
+		};
+		F2AFB3AC1EE479BF009C0C91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F27853911E4C21A600DB9810 /* Setup.storyboard */,
+				F2AFB3A91EE38E0D009C0C91 /* PasswordResetView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		F2B0231D1E04E49400088622 /* Resources */ = {

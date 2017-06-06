@@ -110,7 +110,6 @@ class UserListViewController: UIViewController {
 
 	// MARK: - Notification Handlers
 	func locationChanged(notification: NSNotification) {
-		print("GOT IT")
 		locationAcquired = true
 		lblLocationError.isHidden = true
 		lblLocationErrorSub.isHidden = true

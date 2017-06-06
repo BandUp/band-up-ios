@@ -219,7 +219,7 @@ class PasswordResetView: UIView {
 			let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
 			let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
 			if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-				//self.const?.constant = 0.0
+				self.const?.constant = 0.0
 			} else {
 				self.const?.constant = -(endFrame?.size.height ?? 0.0)/2
 			}

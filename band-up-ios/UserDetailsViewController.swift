@@ -23,6 +23,7 @@ class UserDetailsViewController: UIViewController {
 	@IBOutlet weak var actIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var btnLike: UIBigButton!
 	@IBOutlet weak var likeButtonHeight: NSLayoutConstraint!
+	@IBOutlet weak var viewSoundCloudSong: UIView!
 	
 	// MARK: - Variables
 	var currentUser = User()
@@ -32,7 +33,13 @@ class UserDetailsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		populateUser()
-		
+		viewSoundCloudSong.layer.borderWidth = 1
+		viewSoundCloudSong.layer.borderColor = UIColor.bandUpYellow.cgColor
+		viewSoundCloudSong.layer.cornerRadius = 5
+
+		if currentUser.soundCloudURL == "" {
+			viewSoundCloudSong.isHidden = true
+		}
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(self.locationChanged),
@@ -53,6 +60,7 @@ class UserDetailsViewController: UIViewController {
 		}
 
 		scVC.trackUrl = currentUser.soundCloudURL
+		scVC.trackName = currentUser.soundCloudSongName
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
