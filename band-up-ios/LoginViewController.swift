@@ -225,13 +225,7 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: GIDSignInUIDelegate {
-	func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-		UIApplication.shared.statusBarStyle = .default
-	}
 
-	func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-		UIApplication.shared.statusBarStyle = .lightContent
-	}
 }
 
 extension LoginViewController: UITextFieldDelegate {

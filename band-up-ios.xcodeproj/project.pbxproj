@@ -67,7 +67,6 @@
 		F2B82FEA1E53F038000F71D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B82FEC1E53F038000F71D1 /* InfoPlist.strings */; };
 		F2CF64C01E3C14EB0017B70E /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */; };
 		F2CF64C91E3C235D0017B70E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */; };
-		F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */; };
 		F2DCB2E41E4E99FE006832F6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */; };
 		F2DCB2E61E4E9C1E006832F6 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */; };
 		F2EA7B6A1E15BCC3005B1F34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA7B691E15BCC3005B1F34 /* User.swift */; };
@@ -215,7 +214,6 @@
 		F2B82FEE1E53F03B000F71D1 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2CF64BF1E3C14EB0017B70E /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		F2CF64C81E3C235D0017B70E /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E31E4E99FE006832F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F2DCB2E51E4E9C1E006832F6 /* LaunchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
 		F2EA7B691E15BCC3005B1F34 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 			children = (
 				F2AFB3AC1EE479BF009C0C91 /* Views */,
 				F217C0481DDFC47100EE16DF /* LoginViewController.swift */,
-				F2D38EAF1DFE552C008F39A1 /* PasswordResetViewController.swift */,
 				F217C0791DDFC53E00EE16DF /* RegisterViewController.swift */,
 				F207F63F1E02DBB000F57892 /* SetupViewController.swift */,
 				F2EC131E1E6B7D6500291EF3 /* BMLoginButton.swift */,
@@ -810,7 +807,6 @@
 				2006897C1E44F3C200EAD907 /* ChatViewController.swift in Sources */,
 				F2AD91B51E71C60F00FD1B75 /* SearchTableViewController.swift in Sources */,
 				F23EFD5E1E15D90F00F1CF71 /* UserListViewController.swift in Sources */,
-				F2D38EB01DFE552C008F39A1 /* PasswordResetViewController.swift in Sources */,
 				F270511D1E4C01E900E2974C /* UserLocation.swift in Sources */,
 				F217C0471DDFC47100EE16DF /* AppDelegate.swift in Sources */,
 				F2F0E1651E5FD245005BD86F /* OpenSourceTableViewController.swift in Sources */,

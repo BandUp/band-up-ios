@@ -64,7 +64,6 @@ class RemoteImageView: UIImageView {
 						delegate.didFinishLoading()
 					}
 				}
-
 			}
 		}
 	}
