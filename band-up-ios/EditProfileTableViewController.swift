@@ -268,7 +268,7 @@ class EditProfileTableViewController: UITableViewController {
 	// MARK: Pickers
 	func displayDatePicker(at indexPath: IndexPath) {
 		let pickerTitle = NSLocalizedString("dateOfBirth", comment: "Title of ActionSheetDatePicker.")
-		
+		newUser.dateOfBirth = Date()
 		let datePicker = ActionSheetDatePicker(
 			title: pickerTitle,
 			datePickerMode: UIDatePickerMode.date,
